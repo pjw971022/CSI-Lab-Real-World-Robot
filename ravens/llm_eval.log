@@ -1,0 +1,150 @@
+[2024-01-16 13:29:59,624][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 13:29:59,848][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 13:30:31,190][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 13:30:31,368][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 13:32:11,467][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 13:32:11,617][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 13:33:45,582][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 13:33:45,731][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 13:36:47,566][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 13:36:47,724][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 13:38:01,470][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 13:38:01,620][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 13:39:20,944][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 13:39:21,096][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 13:40:24,596][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 13:40:24,760][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 13:42:02,591][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 13:42:02,749][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 13:42:26,642][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 13:42:26,801][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 13:44:19,754][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 13:44:19,913][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 13:45:08,982][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 13:45:09,143][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 13:45:31,958][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 13:45:32,129][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 13:46:10,354][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 13:46:10,511][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 13:46:10,523][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmp9y3ocxgn
+[2024-01-16 13:46:10,523][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmp9y3ocxgn/_remote_module_non_scriptable.py
+[2024-01-16 13:48:59,685][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 13:48:59,839][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 13:48:59,851][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmpyh_4g69_
+[2024-01-16 13:48:59,852][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmpyh_4g69_/_remote_module_non_scriptable.py
+[2024-01-16 14:25:43,159][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 14:25:43,334][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 14:25:43,351][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmp7qg6owo9
+[2024-01-16 14:25:43,351][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmp7qg6owo9/_remote_module_non_scriptable.py
+[2024-01-16 14:35:10,567][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 14:35:10,737][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 14:35:10,749][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmphkth03g_
+[2024-01-16 14:35:10,749][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmphkth03g_/_remote_module_non_scriptable.py
+[2024-01-16 14:37:38,963][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 14:37:39,113][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 14:37:39,125][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmpkbd99qki
+[2024-01-16 14:37:39,125][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmpkbd99qki/_remote_module_non_scriptable.py
+[2024-01-16 14:39:20,111][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 14:39:20,279][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 14:39:20,292][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmped6jh64r
+[2024-01-16 14:39:20,292][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmped6jh64r/_remote_module_non_scriptable.py
+[2024-01-16 14:41:09,269][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 14:41:09,417][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 14:41:09,429][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmpwndfk7w5
+[2024-01-16 14:41:09,437][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmpwndfk7w5/_remote_module_non_scriptable.py
+[2024-01-16 14:43:34,330][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 14:43:34,478][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 14:43:34,490][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmp8x0fiqt2
+[2024-01-16 14:43:34,490][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmp8x0fiqt2/_remote_module_non_scriptable.py
+[2024-01-16 14:55:15,230][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 14:55:15,378][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 14:55:15,390][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmpxwff83p2
+[2024-01-16 14:55:15,391][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmpxwff83p2/_remote_module_non_scriptable.py
+[2024-01-16 14:58:29,217][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 14:58:29,389][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 14:58:29,409][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmpigi50ao4
+[2024-01-16 14:58:29,409][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmpigi50ao4/_remote_module_non_scriptable.py
+[2024-01-16 14:59:45,050][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 14:59:45,209][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 14:59:45,221][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmp4y_si2ne
+[2024-01-16 14:59:45,222][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmp4y_si2ne/_remote_module_non_scriptable.py
+[2024-01-16 15:01:34,712][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 15:01:34,870][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 15:01:34,882][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmpl32nk8gq
+[2024-01-16 15:01:34,883][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmpl32nk8gq/_remote_module_non_scriptable.py
+[2024-01-16 15:03:10,986][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 15:03:11,134][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 15:03:11,146][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmpvswqo0v7
+[2024-01-16 15:03:11,146][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmpvswqo0v7/_remote_module_non_scriptable.py
+[2024-01-16 15:11:22,355][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 15:11:22,510][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 15:11:22,523][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmprgprq4h7
+[2024-01-16 15:11:22,523][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmprgprq4h7/_remote_module_non_scriptable.py
+[2024-01-16 15:12:33,878][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 15:12:34,026][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 15:12:34,038][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmprxb_bbn8
+[2024-01-16 15:12:34,039][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmprxb_bbn8/_remote_module_non_scriptable.py
+[2024-01-16 15:18:22,591][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 15:18:22,757][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 15:18:22,769][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmpcip5wv3c
+[2024-01-16 15:18:22,770][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmpcip5wv3c/_remote_module_non_scriptable.py
+[2024-01-16 15:35:21,387][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 15:35:21,568][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 15:35:21,581][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmpypg6ia7u
+[2024-01-16 15:35:21,581][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmpypg6ia7u/_remote_module_non_scriptable.py
+[2024-01-16 15:39:23,448][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 15:39:23,594][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 15:39:23,606][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmpogxwpes5
+[2024-01-16 15:39:23,606][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmpogxwpes5/_remote_module_non_scriptable.py
+[2024-01-16 15:40:41,258][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 15:40:41,412][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 15:40:41,425][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmpjtwjva1c
+[2024-01-16 15:40:41,425][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmpjtwjva1c/_remote_module_non_scriptable.py
+[2024-01-16 15:41:28,705][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 15:41:28,856][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 15:41:28,868][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmpkvjrj_5n
+[2024-01-16 15:41:28,868][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmpkvjrj_5n/_remote_module_non_scriptable.py
+[2024-01-16 15:43:01,339][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 15:43:01,503][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 15:43:01,516][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmpsh44qc3o
+[2024-01-16 15:43:01,517][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmpsh44qc3o/_remote_module_non_scriptable.py
+[2024-01-16 15:44:59,654][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 15:44:59,816][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 15:44:59,828][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmpnibwj1zd
+[2024-01-16 15:44:59,828][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmpnibwj1zd/_remote_module_non_scriptable.py
+[2024-01-16 15:46:31,547][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 15:46:31,697][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 15:46:31,709][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmpi6c80f3q
+[2024-01-16 15:46:31,709][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmpi6c80f3q/_remote_module_non_scriptable.py
+[2024-01-16 15:48:19,369][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 15:48:19,530][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 15:48:19,542][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmpfevcoyi6
+[2024-01-16 15:48:19,542][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmpfevcoyi6/_remote_module_non_scriptable.py
+[2024-01-16 15:50:29,442][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 15:50:29,603][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 15:50:29,615][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmpwgriltcu
+[2024-01-16 15:50:29,616][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmpwgriltcu/_remote_module_non_scriptable.py
+[2024-01-16 15:50:50,175][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-16 15:50:50,340][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-16 15:50:50,352][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmp82t529wb
+[2024-01-16 15:50:50,353][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmp82t529wb/_remote_module_non_scriptable.py
+[2024-01-23 14:34:49,315][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-23 14:34:49,513][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-23 14:48:27,144][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-23 14:48:27,339][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-23 14:48:27,353][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmpwbqh901g
+[2024-01-23 14:48:27,354][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmpwbqh901g/_remote_module_non_scriptable.py
+[2024-01-23 14:49:14,555][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-23 14:49:14,729][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-23 14:49:14,743][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmpb2c0_wdq
+[2024-01-23 14:49:14,743][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmpb2c0_wdq/_remote_module_non_scriptable.py
+[2024-01-23 15:54:14,498][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-23 15:54:14,691][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-23 15:56:05,781][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-23 15:56:05,979][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-23 15:56:05,994][torch.distributed.nn.jit.instantiator][INFO] - Created a temporary directory at /tmp/tmpgki5kv63
+[2024-01-23 15:56:05,994][torch.distributed.nn.jit.instantiator][INFO] - Writing /tmp/tmpgki5kv63/_remote_module_non_scriptable.py
+[2024-01-23 15:59:58,317][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-23 15:59:58,512][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
+[2024-01-23 16:00:56,377][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-MiniLM-L6-v2
+[2024-01-23 16:00:56,569][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device: cuda
