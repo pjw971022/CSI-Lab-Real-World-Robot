@@ -26,6 +26,5 @@ python3 client_example.py
 
 Generate real-world data by human labeling
 ```bash
-cd cliport/cliport/
-python3 demos_real.py
+source data_gen_real_world.sh
 ```
