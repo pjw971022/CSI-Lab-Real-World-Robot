@@ -21,14 +21,14 @@ def parse_action_param(lang_action, task):
     """ parse action to retrieve pickup object and place object"""
     lang_action = re.sub(r'[^\w\s]', '', lang_action)  # remove all strings
     if task == 'making-word':
-        target_pattern = r'([a-zA-Z]+ block \d+)'
-        recep_pattern = r'([a-zA-Z]+ bowl \d+)'
-        param1_pattern = r''
+        target_pattern = r'([a-zA-Z]+ [A-Z])'
+        recep_pattern = r"(firts paper|second paper|third paper)"
+        param1_pattern = r'(gripper force+[a-zA-Z] \d+)'
     else:
         raise NotImplementedError
     target_match = re.search(target_pattern, lang_action)
     recep_match = re.search(recep_pattern, lang_action)  # receptacle
-    param1_match = re.search(param1_pattern, lang_action)  # receptacle
+    param1_match = re.search(param1_pattern, lang_action)  # param1
 
     if target_match and recep_match:
         target = target_match.group(1)
@@ -63,23 +63,21 @@ def parse_action(lang_action, task):
     else:
         return None, None
         
-def env_step(self, action, **kwargs):
-    """ one action step using LM """
-    obs, info = kwargs.pop('obs'), kwargs.pop('info')
+# def env_step(self, action, **kwargs):
+#     """ one action step using LM """
+#     obs, info = kwargs.pop('obs'), kwargs.pop('info')
 
-   
-
-    # pick_obj, place_obj = parse_action(action)
-    act = self.agent.act(parse_action(lang_action=action,
-                                        task=self.cfg['task']),
-                            obs, info)  # pick_pose, place_pose
-    z = self.env.step(act)
-    try:
-        obs, reward, done, info = z
-    except ValueError:
-        obs, reward, done, info, action_ret_str = z
-        print(action_ret_str)
-    return obs, reward, done, info
+#     # pick_obj, place_obj = parse_action(action)
+#     act = self.agent.act(parse_action(lang_action=action,
+#                                         task=self.cfg['task']),
+#                             obs, info)  # pick_pose, place_pose
+#     z = self.env.step(act)
+#     try:
+#         obs, reward, done, info = z
+#     except ValueError:
+#         obs, reward, done, info, action_ret_str = z
+#         print(action_ret_str)
+#     return obs, reward, done, info
 
 import hydra
 from PIL import Image
@@ -200,9 +198,6 @@ def main(cfg):
                                                 task=cfg['task']),
                                     obs, info)  # pick_pose, place_pose
             
-            # image = Image.fromarray(obs['color'][0])
-            # image.save(f'{cfg.save_viz_path}/sample_{step_cnt}_view0.png')
-
             if not record:
                 image = Image.fromarray(obs['color'][0])
                 save_path = cfg['record']['save_video_path']

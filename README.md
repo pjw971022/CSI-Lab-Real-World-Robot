@@ -14,18 +14,18 @@ python3 /home/franka_env/server.py
 
 3. Connect with franka server by example in Local PC
 ```bash
-cd cliport/cliport/environments/
+cd ravens/ravens/environments/
 python3 client_example.py
 ```
 
 4. Connect with franka server by gym
 ```bash
-cd cliport/cliport/environments/
-python3 client_example.py
+cd ravens/ravens/environments/
+python3 environment_real.py
 ```
 
-## How to train real-world dataset
-1. Align the depth camera config with code in [cameras.RealSenseD435.CONFIG](cliport/cliport/environments/environment_real.py)
+## How to make real-world dataset
+1. Align the depth camera config with code in [cameras.RealSenseD435.CONFIG](ravens/ravens/environments/environment_real.py)
 2. Generate real-world data by human labeling [`data_gen_real_world.sh`](scripts/data_gen_real_world.sh)
 ```bash
 source data_gen_real_world.sh
