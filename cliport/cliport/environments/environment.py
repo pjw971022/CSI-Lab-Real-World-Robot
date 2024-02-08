@@ -54,7 +54,6 @@ class Environment(gym.Env):
         self.step_counter = 0
 
         self.assets_root = assets_root
-
         color_tuple = [
             gym.spaces.Box(0, 255, config['image_size'] + (3,), dtype=np.uint8)
             for config in self.agent_cams

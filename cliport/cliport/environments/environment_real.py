@@ -11,13 +11,13 @@ import numpy as np
 
 import zmq
 import json
-
+import cv2
 
 # PLACE_STEP = 0.0003
 # PLACE_DELTA_THRESHOLD = 0.005
 
 
-class RealEnvironment(gym.Env): # @ 
+class RealEnvironment(gym.Env):
     """OpenAI Gym-style environment class."""
 
     def __init__(self,
@@ -39,7 +39,7 @@ class RealEnvironment(gym.Env): # @
         self.pix_size = 0.003125
         self.obj_ids = {'fixed': [], 'rigid': [], 'deformable': []}
         self.homej = np.array([-1, -0.5, 0.5, -0.5, -0.5, 0]) * np.pi
-        self.agent_cams = cameras.RealSenseD435.CONFIG # @ D435로 변경해야함.
+        self.agent_cams = cameras.RealSenseD435.CONFIG
         # self.record_cfg = record_cfg
         self.save_video = False
         self.step_counter = 0
@@ -75,7 +75,9 @@ class RealEnvironment(gym.Env): # @
                     (self.position_bounds,
                      gym.spaces.Box(-1.0, 1.0, shape=(4,), dtype=np.float32)))
         })
-
+        self.objects = None
+        self.categories = None
+        
     # ---------------------------------------------------------------------------
     # Standard Gym Functions
     # ---------------------------------------------------------------------------
@@ -95,7 +97,8 @@ class RealEnvironment(gym.Env): # @
         yaw = 0 # predict or heuristic
         return (p0_xyz[0]-0.25, p0_xyz[1], z, 0, np.pi, yaw) # pose align constant
     
-    def step(self, raw_action=None, demo=False):
+    def step(self, raw_action=None, cliport=False):
+        self.step_counter += 1
         timeout = self.timeout()
         if timeout:
             obs = {'color': (), 'depth': (),'pointcloud': ()}
@@ -111,7 +114,7 @@ class RealEnvironment(gym.Env): # @
         elif isinstance(raw_action, int):
             action = raw_action
         else:
-            if demo:
+            if not cliport:
                 pick_pose = raw_action['pose0']
                 place_pose = raw_action['pose1']
                 action = (pick_pose, place_pose)
@@ -122,7 +125,7 @@ class RealEnvironment(gym.Env): # @
 
         action_json = json.dumps(action)
         self.socket.send_string(action_json)
-
+        print("client sent !!")
         obs = {'color': (), 'depth': (),'pointcloud': ()}
         for config in self.agent_cams:
             color, depth, pointcloud = self.render_camera(config)
@@ -133,19 +136,22 @@ class RealEnvironment(gym.Env): # @
         # Get task rewards.
         info = {}
         reward = self.reward()
-        done = self.done()
-
-        info.update(self.info)
-        if done:
-            done_json = json.dumps(1)
-            self.socket.send_string(done_json)
+        done = self.done(self.step_counter)
         return obs, reward, done, info
+    
+    def server_close(self):
+        print("Send Server Close!")        
+        go_to_ready_json = json.dumps(1)
+        self.socket.send_string(go_to_ready_json)
 
     def timeout(self,):
         timeout = False
         return timeout
     
-    def done(self,):
+    def done(self, step_cnt):
+        # if step_cnt > 1:
+        #     done = True
+        # else:
         done = False
         return done
     
@@ -155,10 +161,14 @@ class RealEnvironment(gym.Env): # @
 
     def render_camera(self, config, image_size=None): # render_camera
         data = self.socket.recv_string()
+        print("client received !!")
         data = json.loads(data)
 
         color = np.array(data['rgb'])
         depth = np.array(data['depth'])
+        
+        # color = cv2.flip(color, -1)
+        cv2.imwrite('/home/pjw971022/RealWorldLLM/save_viz/obs/image_obs.png', color)
 
         """Render RGB-D image with specified camera configuration."""
         if not image_size:
@@ -168,17 +178,17 @@ class RealEnvironment(gym.Env): # @
             pointcloud = np.array(data['pointcloud']).reshape(image_size[0], image_size[1],-1)
         znear, zfar = config['zrange']
         
-        if config['noise']:
-            color = np.int32(color)
-            color += np.int32(self._random.normal(0, 3, image_size))
-            color = np.uint8(np.clip(color, 0, 255))
+        # if config['noise']:
+        #     color = np.int32(color)
+        #     color += np.int32(self._random.normal(0, 3, image_size))
+        #     color = np.uint8(np.clip(color, 0, 255))
 
         # Get depth image.
         depth_image_size = (image_size[0], image_size[1])
         depth = (zfar + znear - (2. * depth - 1.) * (zfar - znear))
         depth = (2. * znear * zfar) / depth
-        if config['noise']:
-            depth += self._random.normal(0, 0.003, depth_image_size)
+        # if config['noise']:
+        #     depth += self._random.normal(0, 0.003, depth_image_size)
 
         return color, depth, pointcloud
 
@@ -194,14 +204,24 @@ class RealEnvironment(gym.Env): # @
 
         info = {}  # object id : (position, rotation, dimensions)
         info['lang_goal'] = self.get_lang_goal()
+        info['final_goal'] = self.get_final_goal()
+        
         return info
 
     def set_task(self, task):
         self.task = task
+        self.objects = task.objects
+        self.categories = task.categories
+        self.receptacles = task.receptacles
 
     def get_lang_goal(self):
         return self.task.get_lang_goal()
 
-
+    def get_final_goal(self):
+        if self.task:
+            return self.task.get_final_lang_goal()
+        else:
+            raise Exception("No task for was set")
+    
 
 

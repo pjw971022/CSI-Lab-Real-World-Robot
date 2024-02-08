@@ -5,13 +5,8 @@ import sys
 sys.path.append(os.environ['RAVENS_ROOT'])
 from ravens import tasks
 from ravens.environments.environment import Environment
-
-
-# from cliport import agents
-# import gymnasium as gym
-# import torch
-
-# from torch.distributions import Independent, Normal, Categorical
+from ravens.tasks import cameras
+from ravens.utils import utils
 
 from custom_utils.llm_utils import *
 import numpy as np
@@ -22,6 +17,27 @@ import os
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 import re
+def parse_action_param(lang_action, task):
+    """ parse action to retrieve pickup object and place object"""
+    lang_action = re.sub(r'[^\w\s]', '', lang_action)  # remove all strings
+    if task == 'making-word':
+        target_pattern = r'([a-zA-Z]+ block \d+)'
+        recep_pattern = r'([a-zA-Z]+ bowl \d+)'
+        param1_pattern = r''
+    else:
+        raise NotImplementedError
+    target_match = re.search(target_pattern, lang_action)
+    recep_match = re.search(recep_pattern, lang_action)  # receptacle
+    param1_match = re.search(param1_pattern, lang_action)  # receptacle
+
+    if target_match and recep_match:
+        target = target_match.group(1)
+        recep = recep_match.group(1)
+        param1 = param1_match.group(1)
+        return target, recep, param1
+    else:
+        return None, None, None
+    
 def parse_action(lang_action, task):
     """ parse action to retrieve pickup object and place object"""
     lang_action = re.sub(r'[^\w\s]', '', lang_action)  # remove all strings
@@ -68,12 +84,7 @@ def env_step(self, action, **kwargs):
 import hydra
 from PIL import Image
 import sys
-sys.path.append('/home/franka/fr3_workspace/RealWorldLLM/cliport')
-from cliport import agents
-from cliport.utils import utils
-from cliport import dataset
-from cliport.tasks import cameras
-from cliport.utils import utils
+
 import datetime
 CAMERA_CONFIG = cameras.RealSenseD415.CONFIG
 
@@ -115,8 +126,7 @@ def main(cfg):
         record_cfg=cfg['record']
     )
         
-    lamorel_args = cfg.lamorel_args
-    llm_agent = LLMAgent(lamorel_args, cfg.llm_type)
+    llm_agent = LLMAgent()
 
     # few_shot_prompt = prompts.names['put-block-in-bowl']().prompt()
     # import ipdb;ipdb.set_trace()
@@ -132,27 +142,23 @@ def main(cfg):
         # prompting for llms
         prompt_cls = prompts.names[cfg['task']]()
         few_shot_prompt = prompt_cls.prompt()
-    elif cfg.agent_mode==2:
-        prompt_cls = prompts.names[cfg['task']](n_shot=3)
-        few_shot_prompt = prompt_cls.prompt()
-        model_file = os.path.join(cfg['cliport_model_path'], 'last.ckpt')
-        # Initialize agent.
-        # utils.set_seed(train_run, torch=True)
-        tcfg = utils.load_hydra_config(cfg['train_config'])
-        # ds = dataset.RavensDataset(os.path.join(cfg['data_dir'], f"{cfg['task']}-{cfg['mode']}"),
-        #                             tcfg,
-        #                             n_demos=cfg['n_demos'],
-        #                             augment=False)
-        agent = agents.names[cfg['agent']]('cliport', tcfg, None, None)
+    # elif cfg.agent_mode==2:
+    #     prompt_cls = prompts.names[cfg['task']](n_shot=3)
+    #     few_shot_prompt = prompt_cls.prompt()
+    #     model_file = os.path.join(cfg['cliport_model_path'], 'last.ckpt')
+
+    #     tcfg = utils.load_hydra_config(cfg['train_config'])
+
+    #     agent = agents.names[cfg['agent']]('cliport', tcfg, None, None)
 
         # Load checkpoint
-        agent.load(model_file)
-        print(f"Loaded: {model_file}")
+        # agent.load(model_file)
+        # print(f"Loaded: {model_file}")
 
     for i in range(cfg.eval_episodes):
         step_cnt = 1
-        np.random.seed(12)
-        env.seed(12)
+        np.random.seed(1)
+        env.seed(1)
         env.set_task(domain)
         obs = env.reset()
         info = env.info

@@ -318,6 +318,7 @@ class Task():
             return self.task_completed_desc
         else:
             return self.lang_goals[0]
+        
 
     def get_reward(self):
         return float(self._rewards)

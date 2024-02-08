@@ -1,8 +1,8 @@
 """Towers of Hanoi task."""
 
 import numpy as np
-from cliport.tasks.task import Task
-from cliport.utils import utils
+from ravens.tasks.task import Task
+from ravens.utils import utils
 
 import pybullet as p
 import random

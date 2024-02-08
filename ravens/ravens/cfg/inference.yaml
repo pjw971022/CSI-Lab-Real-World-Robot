@@ -7,10 +7,10 @@ root_dir: ''
 
 hydra:
   run:
-    dir: /home/franka/fr3_workspace/RealWorldLLM/ravens
+    dir: /home/pjw971022/RealWorldLLM/ravens
 
 save_dir: ${root_dir}/${task}/data/${planner.agent_type}-plans/${mode}  # where to store plans from oracle, lm
-assets_root: /home/franka/fr3_workspace/RealWorldLLM/ravens/ravens/environments/assets/
+assets_root: /home/pjw971022/RealWorldLLM/ravens/ravens/environments/assets/
 disp: False  # visualize PyBullet
 shared_memory: False
 task: packing-seen-google-objects-seq # put-block-in-bowl, towers-of-hanoi-seq
@@ -37,7 +37,7 @@ dataset:
 # record videos (super slow)
 record:
   save_video: True
-  save_video_path: /home/franka/fr3_workspace/RealWorldLLM/save_viz/llm_inference
+  save_video_path: /home/pjw971022/RealWorldLLM/save_viz/llm_inference
   add_text: True
   fps: 20
   video_height: 640
@@ -73,13 +73,16 @@ lamorel_args:
 
 path: logs
 device: cuda
-llm_type: palm
 oracle_flag: false
 eval_episodes: 1
 
-agent_mode: 1
-train_config: /home/franka/fr3_workspace/RealWorldLLM/cliport/cliport_quickstart/multi-language-conditioned-cliport-n1000-train/.hydra/config.yaml
-cliport_model_path: /home/franka/fr3_workspace/RealWorldLLM/cliport/cliport_quickstart/multi-language-conditioned-cliport-n1000-train/checkpoints/
+use_vision_fewshot: false
+category_mode: 0
+plan_mode: gen
+llm_type: gpt4
+agent_mode: 3
+train_config: /home/pjw971022/RealWorldLLM/cliport/cliport_quickstart/multi-language-conditioned-cliport-n1000-train/.hydra/config.yaml
+cliport_model_path: /home/pjw971022/RealWorldLLM/cliport/cliport_quickstart/multi-language-conditioned-cliport-n1000-train/checkpoints/
 agent: cliport
 data_dir: /home/mnt/data/ravens/
 n_demos: 10

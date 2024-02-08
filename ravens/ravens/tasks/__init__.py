@@ -37,7 +37,10 @@ from ravens.tasks.task import Task
 from ravens.tasks.towers_of_hanoi import TowersOfHanoi
 from ravens.tasks.towers_of_hanoi_seq import TowersOfHanoiSeq
 from ravens.tasks.towers_of_hanoi_seq_cliport import TowersOfHanoiSeqCliport
-
+from ravens.tasks.cleanup_rw import RealWorldCleanup
+from ravens.tasks.packing_shapes_rw import RealWorldPackingShapes
+from ravens.tasks.packing_objects_rw import RealWorldPackingObjects
+from ravens.tasks.making_word_rw import RealWorldMakingWord
 names = {
     # demo conditioned
     'align-box-corner': AlignBoxCorner,
@@ -77,5 +80,9 @@ names = {
     'separating-piles-unseen-colors': SeparatingPilesUnseenColors,
     'separating-piles-full': SeparatingPilesFull,
     'towers-of-hanoi-seq': TowersOfHanoiSeq,
-    'towers-of-hanoi-seq-seen-colors': TowersOfHanoiSeqCliport
+    'towers-of-hanoi-seq-seen-colors': TowersOfHanoiSeqCliport,
+    'real-world-cleanup': RealWorldCleanup,
+    'real-world-packing-shapes': RealWorldPackingShapes,
+    'real-world-packing-objects': RealWorldPackingObjects,
+    'real-world-making-word':RealWorldMakingWord,
 }

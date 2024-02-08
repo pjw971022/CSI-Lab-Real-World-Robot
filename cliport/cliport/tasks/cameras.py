@@ -46,7 +46,10 @@ class RealSenseD415():
     right_position = (0, -0.5, 0.75)
     right_rotation = (np.pi / 4.5, np.pi, 3 * np.pi / 4)
     right_rotation = p.getQuaternionFromEuler(right_rotation)
-
+    
+    top_position = (1, 0, 0.75)
+    top_rotation = (np.pi / 4, np.pi, -np.pi / 2)
+    top_rotation = p.getQuaternionFromEuler(top_rotation)
     # Default camera configs.
     CONFIG = [{
         'image_size': image_size,
@@ -67,6 +70,14 @@ class RealSenseD415():
         'intrinsics': intrinsics,
         'position': right_position,
         'rotation': right_rotation,
+        'zrange': (0.01, 10.),
+        'noise': False
+    },
+    {
+        'image_size': image_size,
+        'intrinsics': intrinsics,
+        'position': top_position,
+        'rotation': top_rotation,
         'zrange': (0.01, 10.),
         'noise': False
     }]

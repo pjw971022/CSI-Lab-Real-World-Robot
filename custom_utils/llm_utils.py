@@ -3,7 +3,7 @@ if overwrite_cache:
   LLM_CACHE = {}
 
 import openai
-openai.api_key = "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"
+openai.api_key = "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"
 from openai import OpenAI
 
 # from lamorel import Caller, lamorel_init
@@ -89,34 +89,123 @@ def process_action2(gen_embedding, act_embeddings):
     return None, dist_list
 
 # from lamorel.server.llms.module_functions import BaseModuleFunction, LogScoringModuleFn
-import torch
-import google.generativeai as palm 
-palm.configure(api_key='AIzaSyDRv4MkxqaTD9Nn4xDieqFkHbf8Ny4eU_I')
-class LLMAgent:
-    def __init__(self, lamorel_args, llm_type=None) -> None:
-        use_cpu = False
-        self.sentence_model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
-        # if llm_type =='open':
-        #     self.lm_model = HF_LLM(lamorel_args.llm_args, [0], use_cpu)
-        #     custom_module_functions = {}
-        #     custom_module_functions["__score"] = LogScoringModuleFn(self.lm_model.pad_token, lamorel_args.llm_args.model_type,
-        #                                                             lamorel_args.llm_args.pre_encode_inputs)
-        #     for k, _fn in custom_module_functions.items():
-        #         assert isinstance(_fn, BaseModuleFunction)
-        #         _fn.device = self.lm_model.device
-        #         _fn.llm_config = self.lm_model.get_model_config()
-                
-        #         _fn.initialize()
-        #     self.lm_model.register_module_functions(custom_module_functions)
-        #     self.module_function_keys = ["__score"]
-        #     self.batch_size = lamorel_args.llm_args.batch_size
-        #     self.num_final_beams = 3
-        #     self.decoding_type = lamorel_args.decoding_type
+import re
+import google.generativeai as genai
+genai.configure(api_key='AIzaSyDRv4MkxqaTD9Nn4xDieqFkHbf8Ny4eU_I')
 
-    def palm_new_scoring(self, context, options):
-        models = [m for m in palm.list_models() if 'generateText' in m.supported_generation_methods]
+class LLMAgent:
+    def __init__(self, use_vision_fewshot = False) -> None:
+        self.sentence_model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
+        self.vision_config = {"max_output_tokens": 800, "temperature": 0.0, "top_p": 1, "top_k": 32}
+        self.text_config = {"max_output_tokens": 100, "temperature": 0.0, "top_p": 1}
+        self.safety_settings = [
+            {
+                "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+                "threshold": "BLOCK_NONE",
+            },
+        ]
+        self.use_vision_fewshot = use_vision_fewshot
+
+    def gemini_generate_categories(self, context, img):
+        model = genai.GenerativeModel('gemini-pro-vision')
+        response = model.generate_content(
+            contents=[context, img],
+            generation_config=self.vision_config, safety_settings = self.safety_settings
+        )
+        
+        parts = response.parts
+        generated_sequence = ''
+        for part in parts:
+            generated_sequence += part.text
+        print("@@@ gen category: ", generated_sequence)
+        inside_brackets = re.search(r'<([^>]*)>', generated_sequence)
+        
+        if inside_brackets is None:
+            categories = generated_sequence.split(', ')
+            categories = [c.replace(' ', '') for c in categories]
+        else:
+            categories = inside_brackets.group(1).split(', ')
+
+        return categories
+    
+    def gemini_gen_act(self, fewshot_prompt, planning_prompt, fewshot_img=None, obs_img=None):
+        if self.use_vision_fewshot:
+            model = genai.GenerativeModel('gemini-pro-vision')
+            response = model.generate_content(
+                contents=[fewshot_img, fewshot_prompt, obs_img, planning_prompt],
+                generation_config = self.vision_config,  safety_settings = self.safety_settings)
+            # generated_sequence = response.text
+            parts = response.parts
+            generated_sequence = ''
+            for part in parts:
+                generated_sequence += part.text
+        else:
+            model = genai.GenerativeModel('gemini-pro')
+            response = model.generate_content(
+                contents=fewshot_prompt + '\n' + planning_prompt,
+                generation_config = self.text_config,
+                safety_settings = self.safety_settings
+                )
+            parts = response.parts
+            generated_sequence = ''
+            for part in parts:
+                generated_sequence += part.text
+        generated_sequence = generated_sequence.split('.')[0]
+        print(f"@@@@ gen act: {generated_sequence}")
+        return generated_sequence 
+    
+    def gemini_new_scoring(self, fewshot_prompt, planning_prompt, options, fewshot_img, obs_img):
+        model = genai.GenerativeModel('gemini-pro-vision')
+        
+        response = model.generate_content(
+            contents=[fewshot_img, fewshot_prompt, obs_img, planning_prompt],
+            generation_config = self.vision_config)
+            
+        generated_sequence = response.text
+
+        generated_sequence = generated_sequence.split('.')[0]
+        print(f"@@@@ gen act: {generated_sequence}")
+        gen_embedding = self.sentence_model.encode(generated_sequence, convert_to_tensor=True,show_progress_bar=False)
+        act_embeddings = [ self.sentence_model.encode(action, convert_to_tensor=True,show_progress_bar=False) for action in options]
+        _, scores = process_action2(gen_embedding, act_embeddings)
+        
+        llm_scores = {action: score for action, score in zip(options, scores)}
+        return llm_scores, generated_sequence 
+    
+    def palm_generate_categories(self, context):
+        models = [m for m in genai.list_models() if 'generateText' in m.supported_generation_methods]
         model = models[0].name
-        completion = palm.generate_text(
+        completion = genai.generate_text(
+            model=model,
+            prompt=context,
+            temperature=0,
+            # The maximum length of the response
+            max_output_tokens=800,
+        )
+        generated_sequence = completion.result
+        categories = generated_sequence.split(',')
+
+        return categories
+    
+    def palm_gen_act(self, fewshot_prompt, planning_prompt):
+        models = [m for m in genai.list_models() if 'generateText' in m.supported_generation_methods]
+        model = models[0].name
+        completion = genai.generate_text(
+            model=model,
+            prompt=fewshot_prompt + '\n' + planning_prompt,
+            temperature=0,
+            # The maximum length of the response
+            max_output_tokens=800,
+        )
+        generated_sequence = completion.result
+        plan = generated_sequence.split('.')[0]
+        print(f"@@@@ gen act: {plan}")
+        return plan
+    
+    def palm_new_scoring(self, context, options):
+        models = [m for m in genai.list_models() if 'generateText' in m.supported_generation_methods]
+        model = models[0].name
+        completion = genai.generate_text(
             model=model,
             prompt=context,
             temperature=0,
@@ -131,7 +220,44 @@ class LLMAgent:
         
         llm_scores = {action: score for action, score in zip(options, scores)}
         return llm_scores, generated_sequence
-    
+
+    def gpt4_gen_all_plan(self, planning_prompt):
+        gpt_assistant_prompt = 'You are a planner of a robot arm for manipulation task.'
+        message=[{"role": "assistant", "content": gpt_assistant_prompt}, {"role": "user", "content": planning_prompt }]
+        temperature=0.0
+        max_tokens=256
+        frequency_penalty=0.0
+        client = OpenAI()
+        response = client.chat.completions.create(
+            model="gpt-4",
+            messages = message,
+            temperature=temperature,
+            max_tokens=max_tokens,
+            frequency_penalty=frequency_penalty
+        )
+        generated_sequence = response.choices[0].message.content
+        plan_list = re.findall(r"\[Plan \d+\] (.+)", generated_sequence)
+        # plan_list = extracted_sentences.split('\n')
+        return plan_list
+
+    def gpt4_gen_act(self, fewshot_prompt, planning_prompt):
+        gpt_assistant_prompt = 'You are a planner of a robot arm for manipulation task'
+        message=[{"role": "assistant", "content": gpt_assistant_prompt}, {"role": "user", "content": fewshot_prompt + '\n' + planning_prompt }]
+        temperature=0.2
+        max_tokens=256
+        frequency_penalty=0.0
+        client = OpenAI()
+        response = client.chat.completions.create(
+            model="gpt-4",
+            messages = message,
+            temperature=temperature,
+            max_tokens=max_tokens,
+            frequency_penalty=frequency_penalty
+        )
+        generated_sequence = response.choices[0].message.content
+        plan = generated_sequence.split('.')[0]
+        return plan
+
     def openllm_new_scoring(self, context, options):
         # contexts = [context + option for option in options]
         if self.decoding_type == 'greedy_token':
@@ -142,7 +268,6 @@ class LLMAgent:
 
         llm_scores = {action: score for action, score in zip(options, scores)}
         return llm_scores, generated_sequence
-    
 
     
     def filter_beams(self, generated_sequences, generated_beam_scores, action_beam_scores,

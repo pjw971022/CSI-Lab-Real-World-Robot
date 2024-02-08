@@ -3,9 +3,16 @@ from prompts.ravens.put_block_in_bowl import PromptRavensPutBlockInBowl
 from prompts.ravens.towers_of_hanoi_seq import PromptRavensTowersOfHanoiSeq, PromptRavensTowersOfHanoiSeqSeen, PromptRavensTowersOfHanoiSeqSolve
 from prompts.babyai.babyai_pickup import PromptBabyAIPickup,PromptBabyAIPickupConstraint
 from prompts.virtualhome.virtualhome import PromptVirtualHome
-from prompts.ravens.real_world_1 import PromptRealWorld1
+from prompts.realworld.cleanup import PromptRealWorldCleanup
+from prompts.realworld.packing_shapes import PromptRealWorldPackingShapes
+from prompts.realworld.packing_objects import PromptRealWorldPackingObjects
+from prompts.realworld.making_word import PromptRealWorldMakingWord
+
 names = {
-    'real-world-1':PromptRealWorld1,
+    'real-world-cleanup':PromptRealWorldCleanup,
+    'real-world-packing-objects': PromptRealWorldPackingObjects,
+    'real-world-packing-shapes': PromptRealWorldPackingShapes,
+    'real-world-making-word': PromptRealWorldMakingWord,    
     'put-block-in-bowl': PromptRavensPutBlockInBowl,
     'towers-of-hanoi-seq': PromptRavensTowersOfHanoiSeq,
     'towers-of-hanoi-seq-seen-colors': PromptRavensTowersOfHanoiSeqSeen,

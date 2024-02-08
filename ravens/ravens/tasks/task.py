@@ -95,6 +95,10 @@ class Task:
             pick_pix = utils.sample_distribution(pick_prob)
             # For "deterministic" demonstrations on insertion-easy, use this:
             # pick_pix = (160,80)
+            # @ TODO
+            # Bouding Box 위치 따기
+            # Bouding Box에서의 position 위치 따기 (with parameter)
+
             pick_pos = utils.pix_to_xyz(pick_pix, hmap,
                                         self.bounds, self.pix_size)
             pick_pose = (np.asarray(pick_pos), np.asarray((0, 0, 0, 1)))

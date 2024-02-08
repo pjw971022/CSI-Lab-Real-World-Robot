@@ -325,6 +325,7 @@ class Environment(gym.Env):
         # self.task.relations()  # update relations (what block is placed in what bowl)
         self.task.observation()  # update language observation
         info['lang_goal'] = self.get_lang_goal()
+        info['final_goal'] = self.get_final_lang_goal()
         info['lang_observation'] = self.get_lang_observation()
         return info
 

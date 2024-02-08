@@ -1,4 +1,4 @@
-python cliport/train.py train.task=real-world-1 \
+python cliport/train.py train.task=real-world-cleanup \
                         train.agent=cliport \
                         train.attn_stream_fusion_type=add \
                         train.trans_stream_fusion_type=conv \

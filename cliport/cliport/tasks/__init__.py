@@ -41,7 +41,11 @@ from cliport.tasks.towers_of_hanoi_seq import TowersOfHanoiSeqSeenColors
 from cliport.tasks.towers_of_hanoi_seq import TowersOfHanoiSeqUnseenColors
 from cliport.tasks.towers_of_hanoi_seq import TowersOfHanoiSeqFull
 from cliport.tasks.custom import CustomTask
-from cliport.tasks.real_world_1 import RealWorld1
+from cliport.tasks.cleanup_rw import RealWorldCleanup
+from cliport.tasks.packing_shapes_rw import RealWorldPackingShapes
+from cliport.tasks.packing_objects_rw import RealWorldPackingObjects
+from cliport.tasks.making_word_rw import RealWorldMakingWord
+
 names = {
     # demo conditioned
     'align-box-corner': AlignBoxCorner,
@@ -86,5 +90,8 @@ names = {
     'towers-of-hanoi-seq-unseen-colors': TowersOfHanoiSeqUnseenColors,
     'towers-of-hanoi-seq-full': TowersOfHanoiSeqFull,
     'custom':CustomTask,
-    'real-world-1': RealWorld1
+    'real-world-cleanup': RealWorldCleanup,
+    'real-world-packing-shapes': RealWorldPackingShapes,
+    'real-world-packing-objects': RealWorldPackingObjects,
+    'real-world-making-word':RealWorldMakingWord,
 }

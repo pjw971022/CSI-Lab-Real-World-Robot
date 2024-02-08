@@ -25,6 +25,7 @@ def main():
     depth_array = np.array(data['depth'])
     pointcloud_array = np.array(data['pointcloud'])
     
-    cv2.imwrite('/home/pjw971022/RealWorldLLM/cliport/cliport/environments/received_image.png', rgb_array)
+    cv2.imwrite('/home/pjw971022/RealWorldLLM/save_viz/obs/image_obs.png', rgb_array)
+    print("save image!")
 if __name__ == "__main__":
     main()

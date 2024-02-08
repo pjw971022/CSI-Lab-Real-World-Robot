@@ -1,0 +1,71 @@
+root_dir: ''
+tag: default
+debug: false
+save_dir: ${root_dir}/${task}/data/${planner.agent_type}-plans/${mode}
+disp: false
+shared_memory: false
+task: real-world-making-word
+mode: test
+'n': 500
+save_data: false
+parallel: true
+max_steps: 10
+planner:
+  agent_type: lm
+  model_name: vicuna
+  decoding_type: greedy_token
+  decoding_score: say
+dataset:
+  type: single
+  images: true
+  cache: true
+  augment:
+    theta_sigma: 60
+record:
+  save_video: false
+  save_video_path: /home/pjw971022/RealWorldLLM/save_viz/llm_inference
+  add_text: true
+  fps: 20
+  video_height: 640
+  video_width: 720
+lamorel_args:
+  log_level: info
+  allow_subgraph_use_whith_gradient: false
+  distributed_setup_args:
+    n_rl_processes: 1
+    n_llm_processes: 1
+  accelerate_args:
+    config_file: /home/pjw971022/ConstGym/alfred/examples/configs/accelerate/default_config.yaml
+    machine_rank: 0
+    num_machines: 1
+  decoding_type: greedy_token
+  llm_args:
+    model_type: causal
+    model_path: lmsys/vicuna-7b-v1.5
+    load_in_4bit: true
+    is_normalize: false
+    batch_size: 20
+    pretrained: true
+    minibatch_size: 192
+    pre_encode_inputs: true
+    parallelism:
+      use_gpu: true
+      model_parallelism_size: 2
+      synchronize_gpus_after_scoring: false
+      empty_cuda_cache_after_scoring: false
+path: logs
+device: cuda
+oracle_flag: false
+eval_episodes: 1
+use_vision_fewshot: false
+category_mode: 0
+plan_mode: closed_loop
+llm_type: gpt4
+agent_mode: 3
+train_config: /home/pjw971022/RealWorldLLM/cliport/cliport_quickstart/multi-language-conditioned-cliport-n1000-train/.hydra/config.yaml
+cliport_model_path: /home/pjw971022/RealWorldLLM/cliport/cliport_quickstart/multi-language-conditioned-cliport-n1000-train/checkpoints/
+agent: cliport
+data_dir: /home/mnt/data/ravens/
+n_demos: 10
+task_level: 1
+command_format: language

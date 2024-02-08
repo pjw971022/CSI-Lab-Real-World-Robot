@@ -4,6 +4,31 @@ import numpy as np
 import pybullet as p
 
 
+class RealSenseD435(): # @ Our config
+    """Default configuration with 3 RealSense RGB-D cameras."""
+
+    # Mimic RealSense D415 RGB-D camera parameters.
+    image_size = (480, 640)
+    intrinsics = (380.162, 0, 321.487,
+                  0, 380.162, 237.01,
+                  0, 0, 1)
+    # Intrinsics: [ 640x480  p[321.487 237.01]  f[380.162 380.162]  Brown Conrady [0 0 0 0 0] ]
+    
+    # Set default camera poses.
+    position = (0.9, 0.11, 0.9)
+    rotation = p.getQuaternionFromEuler((-2.65, 0.09, 1.6))
+
+    # Default camera configs.
+    CONFIG = [{
+        'image_size': image_size,
+        'intrinsics': intrinsics,
+        'position': position,
+        'rotation': rotation,
+        'zrange': (0.009, 10.),
+        'noise': False
+    }]
+
+
 class RealSenseD415():
     """Default configuration with 3 RealSense RGB-D cameras."""
 
@@ -21,7 +46,10 @@ class RealSenseD415():
     right_position = (0, -0.5, 0.75)
     right_rotation = (np.pi / 4.5, np.pi, 3 * np.pi / 4)
     right_rotation = p.getQuaternionFromEuler(right_rotation)
-
+    
+    # top_position = (0.5, 0., 0.6)
+    # top_rotation = (0, np.pi, np.pi / 2)
+    # top_rotation = p.getQuaternionFromEuler(top_rotation)
     # Default camera configs.
     CONFIG = [{
         'image_size': image_size,
@@ -44,7 +72,16 @@ class RealSenseD415():
         'rotation': right_rotation,
         'zrange': (0.01, 10.),
         'noise': False
-    }]
+    },
+    # {
+    #     'image_size': image_size,
+    #     'intrinsics': intrinsics,
+    #     'position': top_position,
+    #     'rotation': top_rotation,
+    #     'zrange': (0.01, 10.),
+    #     'noise': False
+    # }
+    ]
 
 
 class Oracle():
