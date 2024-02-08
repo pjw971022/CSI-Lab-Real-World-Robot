@@ -3,13 +3,10 @@
 import os
 import hydra
 import numpy as np
-import random
-import sys
-sys.path.append('/home/pjw971022/RealWorldLLM/cliport/')
 
-from cliport import tasks
-from cliport.dataset import RavensDataset
-from cliport.environments.environment_real import RealEnvironment
+from ravens import tasks
+from ravens.dataset import RavensDataset
+from ravens.environments.environment_real import RealEnvironment
 from PIL import Image
 import matplotlib.pyplot as plt
 
@@ -40,7 +37,6 @@ def find_coordinate_interface(image):
         new_x, new_y = transform_coordinates(event.x, event.y)
         print("Clicked at: x =", new_x, ", y =", new_y)
 
-    # Tkinter 창을 생성합니다.
     root = tk.Tk()
     root.title("Click Coordinates")
 

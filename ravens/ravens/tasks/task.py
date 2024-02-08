@@ -18,7 +18,6 @@ import pybullet as p
 
 class Task:
     """Base Task class."""
-
     def __init__(self):
         self.ind2obj = None
         self.ee = Suction

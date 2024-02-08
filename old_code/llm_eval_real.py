@@ -93,7 +93,19 @@ def main(cfg):
                                 f'[State of Step {step_cnt}] {joined_categories} ' \
                                 f' [Plan {step_cnt}] '
 
-            if cfg.plan_mode == 'closed_loop':
+            ########################  LLM Scoring #####################
+            if cfg.plan_mode == 'saycan':
+                if cfg.llm_type == 'open':
+                    llm_score, gen_act = llm_agent.openllm_new_scoring(planning_prompt, admissible_actions_list)
+                elif cfg.llm_type == 'gemini':
+                    llm_score, gen_act = llm_agent.gemini_new_scoring(fewshot_prompt, planning_prompt, admissible_actions_list, fewshot_img, obs_img)
+                elif cfg.llm_type == 'palm':
+                    llm_score, gen_act = llm_agent.palm_new_scoring(planning_prompt, admissible_actions_list)
+                elif cfg.llm_type == 'gpt':
+                    llm_score = llm_agent.gpt3_scoring(planning_prompt, admissible_actions_list) 
+
+                lang_action = max(llm_score, key=llm_score.get)
+            elif cfg.plan_mode == 'closed_loop':
                 if cfg.llm_type == 'gemini':
                     gen_act = llm_agent.gemini_gen_act(fewshot_prompt, planning_prompt, fewshot_img, obs_img)
                 elif cfg.llm_type == 'palm':
@@ -107,6 +119,9 @@ def main(cfg):
                         plan_list = llm_agent.gpt4_gen_all_plan(fewshot_prompt)
                 
                 lang_action = plan_list[step_cnt-1]
+            
+            else:
+                lang_action = final_goal
 
             print(f"Plan: {lang_action}")
             

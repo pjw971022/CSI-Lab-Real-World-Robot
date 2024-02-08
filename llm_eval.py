@@ -21,7 +21,7 @@ def parse_action_param(lang_action, task):
     """ parse action to retrieve pickup object and place object"""
     lang_action = re.sub(r'[^\w\s]', '', lang_action)  # remove all strings
     if task == 'making-word':
-        target_pattern = r'([a-zA-Z]+ [A-Z])'
+        target_pattern = r'\b\w+\s[A-Z]\b'
         recep_pattern = r"(firts paper|second paper|third paper)"
         param1_pattern = r'(gripper force+[a-zA-Z] \d+)'
     else:
@@ -126,8 +126,6 @@ def main(cfg):
         
     llm_agent = LLMAgent()
 
-    # few_shot_prompt = prompts.names['put-block-in-bowl']().prompt()
-    # import ipdb;ipdb.set_trace()
     domain = tasks.names[cfg['task']](task_level=cfg['task_level'])
     domain.mode = cfg['mode']
     record = cfg['record']['save_video']
@@ -140,18 +138,7 @@ def main(cfg):
         # prompting for llms
         prompt_cls = prompts.names[cfg['task']]()
         few_shot_prompt = prompt_cls.prompt()
-    # elif cfg.agent_mode==2:
-    #     prompt_cls = prompts.names[cfg['task']](n_shot=3)
-    #     few_shot_prompt = prompt_cls.prompt()
-    #     model_file = os.path.join(cfg['cliport_model_path'], 'last.ckpt')
 
-    #     tcfg = utils.load_hydra_config(cfg['train_config'])
-
-    #     agent = agents.names[cfg['agent']]('cliport', tcfg, None, None)
-
-        # Load checkpoint
-        # agent.load(model_file)
-        # print(f"Loaded: {model_file}")
 
     for i in range(cfg.eval_episodes):
         step_cnt = 1
@@ -212,7 +199,7 @@ def main(cfg):
             if step_cnt > cfg.max_steps:
                 print("timeout")
                 break
-            if 'done putting disks in rods'==lang_action:
+            if 'done' in lang_action:
                 break
             print(f"reward: {reward} done: {done}")
             print("\n")

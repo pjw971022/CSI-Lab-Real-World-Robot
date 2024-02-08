@@ -20,6 +20,7 @@ MIN_MAX_DISTANCE = 0.61
 # (x^2 + y^2) < 0.61
 # gray basket (0.6, 0,5)
 # green basket (0.3, 0.5)
+import re
 class ObjectDetectorAgent:
     def __init__(self, ):
         self.use_clip = False
@@ -85,11 +86,10 @@ class ObjectDetectorAgent:
     
     def forward(self, data: dict):
         # Object detection
-        pick_obj = self.extract_obj(data['lang_action'])
+        pick_obj, place_obj = self.parse_action(data['lang_action'])
+
         text_queries = data['pick_objects']
-        print(f"$$$ text_queries: {text_queries}")
-        print(f"$$$ pick_obj: {pick_obj}")
-        
+
         outputs = self.detector.forward(
             data['color'][0], text_queries,)
         detected_image_path = str(self.image_dir / f'detected_pick_obj.png')
@@ -113,57 +113,40 @@ class ObjectDetectorAgent:
         
         # Calculate pick pose
         if selected_box is None:
-            print("@@@ ")
+            print("@@@ No Action")
             return -1
         else:
             pick_pose = self.box_to_pose(selected_box, data['pointcloud']) 
             print(f"Score: {best_score}")
             # Calculate place pose
             if self.orcacle_receptacle:
-                place_obj = self.extract_receptacle(data['lang_action'])
                 place_pose = self.oracle_place_pose(place_obj)
             else:
-                place_obj = self.extract_receptacle(data['lang_action'])
                 output = self.detector.forward(
                 data['color'][0], [place_obj],)
                 detected_place_image_path = str(self.image_dir / f'detected_place_obj.jpg')
                 self.detector.plot_predictions(data['color'][0], [place_obj], output, detected_place_image_path)
 
             return {'pose0': pick_pose, 'pose1': place_pose}
-    
-    def extract_obj(self, sentence):
-        parts = sentence.replace('.','').split(' ')
-        try:
-            if 'move' in parts:
-                index0 = parts.index('move')
-            elif 'Move' in parts:
-                index0 = parts.index('Move')
-            
-            if 'in' in parts:
-                index1 = parts.index('in')
-            elif 'to' in parts:
-                index1 = parts.index('to')
-            else:
-                raise ValueError
-            
-            return ' '.join(parts[index0 + 2:index1])
-        except ValueError:
-            return ""
         
-    def extract_receptacle(self, sentence):
-        parts = sentence.replace('.','').split(' ')
-        try:
-            if 'in' in parts:
-                index = parts.index('in')
-            elif 'to' in parts:
-                index = parts.index('to')
-            else:
-                raise ValueError
-            
-            return ' '.join(parts[index + 2:])
-        except ValueError:
-            return ""
-        
+    def parse_action(self, lang_action):
+        """ parse action to retrieve pickup object and place object"""
+        lang_action = re.sub(r'[^\w\s]', '', lang_action)  # remove all strings
+        if self.task == 'real-world-making-word':
+            target_pattern = r'\b\w+\s[A-Z]\b'
+            recep_pattern = r"(firts paper|second paper|third paper)"
+        else:
+            raise NotImplementedError
+        target_match = re.search(target_pattern, lang_action)
+        recep_match = re.search(recep_pattern, lang_action)  # receptacle
+
+        if target_match and recep_match:
+            target = target_match.group(1)
+            recep = recep_match.group(1)
+            return target, recep
+        else:
+            return None, None
+
     def extract_points_within_bbox(self, bbox, point_cloud):
         cx, cy, w, h = bbox
         cx *= 640
