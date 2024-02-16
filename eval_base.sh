@@ -7,7 +7,7 @@ export OPENAI_API_KEY=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
 export TRANSFORMERS_CACHE=/home/mnt/models/.cache/huggingface/hub
 export RAVENS_ROOT=/home/pjw971022/RealWorldLLM/ravens/
 
-python3 llm_eval_real.py task=real-world-packing-shapes \
+python3 llm_eval_real_base.py task=debug \
                                 agent_mode=3 \
                                 mode=test \
                                 category_mode=1 \

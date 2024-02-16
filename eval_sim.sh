@@ -10,5 +10,5 @@ export RAVENS_ROOT=/home/pjw971022/RealWorldLLM/ravens/
 python3 llm_eval.py task=towers-of-hanoi-seq-seen-colors \
                                           agent_mode=1 \
                                           mode=test \
-                                          record.save_video=False \
+                                          record.save_video=True \
                                           task_level=1

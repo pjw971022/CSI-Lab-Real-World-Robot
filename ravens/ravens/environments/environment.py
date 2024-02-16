@@ -431,8 +431,8 @@ class Environment(gym.Env):
             font_thickness = 1
 
             # Write language goal.
-            lang_textsize = cv2.getTextSize(lang_goal, font, font_scale, font_thickness)[0]
-            lang_textX = (image_size[1] - lang_textsize[0]) // 2
+            lang_textsize = cv2.getTextSize(final_goal, font, font_scale, font_thickness)[0]
+            lang_textX = (image_size[1] - lang_textsize[0]) // 2 - 20
 
             color = cv2.putText(color, 'Plan: ' + lang_goal, org=(lang_textX, 600),
                                 fontScale=font_scale,

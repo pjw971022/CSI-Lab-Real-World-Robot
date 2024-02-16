@@ -22,57 +22,69 @@ MIN_MAX_DISTANCE = 0.61
 # green basket (0.3, 0.5)
 import re
 class ObjectDetectorAgent:
-    def __init__(self, ):
+    def __init__(self, task, pick_obj=None, grip_top=10):
         self.use_clip = False
         self.image_dir = Path(f'/home/pjw971022/RealWorldLLM/save_viz/obs')
-
+        self.task = task
+        self.grip_top = grip_top
+        self.pick_obj = pick_obj
         # Set up ViLD object detector
         self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
         self.score_threshold  = 0.1
         self.detector = OWLViTDetector(self.device, self.score_threshold)
         self.orcacle_receptacle = True
-        self.bottom_z = 0.87
+        self.bottom_z = 0.83 # @
         self.recep_pose_dict = {    
                                 'first paper': (0.65, -0.2, 0.15, 0, np.pi, 0),
                                 'second paper': (0.65, -0.05, 0.15, 0, np.pi, 0),
                                 'third paper': (0.65, 0.1, 0.15, 0, np.pi, 0),
                                 'fourth paper': (0.65, 0.25, 0.15, 0, np.pi, 0),
 
-                                'gray box': (0.6, 0.5, 0.2, 0, np.pi, 0),
-                                'green box': (0.3, 0.5, 0.2, 0, np.pi, 0),
-                                'trash can': (0.6, 0.5, 0.2, 0, np.pi, 0),
+                                'gray box': (0.6, 0.5, 0.3, 0, np.pi, 0),
+                                'green box': (0.3, 0.5, 0.3, 0, np.pi, 0),
+                                'trash can': (0.6, 0.5, 0.3, 0, np.pi, 0),
                                 'box': (0.3, 0.5, 0.2, 0, np.pi, 0),
                                 }
 
-    def pointcloud_to_xyz(self, box, pointcloud):
-        filtered_pc = self.extract_points_within_bbox(box, pointcloud[0])
+    def pointcloud_to_xyz(self, bbox, pointcloud, params):
+
+        if params is None:
+            filtered_pc = self.extract_points(bbox, pointcloud[0])
+        elif params[0] == 'edge':
+            print('param1: edge')
+            filtered_pc = self.extract_edge_points(bbox, pointcloud[0])
+        elif params[0] == 'center':
+            print('param1: center')
+            filtered_pc = self.extract_center_points(bbox, pointcloud[0])
+        
         # mask =  filtered_pc[:,-1] > 0 
         # min_idx = filtered_pc[:,-1][mask].argmin() 
         # selected_point = filtered_pc[min_idx]
 
         filtered_pc = filtered_pc[filtered_pc[:, -1] > 0]
         sorted_array_by_z = filtered_pc[filtered_pc[:, -1].argsort()]  # Z 값 기준으로 정렬
-        bottom_10_by_z = sorted_array_by_z[:10]  # Z 값이 가장 작은 하위 10개 선택
-        selected_point = np.mean(bottom_10_by_z, axis=0)
-
+        bottom_n_by_z = sorted_array_by_z[:self.grip_top]  # Z 값이 가장 작은 하위 n개 선택
+        selected_point = np.mean(bottom_n_by_z, axis=0)
+  
         pose_x , pose_y = self.transform_coordinates(selected_point[0], selected_point[1])
-        
         pose_z = self.bottom_z - selected_point[2]
 
         return pose_x, pose_y, pose_z
 
-    def box_to_pose(self, box, pointcloud):
-        pose_x, pose_y, pose_z = self.pointcloud_to_xyz(box, pointcloud)
-        # pose_x, pose_y = self.transform_coordinates(box[0], box[1])  
-        pose_z = 0.06 # 임시 세팅
+    def bbox_to_pose(self, bbox, pointcloud, params):
+        pose_x, pose_y, pose_z = self.pointcloud_to_xyz(bbox, pointcloud, params)
+        # pose_z = 0.06 # 임시 세팅
 
         print(f"pose_x: {pose_x}  pose_y: {pose_y} pose_z: {pose_z}")
         assert (pose_x > MIN_MAX_X[0]) and (pose_x < MIN_MAX_X[1])
         assert (pose_y > MIN_MAX_Y[0]) and (pose_y < MIN_MAX_Y[1])
         # assert (pose_z > MIN_MAX_Z[0]) and (pose_z < MIN_MAX_Z[1])
         assert (pose_x**2 + pose_y**2) < MIN_MAX_DISTANCE
+        if params[1] == 'vertical':
+            return (pose_x, pose_y, pose_z, np.pi/2, np.pi, 0)
+        else:
+            return (pose_x, pose_y, pose_z, 0, np.pi, 0)
         
-        return (pose_x, pose_y, pose_z, 0, np.pi, 0)
 
     def transform_coordinates(self, x, y): # @
         # transform pixel pose with robot coordinate
@@ -86,7 +98,7 @@ class ObjectDetectorAgent:
     
     def forward(self, data: dict):
         # Object detection
-        pick_obj, place_obj = self.parse_action(data['lang_action'])
+        pick_obj, place_obj, params = self.parse_action(data['lang_action'])
 
         text_queries = data['pick_objects']
 
@@ -116,7 +128,7 @@ class ObjectDetectorAgent:
             print("@@@ No Action")
             return -1
         else:
-            pick_pose = self.box_to_pose(selected_box, data['pointcloud']) 
+            pick_pose = self.bbox_to_pose(selected_box, data['pointcloud'], params) 
             print(f"Score: {best_score}")
             # Calculate place pose
             if self.orcacle_receptacle:
@@ -135,19 +147,29 @@ class ObjectDetectorAgent:
         if self.task == 'real-world-making-word':
             target_pattern = r'\b\w+\s[A-Z]\b'
             recep_pattern = r"(firts paper|second paper|third paper)"
+        elif self.task == 'debug':
+            target_pattern = rf"({self.pick_obj})"
+            recep_pattern = r"(green box|gray box)"
+            param1_pattern = r"(edge|center)"
+            param2_pattern = r"(vertical|horizontal)"
         else:
             raise NotImplementedError
         target_match = re.search(target_pattern, lang_action)
         recep_match = re.search(recep_pattern, lang_action)  # receptacle
+        param1_match = re.search(param1_pattern, lang_action) 
+        param2_match = re.search(param2_pattern, lang_action) 
 
         if target_match and recep_match:
             target = target_match.group(1)
             recep = recep_match.group(1)
-            return target, recep
-        else:
-            return None, None
+            param1 = param1_match.group(1)
+            param2 = param2_match.group(1)
 
-    def extract_points_within_bbox(self, bbox, point_cloud):
+            return target, recep, [param1,param2]
+        else:
+            return None, None, None
+
+    def extract_points(self, bbox, point_cloud):
         cx, cy, w, h = bbox
         cx *= 640
         cy *= 480
@@ -167,5 +189,60 @@ class ObjectDetectorAgent:
 
         # Filter the point cloud based on the mask
         filtered_points = point_cloud[mask]
-
         return filtered_points
+    
+    def extract_edge_points(self, bbox, point_cloud, edge_ratio=0.1):
+        cx, cy, w, h = bbox
+        cx *= 640
+        cy *= 480
+        w *= 640
+        h *= 480
+        rows, cols, _ = point_cloud.shape
+
+        # Calculate the bounds of the inner bounding box based on edge_ratio
+        inner_w = w * (1 - edge_ratio * 2)
+        inner_h = h * (1 - edge_ratio * 2)
+        inner_x_min = max(int(cx - inner_w / 2), 0)
+        inner_x_max = min(int(cx + inner_w / 2), cols)
+        inner_y_min = max(int(cy - inner_h / 2), 0)
+        inner_y_max = min(int(cy + inner_h / 2), rows)
+
+        # Calculate the outer bounds of the bounding box
+        x_min = max(int(cx - w / 2), 0)
+        x_max = min(int(cx + w / 2), cols)
+        y_min = max(int(cy - h / 2), 0)
+        y_max = min(int(cy + h / 2), rows)
+
+        # Create a mask for points at the edge of the bounding box
+        y_indices, x_indices = np.ogrid[:rows, :cols]
+        mask_edge = ((x_indices < inner_x_min) | (x_indices >= inner_x_max) | 
+                    (y_indices < inner_y_min) | (y_indices >= inner_y_max)) & \
+                    ((x_indices >= x_min) & (x_indices < x_max) & 
+                    (y_indices >= y_min) & (y_indices < y_max))
+
+        # Filter the point cloud based on the mask
+        edge_points = point_cloud[mask_edge]
+        return edge_points
+    
+    def extract_center_points(self, bbox, point_cloud, center_area=0.5):
+        cx, cy, w, h = bbox
+        cx *= 640
+        cy *= 480
+        w *= 640
+        h *= 480
+        rows, cols, _ = point_cloud.shape
+
+        # Calculate the bounds of the center of the bounding box
+        center_x_min = max(int(cx - w * center_area / 2), 0)
+        center_x_max = min(int(cx + w * center_area / 2), cols)
+        center_y_min = max(int(cy - h * center_area / 2), 0)
+        center_y_max = min(int(cy + h * center_area / 2), rows)
+
+        # Create a mask for points in the center of the bounding box
+        y_indices, x_indices = np.ogrid[:rows, :cols]
+        mask_center = (x_indices >= center_x_min) & (x_indices < center_x_max) & \
+                    (y_indices >= center_y_min) & (y_indices < center_y_max)
+
+        # Filter the point cloud based on the mask
+        center_points = point_cloud[mask_center]
+        return center_points

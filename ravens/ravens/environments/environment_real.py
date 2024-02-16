@@ -87,7 +87,8 @@ class RealEnvironment(gym.Env):
         return seed
 
     def reset(self):
-        self.task.reset()
+        if not isinstance(self.task, str):
+            self.task.reset()
         obs, _, _, _ = self.step()
         return obs
     
@@ -210,9 +211,10 @@ class RealEnvironment(gym.Env):
 
     def set_task(self, task):
         self.task = task
-        self.objects = task.objects
-        self.categories = task.categories
-        self.receptacles = task.receptacles
+        if not isinstance(task, str):
+            self.objects = task.objects
+            self.categories = task.categories
+            self.receptacles = task.receptacles
 
     def get_lang_goal(self):
         return self.task.get_lang_goal()
