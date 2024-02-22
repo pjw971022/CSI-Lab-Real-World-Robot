@@ -17,9 +17,7 @@ from PIL import Image
 import sys
 sys.path.append('/home/pjw971022/RealWorldLLM/cliport/')
 
-
 import time
-
 from open_vocab.detection_agent import ObjectDetectorAgent
 @hydra.main(config_path='/home/pjw971022/RealWorldLLM/rw_config',
             config_name='inference')
@@ -63,6 +61,7 @@ def main(cfg):
         done = False
         plan_list = None
         final_goal = info['final_goal']
+        # final_goal = from_voice()
         receptacles = env.receptacles
         if cfg.command_format=='language':
             planning_prompt = \
