@@ -32,9 +32,10 @@ class ObjectDetectorAgent:
         self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
         self.score_threshold  = 0.1
         self.detector = OWLViTDetector(self.device, self.score_threshold)
-        self.orcacle_receptacle = True
+        self.orcacle_receptacle = False
         self.bottom_z = 0.83 # @
-        self.recep_pose_dict = {    
+        self.recep_pose_dict = { 
+                                'anywhere':(0.55, -0.2, 0.15, 0, np.pi, 0),
                                 'first paper': (0.65, -0.2, 0.15, 0, np.pi, 0),
                                 'second paper': (0.65, -0.05, 0.15, 0, np.pi, 0),
                                 'third paper': (0.65, 0.1, 0.15, 0, np.pi, 0),
@@ -62,8 +63,8 @@ class ObjectDetectorAgent:
         # selected_point = filtered_pc[min_idx]
 
         filtered_pc = filtered_pc[filtered_pc[:, -1] > 0]
-        sorted_array_by_z = filtered_pc[filtered_pc[:, -1].argsort()]  # Z 값 기준으로 정렬
-        bottom_n_by_z = sorted_array_by_z[:self.grip_top]  # Z 값이 가장 작은 하위 n개 선택
+        sorted_array_by_z = filtered_pc[filtered_pc[:, -1].argsort()] 
+        bottom_n_by_z = sorted_array_by_z[:self.grip_top] 
         selected_point = np.mean(bottom_n_by_z, axis=0)
   
         pose_x , pose_y = self.transform_coordinates(selected_point[0], selected_point[1])
@@ -100,26 +101,26 @@ class ObjectDetectorAgent:
         # Object detection
         pick_obj, place_obj, params = self.parse_action(data['lang_action'])
 
-        text_queries = data['pick_objects']
+        pick_queries = data['pick_objects']
 
-        outputs = self.detector.forward(
-            data['color'][0], text_queries,)
+        pick_outputs = self.detector.forward(
+            data['color'][0], pick_queries,)
         detected_image_path = str(self.image_dir / f'detected_pick_obj.png')
 
         image_size = self.detector.model.config.vision_config.image_size
         image = cv.resize(data['color'][0].astype('float32'), (image_size, image_size))
 
         input_image = np.asarray(image) / 255.0
-        self.detector.plot_predictions(input_image, text_queries, outputs, detected_image_path)
+        self.detector.plot_predictions(input_image, pick_queries, pick_outputs, detected_image_path)
 
         # Select pick obj
-        scores = outputs['scores']
-        boxes = outputs['boxes']
-        labels = outputs['labels']
+        scores = pick_outputs['scores']
+        boxes = pick_outputs['boxes']
+        labels = pick_outputs['labels']
         selected_box = None
         best_score = self.score_threshold
         for score, box, label in zip(scores, boxes, labels): # @ 개선의 여지 있음
-            if (pick_obj == text_queries[label]) and (score > best_score):
+            if (pick_obj == pick_queries[label]) and (score > best_score):
                 selected_box = box
                 best_score = score
         
@@ -134,17 +135,44 @@ class ObjectDetectorAgent:
             if self.orcacle_receptacle:
                 place_pose = self.oracle_place_pose(place_obj)
             else:
-                output = self.detector.forward(
+                place_outputs = self.detector.forward(
                 data['color'][0], [place_obj],)
                 detected_place_image_path = str(self.image_dir / f'detected_place_obj.jpg')
-                self.detector.plot_predictions(data['color'][0], [place_obj], output, detected_place_image_path)
+                if place_obj in self.recep_pose_dict.keys():
+                    place_pose = self.oracle_place_pose(place_obj)
+                else:
+                    scores = place_outputs['scores']
+                    boxes = place_outputs['boxes']
+                    labels = place_outputs['labels']
+                    selected_box = None
+                    best_score = self.score_threshold
+                    for score, box, label in zip(scores, boxes, labels):
+                        if (pick_obj == pick_queries[label]) and (score > best_score):
+                            selected_box = box
+                            best_score = score
+                    
+                    self.detector.plot_predictions(data['color'][0], [place_obj], place_outputs, detected_place_image_path)
+                    place_pose = self.bbox_to_pose(selected_box, data['pointcloud'], params) 
 
             return {'pose0': pick_pose, 'pose1': place_pose}
         
     def parse_action(self, lang_action):
         """ parse action to retrieve pickup object and place object"""
         lang_action = re.sub(r'[^\w\s]', '', lang_action)  # remove all strings
-        if self.task == 'real-world-making-word':
+        if self.task == 'real-world-voice2demo':
+            target_pattern = r'\b\w+\s[A-Z]\b'
+            if 'move' in lang_action:
+                recep_pattern = r"(red cube|yellow cube|green cube|green basket|gray basket|anywhere|near)"
+            else:
+                recep_pattern = r"()"
+            # elif 'open' in lang_action:
+            #     recep_pattern = r"()"
+            # elif 'wipe' in lang_action:
+            #     recep_pattern = r"()"
+            # elif 'push' in lang_action:
+            #     recep_pattern = r"()"
+
+        elif self.task == 'real-world-making-word':
             target_pattern = r'\b\w+\s[A-Z]\b'
             recep_pattern = r"(firts paper|second paper|third paper)"
         elif self.task == 'debug':
@@ -156,16 +184,19 @@ class ObjectDetectorAgent:
             raise NotImplementedError
         target_match = re.search(target_pattern, lang_action)
         recep_match = re.search(recep_pattern, lang_action)  # receptacle
-        param1_match = re.search(param1_pattern, lang_action) 
-        param2_match = re.search(param2_pattern, lang_action) 
+        if self.task == 'debug':
+            param1_match = re.search(param1_pattern, lang_action) 
+            param2_match = re.search(param2_pattern, lang_action) 
 
         if target_match and recep_match:
             target = target_match.group(1)
             recep = recep_match.group(1)
-            param1 = param1_match.group(1)
-            param2 = param2_match.group(1)
-
-            return target, recep, [param1,param2]
+            if self.task == 'debug':
+                param1 = param1_match.group(1)
+                param2 = param2_match.group(1)
+                return target, recep, [param1,param2]
+            return target, recep, None
+        
         else:
             return None, None, None
 

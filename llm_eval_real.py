@@ -46,9 +46,9 @@ def main(cfg):
             else:
                 fewshot_prompt = prompt_cls.video2prompt()
             task_name = cfg['task'].replace('real-world-','').replace('-','_')
-            fewshot_img = Image.open(f'/home/pjw971022/RealWorldLLM/save_viz/obs/{task_name}_fewshot_img.png')
+            # fewshot_img = Image.open(f'/home/pjw971022/RealWorldLLM/save_viz/obs/{task_name}_fewshot_img.png')
         
-        agent = ObjectDetectorAgent()
+        agent = ObjectDetectorAgent(task=task_name)
         agent.detector.model.eval()
 
     for i in range(cfg.eval_episodes):
@@ -60,8 +60,11 @@ def main(cfg):
         info = env.info
         done = False
         plan_list = None
-        final_goal = info['final_goal']
-        # final_goal = from_voice()
+        if 'voice' in cfg['task']:
+            final_goal = info['text_from_voice']
+        else:
+            final_goal = info['final_goal']
+            
         receptacles = env.receptacles
         if cfg.command_format=='language':
             planning_prompt = \
@@ -94,7 +97,7 @@ def main(cfg):
 
             if cfg.plan_mode == 'closed_loop':
                 if cfg.llm_type == 'gemini':
-                    gen_act = llm_agent.gemini_gen_act(fewshot_prompt, planning_prompt, fewshot_img, obs_img)
+                    gen_act = llm_agent.gemini_gen_act(fewshot_prompt, planning_prompt, obs_img)
                 elif cfg.llm_type == 'palm':
                     gen_act = llm_agent.palm_gen_act(fewshot_prompt, planning_prompt)
                 elif cfg.llm_type == 'gpt4':

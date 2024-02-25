@@ -7,8 +7,9 @@ from prompts.realworld.cleanup import PromptRealWorldCleanup
 from prompts.realworld.packing_shapes import PromptRealWorldPackingShapes
 from prompts.realworld.packing_objects import PromptRealWorldPackingObjects
 from prompts.realworld.making_word import PromptRealWorldMakingWord
-
+from prompts.realworld.voice2demo import PromptRealWorldVoice2Demo
 names = {
+    'real-world-voice2demo':PromptRealWorldVoice2Demo,
     'real-world-cleanup':PromptRealWorldCleanup,
     'real-world-packing-objects': PromptRealWorldPackingObjects,
     'real-world-packing-shapes': PromptRealWorldPackingShapes,

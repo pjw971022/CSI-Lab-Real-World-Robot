@@ -112,18 +112,16 @@ hydra:
     hydra:
     - hydra.mode=RUN
     task:
-    - task=debug
+    - task=real-world-voice2demo
     - agent_mode=3
     - mode=test
-    - category_mode=1
+    - category_mode=0
     - record.save_video=False
     - task_level=1
-    - plan_mode=base
-    - llm_type=no
   job:
-    name: llm_eval_real_base
+    name: llm_eval_real
     chdir: null
-    override_dirname: agent_mode=3,category_mode=1,llm_type=no,mode=test,plan_mode=base,record.save_video=False,task=debug,task_level=1
+    override_dirname: agent_mode=3,category_mode=0,mode=test,record.save_video=False,task=real-world-voice2demo,task_level=1
     id: ???
     num: ???
     config_name: inference

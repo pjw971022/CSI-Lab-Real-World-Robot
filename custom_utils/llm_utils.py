@@ -128,11 +128,11 @@ class LLMAgent:
 
         return categories
     
-    def gemini_gen_act(self, fewshot_prompt, planning_prompt, fewshot_img=None, obs_img=None):
+    def gemini_gen_act(self, fewshot_prompt, planning_prompt, obs_img=None):
         if self.use_vision_fewshot:
             model = genai.GenerativeModel('gemini-pro-vision')
             response = model.generate_content(
-                contents=[fewshot_img, fewshot_prompt, obs_img, planning_prompt],
+                contents=[obs_img, fewshot_prompt, planning_prompt],
                 generation_config = self.vision_config,  safety_settings = self.safety_settings)
             # generated_sequence = response.text
             parts = response.parts

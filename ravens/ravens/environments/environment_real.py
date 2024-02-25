@@ -16,7 +16,6 @@ import cv2
 # PLACE_STEP = 0.0003
 # PLACE_DELTA_THRESHOLD = 0.005
 
-
 class RealEnvironment(gym.Env):
     """OpenAI Gym-style environment class."""
 
@@ -89,7 +88,7 @@ class RealEnvironment(gym.Env):
     def reset(self):
         if not isinstance(self.task, str):
             self.task.reset()
-        obs, _, _, _ = self.step()
+        obs, _, _, _ = self.step(reset=True)
         return obs
     
     def se3_to_pose(self, se3):
@@ -98,13 +97,13 @@ class RealEnvironment(gym.Env):
         yaw = 0 # predict or heuristic
         return (p0_xyz[0]-0.25, p0_xyz[1], z, 0, np.pi, yaw) # pose align constant
     
-    def step(self, raw_action=None, cliport=False):
+    def step(self, raw_action=None, cliport=False, reset=False):
         self.step_counter += 1
         timeout = self.timeout()
         if timeout:
             obs = {'color': (), 'depth': (),'pointcloud': ()}
             for config in self.agent_cams:
-                color, depth, pointcloud = self.render_camera(config)
+                color, depth, pointcloud, gemini_output = self.render_camera(config)
                 obs['color'] += (color,)
                 obs['depth'] += (depth,)
                 obs['pointcloud'] += (pointcloud,)
@@ -128,14 +127,15 @@ class RealEnvironment(gym.Env):
         self.socket.send_string(action_json)
         print("client sent !!")
         obs = {'color': (), 'depth': (),'pointcloud': ()}
+
         for config in self.agent_cams:
-            color, depth, pointcloud = self.render_camera(config)
+            color, depth, pointcloud, text_from_voice = self.render_camera(config)
         
             obs['color'] += (color,)
             obs['depth'] += (depth,)
             obs['pointcloud'] += (pointcloud,)
         # Get task rewards.
-        info = {}
+        info = {'text_from_voice': text_from_voice}
         reward = self.reward()
         done = self.done(self.step_counter)
         return obs, reward, done, info
@@ -164,12 +164,11 @@ class RealEnvironment(gym.Env):
         data = self.socket.recv_string()
         print("client received !!")
         data = json.loads(data)
-
         color = np.array(data['rgb'])
         depth = np.array(data['depth'])
         
         # color = cv2.flip(color, -1)
-        cv2.imwrite('/home/pjw971022/RealWorldLLM/save_viz/obs/image_obs.png', color)
+        cv2.imwrite('/home/franka/fr3_workspace/RealWorldLLM/save_viz/obs/image_obs.png', color)
 
         """Render RGB-D image with specified camera configuration."""
         if not image_size:
@@ -177,6 +176,9 @@ class RealEnvironment(gym.Env):
 
         if 'pointcloud' in data.keys():
             pointcloud = np.array(data['pointcloud']).reshape(image_size[0], image_size[1],-1)
+        
+        text_from_voice = data['text_from_voice']
+        
         znear, zfar = config['zrange']
         
         # if config['noise']:
@@ -191,7 +193,7 @@ class RealEnvironment(gym.Env):
         # if config['noise']:
         #     depth += self._random.normal(0, 0.003, depth_image_size)
 
-        return color, depth, pointcloud
+        return color, depth, pointcloud, text_from_voice
 
     @property
     def info(self):

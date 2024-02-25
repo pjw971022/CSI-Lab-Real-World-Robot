@@ -41,6 +41,8 @@ from ravens.tasks.cleanup_rw import RealWorldCleanup
 from ravens.tasks.packing_shapes_rw import RealWorldPackingShapes
 from ravens.tasks.packing_objects_rw import RealWorldPackingObjects
 from ravens.tasks.making_word_rw import RealWorldMakingWord
+from ravens.tasks.voice2demo_rw import RealWorldVoice2Demo
+
 names = {
     # demo conditioned
     'align-box-corner': AlignBoxCorner,
@@ -85,4 +87,5 @@ names = {
     'real-world-packing-shapes': RealWorldPackingShapes,
     'real-world-packing-objects': RealWorldPackingObjects,
     'real-world-making-word':RealWorldMakingWord,
+    'real-world-voice2demo':RealWorldVoice2Demo,
 }
