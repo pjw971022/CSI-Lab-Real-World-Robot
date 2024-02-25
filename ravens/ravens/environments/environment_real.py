@@ -47,6 +47,11 @@ class RealEnvironment(gym.Env):
         self.socket = context.socket(zmq.REQ)  # REQ (REQUEST) 소켓
         self.socket.connect("tcp://115.145.175.206:5555")
         print("ROS Client Start")
+        if "voice" in task: 
+            context_voice = zmq.Context()
+            self.socket_voice = context_voice.socket(zmq.REQ)  # REQ (REQUEST) 소켓
+            self.socket_voice.connect("tcp://115.145.48.:5557")
+            print("Voice Client Start")
         color_tuple = [
             gym.spaces.Box(0, 255, config['image_size'] + (3,), dtype=np.uint8)
             for config in self.agent_cams
@@ -103,7 +108,7 @@ class RealEnvironment(gym.Env):
         if timeout:
             obs = {'color': (), 'depth': (),'pointcloud': ()}
             for config in self.agent_cams:
-                color, depth, pointcloud, gemini_output = self.render_camera(config)
+                color, depth, pointcloud, text_from_voice = self.render_camera(config, reset=reset)
                 obs['color'] += (color,)
                 obs['depth'] += (depth,)
                 obs['pointcloud'] += (pointcloud,)
@@ -122,14 +127,20 @@ class RealEnvironment(gym.Env):
                 pick_pose = self.se3_to_pose(raw_action['pose0'])
                 place_pose = self.se3_to_pose(raw_action['pose1'])
                 action = (pick_pose, place_pose)
+        if reset:
+            voice_request_json = json.dumps('require voice')
+            self.socket_voice.send_string(voice_request_json)
+            print("voice client sent!!")
 
         action_json = json.dumps(action)
         self.socket.send_string(action_json)
-        print("client sent !!")
+        print("franka client sent!!")
+        
+
         obs = {'color': (), 'depth': (),'pointcloud': ()}
 
         for config in self.agent_cams:
-            color, depth, pointcloud, text_from_voice = self.render_camera(config)
+            color, depth, pointcloud, text_from_voice = self.render_camera(config,reset=reset)
         
             obs['color'] += (color,)
             obs['depth'] += (depth,)
@@ -160,7 +171,7 @@ class RealEnvironment(gym.Env):
         reward = 0.
         return reward
 
-    def render_camera(self, config, image_size=None): # render_camera
+    def render_camera(self, config, image_size=None,reset=False): # render_camera
         data = self.socket.recv_string()
         print("client received !!")
         data = json.loads(data)
@@ -176,9 +187,11 @@ class RealEnvironment(gym.Env):
 
         if 'pointcloud' in data.keys():
             pointcloud = np.array(data['pointcloud']).reshape(image_size[0], image_size[1],-1)
-        
-        text_from_voice = data['text_from_voice']
-        
+        if reset:
+            data_voice = self.socket_voice.recv_string()
+            text_from_voice = data_voice
+        else:
+            text_from_voice =None
         znear, zfar = config['zrange']
         
         # if config['noise']:

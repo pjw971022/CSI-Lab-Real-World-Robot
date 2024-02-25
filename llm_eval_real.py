@@ -1,6 +1,8 @@
 import os
 import sys
 sys.path.append(os.environ['RAVENS_ROOT'])
+sys.path.append('/c/Users/pjw97/anaconda3/envs/realworld/lib/site-packages')
+
 from ravens import tasks
 from ravens.environments.environment_real import RealEnvironment
 from ravens.utils import utils
@@ -15,8 +17,8 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 import hydra
 from PIL import Image
 import sys
-sys.path.append('/home/pjw971022/RealWorldLLM/cliport/')
-
+sys.path.append('/c/Users/pjw97/workspace/RealWorldLLM')
+import speech_recognition as sr
 import time
 from open_vocab.detection_agent import ObjectDetectorAgent
 @hydra.main(config_path='/home/pjw971022/RealWorldLLM/rw_config',
@@ -61,14 +63,19 @@ def main(cfg):
         done = False
         plan_list = None
         if 'voice' in cfg['task']:
-            final_goal = info['text_from_voice']
+            final_goal = received_text()
         else:
             final_goal = info['final_goal']
             
         receptacles = env.receptacles
-        if cfg.command_format=='language':
+            
+        if cfg.command_format in ['voice', 'language'] :
+            text_context = '''[Context] The sent image is a photo of the current table. Based on this photo, please plan the next objectives to be achieved.
+                            All possible objects: red dice, green dice, yellow dice, bottle, lotion, cup, sponge, pencil holder, yellow pencil, green basket, stain.
+                            Possible Actions: Move, Rotate, Push, Pull, Sweep.
+                            '''
             planning_prompt = \
-            f'[Goal] {final_goal}. '
+            f'[Goal] {final_goal}. {text_context}'
         else:
             planning_prompt = ''
                 
