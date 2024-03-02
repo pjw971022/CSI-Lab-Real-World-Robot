@@ -33,11 +33,11 @@ def plot_predictions(input_image, text_queries, scores, boxes, labels, score_thr
               "edgecolor": "red",
               "boxstyle": "square,pad=.3"
           })
-    plt.savefig('/home/pjw971022/RealWorldLLM/save_viz/obs/detected_obs.png')
+    plt.savefig('/home/pjw971022/RealWorldLLM/real_bot/save_viz/obs/detected_obs.png')
 
 
 # Download sample image
-image_path = '/home/pjw971022/RealWorldLLM/save_viz/obs/rgb_obs.png'  #skimage.data.astronaut()
+image_path = '/home/pjw971022/RealWorldLLM/real_bot/save_viz/obs/rgb_obs.png'  #skimage.data.astronaut()
 image = Image.open(image_path).convert("RGB")
 # image = skimage.data.astronaut()
 # image = Image.fromarray(np.uint8(image)).convert("RGB")

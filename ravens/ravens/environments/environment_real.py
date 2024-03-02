@@ -55,7 +55,7 @@ class RealEnvironment(gym.Env):
             self.socket_speech.setsockopt(zmq.RCVTIMEO, 10000)
             # self.socket_speech.setsockopt(zmq.SUBSCRIBE, b'')  # 바이트 문자열 사용
 
-            self.audio_file_path = "/home/pjw971022/RealWorldLLM/perception/speech_command.wav"
+            self.audio_file_path = "/home/pjw971022/RealWorldLLM/real_bot/perception/speech_command.wav"
             print("Speech Client Start")
         color_tuple = [
             gym.spaces.Box(0, 255, config['image_size'] + (3,), dtype=np.uint8)
@@ -188,7 +188,7 @@ class RealEnvironment(gym.Env):
         color = np.array(data['rgb'])
         depth = np.array(data['depth'])
         
-        cv2.imwrite('/home/pjw971022/RealWorldLLM/save_viz/obs/image_obs.png', color)
+        cv2.imwrite('/home/pjw971022/RealWorldLLM/real_bot/save_viz/obs/image_obs.png', color)
 
         """Render RGB-D image with specified camera configuration."""
         if not image_size:

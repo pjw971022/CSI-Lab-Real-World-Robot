@@ -24,7 +24,7 @@ dataset:
     theta_sigma: 60
 record:
   save_video: false
-  save_video_path: /home/pjw971022/RealWorldLLM/save_viz/llm_inference
+  save_video_path: /home/pjw971022/RealWorldLLM/real_bot/save_viz/llm_inference
   add_text: true
   fps: 20
   video_height: 640

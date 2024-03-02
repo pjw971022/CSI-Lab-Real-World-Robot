@@ -14,8 +14,8 @@ import hydra
 import sys
 sys.path.append('/home/pjw971022/RealWorldLLM/cliport/')
 
-from perception.detection_agent import ObjectDetectorAgent
-@hydra.main(config_path='/home/pjw971022/RealWorldLLM/rw_config',
+from real_bot.perception.detection_agent import ObjectDetectorAgent
+@hydra.main(config_path='/home/pjw971022/RealWorldLLM/real_bot/rw_config',
             config_name='inference')
 def main(cfg):
     env = RealEnvironment()

@@ -2,7 +2,7 @@ from pathlib import Path
 import numpy as np
 import torch
 import sys
-sys.path.append('/home/pjw971022/RealWorldLLM/perception')        
+sys.path.append('/home/pjw971022/RealWorldLLM/real_bot/perception')        
 from owl_vit import OWLViTDetector
 MIN_MAX_X = (0.2, 0.8)
 MIN_MAX_Y = (-0.4, 0.6)
@@ -18,7 +18,7 @@ mixin = ImageFeatureExtractionMixin()
 class ObjectDetectorAgent:
     def __init__(self, task, target1_obj=None, grip_top=500):
         self.use_clip = False
-        self.image_dir = Path(f'/home/pjw971022/RealWorldLLM/save_viz/obs')
+        self.image_dir = Path(f'/home/pjw971022/RealWorldLLM/real_bot/save_viz/obs')
         self.task = task
         self.grip_top = grip_top
         self.target1_obj = target1_obj
@@ -100,7 +100,7 @@ class ObjectDetectorAgent:
         elif target2_obj is not None:
             assert target2_obj in target2_queries
 
-        rgb_path = '/home/pjw971022/RealWorldLLM/save_viz/obs/image_obs.png'
+        rgb_path = '/home/pjw971022/RealWorldLLM/real_bot/save_viz/obs/image_obs.png'
         image = Image.open(rgb_path).convert("RGB")
 
         target1_outputs = self.detector.forward(image, target1_queries)

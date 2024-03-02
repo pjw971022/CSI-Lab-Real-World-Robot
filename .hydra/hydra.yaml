@@ -141,7 +141,7 @@ hydra:
     - path: hydra.conf
       schema: pkg
       provider: hydra
-    - path: /home/pjw971022/RealWorldLLM/rw_config
+    - path: /home/pjw971022/RealWorldLLM/real_bot/rw_config
       schema: file
       provider: main
     - path: ''

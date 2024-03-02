@@ -20,10 +20,10 @@ from PIL import Image
 import sys
 sys.path.append('/c/Users/pjw97/workspace/RealWorldLLM')
 import time
-from perception.detection_agent import ObjectDetectorAgent
-from perception.sst import speech_to_command
+from real_bot.perception.detection_agent import ObjectDetectorAgent
+from real_bot.perception.sst import speech_to_command
 
-@hydra.main(config_path='/home/pjw971022/RealWorldLLM/rw_config',
+@hydra.main(config_path='/home/pjw971022/RealWorldLLM/real_bot/rw_config',
             config_name='inference')
 def main(cfg):
     env = RealEnvironment(task_name=cfg['task'])
@@ -39,7 +39,7 @@ def main(cfg):
                 fewshot_prompt = prompt_cls.prompt()
 
             task_name = cfg['task'].replace('real-world-','').replace('-','_')
-            # fewshot_img = Image.open(f'/home/pjw971022/RealWorldLLM/save_viz/obs/{task_name}_fewshot_img.png')
+            # fewshot_img = Image.open(f'/home/pjw971022/RealWorldLLM/real_bot/save_viz/obs/{task_name}_fewshot_img.png')
         print(f"Task: {task_name}")
         agent = ObjectDetectorAgent(task=task_name)
         agent.detector.model.eval()
@@ -71,7 +71,7 @@ def main(cfg):
     objects_str = ', '.join(objects)
     
     while not done:
-        obs_img = Image.open('/home/pjw971022/RealWorldLLM/save_viz/obs/image_obs.png')
+        obs_img = Image.open('/home/pjw971022/RealWorldLLM/real_bot/save_viz/obs/image_obs.png')
         ##############################################################################
         if cfg.category_mode == 0: # from LLM 
             extract_state_prompt = env.task.extract_state_prompt + f'All possible objects: {objects_str}'
