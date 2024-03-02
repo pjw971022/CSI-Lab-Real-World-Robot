@@ -77,8 +77,8 @@ eval_episodes: 1
 
 use_vision_fewshot: false
 category_mode: 0
-plan_mode: closed_loop
-llm_type: gpt4
+plan_mode: open_loop
+llm_type: gemini
 agent_mode: 3
 train_config: /home/pjw971022/RealWorldLLM/cliport/cliport_quickstart/multi-language-conditioned-cliport-n1000-train/.hydra/config.yaml
 cliport_model_path: /home/pjw971022/RealWorldLLM/cliport/cliport_quickstart/multi-language-conditioned-cliport-n1000-train/checkpoints/

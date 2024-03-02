@@ -20,7 +20,7 @@ class RealEnvironment(gym.Env):
     """OpenAI Gym-style environment class."""
 
     def __init__(self,
-                 task=None,
+                 task_name=None,
                  ):
         """Creates OpenAI Gym-style environment with PyBullet.
 
@@ -47,11 +47,16 @@ class RealEnvironment(gym.Env):
         self.socket = context.socket(zmq.REQ)  # REQ (REQUEST) 소켓
         self.socket.connect("tcp://115.145.175.206:5555")
         print("ROS Client Start")
-        if "voice" in task: 
-            context_voice = zmq.Context()
-            self.socket_voice = context_voice.socket(zmq.REQ)  # REQ (REQUEST) 소켓
-            self.socket_voice.connect("tcp://115.145.48.:5557")
-            print("Voice Client Start")
+        self.task_name = task_name
+        if "speech" in task_name: 
+            context_speech = zmq.Context()
+            self.socket_speech = context_speech.socket(zmq.REQ)  # REQ (REQUEST) 소켓
+            self.socket_speech.connect("tcp://115.145.175.48:5557")
+            self.socket_speech.setsockopt(zmq.RCVTIMEO, 10000)
+            # self.socket_speech.setsockopt(zmq.SUBSCRIBE, b'')  # 바이트 문자열 사용
+
+            self.audio_file_path = "/home/pjw971022/RealWorldLLM/perception/speech_command.wav"
+            print("Speech Client Start")
         color_tuple = [
             gym.spaces.Box(0, 255, config['image_size'] + (3,), dtype=np.uint8)
             for config in self.agent_cams
@@ -93,22 +98,16 @@ class RealEnvironment(gym.Env):
     def reset(self):
         if not isinstance(self.task, str):
             self.task.reset()
-        obs, _, _, _ = self.step(reset=True)
-        return obs
-    
-    def se3_to_pose(self, se3):
-        p0_xyz, p0_xyzw = se3
-        z = 0.1 # predict or heuristic
-        yaw = 0 # predict or heuristic
-        return (p0_xyz[0]-0.25, p0_xyz[1], z, 0, np.pi, yaw) # pose align constant
-    
+        obs, _, _, info = self.step(reset=True)
+        return obs, info
+
     def step(self, raw_action=None, cliport=False, reset=False):
         self.step_counter += 1
         timeout = self.timeout()
         if timeout:
             obs = {'color': (), 'depth': (),'pointcloud': ()}
             for config in self.agent_cams:
-                color, depth, pointcloud, text_from_voice = self.render_camera(config, reset=reset)
+                color, depth, pointcloud = self.get_data(config, reset=reset)
                 obs['color'] += (color,)
                 obs['depth'] += (depth,)
                 obs['pointcloud'] += (pointcloud,)
@@ -120,33 +119,33 @@ class RealEnvironment(gym.Env):
             action = raw_action
         else:
             if not cliport:
+                mode = raw_action['mode']
                 pick_pose = raw_action['pose0']
                 place_pose = raw_action['pose1']
-                action = (pick_pose, place_pose)
+                
+                action = (mode, pick_pose, place_pose)
             else:
                 pick_pose = self.se3_to_pose(raw_action['pose0'])
                 place_pose = self.se3_to_pose(raw_action['pose1'])
                 action = (pick_pose, place_pose)
-        if reset:
-            voice_request_json = json.dumps('require voice')
-            self.socket_voice.send_string(voice_request_json)
-            print("voice client sent!!")
+        if reset and 'speech' in self.task_name:
+            speech_request_json = json.dumps('require speech')
+            self.socket_speech.send_string(speech_request_json)
+            print("speech client sent!!")
 
         action_json = json.dumps(action)
         self.socket.send_string(action_json)
         print("franka client sent!!")
         
-
         obs = {'color': (), 'depth': (),'pointcloud': ()}
 
         for config in self.agent_cams:
-            color, depth, pointcloud, text_from_voice = self.render_camera(config,reset=reset)
-        
+            color, depth, pointcloud = self.get_data(config, reset=reset)
             obs['color'] += (color,)
             obs['depth'] += (depth,)
             obs['pointcloud'] += (pointcloud,)
         # Get task rewards.
-        info = {'text_from_voice': text_from_voice}
+        info = {}
         reward = self.reward()
         done = self.done(self.step_counter)
         return obs, reward, done, info
@@ -171,15 +170,25 @@ class RealEnvironment(gym.Env):
         reward = 0.
         return reward
 
-    def render_camera(self, config, image_size=None,reset=False): # render_camera
+    def get_data(self, config, image_size=None, reset=False): # get_data
+        if reset:
+            try:
+                audio_data = self.socket_speech.recv()
+                with open(self.audio_file_path, "wb") as audio_file:
+                    audio_file.write(audio_data)
+                print("speech client received!!")
+
+            except zmq.Again as e:
+                print("Waiting for a message timed out")
+
+
         data = self.socket.recv_string()
-        print("client received !!")
+        print("franka client received!!")
         data = json.loads(data)
         color = np.array(data['rgb'])
         depth = np.array(data['depth'])
         
-        # color = cv2.flip(color, -1)
-        cv2.imwrite('/home/franka/fr3_workspace/RealWorldLLM/save_viz/obs/image_obs.png', color)
+        cv2.imwrite('/home/pjw971022/RealWorldLLM/save_viz/obs/image_obs.png', color)
 
         """Render RGB-D image with specified camera configuration."""
         if not image_size:
@@ -187,11 +196,7 @@ class RealEnvironment(gym.Env):
 
         if 'pointcloud' in data.keys():
             pointcloud = np.array(data['pointcloud']).reshape(image_size[0], image_size[1],-1)
-        if reset:
-            data_voice = self.socket_voice.recv_string()
-            text_from_voice = data_voice
-        else:
-            text_from_voice =None
+
         znear, zfar = config['zrange']
         
         # if config['noise']:
@@ -206,7 +211,7 @@ class RealEnvironment(gym.Env):
         # if config['noise']:
         #     depth += self._random.normal(0, 0.003, depth_image_size)
 
-        return color, depth, pointcloud, text_from_voice
+        return color, depth, pointcloud
 
     @property
     def info(self):

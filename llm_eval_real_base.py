@@ -14,7 +14,7 @@ import hydra
 import sys
 sys.path.append('/home/pjw971022/RealWorldLLM/cliport/')
 
-from open_vocab.detection_agent import ObjectDetectorAgent
+from perception.detection_agent import ObjectDetectorAgent
 @hydra.main(config_path='/home/pjw971022/RealWorldLLM/rw_config',
             config_name='inference')
 def main(cfg):

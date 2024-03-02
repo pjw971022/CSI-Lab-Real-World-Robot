@@ -2,15 +2,12 @@ overwrite_cache = True
 if overwrite_cache:
   LLM_CACHE = {}
 
-import openai
-openai.api_key = "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"
+OPENAI_API = "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"
 from openai import OpenAI
 
 # from lamorel import Caller, lamorel_init
 # from lamorel.server.llms import HF_LLM
 import pandas as pd
-
-# lamorel_init()
 
 def gpt3_call(model="gpt-3.5-turbo-instruct", prompt="", max_tokens=128, temperature=0,
               logprobs=1, echo=False):
@@ -30,7 +27,6 @@ def gpt3_call(model="gpt-3.5-turbo-instruct", prompt="", max_tokens=128, tempera
                                         )
     LLM_CACHE[id] = response
   return response
-
 
 def process_action1(generated_action, admissible_actions):
     """matches LM generated action to all admissible actions
@@ -88,6 +84,16 @@ def process_action2(gen_embedding, act_embeddings):
         dist_list.append(dist)
     return None, dist_list
 
+import base64
+import requests
+from io import BytesIO
+
+def encode_image(image_object):
+    buffered = BytesIO()
+    image_object.save(buffered, format="PNG")
+    img_str = base64.b64encode(buffered.getvalue()).decode('utf-8')
+    return img_str
+
 # from lamorel.server.llms.module_functions import BaseModuleFunction, LogScoringModuleFn
 import re
 import google.generativeai as genai
@@ -106,27 +112,53 @@ class LLMAgent:
         ]
         self.use_vision_fewshot = use_vision_fewshot
 
-    def gemini_generate_categories(self, context, img):
+    def gpt4_generate_context(self, context, img):
+        base64_image = encode_image(img)
+        
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {OPENAI_API}"
+        }
+        
+        payload = {
+            "model": "gpt-4-vision-preview",
+            "messages": [
+            {
+                "role": "user",
+                "content": [
+                {
+                    "type": "text",
+                    "text": context
+                },
+                {
+                    "type": "image_url",
+                    "image_url": {
+                    "url": f"data:image/jpeg;base64,{base64_image}"
+                    }
+                }
+                ]
+            }
+            ],
+            "max_tokens": 1000
+        }
+
+        response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
+        content = response.json()['choices'][0]['message']['content']
+        return content
+
+
+    def gemini_generate_context(self, context, img):
         model = genai.GenerativeModel('gemini-pro-vision')
         response = model.generate_content(
             contents=[context, img],
             generation_config=self.vision_config, safety_settings = self.safety_settings
         )
-        
         parts = response.parts
         generated_sequence = ''
         for part in parts:
             generated_sequence += part.text
-        print("@@@ gen category: ", generated_sequence)
-        inside_brackets = re.search(r'<([^>]*)>', generated_sequence)
-        
-        if inside_brackets is None:
-            categories = generated_sequence.split(', ')
-            categories = [c.replace(' ', '') for c in categories]
-        else:
-            categories = inside_brackets.group(1).split(', ')
-
-        return categories
+        print("@@@ gen context: ", generated_sequence)
+        return generated_sequence
     
     def gemini_gen_act(self, fewshot_prompt, planning_prompt, obs_img=None):
         if self.use_vision_fewshot:
@@ -153,6 +185,33 @@ class LLMAgent:
         generated_sequence = generated_sequence.split('.')[0]
         print(f"@@@@ gen act: {generated_sequence}")
         return generated_sequence 
+    
+    def gemini_gen_all_plan(self, fewshot_prompt, planning_prompt, obs_img=None):
+        if self.use_vision_fewshot:
+            model = genai.GenerativeModel('gemini-pro-vision')
+            response = model.generate_content(
+                contents=[obs_img, fewshot_prompt, planning_prompt],
+                generation_config = self.vision_config,  safety_settings = self.safety_settings)
+            # generated_sequence = response.text
+            parts = response.parts
+            generated_sequence = ''
+            for part in parts:
+                generated_sequence += part.text
+        else:
+            model = genai.GenerativeModel('gemini-pro')
+            response = model.generate_content(
+                contents=fewshot_prompt + '\n' + planning_prompt,
+                generation_config = self.text_config,
+                safety_settings = self.safety_settings
+                )
+            parts = response.parts
+            generated_sequence = ''
+            for part in parts:
+                generated_sequence += part.text
+        print(f"@@@@ gen act: {generated_sequence}")
+        plan_list = re.findall(r"\[Plan \d+\].*?\.", generated_sequence)
+        print(f"plan_list: {plan_list}")
+        return plan_list
     
     def gemini_new_scoring(self, fewshot_prompt, planning_prompt, options, fewshot_img, obs_img):
         model = genai.GenerativeModel('gemini-pro-vision')
@@ -237,7 +296,6 @@ class LLMAgent:
         )
         generated_sequence = response.choices[0].message.content
         plan_list = re.findall(r"\[Plan \d+\] (.+)", generated_sequence)
-        # plan_list = extracted_sentences.split('\n')
         return plan_list
 
     def gpt4_gen_act(self, fewshot_prompt, planning_prompt):

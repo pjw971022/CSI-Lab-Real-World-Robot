@@ -4,7 +4,7 @@ debug: false
 save_dir: ${root_dir}/${task}/data/${planner.agent_type}-plans/${mode}
 disp: false
 shared_memory: false
-task: real-world-voice2demo
+task: real-world-speech2demo
 mode: test
 'n': 500
 save_data: false
@@ -59,8 +59,8 @@ oracle_flag: false
 eval_episodes: 1
 use_vision_fewshot: false
 category_mode: 0
-plan_mode: closed_loop
-llm_type: gpt4
+plan_mode: open_loop
+llm_type: gemini
 agent_mode: 3
 train_config: /home/pjw971022/RealWorldLLM/cliport/cliport_quickstart/multi-language-conditioned-cliport-n1000-train/.hydra/config.yaml
 cliport_model_path: /home/pjw971022/RealWorldLLM/cliport/cliport_quickstart/multi-language-conditioned-cliport-n1000-train/checkpoints/
@@ -68,4 +68,4 @@ agent: cliport
 data_dir: /home/mnt/data/ravens/
 n_demos: 10
 task_level: 1
-command_format: language
+command_format: speech
