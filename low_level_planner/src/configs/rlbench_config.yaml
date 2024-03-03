@@ -1,6 +1,6 @@
 env_name: rlbench
 task_name: pour_from_cup_to_cup
-context_mode: user_command
+context_mode: pre_user_command
 
 planner:
   stop_threshold: 0.001

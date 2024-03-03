@@ -202,8 +202,8 @@ class LMP_interface():
         ee_speed = _velocity_map[ee_pos_voxel[0], ee_pos_voxel[1], ee_pos_voxel[2]]
         gripper_state = _gripper_map[ee_pos_voxel[0], ee_pos_voxel[1], ee_pos_voxel[2]]
       # move to the final target
-      self._env.apply_action(np.concatenate([ee_pose_world, [gripper_state]]))
-
+      result = self._env.apply_action(np.concatenate([ee_pose_world, [gripper_state]]))
+      print(f"##### Reward: {result[1]} \n\n")
     return execute_info
   
   def cm2index(self, cm, direction):

@@ -32,6 +32,10 @@ class LMP:
                 "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
                 "threshold": "BLOCK_NONE",
             },
+            {
+                "category": "HARM_CATEGORY_HARASSMENT",
+                "threshold": "BLOCK_NONE",
+            },
         ]
         self.function_name = self._cfg['prompt_fname'].split('_')[0]
         # self.sub_guideline_list = None                
@@ -88,13 +92,17 @@ class LMP:
         # check whether completion endpoint or chat endpoint is used
         if  any([chat_model in kwargs['model'] for chat_model in ['gemini-pro', 'gemini-pro-vision']]):
             model = genai.GenerativeModel(kwargs['model'])
+            motion_guideline = kwargs['motion_guideline']
             # add special prompt for chat endpoint
             system_query = "You are a helpful assistant that pays attention to the user's instructions and writes good python code for operating a robot arm in a tabletop environment."
-            # system_query = "You are an assistant skilled in writing Python code for controlling a robot arm on a tabletop. Your task is to convert [Motion Guidelines] into a functional program with specific functions, ensuring the robot executes movements accurately and efficiently according to these guidelines." 
             user1 = kwargs.pop('prompt')
             new_query = '# Query:' + user1.split('# Query:')[-1]
             user1 = ''.join(user1.split('# Query:')[:-1]).strip()
-            user1 = f"I would like you to help me write Python code to control a robot arm operating in a tabletop environment. Please complete the code every time when I give you new query. Pay attention to appeared patterns in the given context code. Be thorough and thoughtful in your code. Do not include any import statement. Do not repeat my question. Do not provide any text explanation (comment in code is okay). I will first give you the context of the code below:\n\n```\n{user1}\n```\n\nNote that x is back to front, y is left to right, and z is bottom to up."
+            if motion_guideline is None or 'planner' != self.function_name:
+                user1 = f"I would like you to help me write Python code to control a robot arm operating in a tabletop environment. Please complete the code every time when I give you new query. Pay attention to appeared patterns in the given context code. Be thorough and thoughtful in your code. Do not include any import statement. Do not repeat my question. Do not provide any text explanation (comment in code is okay). I will first give you the context of the code below:\n\n```\n{user1}\n```\n\nNote that x is back to front, y is left to right, and z is bottom to up."
+            else:
+                user1 = f"I would like you to help me write Python code to control a robot arm operating in a tabletop environment. I have a description of a robot's motion and i want you to turn that into the corresponding python code. Please complete the code every time when I give you new query. Pay attention to appeared patterns in the given context code. Be thorough and thoughtful in your code. Do not include any import statement. Do not repeat my question. Do not provide any text explanation (comment in code is okay). I will first give you the context of the code below:\n\n```\n{user1}\n```\n\nNote that x is back to front, y is left to right, and z is bottom to up." 
+                motion_guideline = f'[start of description]\n{motion_guideline}\n[end of description]'
             assistant1 = f'Got it. I will complete what you give me next.'
             user2 = new_query
             # handle given context (this was written originally for completion endpoint)
@@ -106,27 +114,32 @@ class LMP:
                 user2 = obj_context.strip() + '\n' + user2
 
             ##################################################################
-            motion_guideline = kwargs['motion_guideline']
-            if motion_guideline is not None:
-                user2 = f"[Motion guidelines] {motion_guideline}\n{user2}"
-            # prompt = \
-            #         f"{system_query}\n" \
-            #         f"{user1}\n{assistant1}\n{user2}"
-            # print("$$$$$$$$$$$$$$$$$$$$$$$$$$$\n",prompt,"$$$$$$$$$$$$$$$$$$$$$$$$$$$")
-            prompt =[{"role":"user",
-                      "parts":[{"text":system_query}, {"text":user1}]},
-                      {"role":"model",
-                      "parts":[{"text":assistant1}]},
-                      {"role":"user",
-                      "parts":[{"text":user2}]}
-                      ]
+            if motion_guideline is None or 'planner' != self.function_name:
+                prompt =[{"role":"user",
+                        "parts":[{"text":system_query}, {"text":user1}]},
+                        {"role":"model",
+                        "parts":[{"text":assistant1}]},
+                        {"role":"user",
+                        "parts":[{"text":user2}]}
+                        ]
+            else:    
+                prompt =[{"role":"user",
+                        "parts":[{"text":system_query}, {"text":user1}, {"text":motion_guideline}]},
+                        {"role":"model",
+                        "parts":[{"text":assistant1}]},
+                        {"role":"user",
+                        "parts":[{"text":user2}]}
+                        ]
             kwargs['messages'] = prompt
 
             response = model.generate_content(prompt,
                                     generation_config = self.text_config,
                                     safety_settings=self.safety_settings)
             ##################################################################
-            ret = response.text
+            try:
+                ret = response.text
+            except:
+                import ipdb;ipdb.set_trace()
             # post processing
             ret = ret.replace('```', '').replace('python', '').strip()
             self._cache[kwargs] = ret
@@ -177,7 +190,6 @@ class LMP:
                 return ret
 
     def __call__(self, query, **kwargs):
-        print(f"@@@ query: {query}")
         prompt, user_query = self.build_prompt(query)
         start_time = time.time()
         if 'planner' == self.function_name:
@@ -187,7 +199,7 @@ class LMP:
         #     motion_guideline = self.sub_guideline_list[self.function_name]
         
         while True:
-            if any([chat_model in kwargs['model'] for chat_model in ['gpt-3.5', 'gpt-4']]):
+            if any([chat_model in self._cfg['model'] for chat_model in ['gpt-3.5', 'gpt-4']]):
                 try:
                     code_str = self._cached_api_call(
                         prompt=prompt,
@@ -205,7 +217,7 @@ class LMP:
                     print(f'OpenAI API got err {e}')
                     print('Retrying after 3s.')
                     sleep(3)
-            elif any([chat_model in kwargs['model'] for chat_model in ['gemini-pro', 'gemini-pro-vision']]):
+            elif any([chat_model in self._cfg['model'] for chat_model in ['gemini-pro', 'gemini-pro-vision']]):
                 code_str = self._cached_api_call(
                     prompt=prompt,
                     motion_guideline=motion_guideline,

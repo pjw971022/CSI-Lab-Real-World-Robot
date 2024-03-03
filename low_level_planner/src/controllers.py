@@ -97,6 +97,7 @@ class Controller:
             print(f'[controllers.py] applied control (pos: {best_control[0][:3].round(4)}, dir: {best_control[0][3:6].round(4)}, dist: {best_control[0][6:].round(4)})')
             info['mpc_info'] = self.mpc_info
             info['mpc_control'] = best_control[0]
+        
         return info
 
     def random_shooting_MPC(self, start_obs, target):

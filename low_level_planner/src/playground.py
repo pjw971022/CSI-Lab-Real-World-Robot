@@ -11,7 +11,7 @@ from rlbench import tasks
 import os
 from envs.motion_descriptor import MotionDescriptor
 import envs.prompts as prompts
-os.environ['OPENAI_API_KEY'] =  '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' 
+# os.environ['OPENAI_API_KEY'] =  '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' 
 
 @hydra.main(config_path=f'./configs', config_name="rlbench_config")
 def main(cfgs: DictConfig):
@@ -43,29 +43,29 @@ def main(cfgs: DictConfig):
     # env.load_task(tasks.TakePlateOffColoredDishRack)
     # env.load_task(tasks.BlockPyramid)
     # tasks.PourFromCupToCup
+
     env.load_task(tasks.names[config.task_name])
-
-
     descriptions, obs = env.reset()
     set_lmp_objects(lmps, env.get_object_names())  # set the object names to be used by voxposer
 
     instruction = np.random.choice(descriptions)
     print(f'instruction: {instruction}')
 
-    for obj in env.task._task.get_base().get_objects_in_tree(exclude_base=False):
-        if 'point ' not in obj.get_name():
-            print(obj.get_name())
-    import ipdb;ipdb.set_trace()
-    prompt_cls = prompts.names[env.task.get_name()]()
+    # for obj in env.task._task.get_base().get_objects_in_tree(exclude_base=False):
+    #     if 'point ' not in obj.get_name():
+    #         print(obj.get_name())
 
     if 'pre' in  config.context_mode:
-        if 'user_command' in  config.context_mode:
-            motion_guideline = prompt_cls.get_u2c()
-        if 'vision_observation' in  config.context_mode:
-            motion_guideline = prompt_cls.get_o2c()
-        if 'expert_demo' in  config.context_mode:
-            motion_guideline = prompt_cls.get_d2c()
-
+        if env.task.get_name() in prompts.names.keys():
+            prompt_cls = prompts.names[env.task.get_name()]()
+            if 'user_command' in  config.context_mode:
+                motion_guideline = prompt_cls.get_u2c()
+            if 'vision_observation' in  config.context_mode:
+                motion_guideline = prompt_cls.get_o2c()
+            if 'expert_demo' in  config.context_mode:
+                motion_guideline = prompt_cls.get_d2c()
+        else:
+            motion_guideline = None
     elif 'gen' in  config.context_mode:
         from PIL import Image
         frong_rgb = Image.open('/home/andykim0723/RLBench/VoxPoser/src/visualizations/obs/front_rgb.png')
