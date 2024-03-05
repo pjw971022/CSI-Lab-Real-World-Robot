@@ -7,7 +7,7 @@ from vertexai.preview.generative_models import GenerativeModel, Part
 
 location = "asia-northeast3"
 project_id = "gemini-api-415903"
-key_path = "/home/sanghyun/file/CORL2024/Sembot/gemini-api-415903-0f8224218c2c.json"
+key_path = "/home/shyuni5/file/CORL2024/Sembot/gemini-api-415903-0f8224218c2c.json"
 
 
 # 아래 Link는 추후 hyperparameter로 변경 필요
@@ -21,26 +21,29 @@ image_uri = "gs://expert_video_demo/front_rgb.png"
 
 
 prompt_descriptor = """
-Objective Description:
-I am a one-armed robot.
-I want to complete "{}" task.
+I am a one-armed robot. Taks is {}
+Describe the motion of robot arm using the following form:
 
-Required Action Summary:
-Please provide only the essential motions, without unnecessary explanations.
+[start of description]
 
-Detailed Motion Information:
+Speed: The robot arm should move at a speed of [NUM: 0.0]m/s.
+Required Force: The robot arm should apply a force of [NUM: 0.0] Newtons.
+[optional] Approach object: The robot arm should approach the object at a speed of [NUM: 0.0]m/s.
+[optional] Initial Tilt(degree): The initial tilt of the robot arm should be [NUM: 0.0] degrees towards the target.
+[optional] Max Tilt(degree): The maximum tilt of the robot arm should be [NUM: 0.0] degrees.
+[optional] Distance Moved: The robot arm should move a distance of [NUM: 0.0] meters.
+[optional] Height: The robot arm's end effector should reach a height of [NUM: 0.0] meters.
+[optional] Repetitive Actions: The robot arm should perform the action [NUM: 0.0] times.
+[optional] Cautions: The robot arm should {{CHOICE: [avoid obstacles, maintain a steady grip, not exceed maximum load]}}.
 
-Action Name:
-[optional] Approach object:
-[optional] Initial Tilt(degree):
-[optional] Max Tilt(degree):
-[optional] Required Force:
-[optional] Distance Moved:
-[optional] Height:
-[optional] Speed:
-[optional] Repetitive Actions:
-[optional] Cautions:
-Focus solely on the motion information, including detailed information such as angle, force, and distance.
+[end of description]
+
+1. If you see phrases like [NUM: default_value], replace the entire phrase with a numerical value. If you see [PNUM: default_value], replace it with a positive, non-zero numerical value.
+2. If you see phrases like {{CHOICE: [choice1, choice2, ...]}}, it means you should replace the entire phrase with one of the choices listed. Be sure to replace all of them. If you are not sure about the value, just use your best judgement.
+3. I will tell you a behavior/skill/task that I want the robot arm to perform and you will provide the full description of the arm motion, even if you may only need to change a few lines. Always start the description with [start of description] and end it with [end of description].
+4. You can assume that the robot is capable of doing anything, even for the most challenging task.
+5. Do not add additional descriptions not shown above. Only use the bullet points given in the template.
+
 """
 
 prompt_obs_extractor ="""
@@ -118,7 +121,7 @@ class MotionDescriptor:
         return response_3.text
     
 
-# TEST
+# #TEST
 
 # descriptor = MotionDescriptor()
 
@@ -138,91 +141,3 @@ class MotionDescriptor:
 # print("\nTesting gemini_gen_d2c:")
 # video = "test_video.mp4"
 # print(descriptor.gemini_gen_d2c(video, img, user_command))
-
-
-
-
-
-
-
-
-
-
-
-
-    # def gemini_gen_u2c(self, user_command): # User Command
-    #     model = genai.GenerativeModel('gemini-pro')
-    #     upstream_message = [prompt_obs_extractor + '\nTask: ' + user_command]
-    #     response = model.generate_content(
-    #         contents=upstream_message,
-    #         generation_config=self.text_config, 
-    #         safety_settings = self.safety_settings
-    #     )
-    #     parts = response.parts
-    #     motion_guideline = ''
-    #     for part in parts:
-    #         motion_guideline += part.text
-    #     return motion_guideline
-    
-    # def gemini_gen_o2c(self, img, user_command): # Vision observation / User Command
-    #     vision_model = genai.GenerativeModel('gemini-pro-vision')
-    #     upstream_message = [prompt_obs_extractor + '\nTask: ' + user_command, img]
-    #     response0 = vision_model.generate_content(
-    #         contents=upstream_message,
-    #         generation_config=self.vision_config, 
-    #         safety_settings = self.safety_settings
-    #     )
-    #     parts = response0.parts
-    #     vis_obs_context = ''
-    #     for part in parts:
-    #         vis_obs_context += part.text
-        
-    #     upstream_message = [prompt_obs_extractor + '\nTask: ' + user_command + '\n' + vis_obs_context] # @
-    #     response1 = vision_model.generate_content(
-    #         contents=upstream_message,
-    #         generation_config=self.vision_config, 
-    #         safety_settings = self.safety_settings
-    #     )
-    #     parts = response1.parts
-    #     motion_guideline = ''
-    #     for part in parts:
-    #         motion_guideline += part.text
-    #     return motion_guideline
-    
-    # def gemini_gen_d2c(self, video, img, user_command): # Expert Demo / Vision observation / User Command # @ vertaxAI
-    #     vision_model = genai.GenerativeModel('gemini-pro-vision')
-    #     upstream_message = [prompt_obs_extractor + '\nTask: ' + user_command, img]
-    #     response0 = vision_model.generate_content(
-    #         contents=upstream_message,
-    #         generation_config=self.vision_config, 
-    #         safety_settings = self.safety_settings
-    #     )
-    #     parts = response0.parts
-    #     vis_obs_context = ''
-    #     for part in parts:
-    #         vis_obs_context += part.text
-
-    #     upstream_message = [prompt_demo_extractor + '\nTask: ' + user_command, video]
-    #     response = vision_model.generate_content(
-    #         contents=upstream_message,
-    #         generation_config=self.vision_config,
-    #         safety_settings = self.safety_settings
-    #     )
-    #     parts = response.parts
-    #     demo_context = ''
-    #     for part in parts:
-    #         demo_context += part.text
-
-    #     model = genai.GenerativeModel('gemini-pro')
-    #     upstream_message = [prompt_obs_extractor + '\nTask: ' + user_command, demo_context, vis_obs_context]
-    #     response = model.generate_content(
-    #         contents=upstream_message,
-    #         generation_config=self.text_config, 
-    #         safety_settings = self.safety_settings
-    #     )
-    #     parts = response.parts
-    #     motion_guideline = ''
-    #     for part in parts:
-    #         motion_guideline += part.text
-    #     return motion_guideline
-
