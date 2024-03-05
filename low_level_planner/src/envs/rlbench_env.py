@@ -238,7 +238,7 @@ class VoxPoserRLBench():
         for key, val in rgb_dict.items():
             val = val.astype(np.uint8)
             image = Image.fromarray(val)
-            image.save(f'/home/andykim0723/RLBench/VoxPoser/src/visualizations/obs/{key}.png')
+            image.save(f'/home/andykim0723/RLBench/Sembot/low_level_planner/src/visualizations/obs/{key}.png')
 
         obs = self._process_obs(obs)
         self.init_obs = obs

@@ -9,7 +9,7 @@
     "take_lid_off_saucepan": [["saucepan", "saucepan"], ["saucepan_lid", "saucepan_lid"]],
     "take_umbrella_out_of_umbrella_stand": [["umbrella", "umbrella"], ["stand", "stand"]],
     "put_groceries_in_cupboard": [["cupboard", "cupboard"], ["chocolate jello", "chocolate_jello"],  ["strawberry jello", "strawberry_jello"],
-      ["soup", "soup"],  ["tuna", "tuna"],  ["spam", "spam"],  ["coffee","coffee"],["mustard","mustard"], ["sugar","sugar"]],
-    "pour_from_cup_to_cup": [["red cup", "cup_source"], ["maroon cup", "cup_target"]]
+      ["soup", "soup"],  ["tuna", "tuna"],  ["spam", "spam"],  ["coffee","coffee"],["mustard","mustard"],["crackers","crackers"], ["sugar","sugar"]],
+    "pour_from_cup_to_cup": [["source cup", "cup_source"], ["target cup", "cup_target"]]
     
 }
