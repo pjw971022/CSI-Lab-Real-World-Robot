@@ -1,21 +1,17 @@
-# import re
-# import google.generativeai as genai
-# genai.configure(api_key='AIzaSyDRv4MkxqaTD9Nn4xDieqFkHbf8Ny4eU_I')
 import os
 import vertexai
 from vertexai.preview.generative_models import GenerativeModel, Part
+from google.cloud import storage
 
 location = "asia-northeast3"
 project_id = "gemini-api-415903"
 key_path = "/home/shyuni5/file/CORL2024/Sembot/gemini-api-415903-0f8224218c2c.json"
 
+# Video & img path는 아래와 같다고 가정.
+# img, video 변수를 통해서 각 파일의 이름을 넘겨주면됨.
 
-# 아래 Link는 추후 hyperparameter로 변경 필요
-# 지금은 파라미터상의 img, video 변수가 사용되지 않고 있음.
-
-video_uri = "gs://expert_video_demo/demo.mp4"
-image_uri = "gs://expert_video_demo/front_rgb.png"
-
+image_path = "/home/shyuni5/file/CORL2024/Sembot/low_level_planner/src/visualizations/obs/"
+video_path = "/home/shyuni5/file/CORL2024/Sembot/low_level_planner/src/envs/"
 
 #-----------------------------------------------------------------------------
 
@@ -62,6 +58,24 @@ Precise measurements, quantities, and numerical data related to the task, such a
 A detailed description of the techniques or methodologies employed in the task, emphasizing any algorithms, formulas, or calculation methods used to achieve specific outcomes.
 Exclude any broader implications, potential impacts, or subjective interpretations of the task's significance. Instead, concentrate solely on providing a comprehensive, numerical, and technical description of how the task is performed, based on the content of the video.
 """
+
+#-----------------------------------------------------------------------------
+
+def upload_blob(source_file_name, destination_blob_name, bucket_name = 'expert_video_demo'):
+    storage_client = storage.Client(project='gemini-api-413603')
+    bucket = storage_client.bucket(bucket_name)
+    
+    # 파일 업로드
+    blob = bucket.blob(destination_blob_name)
+    blob.upload_from_filename(source_file_name)
+    
+    # 파일에 공개 액세스 권한 설정
+    blob.make_public()
+    
+    # 파일의 URI 반환
+    return f"gs://{bucket_name}/{destination_blob_name}"
+
+
 #-----------------------------------------------------------------------------
 
 class MotionDescriptor:
@@ -74,8 +88,6 @@ class MotionDescriptor:
                 "threshold": "BLOCK_NONE",
             },
         ]
-        self.video = Part.from_uri(video_uri, mime_type="video/mp4")
-        self.Image = Part.from_uri(image_uri, mime_type="image/png")
         self.model = self.setup(location, project_id)
 
     def setup(self, location, project_id):
@@ -94,8 +106,10 @@ class MotionDescriptor:
     def gemini_gen_o2c(self, img, user_command):
         prompt_descriptor_with_instruction = prompt_descriptor.format(user_command)
         prompt_obs_extractor_with_instruction = prompt_obs_extractor.format(user_command)
+        image_uri = upload_blob(image_path+img, img)
+        image_file = Part.from_uri(image_uri, mime_type="image/png")
 
-        contents = [self.Image, prompt_obs_extractor_with_instruction ]
+        contents = [image_file, prompt_obs_extractor_with_instruction ]
         response_1 = self.model.generate_content(contents, generation_config=self.vision_config) #, safety_settings = self.safety_settings
         description_image = response_1.text
 
@@ -107,12 +121,16 @@ class MotionDescriptor:
         prompt_descriptor_with_instruction = prompt_descriptor.format(user_command)
         prompt_obs_extractor_with_instruction = prompt_obs_extractor.format(user_command)
         prompt_demo_extractor_with_instruction = prompt_demo_extractor.format(user_command)
+        video_uri = upload_blob(video_path+video, video)
+        image_uri = upload_blob(image_path+img, img)
+        video_file = Part.from_uri(video_uri, mime_type="video/mp4")
+        image_file = Part.from_uri(image_uri, mime_type="image/png")
 
-        contents = [self.Image, prompt_obs_extractor_with_instruction ]
+        contents = [image_file, prompt_obs_extractor_with_instruction ]
         response_1 = self.model.generate_content(contents, generation_config=self.vision_config) #, safety_settings = self.safety_settings
         description_image = response_1.text
 
-        contents = [self.video, prompt_demo_extractor_with_instruction ]
+        contents = [video_file, prompt_demo_extractor_with_instruction ]
         response_2 = self.model.generate_content(contents, generation_config=self.vision_config) #, safety_settings = self.safety_settings
         description_video = response_2.text
 
@@ -121,23 +139,26 @@ class MotionDescriptor:
         return response_3.text
     
 
+#-----------------------------------------------------------------------------
+
 # #TEST
 
-# descriptor = MotionDescriptor()
+descriptor = MotionDescriptor()
 
-# # Test gemini_gen_u2c
-# user_command = "How can I accomplish the task of pouring liquid from a red cup into a maroon cup?"
+# Test gemini_gen_u2c
+user_command = "How can I accomplish the task of pouring liquid from a red cup into a maroon cup?"
 
 
-# print("Testing gemini_gen_u2c:")
-# print(descriptor.gemini_gen_u2c(user_command))
+print("Testing gemini_gen_u2c:")
+print(descriptor.gemini_gen_u2c(user_command))
 
-# # Test gemini_gen_o2c
-# print("\nTesting gemini_gen_o2c:")
-# img = "test_image.png"
-# print(descriptor.gemini_gen_o2c(img, user_command))
+# Test gemini_gen_o2c
+print("\nTesting gemini_gen_o2c:")
+img = "front_rgb.png"
+print(descriptor.gemini_gen_o2c(img, user_command))
 
-# # Test gemini_gen_d2c
-# print("\nTesting gemini_gen_d2c:")
-# video = "test_video.mp4"
-# print(descriptor.gemini_gen_d2c(video, img, user_command))
+# Test gemini_gen_d2c
+print("\nTesting gemini_gen_d2c:")
+img = "front_rgb.png"
+video = "demo_video.mp4"
+print(descriptor.gemini_gen_d2c(video, img, user_command))
