@@ -12,10 +12,10 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
         
 import hydra
 import sys
-sys.path.append('/home/pjw971022/RealWorldLLM/cliport/')
+sys.path.append('/home/pjw971022/Sembot/cliport/')
 
 from real_bot.perception.detection_agent import ObjectDetectorAgent
-@hydra.main(config_path='/home/pjw971022/RealWorldLLM/real_bot/rw_config',
+@hydra.main(config_path='/home/pjw971022/Sembot/real_bot/rw_config',
             config_name='inference')
 def main(cfg):
     env = RealEnvironment()

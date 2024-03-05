@@ -1,11 +1,14 @@
 import os
 import sys
 sys.path.append(os.environ['RAVENS_ROOT'])
-sys.path.append('/c/Users/pjw97/anaconda3/envs/realworld/lib/site-packages')
+sys.path.append('/home/pjw971022/Sembot')
 
 from ravens import tasks
 from ravens.environments.environment_real import RealEnvironment
 from ravens.utils import utils
+
+from real_bot.perception.detection_agent import ObjectDetectorAgent
+from real_bot.perception.sst import speech_to_command
 
 from custom_utils.llm_utils import *
 import numpy as np
@@ -17,13 +20,10 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
         
 import hydra
 from PIL import Image
-import sys
-sys.path.append('/c/Users/pjw97/workspace/RealWorldLLM')
 import time
-from real_bot.perception.detection_agent import ObjectDetectorAgent
-from real_bot.perception.sst import speech_to_command
 
-@hydra.main(config_path='/home/pjw971022/RealWorldLLM/real_bot/rw_config',
+
+@hydra.main(config_path='/home/pjw971022/Sembot/real_bot/rw_config',
             config_name='inference')
 def main(cfg):
     env = RealEnvironment(task_name=cfg['task'])
@@ -39,7 +39,6 @@ def main(cfg):
                 fewshot_prompt = prompt_cls.prompt()
 
             task_name = cfg['task'].replace('real-world-','').replace('-','_')
-            # fewshot_img = Image.open(f'/home/pjw971022/RealWorldLLM/real_bot/save_viz/obs/{task_name}_fewshot_img.png')
         print(f"Task: {task_name}")
         agent = ObjectDetectorAgent(task=task_name)
         agent.detector.model.eval()
@@ -54,15 +53,7 @@ def main(cfg):
     done = False
     plan_list = None
     if 'speech' in cfg['task']:
-        final_goal = speech_to_command()# 'take out all the items from the basket.' #  #'take out all the items from the basket.' # #'clean up the every ball.' # 
-        #################################
-        # take out all the items from the basket. 
-        # clear the spilled cola.
-        # pack the green objects.
-        # prepare the meal, please.    
-        # play with the toy car. 
-        # clean up the every ball.
-        # speech_to_command()
+        final_goal = speech_to_command() 
     else:
         final_goal = info['final_goal']
         
@@ -71,7 +62,7 @@ def main(cfg):
     objects_str = ', '.join(objects)
     
     while not done:
-        obs_img = Image.open('/home/pjw971022/RealWorldLLM/real_bot/save_viz/obs/image_obs.png')
+        obs_img = Image.open('/home/pjw971022/Sembot/real_bot/save_viz/obs/image_obs.png')
         ##############################################################################
         if cfg.category_mode == 0: # from LLM 
             extract_state_prompt = env.task.extract_state_prompt + f'All possible objects: {objects_str}'
@@ -79,12 +70,11 @@ def main(cfg):
             print(f"@@@ Context from vision: {context_from_vision}")
             if (cfg.plan_mode == 'open_loop') or step_cnt == 1:
                 if cfg.command_format in ['speech', 'language'] :
-                    text_context = f'[Context] {context_from_vision}'
-                    text_context +=  f'All possible objects: {objects_str}'
+                    text_context = f'[Context] {context_from_vision}\n'
+                    # text_context +=  f'All possible objects: {objects_str}\n'
                     text_context += 'Possible Actions: move, pick, place, rotate, push, pull, sweep.'
-                                    
                     planning_prompt = \
-                    f'[Goal] {final_goal}. {text_context}'
+                    f'[Goal] {final_goal} {text_context}'
                 else:
                     planning_prompt = ''
         joined_categories = ", ".join(objects)
@@ -116,7 +106,6 @@ def main(cfg):
         if ('done' in lang_action) or ('Done' in lang_action):
             print("Task End!!!")
             break
-
         elif env.task.max_steps < step_cnt:
             break
 
@@ -124,7 +113,6 @@ def main(cfg):
             obs['objects'] = objects
             obs['lang_action'] = lang_action
             act = agent.forward(obs)
-
         elif cfg.agent_mode==2:
             info['lang_goal'] = lang_action
             env.task.lang_goals = [lang_action]
@@ -139,7 +127,6 @@ def main(cfg):
         except ValueError:
             obs, reward, done, info, action_ret_str = z
             print(action_ret_str)
-
 
         planning_prompt = f'{planning_prompt}{lang_action}. '
         step_cnt += 1

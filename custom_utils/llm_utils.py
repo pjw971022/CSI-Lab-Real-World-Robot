@@ -103,7 +103,7 @@ class LLMAgent:
     def __init__(self, use_vision_fewshot = False) -> None:
         self.sentence_model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
         self.vision_config = {"max_output_tokens": 800, "temperature": 0.0, "top_p": 1, "top_k": 32}
-        self.text_config = {"max_output_tokens": 100, "temperature": 0.0, "top_p": 1}
+        self.text_config = {"max_output_tokens": 512, "temperature": 0.0, "top_p": 1}
         self.safety_settings = [
             {
                 "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
@@ -208,9 +208,7 @@ class LLMAgent:
             generated_sequence = ''
             for part in parts:
                 generated_sequence += part.text
-        print(f"@@@@ gen act: {generated_sequence}")
         plan_list = re.findall(r"\[Plan \d+\].*?\.", generated_sequence)
-        print(f"plan_list: {plan_list}")
         return plan_list
     
     def gemini_new_scoring(self, fewshot_prompt, planning_prompt, options, fewshot_img, obs_img):

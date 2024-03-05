@@ -73,7 +73,7 @@ def grid_overlay(img, pp_cnt):
     plt.ylabel("Y-coordinate in pixels")
 
     plt.title("Image with Grid Overlay")
-    plt.savefig(f'/home/pjw971022/RealWorldLLM/real_bot/save_viz/demo_viz/obs_{pp_cnt}.png')
+    plt.savefig(f'/home/pjw971022/Sembot/real_bot/save_viz/demo_viz/obs_{pp_cnt}.png')
 
 @hydra.main(config_path='./cfg', config_name='data')
 def main(cfg):

@@ -8,7 +8,7 @@ hydra:
     dir: ${root_dir}
 
 data_dir: ${root_dir}/data  # where to store dataset
-assets_root: /home/pjw971022/RealWorldLLM/ravens/ravens/environments/assets/
+assets_root: /home/pjw971022/Sembot/ravens/ravens/environments/assets/
 disp: False  # visualize PyBullet
 shared_memory: False
 task: packing-boxes-pairs-seen-colors

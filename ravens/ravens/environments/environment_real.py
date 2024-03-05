@@ -55,7 +55,7 @@ class RealEnvironment(gym.Env):
             self.socket_speech.setsockopt(zmq.RCVTIMEO, 10000)
             # self.socket_speech.setsockopt(zmq.SUBSCRIBE, b'')  # 바이트 문자열 사용
 
-            self.audio_file_path = "/home/pjw971022/RealWorldLLM/real_bot/perception/speech_command.wav"
+            self.audio_file_path = "/home/pjw971022/Sembot/real_bot/perception/speech_command.wav"
             print("Speech Client Start")
         color_tuple = [
             gym.spaces.Box(0, 255, config['image_size'] + (3,), dtype=np.uint8)
@@ -101,7 +101,7 @@ class RealEnvironment(gym.Env):
         obs, _, _, info = self.step(reset=True)
         return obs, info
 
-    def step(self, raw_action=None, cliport=False, reset=False):
+    def step(self, raw_action=None, reset=False):
         self.step_counter += 1
         timeout = self.timeout()
         if timeout:
@@ -118,16 +118,11 @@ class RealEnvironment(gym.Env):
         elif isinstance(raw_action, int):
             action = raw_action
         else:
-            if not cliport:
-                mode = raw_action['mode']
-                pick_pose = raw_action['pose0']
-                place_pose = raw_action['pose1']
-                
-                action = (mode, pick_pose, place_pose)
-            else:
-                pick_pose = self.se3_to_pose(raw_action['pose0'])
-                place_pose = self.se3_to_pose(raw_action['pose1'])
-                action = (pick_pose, place_pose)
+            mode = raw_action['mode']
+            pick_pose = raw_action['pose0']
+            place_pose = raw_action['pose1']
+            
+            action = (mode, pick_pose, place_pose)
         if reset and 'speech' in self.task_name:
             speech_request_json = json.dumps('require speech')
             self.socket_speech.send_string(speech_request_json)
@@ -188,7 +183,7 @@ class RealEnvironment(gym.Env):
         color = np.array(data['rgb'])
         depth = np.array(data['depth'])
         
-        cv2.imwrite('/home/pjw971022/RealWorldLLM/real_bot/save_viz/obs/image_obs.png', color)
+        cv2.imwrite('/home/pjw971022/Sembot/real_bot/save_viz/obs/image_obs.png', color)
 
         """Render RGB-D image with specified camera configuration."""
         if not image_size:

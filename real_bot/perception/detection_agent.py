@@ -2,11 +2,11 @@ from pathlib import Path
 import numpy as np
 import torch
 import sys
-sys.path.append('/home/pjw971022/RealWorldLLM/real_bot/perception')        
+sys.path.append('/home/pjw971022/Sembot/real_bot/perception')        
 from owl_vit import OWLViTDetector
 MIN_MAX_X = (0.2, 0.8)
 MIN_MAX_Y = (-0.4, 0.6)
-MIN_MAX_Z = (0.03, 0.5)
+MIN_MAX_Z = (0.03, 0.6)
 MIN_MAX_DISTANCE = 0.61
 
 import re
@@ -18,26 +18,34 @@ mixin = ImageFeatureExtractionMixin()
 class ObjectDetectorAgent:
     def __init__(self, task, target1_obj=None, grip_top=500):
         self.use_clip = False
-        self.image_dir = Path(f'/home/pjw971022/RealWorldLLM/real_bot/save_viz/obs')
+        self.image_dir = Path(f'/home/pjw971022/Sembot/real_bot/save_viz/obs')
         self.task = task
         self.grip_top = grip_top
         self.target1_obj = target1_obj
         # Set up ViLD object detector
         self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
-        self.score_threshold  = 0.05
+        self.score_threshold  = 0.2
         self.detector = OWLViTDetector(self.device, self.score_threshold)
-        self.bottom_z = 0.855 # @
+        self.bottom_z = 0.865 # @
         self.recep_pose_dict = { 
-                                'anywhere':(0.5, -0.3, 0.15, 0, np.pi, 0),
-                                'first paper': (0.65, -0.2, 0.15, 0, np.pi, 0),
-                                'second paper': (0.65, -0.05, 0.15, 0, np.pi, 0),
-                                'third paper': (0.65, 0.1, 0.15, 0, np.pi, 0),
-                                'fourth paper': (0.65, 0.25, 0.15, 0, np.pi, 0),
-                                'gray basket': (0.4, 0.35, 0.2, 0, np.pi, 0),
-                                'green basket': (0.4, 0.34, 0.25, 0, np.pi, 0),
-                                'trash can': (0.6, 0.5, 0.3, 0, np.pi, 0),
-                                'box': (0.3, 0.5, 0.2, 0, np.pi, 0),
-                                }
+                'anywhere':(0.5, -0.3, 0.15, 0, np.pi, 0),
+                
+                'first paper': (0.65, -0.35, 0.02, 0, np.pi, 0),
+                'second paper': (0.65, -0.27, 0.02, 0, np.pi, 0),
+                'third paper': (0.65, -0.19, 0.02, 0, np.pi, 0),
+                'fourth paper': (0.65, -0.11, 0.02, 0, np.pi, 0),
+                'fifth paper': (0.65, -0.03, 0.02, 0, np.pi, 0),
+                'sixth paper': (0.65, 0.05, 0.02, 0, np.pi, 0),
+                'seventh paper': (0.65, 0.13, 0.02, 0, np.pi, 0),
+                'eighth paper': (0.65, 0.21, 0.02, 0, np.pi, 0),
+                'nineth paper': (0.65, 0.29, 0.02, 0, np.pi, 0),
+                'tenth paper': (0.65, 0.37, 0.02, 0, np.pi, 0),
+
+                'gray basket': (0.4, 0.35, 0.2, 0, np.pi, 0),
+                'green basket': (0.4, 0.34, 0.25, 0, np.pi, 0),
+                'trash can': (0.6, 0.5, 0.3, 0, np.pi, 0),
+                'box': (0.3, 0.5, 0.2, 0, np.pi, 0),
+                }
 
     def pointcloud_to_xyz(self, bbox, pointcloud, params):
 
@@ -62,7 +70,7 @@ class ObjectDetectorAgent:
 
     def bbox_to_pose(self, bbox, pointcloud, params):
         pose_x, pose_y, pose_z = self.pointcloud_to_xyz(bbox, pointcloud, params)
-        # pose_z = 0.06 # 임시 세팅
+        pose_z = 0.083
 
         print(f"pose_x: {pose_x}  pose_y: {pose_y} pose_z: {pose_z}")
         assert (pose_x > MIN_MAX_X[0]) and (pose_x < MIN_MAX_X[1])
@@ -75,7 +83,7 @@ class ObjectDetectorAgent:
     def transform_coordinates(self, x, y): # @
         # transform pixel pose with robot coordinate
         new_x = y + 0.54
-        new_y = x - 0.135
+        new_y = x - 0.13
         return new_x, new_y
 
     def oracle_target_pose(self, receptacle):
@@ -87,7 +95,8 @@ class ObjectDetectorAgent:
         mode, target1_obj, target2_obj, params = self.parse_action(data['lang_action'])
         target1_queries = data['objects']
         target2_queries = data['objects']
-        # print(f"target1_obj: {target1_obj}   target2_obj: {target2_obj}")
+        print(f"target1_obj: {target1_obj}   target2_obj: {target2_obj}")
+
         if 'ready' in target1_obj :
             pass
         elif 'anywhere' in target1_obj:
@@ -100,21 +109,19 @@ class ObjectDetectorAgent:
         elif target2_obj is not None:
             assert target2_obj in target2_queries
 
-        rgb_path = '/home/pjw971022/RealWorldLLM/real_bot/save_viz/obs/image_obs.png'
+        rgb_path = '/home/pjw971022/Sembot/real_bot/save_viz/obs/image_obs.png'
         image = Image.open(rgb_path).convert("RGB")
 
         target1_outputs = self.detector.forward(image, target1_queries)
         target1_detected_image_path = str(self.image_dir / f'detected_target1_obj.png')
 
         image_size = self.detector.model.config.vision_config.image_size
-        # image = cv.resize(data['color'][0].astype('float32'), (image_size, image_size))
         image = mixin.resize(image, image_size)
         input_image = np.asarray(image).astype(np.float32) / 255.0
         resized_image = cv2.resize(input_image, (640, 480))
 
         self.detector.plot_predictions(resized_image, target1_queries, target1_outputs, target1_detected_image_path)
 
-        # Select target1 obj
         scores = target1_outputs['scores']
         boxes = target1_outputs['boxes']
         labels = target1_outputs['labels']
@@ -125,7 +132,6 @@ class ObjectDetectorAgent:
                 selected_box = box
                 best_score = score
         
-        # Calculate target1 pose
         if 'ready' in target1_obj:
             return  {'mode': mode, 'pose0': None, 'pose1': None}
         elif 'anywhere' in target1_obj:
@@ -141,10 +147,6 @@ class ObjectDetectorAgent:
             return -1
         else:
             target1_pose = self.bbox_to_pose(selected_box, data['pointcloud'], params) 
-            # print(f"Score: {best_score}")
-            print(f"Mode: {mode}")
-            print(f"target1 pose: {target1_pose}")
-            # Calculate target2 pose
             if target2_obj is not None:
                 target2_outputs = self.detector.forward(image, target2_queries,)
                 target2_detected_image_path = str(self.image_dir / f'detected_target2_obj.jpg')
@@ -196,7 +198,10 @@ class ObjectDetectorAgent:
         if self.task == 'speech2demo':
             target_pattern = "\<(.*?)\>"
             if 'move' in lang_action:
-                recep_pattern = r"(red block|yellow block|green block|green basket|gray basket|napkin|anywhere)"
+                if 'letter' in lang_action:
+                    recep_pattern = r"(first paper|second paper|third paper|fourth paper|fifth paper|sixth paper|seventh paper|eighth paper|nineth paper|tenth paper)"
+                else:
+                    recep_pattern = r"(red block|yellow block|green block|green basket|gray basket|napkin|anywhere)"
             else:
                 recep_pattern = r"()"
 
