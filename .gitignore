@@ -178,3 +178,4 @@ pyrightconfig.json
 cliport
 OWL_ViT_inference_example.ipynb
 test_llm.ipynb
+outputs/

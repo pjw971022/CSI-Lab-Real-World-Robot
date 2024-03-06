@@ -2,16 +2,16 @@ import os
 import vertexai
 from vertexai.preview.generative_models import GenerativeModel, Part
 from google.cloud import storage
-
+curdir = os.getcwd()
 location = "asia-northeast3"
 project_id = "gemini-api-415903"
-key_path = "/home/shyuni5/file/CORL2024/Sembot/gemini-api-415903-0f8224218c2c.json"
+key_path = curdir + "/envs/gemini-api-415903-0f8224218c2c.json"
 
 # Video & img path는 아래와 같다고 가정.
 # img, video 변수를 통해서 각 파일의 이름을 넘겨주면됨.
 
-image_path = "/home/shyuni5/file/CORL2024/Sembot/low_level_planner/src/visualizations/obs/"
-video_path = "/home/shyuni5/file/CORL2024/Sembot/low_level_planner/src/envs/"
+image_path = curdir + "/visualizations/obs/"
+video_path = curdir + "/envs/"
 
 #-----------------------------------------------------------------------------
 
@@ -146,19 +146,19 @@ class MotionDescriptor:
 descriptor = MotionDescriptor()
 
 # Test gemini_gen_u2c
-user_command = "How can I accomplish the task of pouring liquid from a red cup into a maroon cup?"
+# user_command = "How can I accomplish the task of pouring liquid from a red cup into a maroon cup?"
 
 
-print("Testing gemini_gen_u2c:")
-print(descriptor.gemini_gen_u2c(user_command))
+# print("Testing gemini_gen_u2c:")
+# print(descriptor.gemini_gen_u2c(user_command))
 
-# Test gemini_gen_o2c
-print("\nTesting gemini_gen_o2c:")
-img = "front_rgb.png"
-print(descriptor.gemini_gen_o2c(img, user_command))
+# # Test gemini_gen_o2c
+# print("\nTesting gemini_gen_o2c:")
+# img = "front_rgb.png"
+# print(descriptor.gemini_gen_o2c(img, user_command))
 
-# Test gemini_gen_d2c
-print("\nTesting gemini_gen_d2c:")
-img = "front_rgb.png"
-video = "demo_video.mp4"
-print(descriptor.gemini_gen_d2c(video, img, user_command))
+# # Test gemini_gen_d2c
+# print("\nTesting gemini_gen_d2c:")
+# img = "front_rgb.png"
+# video = "demo_video.mp4"
+# print(descriptor.gemini_gen_d2c(video, img, user_command))

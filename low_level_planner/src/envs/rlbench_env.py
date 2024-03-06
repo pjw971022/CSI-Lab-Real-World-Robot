@@ -3,7 +3,6 @@ import numpy as np
 import open3d as o3d
 import json
 import sys
-sys.path.append('/home/andykim0723/RLBench/rlbench')
 from rlbench.action_modes.action_mode import MoveArmThenGripper
 from rlbench.action_modes.arm_action_modes import ArmActionMode, EndEffectorPoseViaPlanning
 from rlbench.action_modes.gripper_action_modes import Discrete, GripperActionMode
@@ -238,7 +237,7 @@ class VoxPoserRLBench():
         for key, val in rgb_dict.items():
             val = val.astype(np.uint8)
             image = Image.fromarray(val)
-            image.save(f'/home/andykim0723/RLBench/Sembot/low_level_planner/src/visualizations/obs/{key}.png')
+            image.save(f'/home/jinwoo/workspace/Sembot/low_level_planner/src/visualizations/obs/{key}.png')
 
         obs = self._process_obs(obs)
         self.init_obs = obs
