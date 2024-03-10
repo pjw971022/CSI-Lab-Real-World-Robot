@@ -6,6 +6,7 @@ import time
 from scipy.ndimage import distance_transform_edt
 import transforms3d
 from controllers import Controller
+import wandb
 
 # creating some aliases for end effector and table in case LLMs refer to them differently (but rarely this happens)
 EE_ALIAS = ['ee', 'endeffector', 'end_effector', 'end effector', 'gripper', 'hand']
@@ -20,7 +21,6 @@ class LMP_interface():
     self._map_size = self._cfg['map_size']
     self._planner = PathPlanner(planner_config, map_size=self._map_size)
     self._controller = Controller(self._env, controller_config)
-
     # calculate size of each voxel (resolution)
     self._resolution = (self._env.workspace_bounds_max - self._env.workspace_bounds_min) / self._map_size
     print('#' * 50)
@@ -35,7 +35,7 @@ class LMP_interface():
   def get_ee_pos(self):
     return self._world_to_voxel(self._env.get_ee_pos())
   
-  def detect(self, obj_name):
+  def detect(self, obj_name, **kwargs):
     """return an observation dict containing useful information about the object"""
     if obj_name.lower() in EE_ALIAS:
       obs_dict = dict()
@@ -203,7 +203,9 @@ class LMP_interface():
         gripper_state = _gripper_map[ee_pos_voxel[0], ee_pos_voxel[1], ee_pos_voxel[2]]
       # move to the final target
       result = self._env.apply_action(np.concatenate([ee_pose_world, [gripper_state]]))
-      print(f"##### Reward: {result[1]} \n\n")
+      # save in wandb
+      wandb.log({"Reward": result[1]})
+
     return execute_info
   
   def cm2index(self, cm, direction):

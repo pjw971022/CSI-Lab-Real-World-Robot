@@ -1,6 +1,6 @@
 env_name: rlbench
-task_name: pour_from_cup_to_cup
 context_mode: pre_user_command
+episode_length: 10
 
 planner:
   stop_threshold: 0.001
@@ -31,7 +31,7 @@ lmp_config:
     map_size: 100
     num_waypoints_per_plan: 10000  # set to a large number since we only do open loop for sim
     max_plan_iter: 1
-    visualize: True
+    visualize: False
   lmps:
     planner:
       prompt_fname: planner_prompt

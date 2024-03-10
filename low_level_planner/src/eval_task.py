@@ -1,5 +1,5 @@
 import hydra
-from omegaconf import DictConfig
+from omegaconf import DictConfig, OmegaConf
 import openai
 from arguments import get_config
 from interfaces import setup_LMP
@@ -26,9 +26,10 @@ def main(cfgs: DictConfig):
     env = VoxPoserRLBench(visualizer=visualizer)
     lmps, lmp_env = setup_LMP(env, config, debug=False)
     voxposer_ui = lmps['plan_ui']
-    task_list = [tasks.PutRubbishInBin,
-     tasks.LampOff,
-     tasks.OpenWineBottle,
+    task_list = [
+    # tasks.PutRubbishInBin,
+    #  tasks.LampOff,
+    #  tasks.OpenWineBottle,
      tasks.PushButton,
      tasks.TakeOffWeighingScales,
      tasks.MeatOffGrill,
@@ -39,14 +40,20 @@ def main(cfgs: DictConfig):
      ]
     # below are the tasks that have object names added to the "task_object_names.json" file
     # uncomment one to use
-    wandb.init(project="voxposer-naive", entity="pjw971022", name=config.context_mode)
-    wandb.config.update(config)
+    plain_dict = OmegaConf.to_container(config, resolve=True, enum_to_str=True)
+    # wandb.init(project="voxposer-naive", entity="pjw971022", name=config.context_mode, config={})
     for task in task_list:
-        for i in range(cfg['episode_length']):
-            env.load_task(task)
+        env.load_task(task)
+        task_name = env.task.get_name()
+        wandb.init(project="voxposer-naive",
+                   entity="pjw971022",
+                   name=task_name, 
+                   reinit=True)
+        wandb.config.update(plain_dict)
+
+        for i in range(cfgs['episode_length']):
             descriptions, obs = env.reset()
             set_lmp_objects(lmps, env.get_object_names())  # set the object names to be used by voxposer
-            task_name = env.task.get_name()
             instruction = np.random.choice(descriptions)
             print(f'instruction: {instruction}')
             if 'pre' in config.context_mode:
@@ -78,8 +85,8 @@ def main(cfgs: DictConfig):
             
             voxposer_ui(instruction,
                         motion_guideline=motion_guideline)
-        # Log metrics to wandb
-        wandb.log({"task_name": task_name})
+            # Log task name to wandb
+            
     wandb.finish()
 #     for task in task_list:
 #         env.load_task(task)

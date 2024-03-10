@@ -2,7 +2,6 @@
 import openai
 from time import sleep
 from openai import OpenAI
-# RateLimitError, APIConnectionError
 from pygments import highlight
 from pygments.lexers import PythonLexer
 from pygments.formatters import TerminalFormatter
@@ -12,6 +11,7 @@ from LLM_cache import DiskCache
 
 import google.generativeai as genai
 genai.configure(api_key='AIzaSyDRv4MkxqaTD9Nn4xDieqFkHbf8Ny4eU_I')
+MAX_TRAIAL = 5
 
 class LMP:
     """Language Model Program (LMP), adopted from Code as Policies."""
@@ -29,15 +29,22 @@ class LMP:
         self.text_config = {"max_output_tokens": self._cfg['max_tokens'], "temperature": self._cfg['temperature'], "top_p": 1, "stop_sequences" : self._stop_tokens}
         self.safety_settings = [
             {
-                "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
-                "threshold": "BLOCK_NONE",
+            "category": "HARM_CATEGORY_HARASSMENT",
+            "threshold": "BLOCK_NONE"
             },
             {
-                "category": "HARM_CATEGORY_HARASSMENT",
-                "threshold": "BLOCK_NONE",
+            "category": "HARM_CATEGORY_HATE_SPEECH",
+            "threshold": "BLOCK_NONE"
             },
+            {
+            "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+            "threshold": "BLOCK_NONE"
+            },
+            {
+            "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+            "threshold": "BLOCK_NONE"
+            }
         ]
-        self.function_name = self._cfg['prompt_fname'].split('_')[0]
         # self.sub_guideline_list = None                
         # self.subtask_list = None
         
@@ -98,11 +105,23 @@ class LMP:
             user1 = kwargs.pop('prompt')
             new_query = '# Query:' + user1.split('# Query:')[-1]
             user1 = ''.join(user1.split('# Query:')[:-1]).strip()
-            if motion_guideline is None or 'planner' != self.function_name:
+            if motion_guideline is None or 'planner' not in self._name:
                 user1 = f"I would like you to help me write Python code to control a robot arm operating in a tabletop environment. Please complete the code every time when I give you new query. Pay attention to appeared patterns in the given context code. Be thorough and thoughtful in your code. Do not include any import statement. Do not repeat my question. Do not provide any text explanation (comment in code is okay). I will first give you the context of the code below:\n\n```\n{user1}\n```\n\nNote that x is back to front, y is left to right, and z is bottom to up."
             else:
                 user1 = f"I would like you to help me write Python code to control a robot arm operating in a tabletop environment. I have a description of a robot's motion and i want you to turn that into the corresponding python code. Please complete the code every time when I give you new query. Pay attention to appeared patterns in the given context code. Be thorough and thoughtful in your code. Do not include any import statement. Do not repeat my question. Do not provide any text explanation (comment in code is okay). I will first give you the context of the code below:\n\n```\n{user1}\n```\n\nNote that x is back to front, y is left to right, and z is bottom to up." 
                 motion_guideline = f'[start of description]\n{motion_guideline}\n[end of description]'
+            
+            if 'parse' in self._name:
+                print(f"function name: {self._name}")
+                user1 += "\nEnsure the detect function only accepts objects that are present in the objects list as its input parameter."
+                example_code ="""Example code:
+                            obj1 = detect('obj1')
+                            obj1_position = obj1.position
+                            """
+                user1 += f"\nDetected objects only have an attribute named position.\n\n{example_code}\n\nYou must not attempt to use any attributes other than position."
+                import ipdb;ipdb.set_trace()
+                exit()
+
             assistant1 = f'Got it. I will complete what you give me next.'
             user2 = new_query
             # handle given context (this was written originally for completion endpoint)
@@ -113,8 +132,9 @@ class LMP:
                 # add obj_context to user2
                 user2 = obj_context.strip() + '\n' + user2
 
+
             ##################################################################
-            if motion_guideline is None or 'planner' != self.function_name:
+            if motion_guideline is None or 'planner' not in self._name:
                 prompt =[{"role":"user",
                         "parts":[{"text":system_query}, {"text":user1}]},
                         {"role":"model",
@@ -131,15 +151,13 @@ class LMP:
                         "parts":[{"text":user2}]}
                         ]
             kwargs['messages'] = prompt
-
             response = model.generate_content(prompt,
-                                    generation_config = self.text_config,
-                                    safety_settings=self.safety_settings)
+                                generation_config = self.text_config,
+                                safety_settings=self.safety_settings)
+
             ##################################################################
-            try:
-                ret = response.text
-            except:
-                import ipdb;ipdb.set_trace()
+            ret = response.text
+
             # post processing
             ret = ret.replace('```', '').replace('python', '').strip()
             self._cache[kwargs] = ret
@@ -192,13 +210,14 @@ class LMP:
     def __call__(self, query, **kwargs):
         prompt, user_query = self.build_prompt(query)
         start_time = time.time()
-        if 'planner' == self.function_name:
+        try_cnt = 0
+        if 'planner' in self._name:
             motion_guideline = kwargs['motion_guideline']
         else:
             motion_guideline = None 
-        #     motion_guideline = self.sub_guideline_list[self.function_name]
         
-        while True:
+        while MAX_TRAIAL > try_cnt:
+            try_cnt+=1
             if any([chat_model in self._cfg['model'] for chat_model in ['gpt-3.5', 'gpt-4']]):
                 try:
                     code_str = self._cached_api_call(
@@ -209,8 +228,6 @@ class LMP:
                         model=self._cfg['model'],
                         max_tokens=self._cfg['max_tokens']
                     )
-                    # if 'planner' == self.function_name:
-                    #     self.subtask_list = extract_strings(code_str)
                     print(f'*** OpenAI API call took {time.time() - start_time:.2f}s ***')
                     break
                 except (openai.RateLimitError, openai.APIConnectionError) as e:
@@ -218,24 +235,25 @@ class LMP:
                     print('Retrying after 3s.')
                     sleep(3)
             elif any([chat_model in self._cfg['model'] for chat_model in ['gemini-pro', 'gemini-pro-vision']]):
-                code_str = self._cached_api_call(
-                    prompt=prompt,
-                    motion_guideline=motion_guideline,
-                    stop=self._stop_tokens,
-                    temperature=self._cfg['temperature'],
-                    model=self._cfg['model'],
-                    max_tokens=self._cfg['max_tokens']
-                )
-                # if 'planner' == self.function_name:
-                #     self.subtask_list = extract_strings(code_str)
-                print(f'*** Google API call took {time.time() - start_time:.2f}s ***')
-                # if 'planner' == self.function_name:
-                #     self.sub_guideline_list = self._divide_guideline_api_call(
-                #                                                 motion_guideline=kwargs['motion_guideline'],
-                #                                                 model=self._cfg['model'],
-                #                                                 subtask = self.subtask_list  
-                #                                                 )
-                break
+                try:
+                    code_str = self._cached_api_call(
+                        prompt=prompt,
+                        motion_guideline=motion_guideline,
+                        stop=self._stop_tokens,
+                        temperature=self._cfg['temperature'],
+                        model=self._cfg['model'],
+                        max_tokens=self._cfg['max_tokens']
+                    )
+                    time_cost = time.time() - start_time
+                    print(f'*** Google API call took {time_cost:.2f}s ***')
+                    break
+                except Exception as e:
+                    print(f'Google API got err {e}')
+                    print('Retrying after 3s.')
+                    sleep(3)
+            else:
+                raise NotImplementedError
+
 
         if self._cfg['include_context']:
             assert self._context is not None, 'context is None'
