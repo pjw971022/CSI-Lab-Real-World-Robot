@@ -7,7 +7,7 @@ from owl_vit import OWLViTDetector
 MIN_MAX_X = (0.2, 0.8)
 MIN_MAX_Y = (-0.4, 0.6)
 MIN_MAX_Z = (0.03, 0.6)
-MIN_MAX_DISTANCE = 0.61
+MIN_MAX_DISTANCE = 0.65
 
 import re
 from PIL import Image
@@ -18,7 +18,7 @@ mixin = ImageFeatureExtractionMixin()
 class ObjectDetectorAgent:
     def __init__(self, task, target1_obj=None, grip_top=500):
         self.use_clip = False
-        self.image_dir = Path(f'/home/pjw971022/Sembot/real_bot/save_viz/obs')
+        self.image_dir = Path(f'/home/pjw971022/Sembot/real_bot/save_vision/obs')
         self.task = task
         self.grip_top = grip_top
         self.target1_obj = target1_obj
@@ -42,7 +42,7 @@ class ObjectDetectorAgent:
                 'tenth paper': (0.65, 0.37, 0.02, 0, np.pi, 0),
 
                 'gray basket': (0.4, 0.35, 0.2, 0, np.pi, 0),
-                'green basket': (0.4, 0.34, 0.25, 0, np.pi, 0),
+                'green basket': (0.77, -0.23, 0.15, 0, np.pi, 0),
                 'trash can': (0.6, 0.5, 0.3, 0, np.pi, 0),
                 'box': (0.3, 0.5, 0.2, 0, np.pi, 0),
                 }
@@ -70,7 +70,7 @@ class ObjectDetectorAgent:
 
     def bbox_to_pose(self, bbox, pointcloud, params):
         pose_x, pose_y, pose_z = self.pointcloud_to_xyz(bbox, pointcloud, params)
-        pose_z = 0.083
+        pose_z = 0.07
 
         print(f"pose_x: {pose_x}  pose_y: {pose_y} pose_z: {pose_z}")
         assert (pose_x > MIN_MAX_X[0]) and (pose_x < MIN_MAX_X[1])
@@ -82,8 +82,8 @@ class ObjectDetectorAgent:
     
     def transform_coordinates(self, x, y): # @
         # transform pixel pose with robot coordinate
-        new_x = y + 0.54
-        new_y = x - 0.13
+        new_x = y + 0.575
+        new_y = x - 0.11
         return new_x, new_y
 
     def oracle_target_pose(self, receptacle):
@@ -104,12 +104,8 @@ class ObjectDetectorAgent:
         else:
             assert target1_obj in target1_queries
 
-        if 'anywhere' in target2_obj:
-            pass
-        elif target2_obj is not None:
-            assert target2_obj in target2_queries
-
-        rgb_path = '/home/pjw971022/Sembot/real_bot/save_viz/obs/image_obs.png'
+        
+        rgb_path = '/home/pjw971022/Sembot/real_bot/save_vision/obs/image_obs.png'
         image = Image.open(rgb_path).convert("RGB")
 
         target1_outputs = self.detector.forward(image, target1_queries)
@@ -194,8 +190,17 @@ class ObjectDetectorAgent:
             mode = 7
         else:
             raise NotImplementedError
-                
-        if self.task == 'speech2demo':
+        if self.task == 'multi_modal':
+            target_pattern = "\<(.*?)\>"
+            if 'move' in lang_action:
+                if 'letter' in lang_action:
+                    recep_pattern = r"(first paper|second paper|third paper|fourth paper|fifth paper|sixth paper|seventh paper|eighth paper|nineth paper|tenth paper)"
+                else:
+                    recep_pattern = r"(red block|yellow block|green block|green basket|gray basket|napkin|anywhere)"
+            else:
+                recep_pattern = r"()"   
+
+        elif self.task == 'speech2demo':
             target_pattern = "\<(.*?)\>"
             if 'move' in lang_action:
                 if 'letter' in lang_action:

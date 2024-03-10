@@ -2,17 +2,16 @@ import os
 import vertexai
 from vertexai.preview.generative_models import GenerativeModel, Part
 from google.cloud import storage
-
+curdir = os.getcwd()
 location = "asia-northeast3"
 project_id = "gemini-api-415903"
-key_path = "/home/shyuni5/file/CORL2024/Sembot/gemini-api-415903-0f8224218c2c.json"
+key_path = curdir + "/gemini-api-415903-0f8224218c2c.json"
 
 # Video & img path는 아래와 같다고 가정.
 # img, video 변수를 통해서 각 파일의 이름을 넘겨주면됨.
 
-image_path = "/home/shyuni5/file/CORL2024/Sembot/low_level_planner/src/visualizations/obs/"
-video_path = "/home/shyuni5/file/CORL2024/Sembot/low_level_planner/src/envs/"
-
+image_path = os.path.dirname(curdir) +  "/visualizations/obs/"
+video_path = curdir + '/'
 #-----------------------------------------------------------------------------
 
 
@@ -24,7 +23,8 @@ Describe the motion of robot arm using the following form:
 
 Speed: The robot arm should move at a speed of [NUM: 0.0]m/s.
 Required Force: The robot arm should apply a force of [NUM: 0.0] Newtons.
-[optional] Approach object: The robot arm should approach the object at a speed of [NUM: 0.0]m/s.
+[optional] Approach object: The robot arm이 접근해야하는 위치는 오브젝트의 [NUM: 0.0] meters 이여야 한다.
+[optional] Speed: The robot arm should approach the object at a speed of [NUM: 0.0]m/s.
 [optional] Initial Tilt(degree): The initial tilt of the robot arm should be [NUM: 0.0] degrees towards the target.
 [optional] Max Tilt(degree): The maximum tilt of the robot arm should be [NUM: 0.0] degrees.
 [optional] Distance Moved: The robot arm should move a distance of [NUM: 0.0] meters.
@@ -117,7 +117,7 @@ class MotionDescriptor:
         response_2 = self.model.generate_content(contents, generation_config=self.text_config) #, safety_settings = self.safety_settings
         return response_2.text
     
-    def gemini_gen_d2c(self, video, img, user_command):
+    def gemini_gen_d2c(self, user_command , video="demo_video.mp4", img="front_rgb.png"):
         prompt_descriptor_with_instruction = prompt_descriptor.format(user_command)
         prompt_obs_extractor_with_instruction = prompt_obs_extractor.format(user_command)
         prompt_demo_extractor_with_instruction = prompt_demo_extractor.format(user_command)
@@ -138,7 +138,12 @@ class MotionDescriptor:
         response_3 = self.model.generate_content(contents, generation_config=self.text_config) #, safety_settings = self.safety_settings
         return response_3.text
     
-
+    def gemini_video_QA(self, query, video="demo_video.mp4"):
+        video_uri = upload_blob(video_path + video, video)
+        video_file = Part.from_uri(video_uri, mime_type="video/mp4")
+        contents = [video_file, query]
+        response_3 = self.model.generate_content(contents, generation_config=self.text_config) #, safety_settings = self.safety_settings
+        return response_3.text
 #-----------------------------------------------------------------------------
 
 # #TEST
@@ -146,19 +151,24 @@ class MotionDescriptor:
 descriptor = MotionDescriptor()
 
 # Test gemini_gen_u2c
-user_command = "How can I accomplish the task of pouring liquid from a red cup into a maroon cup?"
+# user_command = "How can I accomplish the task of pouring liquid from a red cup into a maroon cup?"
+# print("Testing gemini_gen_u2c:")
+# print(descriptor.gemini_gen_u2c(user_command))
 
-
-print("Testing gemini_gen_u2c:")
-print(descriptor.gemini_gen_u2c(user_command))
-
-# Test gemini_gen_o2c
-print("\nTesting gemini_gen_o2c:")
-img = "front_rgb.png"
-print(descriptor.gemini_gen_o2c(img, user_command))
+# # Test gemini_gen_o2c
+# print("\nTesting gemini_gen_o2c:")
+# img = "front_rgb.png"
+# print(descriptor.gemini_gen_o2c(img, user_command))
 
 # Test gemini_gen_d2c
-print("\nTesting gemini_gen_d2c:")
+
+# Oracle Query for "pour from cup to cup"
+query1 = "Tell me the maximum angle to bend my hand when pouring water in the video. "
+query2 = "Tell me the position of holding the cup when pouring water in the video. "
+query3 = "How many centimeters above the target cup is the person currently pouring the water from?"
+
+print("\nTesting gemini Video QA")
 img = "front_rgb.png"
 video = "demo_video.mp4"
-print(descriptor.gemini_gen_d2c(video, img, user_command))
+# print(descriptor.gemini_video_QA(query1))
+print(descriptor.gemini_video_QA(query3))

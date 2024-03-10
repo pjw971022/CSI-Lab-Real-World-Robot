@@ -37,7 +37,7 @@ dataset:
 # record videos (super slow)
 record:
   save_video: True
-  save_video_path: /home/pjw971022/Sembot/real_bot/save_viz/llm_inference
+  save_video_path: /home/pjw971022/Sembot/real_bot/save_vision/llm_inference
   add_text: True
   fps: 20
   video_height: 640
@@ -76,11 +76,9 @@ device: cuda
 oracle_flag: false
 eval_episodes: 1
 
-use_vision_fewshot: false
 category_mode: 0
 plan_mode: gen
 llm_type: gemini
-agent_mode: 3
 train_config: /home/pjw971022/Sembot/cliport/cliport_quickstart/multi-language-conditioned-cliport-n1000-train/.hydra/config.yaml
 cliport_model_path: /home/pjw971022/Sembot/cliport/cliport_quickstart/multi-language-conditioned-cliport-n1000-train/checkpoints/
 agent: cliport

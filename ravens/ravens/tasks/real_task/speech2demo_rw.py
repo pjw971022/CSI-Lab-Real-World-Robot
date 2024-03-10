@@ -10,7 +10,7 @@ class RealWorldspeech2Demo(Task):
         self.max_steps = 15
         self.final_goal = ""
         self.lang_template = ""
-        self.task_completed_desc = "done making a word"
+        self.task_completed_desc = "done"
         self.categories = ''
         self.objects = ['red block', 'green block', 'yellow block', 'bottle', 'lotion', 'cup', 'sponge', 'pencil holder', 'yellow pencil',
                 'green basket', 'stain', 'toy car' ,'baseball', 'tennis ball' ] 
@@ -21,7 +21,6 @@ class RealWorldspeech2Demo(Task):
         self.extract_state_prompt = "Tell me every objects on the black table. Example) There are letter A, letter B, letter C and letter D  on the desk."            
     def reset(self, ):
         super().reset()
-        self.lang_goals.append(self.lang_template.format(obj='trash', receptacle='trash can'))
 
     def get_final_lang_goal(self):
         return self.final_goal
