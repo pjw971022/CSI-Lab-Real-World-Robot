@@ -180,3 +180,4 @@ OWL_ViT_inference_example.ipynb
 test_llm.ipynb
 outputs/
 real_bot/save_vision/obs/
+VideoRAG/EgoVLPv2/

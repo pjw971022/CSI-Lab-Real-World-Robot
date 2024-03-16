@@ -46,9 +46,7 @@ Required Force: The robot arm should apply a force of [NUM: 0.0] Newtons.
 prompt_obs_extractor ="""
 Please provide a detailed description of the photo, focusing on the objects present, their relative positions, sizes, colors, and any notable features.
 Include information on the background and foreground elements, highlighting any interactions or relationships between objects.
-Mention lighting conditions, textures, and materials to offer a comprehensive understanding of the scene.
 Following the instruction {}, identify relevant details that could influence the task's outcome.
-Adapt the description to accommodate a wide range of instructions, ensuring a thorough analysis of elements critical for task execution.
 """
 
 prompt_demo_extractor ="""

@@ -49,77 +49,10 @@ def main(cfgs: DictConfig):
             task_name = env.task.get_name()
             instruction = np.random.choice(descriptions)
             print(f'instruction: {instruction}')
-            if 'pre' in config.context_mode:
-                if env.task.get_name() in prompts.names.keys():
-                    prompt_cls = prompts.names[env.task.get_name()]()
-                    if 'user_command' in config.context_mode:
-                        motion_guideline = prompt_cls.get_u2c()
-                    if 'vision_observation' in config.context_mode:
-                        motion_guideline = prompt_cls.get_o2c()
-                    if 'expert_demo' in config.context_mode:
-                        motion_guideline = prompt_cls.get_d2c()
-                else:
-                    motion_guideline = None
-            elif 'gen' in config.context_mode:
-                frong_rgb = Image.open(f'/home/jinwoo/workspace/Sembot/low_level_planner/src/visualizations/obs/{task_name}/front_rgb.png')
-                expert_demo_video = None
-                motion_descriptor = MotionDescriptor()
-                if 'user_command' in config.context_mode:
-                    motion_guideline = motion_descriptor.gemini_gen_u2c(user_command=instruction)
-                elif 'vision_observation' in config.context_mode:
-                    motion_guideline = motion_descriptor.gemini_gen_o2c(user_command=instruction,
-                                                                        img=frong_rgb)
-                elif 'expert_demo' in config.context_mode:
-                    motion_guideline = motion_descriptor.gemini_gen_d2c(user_command=instruction,
-                                                                        img=frong_rgb,
-                                                                        video=expert_demo_video)
-            else:
-                motion_guideline = None
-            
-            voxposer_ui(instruction,
-                        motion_guideline=motion_guideline)
+            voxposer_ui(instruction)
         # Log metrics to wandb
         wandb.log({"task_name": task_name})
     wandb.finish()
-#     for task in task_list:
-#         env.load_task(task)
-#         descriptions, obs = env.reset()
-#         set_lmp_objects(lmps, env.get_object_names())  # set the object names to be used by voxposer
-#         task_name = env.task.get_name()
-#         instruction = np.random.choice(descriptions)
-#         print(f'instruction: {instruction}')
-
-#         if 'pre' in  config.context_mode:
-#             if env.task.get_name() in prompts.names.keys():
-#                 prompt_cls = prompts.names[env.task.get_name()]()
-#                 if 'user_command' in  config.context_mode:
-#                     motion_guideline = prompt_cls.get_u2c()
-#                 if 'vision_observation' in  config.context_mode:
-#                     motion_guideline = prompt_cls.get_o2c()
-#                 if 'expert_demo' in  config.context_mode:
-#                     motion_guideline = prompt_cls.get_d2c()
-#             else:
-#                 motion_guideline = None
-#         elif 'gen' in  config.context_mode:
-#             from PIL import Image
-# import wandb
-# from PIL import Image
-#             frong_rgb = Image.open(f'/home/jinwoo/workspace/Sembot/low_level_planner/src/visualizations/obs/{task_name}/front_rgb.png')
-#             expert_demo_video = None
-#             motion_descriptor = MotionDescriptor()
-#             if 'user_command' in  config.context_mode:
-#                 motion_guideline = motion_descriptor.gemini_gen_u2c(user_command=instruction)
-#             elif 'vision_observation' in  config.context_mode:
-#                 motion_guideline = motion_descriptor.gemini_gen_o2c(user_command=instruction,
-#                                                                     img=frong_rgb)
-#             elif 'expert_demo' in  config.context_mode:
-#                 motion_guideline = motion_descriptor.gemini_gen_d2c(user_command=instruction,
-#                                                                     img=frong_rgb,
-#                                                                     video=expert_demo_video)
-#         else:
-#             motion_guideline = None
-#         voxposer_ui(instruction,
-#                     motion_guideline=motion_guideline)
 
 if __name__ =='__main__':
     main()
