@@ -3,8 +3,9 @@ OBJECT_DICT = {
                'clear': ['sponge', 'stain', 'liquid'],
                'grab':["tennis ball","baseball","toy car","green basket","puzzle"],
                'pick':["tennis ball","baseball","toy car","green basket","puzzle"],
-               'imitate':["tennis ball","baseball","toy car","green basket", "glasses","sponge"],
-               
+               'imitate':["coffee stick", "drawer", "red cup", "blue cup", "green basket", "sponge"],
+              #  'imitate':["green basket",  "glasses"],
+               'solve':['yellow ring', 'red ring', 'blue ring', 'purple ring'],
                'clean': ['tennis ball', 'block', 'baseball', 'toy car', 'green basket'],
                'pull': ['tennis ball', 'block', 'baseball', 'toy car', 'puzzle', 'green basket'],
                'take': ['toy car', 'green dice', 'tennis ball', 'puzzle', 'baseball'],

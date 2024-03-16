@@ -8,7 +8,7 @@ class RealWorldMultimodal(Task):
     def __init__(self):
         super().__init__()
         self.max_steps = 15
-        self.extract_state_prompt = "Tell me every objects on the desk. Example) There are letter A, tennis ball, toy car on the desk." #          
+        self.prompt_extract_state = "Tell me every objects on the desk. Example) There are letter A, tennis ball, toy car on the desk." #          
 
         self.task_completed_desc = "done"
         self.final_goal = ""

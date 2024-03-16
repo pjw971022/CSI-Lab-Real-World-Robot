@@ -19,7 +19,7 @@ class RealWorldMakingWord(Task):
         self.admissible_actions = [f'move the {obj} in the {receptacle}' 
                                    for obj in self.categories 
                                    for receptacle in self.receptacles ]
-        self.extract_state_prompt = \
+        self.prompt_extract_state = \
                                     f'Extract only the alphabet from the image. ' \
                                     f'Format of alphabet is <object 1, object 2, object 3>. you must adhere strictly to the format.'
                 

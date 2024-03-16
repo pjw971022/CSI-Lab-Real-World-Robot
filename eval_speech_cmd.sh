@@ -10,4 +10,6 @@ python3 evaluation/llm_eval_real.py task=real-world-multi-modal \
                                 mode=test \
                                 category_mode=0 \
                                 record.save_video=False \
-                                task_level=1
+                                task_level=1 \
+                                llm_type=gemini \
+                                plan_mode=open_loop

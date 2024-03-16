@@ -111,8 +111,8 @@ class LLMAgent:
 
     def __init__(self,) -> None:
         self.sentence_model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
-        self.vision_config = {"max_output_tokens": 800, "temperature": 0.0, "top_p": 1, "top_k": 32}
-        self.text_config = {"max_output_tokens": 512, "temperature": 0.0, "top_p": 1}
+        self.vision_config = {"max_output_tokens": 1024, "temperature": 0.0, "top_p": 1, "top_k": 32}
+        self.text_config = {"max_output_tokens": 1024, "temperature": 0.0, "top_p": 1}
         self.safety_settings = [
             {
                 "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
@@ -173,8 +173,6 @@ class LLMAgent:
         content = response.json()['choices'][0]['message']['content']
         return content
     
-
-
     def gemini_generate_context(self, context, img):
         start_time = time.time()
         while True:
@@ -199,21 +197,39 @@ class LLMAgent:
         return generated_sequence
     
     def gemini_generate_video_context(self, context, video):
+        start_time = time.time()
         video_uri = self.upload_blob(video_path + video, video)
         video_file = Part.from_uri(video_uri, mime_type="video/mp4")
         contents = [video_file, context]
-        response = self.model.generate_content(contents, generation_config=self.vision_config) #, safety_settings = self.safety_settings
+        while True:
+            try:
+                response = self.model.generate_content(contents, generation_config=self.vision_config) #, safety_settings = self.safety_settings
+                print(f'*** Google API call took {time.time() - start_time:.2f}s ***')
+                break
+            except Exception as e:
+                print(f'Google API got err {e}')
+                print('Retrying after 3s.')
+                time.sleep(3)
         result = response.text
         return result
     
     def gemini_gen_act(self, fewshot_prompt, planning_prompt, obs_img=None):
-
+        start_time = time.time()
         model = genai.GenerativeModel('gemini-pro')
-        response = model.generate_content(
-            contents=fewshot_prompt + '\n' + planning_prompt,
-            generation_config = self.text_config,
-            safety_settings = self.safety_settings
-            )
+        while True:
+            try:
+                response = model.generate_content(
+                    contents=fewshot_prompt + '\n' + planning_prompt,
+                    generation_config = self.text_config,
+                    safety_settings = self.safety_settings
+                    )
+                print(f'*** Google API call took {time.time() - start_time:.2f}s ***')
+                break
+            except Exception as e:
+                print(f'Google API got err {e}')
+                print('Retrying after 3s.')
+                time.sleep(3)
+
         parts = response.parts
         generated_sequence = ''
         for part in parts:
@@ -223,91 +239,102 @@ class LLMAgent:
         return generated_sequence 
     
     def gemini_gen_all_plan(self, fewshot_prompt, planning_prompt):
+        start_time = time.time()
+
         model = genai.GenerativeModel('gemini-pro')
-        response = model.generate_content(
-            contents=fewshot_prompt + '\n' + planning_prompt,
-            generation_config = self.text_config,
-            safety_settings = self.safety_settings
-            )
+        while True:
+            try:
+                response = model.generate_content(
+                    contents=fewshot_prompt + '\n' + planning_prompt,
+                    generation_config = self.text_config,
+                    safety_settings = self.safety_settings
+                    )
+                print(f'*** Google API call took {time.time() - start_time:.2f}s ***')
+                break    
+            except Exception as e:
+                print(f'Google API got err {e}')
+                print('Retrying after 3s.')
+                time.sleep(3)
+
         parts = response.parts
         generated_sequence = ''
         for part in parts:
             generated_sequence += part.text
         plan_list = re.findall(r"\[Plan \d+\].*?\.", generated_sequence)
-        print(plan_list)
+        print(generated_sequence)
         return plan_list
     
-    def gemini_new_scoring(self, fewshot_prompt, planning_prompt, options, fewshot_img, obs_img):
-        model = genai.GenerativeModel('gemini-pro-vision')
+    # def gemini_new_scoring(self, fewshot_prompt, planning_prompt, options, fewshot_img, obs_img):
+    #     model = genai.GenerativeModel('gemini-pro-vision')
         
-        response = model.generate_content(
-            contents=[fewshot_img, fewshot_prompt, obs_img, planning_prompt],
-            generation_config = self.vision_config)
+    #     response = model.generate_content(
+    #         contents=[fewshot_img, fewshot_prompt, obs_img, planning_prompt],
+    #         generation_config = self.vision_config)
             
-        generated_sequence = response.text
+    #     generated_sequence = response.text
 
-        generated_sequence = generated_sequence.split('.')[0]
-        print(f"@@@@ gen act: {generated_sequence}")
-        gen_embedding = self.sentence_model.encode(generated_sequence, convert_to_tensor=True,show_progress_bar=False)
-        act_embeddings = [ self.sentence_model.encode(action, convert_to_tensor=True,show_progress_bar=False) for action in options]
-        _, scores = process_action2(gen_embedding, act_embeddings)
+    #     generated_sequence = generated_sequence.split('.')[0]
+    #     print(f"@@@@ gen act: {generated_sequence}")
+    #     gen_embedding = self.sentence_model.encode(generated_sequence, convert_to_tensor=True,show_progress_bar=False)
+    #     act_embeddings = [ self.sentence_model.encode(action, convert_to_tensor=True,show_progress_bar=False) for action in options]
+    #     _, scores = process_action2(gen_embedding, act_embeddings)
         
-        llm_scores = {action: score for action, score in zip(options, scores)}
-        return llm_scores, generated_sequence 
+    #     llm_scores = {action: score for action, score in zip(options, scores)}
+    #     return llm_scores, generated_sequence 
     
-    def palm_generate_categories(self, context):
-        models = [m for m in genai.list_models() if 'generateText' in m.supported_generation_methods]
-        model = models[0].name
-        completion = genai.generate_text(
-            model=model,
-            prompt=context,
-            temperature=0,
-            # The maximum length of the response
-            max_output_tokens=800,
-        )
-        generated_sequence = completion.result
-        categories = generated_sequence.split(',')
+    # def palm_generate_categories(self, context):
+    #     models = [m for m in genai.list_models() if 'generateText' in m.supported_generation_methods]
+    #     model = models[0].name
+    #     completion = genai.generate_text(
+    #         model=model,
+    #         prompt=context,
+    #         temperature=0,
+    #         # The maximum length of the response
+    #         max_output_tokens=800,
+    #     )
+    #     generated_sequence = completion.result
+    #     categories = generated_sequence.split(',')
 
-        return categories
+    #     return categories
     
-    def palm_gen_act(self, fewshot_prompt, planning_prompt):
-        models = [m for m in genai.list_models() if 'generateText' in m.supported_generation_methods]
-        model = models[0].name
-        completion = genai.generate_text(
-            model=model,
-            prompt=fewshot_prompt + '\n' + planning_prompt,
-            temperature=0,
-            # The maximum length of the response
-            max_output_tokens=800,
-        )
-        generated_sequence = completion.result
-        plan = generated_sequence.split('.')[0]
-        return plan
+    # def palm_gen_act(self, fewshot_prompt, planning_prompt):
+    #     models = [m for m in genai.list_models() if 'generateText' in m.supported_generation_methods]
+    #     model = models[0].name
+    #     completion = genai.generate_text(
+    #         model=model,
+    #         prompt=fewshot_prompt + '\n' + planning_prompt,
+    #         temperature=0,
+    #         # The maximum length of the response
+    #         max_output_tokens=800,
+    #     )
+    #     generated_sequence = completion.result
+    #     plan = generated_sequence.split('.')[0]
+    #     return plan
     
-    def palm_new_scoring(self, context, options):
-        models = [m for m in genai.list_models() if 'generateText' in m.supported_generation_methods]
-        model = models[0].name
-        completion = genai.generate_text(
-            model=model,
-            prompt=context,
-            temperature=0,
-            # The maximum length of the response
-            max_output_tokens=800,
-        )
-        generated_sequence = completion.result
-        generated_sequence = generated_sequence.split('.')[0]
-        gen_embedding = self.sentence_model.encode(generated_sequence, convert_to_tensor=True,show_progress_bar=False)
-        act_embeddings = [ self.sentence_model.encode(action, convert_to_tensor=True,show_progress_bar=False) for action in options]
-        _, scores = process_action2(gen_embedding, act_embeddings)
+    # def palm_new_scoring(self, context, options):
+    #     models = [m for m in genai.list_models() if 'generateText' in m.supported_generation_methods]
+    #     model = models[0].name
+    #     completion = genai.generate_text(
+    #         model=model,
+    #         prompt=context,
+    #         temperature=0,
+    #         # The maximum length of the response
+    #         max_output_tokens=800,
+    #     )
+    #     generated_sequence = completion.result
+    #     generated_sequence = generated_sequence.split('.')[0]
+    #     gen_embedding = self.sentence_model.encode(generated_sequence, convert_to_tensor=True,show_progress_bar=False)
+    #     act_embeddings = [ self.sentence_model.encode(action, convert_to_tensor=True,show_progress_bar=False) for action in options]
+    #     _, scores = process_action2(gen_embedding, act_embeddings)
         
-        llm_scores = {action: score for action, score in zip(options, scores)}
-        return llm_scores, generated_sequence
+    #     llm_scores = {action: score for action, score in zip(options, scores)}
+    #     return llm_scores, generated_sequence
 
-    def gpt4_gen_all_plan(self, planning_prompt):
+    def gpt4_gen_all_plan(self, fewshot_prompt, planning_prompt):
         gpt_assistant_prompt = 'You are a planner of a robot arm for manipulation task.'
-        message=[{"role": "assistant", "content": gpt_assistant_prompt}, {"role": "user", "content": planning_prompt }]
+        message=[{"role": "assistant", "content": gpt_assistant_prompt}, {"role": "user", "content": fewshot_prompt + '\n' + planning_prompt }]
         temperature=0.0
-        max_tokens=256
+        max_tokens=512
         frequency_penalty=0.0
         client = OpenAI()
         response = client.chat.completions.create(
@@ -318,7 +345,7 @@ class LLMAgent:
             frequency_penalty=frequency_penalty
         )
         generated_sequence = response.choices[0].message.content
-        plan_list = re.findall(r"\[Plan \d+\] (.+)", generated_sequence)
+        plan_list = re.findall(r"\[Plan \d+\].*?\.", generated_sequence)
         return plan_list
 
     def gpt4_gen_act(self, fewshot_prompt, planning_prompt):

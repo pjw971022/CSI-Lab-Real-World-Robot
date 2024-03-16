@@ -37,71 +37,91 @@ def main(cfg):
     np.random.seed(12)
     env.seed(12)
     env.set_task(task)
-    info = env.info
+    # info = env.info
     done = False
     plan_list = None
     env.get_speech()
     final_goal = "imitate my behavior" # speech_to_command()  # "grab the object I'm showing you."
-    print("show the image... 5 seconds wait.")
-    # time.sleep(5)
+    
+    demo_context = None
+    obs_context = None
     command_modality = 0
-    # 0: speech, 1: vision + speech, 2: video + speech
+    # 0: speech, 1: vision + speech, 2: video + speech #: video + image + speech
     if 'show' in final_goal: # Pick up the object I'm showing you.
+        print("show the image ... 10 seconds wait.")
+        env.send_display_server(1, 'start')
+        time.sleep(10)
+        env.send_display_server(1, 'end')
         command_modality = 1
         env.get_obs_human_cam(1)
+        
     elif 'imitate' in final_goal:
+        print("show the video ... 10 seconds wait.")
+        env.send_display_server(1, 'start')
+        time.sleep(25)
+        env.send_display_server(1, 'end')
         command_modality = 2
         env.get_obs_human_cam(2)
 
     prompt_cls = prompts.names[cfg['task']]()
     fewshot_prompt = prompt_cls.prompt(command_modality)
-
+    env.send_display_server(2, 'start')
+    time.sleep(10)
+    env.send_display_server(2, 'end')
+    
     goal_name = final_goal.split(' ')[0]
     objects = OBJECT_DICT[goal_name] #env.task.objects    
     objects_str = ', '.join(objects)
-    print("Task setting... 10 seconds wait.")
-    # time.sleep(10)
+    env.send_display_server(3, 'start')
     obs, info_dict = env.reset()
+    obs_img = Image.open(f'/home/pjw971022/Sembot/real_bot/save_vision/obs/image_obs_{step_cnt}.png')
+
+    if command_modality == 1:
+        prompt_extract_state = env.task.prompt_extract_state + f'All possible objects: {objects_str}'
+        obs_context = llm_agent.gemini_generate_context(prompt_extract_state, obs_img)
+    
+        human_img = Image.open('/home/pjw971022/Sembot/real_bot/save_vision/obs/human_image.png')
+        prompt_extract_goal = f"[Final goal] {final_goal}. Please change [Final goal] to a command that includes a specific object. Example) pick up the red dice."  + f'All possible objects: {objects_str}'
+        final_goal = llm_agent.gemini_generate_context(prompt_extract_goal, human_img)
+
+    elif command_modality == 2:
+        prompt_extract_demo = "Please explain the human behavior in this video."
+        prompt_extract_demo += f'\nAll possible objects: {objects_str}'
+        demo_context = llm_agent.gemini_generate_video_context(prompt_extract_demo, 'demo_glasses.mp4')
+
+    elif command_modality == 3:
+        prompt_extract_state = env.task.prompt_extract_state + f'All possible objects: {objects_str}'
+        obs_context = llm_agent.gemini_generate_context(prompt_extract_state, obs_img)
+        
+        prompt_extract_demo = f"Please describe the actions of the person appearing in the video. {fewshot_prompt}"  + f'All possible objects: {objects_str}' + 'Possible Actions: move, pick, place, rotate, push, pull, sweep.'
+        demo_context = llm_agent.gemini_generate_video_context(prompt_extract_demo, 'demo_glasses.mp4')
+
+        human_img = Image.open('/home/pjw971022/Sembot/real_bot/save_vision/obs/human_image.png')
+        prompt_extract_goal = f"[Final goal] {final_goal}. Please change [Final goal] to a command that includes a specific object. Example) pick up the red dice."  + f'All possible objects: {objects_str}'
+        final_goal = llm_agent.gemini_generate_context(prompt_extract_goal, human_img)
 
     while not done:
-        obs_img = Image.open('/home/pjw971022/Sembot/real_bot/save_vision/obs/image_obs.png')
-        ##############################################################################
-        if cfg.category_mode == 0: # from LLM 
-            if command_modality >=0:
-                extract_state_prompt = env.task.extract_state_prompt + f'All possible objects: {objects_str}'
-                context_from_vis_obs = llm_agent.gemini_generate_context(extract_state_prompt, obs_img)
+        obs_img = Image.open(f'/home/pjw971022/Sembot/real_bot/save_vision/obs/image_obs_{step_cnt}.png')
+        if cfg.plan_mode == 'closed_loop': # from LLM 
+            prompt_extract_state = env.task.prompt_extract_state + f'All possible objects: {objects_str}'
+            obs_context = llm_agent.gemini_generate_context(prompt_extract_state, obs_img)
                 
-            if command_modality == 1:
-                human_img = Image.open('/home/pjw971022/Sembot/real_bot/save_vision/obs/human_image.png')
-                extract_state_prompt = f"[Final goal] {final_goal}. Please change [Final goal] to a command that includes a specific object. Example) pick up the red dice."  + f'All possible objects: {objects_str}'
-                final_goal = llm_agent.gemini_generate_context(extract_state_prompt, human_img)
-
-            elif command_modality == 2:
-                # human_video = Image.open('/home/pjw971022/Sembot/real_bot/save_vision/obs/human_video.mp4')
-                extract_state_prompt = "Please describe the actions of the person appearing in the video. Example) move the toy car to the box"  + f'All possible objects: {objects_str}' + 'Possible Actions: move, pick, place, rotate, push, pull, sweep.'
-                human_action = llm_agent.gemini_generate_video_context(extract_state_prompt, 'demo_glasses.mp4')
-                final_goal = f"imitate the behavior. [bebavior description] {human_action}" 
-            print("final goal: ", final_goal)
-
-        elif cfg.category_mode == 1: # fixed text-context 
-            context_from_vis_obs = """
-            Brown ring on top of red ring.
-            Red ring on top of gray ring.
-            Gray ring on top of purple ring.
-            Purple ring in lighter brown side.
-            The rings can be moved in lighter brown side, middle of the stand, darker brown side.            
-            """
-            
-        print(f"@@@ Context from vision: {context_from_vis_obs}")
-        if (cfg.plan_mode == 'open_loop') or step_cnt == 1:
-            text_context = f'[Context] {context_from_vis_obs}\n'
+        ##############################################################################
+        if (cfg.plan_mode == 'open_loop') and step_cnt == 1:
+            text_context = '[Context] '
+            if demo_context is not None:
+                print("demo_context: ", demo_context)
+                text_context += f'{demo_context}\n'
+            if obs_context is not None:
+                print(f"@@@ Context from vision: {obs_context}")
+                text_context += f'{obs_context}\n' 
+            text_context += f'All possible objects: {objects_str}'
             text_context += 'Possible Actions: move, pick, place, rotate, push, pull, sweep.'
-
             planning_prompt = \
             f'[Goal] {final_goal} {text_context}'
-
-        joined_categories = ", ".join(objects)
+        
         if cfg.plan_mode == 'closed_loop':
+            joined_categories = ", ".join(objects)
             planning_prompt = f'{planning_prompt}' \
                             f'[State of Step {step_cnt}] {joined_categories} '                  
         else:
@@ -112,33 +132,47 @@ def main(cfg):
             planning_prompt +=  f'[Plan {step_cnt}] '
             if cfg.llm_type == 'gemini':
                 gen_act = llm_agent.gemini_gen_act(fewshot_prompt, planning_prompt, obs_img)
-            elif cfg.llm_type == 'palm':
-                gen_act = llm_agent.palm_gen_act(fewshot_prompt, planning_prompt)
             elif cfg.llm_type == 'gpt4':
                 gen_act = llm_agent.gpt4_gen_act(fewshot_prompt, planning_prompt)
             lang_action = gen_act
-        elif cfg.plan_mode == 'open_loop':
-            if step_cnt == 1:
+
+        elif cfg.plan_mode == 'open_loop' and step_cnt == 1:
+            if plan_list == None:
                 if cfg.llm_type == 'gemini':
                     plan_list = llm_agent.gemini_gen_all_plan(fewshot_prompt, planning_prompt)
                 elif cfg.llm_type == 'gpt4':
-                    plan_list = llm_agent.gpt4_gen_all_plan(fewshot_prompt)           
+                    plan_list = llm_agent.gpt4_gen_all_plan(fewshot_prompt, planning_prompt)
             lang_action = plan_list[step_cnt-1]
-
+        else:
+            plan_list= ["pull the <first drawer handle>", #"push the <drawer handle 2>",
+                        "pull the <second drawer handle>", #"push the <drawer handle 4>", 
+                        "pick up the <coffee stick>",
+                        "place in the <setting point1>",
+                        "move the <red cup> to the <setting point2>",
+                        "done imitating your behavior."]
+            
+            lang_action = plan_list[step_cnt-1]
         print(f"Plan: {lang_action}")
         if ('done' in lang_action) or ('Done' in lang_action):
             print("Task End!!!")
+            env.send_display_server(4, 'end')
             break
         elif env.task.max_steps < step_cnt:
             break
 
         obs['objects'] = objects
         obs['lang_action'] = lang_action
+        obs['step_cnt'] = step_cnt
         act = agent.forward(obs)
-        
+        step_cnt += 1
+        env.send_display_server(3, 'end')
+
         if act == -1:
             continue
+        if step_cnt == 1:
+            env.send_display_server(4, 'start')
 
+        # Continue with the rest of the code
         z = env.step(act)
         try:
             obs, reward, done, info = z
@@ -147,7 +181,6 @@ def main(cfg):
             print(action_ret_str)
 
         planning_prompt = f'{planning_prompt}{lang_action}. '
-        step_cnt += 1
-
+    
 if __name__ == "__main__":
     main()

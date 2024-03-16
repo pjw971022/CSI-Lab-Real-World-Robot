@@ -18,7 +18,7 @@ class RealWorldspeech2Demo(Task):
         self.assets_root = True
         self.lang_initial_state = ''
         self.admissible_actions = []
-        self.extract_state_prompt = "Tell me every objects on the black table. Example) There are letter A, letter B, letter C and letter D  on the desk."            
+        self.prompt_extract_state = "Tell me every objects on the black table. Example) There are letter A, letter B, letter C and letter D  on the desk."            
     def reset(self, ):
         super().reset()
 

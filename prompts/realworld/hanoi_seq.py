@@ -7,14 +7,14 @@ class PromptRealworldHanoiSolve:
             prompt = \
                 '[Goal] Solve towers of hanoi. ' \
                 '[Initial State] green ring on top of blue ring. ' \
-                'blue ring on top of brown ring. brown ring in lighter brown side' \
-                'The rings can be moved in lighter brown side, middle of the stand, darker brown side. ' \
-                '[Step 1] move the green ring to the darker brown side. ' \
-                '[Step 2] move the blue ring to the middle of the stand. ' \
-                '[Step 3] move the green ring to the middle of the stand. ' \
-                '[Step 4] move the brown ring to the darker brown side. ' \
-                '[Step 5] move the green ring to the lighter brown side. ' \
-                '[Step 6] move the blue ring to the darker brown side. ' \
-                '[Step 7] move the green ring to the darker brown side. ' \
+                'blue ring on top of brown ring. brown ring in first side' \
+                'The rings can be moved in first side, second side, third side. ' \
+                '[Step 1] move the <green ring> to the <third side>. ' \
+                '[Step 2] move the <blue ring> to the <second side>. ' \
+                '[Step 3] move the <green ring> to the <second side>. ' \
+                '[Step 4] move the <brown ring> to the <third side>. ' \
+                '[Step 5] move the <green ring> to the <first side>. ' \
+                '[Step 6] move the <blue ring> to the <third side>. ' \
+                '[Step 7] move the <green ring> to the <third side>. ' \
                 '[Step 8] done putting rings in rods. '
         return prompt

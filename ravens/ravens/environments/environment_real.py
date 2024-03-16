@@ -35,27 +35,32 @@ class RealEnvironment(gym.Env):
         Raises:
           RuntimeError: if pybullet cannot load fileIOPlugin.
         """
-        self.pix_size = 0.003125
-        self.obj_ids = {'fixed': [], 'rigid': [], 'deformable': []}
-        self.homej = np.array([-1, -0.5, 0.5, -0.5, -0.5, 0]) * np.pi
+        # self.pix_size = 0.003125
+        # self.obj_ids = {'fixed': [], 'rigid': [], 'deformable': []}
+        # self.homej = np.array([-1, -0.5, 0.5, -0.5, -0.5, 0]) * np.pi
         self.agent_cams = cameras.RealSenseD435.CONFIG
-        # self.record_cfg = record_cfg
         self.save_video = False
         self.step_counter = 0
         self.pointcloud = None
-        context = zmq.Context()
-        self.socket = context.socket(zmq.REQ)  # REQ (REQUEST) 소켓
-        self.socket.connect("tcp://115.145.175.206:5555")
-        print("Franka Client Start")
+        context_display = zmq.Context()
+        self.socket_display = context_display.socket(zmq.REQ)  # REQ (REQUEST) 소켓
+        self.socket_display.connect("tcp://115.145.175.206:5559")
+        print("## Display Client Start ##")
+        
+        context_robot = zmq.Context()
+        self.socket_robot = context_robot.socket(zmq.REQ)  # REQ (REQUEST) 소켓
+        self.socket_robot.connect("tcp://115.145.175.206:5555")
+        print("## Franka Client Start ##")
         self.task_name = task_name
         
         context_speech = zmq.Context()
         self.socket_speech = context_speech.socket(zmq.REQ)  # REQ (REQUEST) 소켓
         self.socket_speech.connect("tcp://115.145.178.235:5557")
         self.socket_speech.setsockopt(zmq.RCVTIMEO, 15000)
-
+        print("## Speech Client Start ##")
+        
         self.audio_file_path = "/home/pjw971022/Sembot/real_bot/perception/speech_command.wav"
-        print("Speech Client Start")
+        
         color_tuple = [
             gym.spaces.Box(0, 255, config['image_size'] + (3,), dtype=np.uint8)
             for config in self.agent_cams
@@ -93,6 +98,7 @@ class RealEnvironment(gym.Env):
     def seed(self, seed=None):
         self._random = np.random.RandomState(seed)
         return seed
+    
     def get_speech(self):
         speech_request_json = json.dumps('require speech')
         self.socket_speech.send_string(speech_request_json)
@@ -133,6 +139,64 @@ class RealEnvironment(gym.Env):
         info = {}
         return obs, 0.0, False, info
     
+
+
+    def get_data(self, config, send_msg, image_size=None, reset=False):
+        if  isinstance(send_msg, str) and "human-cam" in send_msg:    
+            msg_json = json.dumps(send_msg)
+            self.socket_robot.send_string(msg_json)
+            print("human-cam client sent!!")
+            if send_msg == "require human-cam image":
+                image_data = self.socket_robot.recv()
+                print("human-cam client received!!")
+
+                with open('/home/pjw971022/Sembot/real_bot/save_vision/obs/human_image.png', 'wb') as image_file:
+                    image_file.write(image_data)
+            elif send_msg == "require human-cam video":
+                video_data = self.socket_robot.recv()
+                print("human-cam client received!!")
+
+                with open('/home/pjw971022/Sembot/real_bot/save_vision/obs/human_video.mp4', 'wb') as video_file:
+                    video_file.write(video_data)
+            return None
+        else:
+            msg_json = json.dumps(send_msg)
+            self.socket_robot.send_string(msg_json)
+            print("franka client sent!!")
+            if reset:
+                json_part = self.socket_robot.recv_string()
+            else:
+                multipart_msg = self.socket_robot.recv_multipart()
+                json_part = multipart_msg[0]
+                video_part = multipart_msg[1]
+            print("franka client received!!")
+
+            data = json.loads(json_part)
+            color = np.array(data['rgb'])
+            depth = np.array(data['depth'])
+            cv2.imwrite(f'/home/pjw971022/Sembot/real_bot/save_vision/obs/image_obs_{self.step_counter}.png', color)
+            if not reset:
+                with open(f"/home/pjw971022/Sembot/real_bot/save_vision/obs/gripper_video_{self.step_counter}.mp4", "wb") as video_file:
+                    video_file.write(video_part)
+            """Render RGB-D image with specified camera configuration."""
+            if not image_size:
+                image_size = config['image_size']
+
+            if 'pointcloud' in data.keys():
+                pointcloud = np.array(data['pointcloud']).reshape(image_size[0], image_size[1],-1)
+
+            znear, zfar = config['zrange']
+
+            depth = (zfar + znear - (2. * depth - 1.) * (zfar - znear))
+            depth = (2. * znear * zfar) / depth
+
+            return color, depth, pointcloud
+    
+    def send_display_server(self, signal, state='start'):
+        self.socket_display.send_string(str(signal) + '_' + state)
+        message = self.socket_display.recv_string()
+        print(f"Received reply: {message}")
+    
     def get_obs_human_cam(self, mode):
         if mode == 1:
             for config in self.agent_cams:
@@ -146,53 +210,7 @@ class RealEnvironment(gym.Env):
     def server_close(self):
         print("Send Server Close!")        
         go_to_ready_json = json.dumps(1)
-        self.socket.send_string(go_to_ready_json)
-
-    def get_data(self, config, send_msg, image_size=None, reset=False):
-        if  isinstance(send_msg, str) and "human-cam" in send_msg:    
-            msg_json = json.dumps(send_msg)
-            self.socket.send_string(msg_json)
-            print("human-cam client sent!!")
-            if send_msg == "require human-cam image":
-                image_data = self.socket.recv()
-                with open('/home/pjw971022/Sembot/real_bot/save_vision/obs/human_image.png', 'wb') as image_file:
-                    image_file.write(image_data)
-            elif send_msg == "require human-cam video":
-                video_data = self.socket.recv()
-                with open('/home/pjw971022/Sembot/real_bot/save_vision/obs/human_video.mp4', 'wb') as video_file:
-                    video_file.write(video_data)
-            return None
-        else:
-            
-            msg_json = json.dumps(send_msg)
-            self.socket.send_string(msg_json)
-            print("franka client sent!!")
-
-            data = self.socket.recv_string()
-            print("franka client received!!")
-            data = json.loads(data)
-            color = np.array(data['rgb'])
-            depth = np.array(data['depth'])
-            
-            cv2.imwrite('/home/pjw971022/Sembot/real_bot/save_vision/obs/image_obs.png', color)
-
-            """Render RGB-D image with specified camera configuration."""
-            if not image_size:
-                image_size = config['image_size']
-
-            if 'pointcloud' in data.keys():
-                pointcloud = np.array(data['pointcloud']).reshape(image_size[0], image_size[1],-1)
-
-            znear, zfar = config['zrange']
-
-            # Get depth image.
-            # depth_image_size = (image_size[0], image_size[1])
-            depth = (zfar + znear - (2. * depth - 1.) * (zfar - znear))
-            depth = (2. * znear * zfar) / depth
-            # if config['noise']:
-            #     depth += self._random.normal(0, 0.003, depth_image_size)
-
-            return color, depth, pointcloud
+        self.socket_robot.send_string(go_to_ready_json)
 
     @property
     def info(self):
@@ -213,13 +231,4 @@ class RealEnvironment(gym.Env):
     def get_lang_goal(self):
         return self.task.get_lang_goal()
     
-
-
-    # def get_final_goal(self):
-    #     if self.task:
-    #         return self.task.get_final_lang_goal()
-    #     else:
-    #         raise Exception("No task for was set")
-    
-
 

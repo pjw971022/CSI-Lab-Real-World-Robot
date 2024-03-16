@@ -59,4 +59,6 @@ class OWLViTDetector:
                     "boxstyle": "square,pad=.3"
                 })
         plt.savefig(image_path)
+        # plt.show()
+
     # plot_predictions(input_image, text_queries, scores, boxes, labels)
