@@ -179,3 +179,4 @@ cliport
 test_llm.ipynb
 outputs/
 real_bot/save_vision/obs/
+VideoRAG/EgoVLPv2/
