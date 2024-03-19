@@ -161,36 +161,36 @@ class PromptRavensTowersOfHanoiSeqSolve: # cliport version
                 '[Step 7] move the green ring to the darker brown side. ' \
                 '[Step 8] done putting rings in rods. '
                 
-        if self.n_shot > 1:
-            prompt = \
-                f'{prompt}' \
-                '[Goal] Solve towers of hanoi. ' \
-                '[Initial State] brown ring on top of red ring. ' \
-                'red ring on top of yellow ring. yellow ring in lighter brown side' \
-                'The rings can be moved in lighter brown side, middle of the stand, darker brown side. ' \
-                '[Step 1] move the brown ring to the darker brown side. ' \
-                '[Step 2] move the red ring to the middle of the stand. ' \
-                '[Step 3] move the brown ring to the middle of the stand. ' \
-                '[Step 4] move the yellow ring to the darker brown side. ' \
-                '[Step 5] move the brown ring to the lighter brown side. ' \
-                '[Step 6] move the red ring to the darker brown side. ' \
-                '[Step 7] move the brown ring to the darker brown side. ' \
-                '[Step 8] done putting rings in rods. '
+        # if self.n_shot > 1:
+        #     prompt = \
+        #         f'{prompt}' \
+        #         '[Goal] Solve towers of hanoi. ' \
+        #         '[Initial State] brown ring on top of red ring. ' \
+        #         'red ring on top of yellow ring. yellow ring in lighter brown side' \
+        #         'The rings can be moved in lighter brown side, middle of the stand, darker brown side. ' \
+        #         '[Step 1] move the brown ring to the darker brown side. ' \
+        #         '[Step 2] move the red ring to the middle of the stand. ' \
+        #         '[Step 3] move the brown ring to the middle of the stand. ' \
+        #         '[Step 4] move the yellow ring to the darker brown side. ' \
+        #         '[Step 5] move the brown ring to the lighter brown side. ' \
+        #         '[Step 6] move the red ring to the darker brown side. ' \
+        #         '[Step 7] move the brown ring to the darker brown side. ' \
+        #         '[Step 8] done putting rings in rods. '
                 
-        if self.n_shot > 2:
-            prompt = \
-                f'{prompt}' \
-                '[Goal] Solve towers of hanoi. ' \
-                '[Initial State] gray ring on top of yellow ring. ' \
-                'yellow ring on top of cyan ring. cyan ring in lighter brown side' \
-                'The rings can be moved in lighter brown side, middle of the stand, darker brown side. ' \
-                '[Step 1] move the gray ring to the darker brown side. ' \
-                '[Step 2] move the yellow ring to the middle of the stand. ' \
-                '[Step 3] move the gray ring to the middle of the stand. ' \
-                '[Step 4] move the cyan ring to the darker brown side. ' \
-                '[Step 5] move the gray ring to the lighter brown side. ' \
-                '[Step 6] move the yellow ring to the darker brown side. ' \
-                '[Step 7] move the gray ring to the darker brown side. ' \
-                '[Step 8] done putting rings in rods. '
+        # if self.n_shot > 2:
+        #     prompt = \
+        #         f'{prompt}' \
+        #         '[Goal] Solve towers of hanoi. ' \
+        #         '[Initial State] gray ring on top of yellow ring. ' \
+        #         'yellow ring on top of cyan ring. cyan ring in lighter brown side' \
+        #         'The rings can be moved in lighter brown side, middle of the stand, darker brown side. ' \
+        #         '[Step 1] move the gray ring to the darker brown side. ' \
+        #         '[Step 2] move the yellow ring to the middle of the stand. ' \
+        #         '[Step 3] move the gray ring to the middle of the stand. ' \
+        #         '[Step 4] move the cyan ring to the darker brown side. ' \
+        #         '[Step 5] move the gray ring to the lighter brown side. ' \
+        #         '[Step 6] move the yellow ring to the darker brown side. ' \
+        #         '[Step 7] move the gray ring to the darker brown side. ' \
+        #         '[Step 8] done putting rings in rods. '
 
         return prompt

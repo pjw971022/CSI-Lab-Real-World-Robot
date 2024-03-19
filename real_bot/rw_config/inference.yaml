@@ -7,14 +7,13 @@ root_dir: ''
 
 hydra:
   run:
-    dir: /home/pjw971022/RealWorldLLM/
+    dir: /home/pjw971022/Sembot/
 
 save_dir: ${root_dir}/${task}/data/${planner.agent_type}-plans/${mode}  # where to store plans from oracle, lm
 disp: False  # visualize PyBullet
 shared_memory: False
-task: packing-seen-google-objects-seq # put-block-in-bowl, towers-of-hanoi-seq
-mode: train  # train, test-success, test-optimal, test-generalize
-n: 500 # number of demos to generate
+task: real-world-multi-modal
+mode: test
 save_data: False  # write episodes to disk, default=False
 parallel: True  # use multiprocessing for data generation
 max_steps: 10
@@ -35,8 +34,8 @@ dataset:
 
 # record videos (super slow)
 record:
-  save_video: True
-  save_video_path: /home/pjw971022/RealWorldLLM/real_bot/save_viz/llm_inference
+  save_video: False
+  save_video_path: /home/pjw971022/Sembot/real_bot/save_vision/llm_inference
   add_text: True
   fps: 20
   video_height: 640
@@ -80,8 +79,8 @@ category_mode: 0
 plan_mode: open_loop
 llm_type: gemini
 agent_mode: 3
-train_config: /home/pjw971022/RealWorldLLM/cliport/cliport_quickstart/multi-language-conditioned-cliport-n1000-train/.hydra/config.yaml
-cliport_model_path: /home/pjw971022/RealWorldLLM/cliport/cliport_quickstart/multi-language-conditioned-cliport-n1000-train/checkpoints/
+train_config: /home/pjw971022/Sembot/cliport/cliport_quickstart/multi-language-conditioned-cliport-n1000-train/.hydra/config.yaml
+cliport_model_path: /home/pjw971022/Sembot/cliport/cliport_quickstart/multi-language-conditioned-cliport-n1000-train/checkpoints/
 agent: cliport
 data_dir: /home/mnt/data/ravens/
 n_demos: 10

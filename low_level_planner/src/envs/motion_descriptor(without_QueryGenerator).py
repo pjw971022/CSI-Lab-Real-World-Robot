@@ -2,10 +2,14 @@ import os
 import vertexai
 from vertexai.preview.generative_models import GenerativeModel, Part
 from google.cloud import storage
+<<<<<<< HEAD:low_level_planner/src/envs/motion_descriptor(without_QueryGenerator).py
 import openai
 openai.api_key = "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"
 from openai import OpenAI
 
+=======
+curdir = os.getcwd()
+>>>>>>> origin/master:low_level_planner/src/envs/motion_descriptor.py
 location = "asia-northeast3"
 project_id = "gemini-api-415903"
 key_path = "/home/shyuni5/file/CORL2024/Sembot/gemini-api-415903-0f8224218c2c.json"
@@ -29,7 +33,8 @@ Describe the motion of robot arm using the following form:
 Action name: 
 Speed: The robot arm should move at a speed of [NUM: 0.0]m/s.
 Required Force: The robot arm should apply a force of [NUM: 0.0] Newtons.
-[optional] Approach object: The robot arm should approach the object at a speed of [NUM: 0.0]m/s.
+[optional] Approach object: The robot arm이 접근해야하는 위치는 오브젝트의 [NUM: 0.0] meters 이여야 한다.
+[optional] Speed: The robot arm should approach the object at a speed of [NUM: 0.0]m/s.
 [optional] Initial Tilt(degree): The initial tilt of the robot arm should be [NUM: 0.0] degrees towards the target.
 [optional] Max Tilt(degree): The maximum tilt of the robot arm should be [NUM: 0.0] degrees.
 [optional] Distance Moved: The robot arm should move a distance of [NUM: 0.0] meters.
@@ -50,9 +55,7 @@ Required Force: The robot arm should apply a force of [NUM: 0.0] Newtons.
 prompt_obs_extractor ="""
 Please provide a detailed description of the photo, focusing on the objects present, their relative positions, sizes, colors, and any notable features.
 Include information on the background and foreground elements, highlighting any interactions or relationships between objects.
-Mention lighting conditions, textures, and materials to offer a comprehensive understanding of the scene.
 Following the instruction {}, identify relevant details that could influence the task's outcome.
-Adapt the description to accommodate a wide range of instructions, ensuring a thorough analysis of elements critical for task execution.
 """
 
 prompt_demo_extractor ="""
@@ -126,7 +129,7 @@ class MotionDescriptor_WithoutQuery:
         response_2 = self.model.generate_content(contents, generation_config=self.text_config) #, safety_settings = self.safety_settings
         return response_2.text
     
-    def gemini_gen_d2c(self, video, img, user_command):
+    def gemini_gen_d2c(self, user_command , video="demo_video.mp4", img="front_rgb.png"):
         prompt_descriptor_with_instruction = prompt_descriptor.format(user_command)
         prompt_obs_extractor_with_instruction = prompt_obs_extractor.format(user_command)
         prompt_demo_extractor_with_instruction = prompt_demo_extractor.format(user_command)
@@ -155,6 +158,7 @@ class MotionDescriptor_WithoutQuery:
         response_3 = self.model.generate_content(contents, generation_config=self.text_config) #, safety_settings = self.safety_settings
         return response_3.text
     
+<<<<<<< HEAD:low_level_planner/src/envs/motion_descriptor(without_QueryGenerator).py
     def gpt4_gen_u2c(self, user_command):
         prompt_descriptor_with_instruction = prompt_descriptor.format(user_command)
         message=[{"role": "assistant", "content": self.gpt_assistant_prompt}, {"role": "user", "content": prompt_descriptor_with_instruction}]
@@ -221,6 +225,14 @@ class MotionDescriptor_WithoutQuery:
 
 
 
+=======
+    def gemini_video_QA(self, query, video="demo_video.mp4"):
+        video_uri = upload_blob(video_path + video, video)
+        video_file = Part.from_uri(video_uri, mime_type="video/mp4")
+        contents = [video_file, query]
+        response_3 = self.model.generate_content(contents, generation_config=self.text_config) #, safety_settings = self.safety_settings
+        return response_3.text
+>>>>>>> origin/master:low_level_planner/src/envs/motion_descriptor.py
 #-----------------------------------------------------------------------------
 
 # #TEST

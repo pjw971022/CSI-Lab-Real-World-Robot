@@ -8,7 +8,9 @@ from prompts.realworld.packing_shapes import PromptRealWorldPackingShapes
 from prompts.realworld.packing_objects import PromptRealWorldPackingObjects
 from prompts.realworld.making_word import PromptRealWorldMakingWord
 from prompts.realworld.speech2demo import PromptRealWorldspeech2Demo
+from prompts.realworld.multi_modal import PromptRealWorldMultiModal
 names = {
+    'real-world-multi-modal':PromptRealWorldMultiModal,
     'real-world-speech2demo':PromptRealWorldspeech2Demo,
     'real-world-cleanup':PromptRealWorldCleanup,
     'real-world-packing-objects': PromptRealWorldPackingObjects,

@@ -1,48 +1,48 @@
 """Ravens tasks."""
 
-from ravens.tasks.align_box_corner import AlignBoxCorner
-from ravens.tasks.assembling_kits import AssemblingKits
-from ravens.tasks.assembling_kits import AssemblingKitsEasy
-from ravens.tasks.assembling_kits_seq import AssemblingKitsSeqSeenColors
-from ravens.tasks.assembling_kits_seq import AssemblingKitsSeqUnseenColors
-from ravens.tasks.assembling_kits_seq import AssemblingKitsSeqFull
-from ravens.tasks.block_insertion import BlockInsertion
-from ravens.tasks.block_insertion import BlockInsertionEasy
-from ravens.tasks.block_insertion import BlockInsertionNoFixture
-from ravens.tasks.block_insertion import BlockInsertionSixDof
-from ravens.tasks.block_insertion import BlockInsertionTranslation
-from ravens.tasks.manipulating_rope import ManipulatingRope
-from ravens.tasks.align_rope import AlignRope
-from ravens.tasks.packing_boxes import PackingBoxes
-from ravens.tasks.packing_shapes import PackingShapes
-from ravens.tasks.packing_boxes_pairs import PackingBoxesPairsSeenColors
-from ravens.tasks.packing_boxes_pairs import PackingBoxesPairsUnseenColors
-from ravens.tasks.packing_boxes_pairs import PackingBoxesPairsFull
-from ravens.tasks.packing_google_objects import PackingSeenGoogleObjectsSeq
-from ravens.tasks.packing_google_objects import PackingUnseenGoogleObjectsSeq
-from ravens.tasks.packing_google_objects import PackingSeenGoogleObjectsGroup
-from ravens.tasks.packing_google_objects import PackingUnseenGoogleObjectsGroup
-from ravens.tasks.palletizing_boxes import PalletizingBoxes
-from ravens.tasks.place_red_in_green import PlaceRedInGreen
-from ravens.tasks.put_block_in_bowl import PutBlockInBowl
-from ravens.tasks.stack_block_pyramid import StackBlockPyramid
-from ravens.tasks.stack_block_pyramid_seq import StackBlockPyramidSeqSeenColors
-from ravens.tasks.stack_block_pyramid_seq import StackBlockPyramidSeqUnseenColors
-from ravens.tasks.stack_block_pyramid_seq import StackBlockPyramidSeqFull
-from ravens.tasks.sweeping_piles import SweepingPiles
-from ravens.tasks.separating_piles import SeparatingPilesSeenColors
-from ravens.tasks.separating_piles import SeparatingPilesUnseenColors
-from ravens.tasks.separating_piles import SeparatingPilesFull
+from ravens.tasks.sim_task.align_box_corner import AlignBoxCorner
+from ravens.tasks.sim_task.assembling_kits import AssemblingKits
+from ravens.tasks.sim_task.assembling_kits import AssemblingKitsEasy
+from ravens.tasks.sim_task.assembling_kits_seq import AssemblingKitsSeqSeenColors
+from ravens.tasks.sim_task.assembling_kits_seq import AssemblingKitsSeqUnseenColors
+from ravens.tasks.sim_task.assembling_kits_seq import AssemblingKitsSeqFull
+from ravens.tasks.sim_task.block_insertion import BlockInsertion
+from ravens.tasks.sim_task.block_insertion import BlockInsertionEasy
+from ravens.tasks.sim_task.block_insertion import BlockInsertionNoFixture
+from ravens.tasks.sim_task.block_insertion import BlockInsertionSixDof
+from ravens.tasks.sim_task.block_insertion import BlockInsertionTranslation
+from ravens.tasks.sim_task.manipulating_rope import ManipulatingRope
+from ravens.tasks.sim_task.align_rope import AlignRope
+from ravens.tasks.sim_task.packing_boxes import PackingBoxes
+from ravens.tasks.sim_task.packing_shapes import PackingShapes
+from ravens.tasks.sim_task.packing_boxes_pairs import PackingBoxesPairsSeenColors
+from ravens.tasks.sim_task.packing_boxes_pairs import PackingBoxesPairsUnseenColors
+from ravens.tasks.sim_task.packing_boxes_pairs import PackingBoxesPairsFull
+from ravens.tasks.sim_task.packing_google_objects import PackingSeenGoogleObjectsSeq
+from ravens.tasks.sim_task.packing_google_objects import PackingUnseenGoogleObjectsSeq
+from ravens.tasks.sim_task.packing_google_objects import PackingSeenGoogleObjectsGroup
+from ravens.tasks.sim_task.packing_google_objects import PackingUnseenGoogleObjectsGroup
+from ravens.tasks.sim_task.palletizing_boxes import PalletizingBoxes
+from ravens.tasks.sim_task.place_red_in_green import PlaceRedInGreen
+from ravens.tasks.sim_task.put_block_in_bowl import PutBlockInBowl
+from ravens.tasks.sim_task.stack_block_pyramid import StackBlockPyramid
+from ravens.tasks.sim_task.stack_block_pyramid_seq import StackBlockPyramidSeqSeenColors
+from ravens.tasks.sim_task.stack_block_pyramid_seq import StackBlockPyramidSeqUnseenColors
+from ravens.tasks.sim_task.stack_block_pyramid_seq import StackBlockPyramidSeqFull
+from ravens.tasks.sim_task.sweeping_piles import SweepingPiles
+from ravens.tasks.sim_task.separating_piles import SeparatingPilesSeenColors
+from ravens.tasks.sim_task.separating_piles import SeparatingPilesUnseenColors
+from ravens.tasks.sim_task.separating_piles import SeparatingPilesFull
 from ravens.tasks.task import Task
-from ravens.tasks.towers_of_hanoi import TowersOfHanoi
-from ravens.tasks.towers_of_hanoi_seq import TowersOfHanoiSeq
-from ravens.tasks.towers_of_hanoi_seq_cliport import TowersOfHanoiSeqCliport
-from ravens.tasks.cleanup_rw import RealWorldCleanup
-from ravens.tasks.packing_shapes_rw import RealWorldPackingShapes
-from ravens.tasks.packing_objects_rw import RealWorldPackingObjects
-from ravens.tasks.making_word_rw import RealWorldMakingWord
-from ravens.tasks.speech2demo_rw import RealWorldspeech2Demo
-
+from ravens.tasks.sim_task.towers_of_hanoi import TowersOfHanoi
+from ravens.tasks.sim_task.towers_of_hanoi_seq import TowersOfHanoiSeq
+from ravens.tasks.sim_task.towers_of_hanoi_seq_cliport import TowersOfHanoiSeqCliport
+from ravens.tasks.real_task.cleanup_rw import RealWorldCleanup
+from ravens.tasks.real_task.packing_shapes_rw import RealWorldPackingShapes
+from ravens.tasks.real_task.packing_objects_rw import RealWorldPackingObjects
+from ravens.tasks.real_task.making_word_rw import RealWorldMakingWord
+from ravens.tasks.real_task.speech2demo_rw import RealWorldspeech2Demo
+from ravens.tasks.real_task.multi_modal_rw import RealWorldMultimodal
 names = {
     # demo conditioned
     'align-box-corner': AlignBoxCorner,
@@ -88,4 +88,5 @@ names = {
     'real-world-packing-objects': RealWorldPackingObjects,
     'real-world-making-word':RealWorldMakingWord,
     'real-world-speech2demo':RealWorldspeech2Demo,
+    'real-world-multi-modal':RealWorldMultimodal,
 }
