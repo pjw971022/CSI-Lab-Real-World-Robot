@@ -176,7 +176,6 @@ pyrightconfig.json
 # End of https://www.toptal.com/developers/gitignore/api/python
 
 cliport
-OWL_ViT_inference_example.ipynb
 test_llm.ipynb
 outputs/
 real_bot/save_vision/obs/
