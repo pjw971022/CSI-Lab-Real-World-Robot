@@ -1,0 +1,130 @@
+{
+    "P30_08": {
+        "P30_08_89": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P30/rgb_frames/P30_08.tar",
+            "start_image": "./frame_0000014380.jpg",
+            "random_image": "./frame_0000014423.jpg",
+            "end_image": "./frame_0000014467.jpg",
+            "action": "take jug out cafetiere",
+            "states": [],
+            "objects": ["hand", "counter", "jug", "cafetiere"]
+        },
+        "P30_08_91": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P30/rgb_frames/P30_08.tar",
+            "start_image": "./frame_0000014701.jpg",
+            "random_image": "./frame_0000014870.jpg",
+            "end_image": "./frame_0000015039.jpg",
+            "action": "put washing up liquid in washing up bowl",
+            "states": [],
+            "objects": ["sink", "hand", "tap", "washing up liquid", "washing up bowl"]
+        },
+        "P30_08_92": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P30/rgb_frames/P30_08.tar",
+            "start_image": "./frame_0000015075.jpg",
+            "random_image": "./frame_0000015131.jpg",
+            "end_image": "./frame_0000015187.jpg",
+            "action": "put sponge in washing up bowl",
+            "states": [],
+            "objects": ["sink", "hand", "tap", "washing up bowl", "sponge"]
+        },
+        "P30_08_93": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P30/rgb_frames/P30_08.tar",
+            "start_image": "./frame_0000015357.jpg",
+            "random_image": "./frame_0000015423.jpg",
+            "end_image": "./frame_0000015489.jpg",
+            "action": "turn off tap",
+            "states": [],
+            "objects": ["sink", "hand", "tap", "sponge"]
+        },
+        "P30_08_94": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P30/rgb_frames/P30_08.tar",
+            "start_image": "./frame_0000015481.jpg",
+            "random_image": "./frame_0000015558.jpg",
+            "end_image": "./frame_0000015636.jpg",
+            "action": "wash jug",
+            "states": [],
+            "objects": ["sink", "hand", "tap", "sponge", "jug"]
+        },
+        "P30_08_96": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P30/rgb_frames/P30_08.tar",
+            "start_image": "./frame_0000015924.jpg",
+            "random_image": "./frame_0000016139.jpg",
+            "end_image": "./frame_0000016354.jpg",
+            "action": "wash jug",
+            "states": [],
+            "objects": ["sink"]
+        },
+        "P30_08_97": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P30/rgb_frames/P30_08.tar",
+            "start_image": "./frame_0000016360.jpg",
+            "random_image": "./frame_0000016495.jpg",
+            "end_image": "./frame_0000016630.jpg",
+            "action": "continue washing jug",
+            "states": [],
+            "objects": ["sink", "hand", "tap", "sponge", "jug"]
+        },
+        "P30_08_98": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P30/rgb_frames/P30_08.tar",
+            "start_image": "./frame_0000016636.jpg",
+            "random_image": "./frame_0000016880.jpg",
+            "end_image": "./frame_0000017125.jpg",
+            "action": "rinse jug",
+            "states": [],
+            "objects": ["sink", "hand", "tap", "sponge", "jug"]
+        },
+        "P30_08_99": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P30/rgb_frames/P30_08.tar",
+            "start_image": "./frame_0000016644.jpg",
+            "random_image": "./frame_0000016673.jpg",
+            "end_image": "./frame_0000016702.jpg",
+            "action": "turn on tap",
+            "states": [],
+            "objects": ["sink", "hand", "tap", "sponge", "jug"]
+        },
+        "P30_08_100": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P30/rgb_frames/P30_08.tar",
+            "start_image": "./frame_0000016708.jpg",
+            "random_image": "./frame_0000017184.jpg",
+            "end_image": "./frame_0000017660.jpg",
+            "action": "continue rinsing jug",
+            "states": [],
+            "objects": ["sink", "hand", "tap", "jug"]
+        },
+        "P30_08_101": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P30/rgb_frames/P30_08.tar",
+            "start_image": "./frame_0000017649.jpg",
+            "random_image": "./frame_0000017715.jpg",
+            "end_image": "./frame_0000017781.jpg",
+            "action": "put jug in drying rack",
+            "states": [],
+            "objects": ["sink", "hand", "tap", "jug", "drying rack"]
+        },
+        "P30_08_102": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P30/rgb_frames/P30_08.tar",
+            "start_image": "./frame_0000017821.jpg",
+            "random_image": "./frame_0000017870.jpg",
+            "end_image": "./frame_0000017920.jpg",
+            "action": "turn off tap",
+            "states": [],
+            "objects": ["sink", "hand", "tap"]
+        },
+        "P30_08_104": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P30/rgb_frames/P30_08.tar",
+            "start_image": "./frame_0000017956.jpg",
+            "random_image": "./frame_0000017978.jpg",
+            "end_image": "./frame_0000018000.jpg",
+            "action": "turn on tap",
+            "states": [],
+            "objects": ["sink", "hand", "tap", "sponge"]
+        },
+        "P30_08_106": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P30/rgb_frames/P30_08.tar",
+            "start_image": "./frame_0000018142.jpg",
+            "random_image": "./frame_0000018196.jpg",
+            "end_image": "./frame_0000018251.jpg",
+            "action": "put jug in drying rack",
+            "states": [],
+            "objects": ["sink", "hand", "tap", "jug", "drying rack"]
+        }
+    }
+}

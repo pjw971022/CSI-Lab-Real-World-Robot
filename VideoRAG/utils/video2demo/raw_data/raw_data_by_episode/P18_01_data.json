@@ -1,0 +1,492 @@
+{
+    "P18_01": {
+        "P18_01_0": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000000218.jpg",
+            "random_image": "./frame_0000000302.jpg",
+            "end_image": "./frame_0000000329.jpg",
+            "action": "take bowl",
+            "states": [],
+            "objects": [
+                "right hand",
+                "bowl",
+                "cupboard"
+            ]
+        },
+        "P18_01_2": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000000405.jpg",
+            "random_image": "./frame_0000000452.jpg",
+            "end_image": "./frame_0000000640.jpg",
+            "action": "put bowl in cupboard",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "bowl",
+                "cupboard"
+            ]
+        },
+        "P18_01_3": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000000719.jpg",
+            "random_image": "./frame_0000000747.jpg",
+            "end_image": "./frame_0000000794.jpg",
+            "action": "close cupboard",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "cupboard"
+            ]
+        },
+        "P18_01_4": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000000867.jpg",
+            "random_image": "./frame_0000000949.jpg",
+            "end_image": "./frame_0000000968.jpg",
+            "action": "take coffee machine",
+            "states": [],
+            "objects": [
+                "coffee machine",
+                "left hand",
+                "right hand"
+            ]
+        },
+        "P18_01_6": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000001037.jpg",
+            "random_image": "./frame_0000001067.jpg",
+            "end_image": "./frame_0000001127.jpg",
+            "action": "take out coffee filter",
+            "states": [],
+            "objects": [
+                "coffee machine",
+                "left hand",
+                "right hand",
+                "coffee filter"
+            ]
+        },
+        "P18_01_7": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000001221.jpg",
+            "random_image": "./frame_0000001225.jpg",
+            "end_image": "./frame_0000001273.jpg",
+            "action": "throw filter in garbage",
+            "states": [],
+            "objects": [
+                "garbage"
+            ]
+        },
+        "P18_01_8": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000001416.jpg",
+            "random_image": "./frame_0000001417.jpg",
+            "end_image": "./frame_0000001473.jpg",
+            "action": "take coffee pot",
+            "states": [],
+            "objects": [
+                "coffee machine",
+                "left hand",
+                "right hand"
+            ]
+        },
+        "P18_01_9": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000001550.jpg",
+            "random_image": "./frame_0000001616.jpg",
+            "end_image": "./frame_0000001790.jpg",
+            "action": "put water in coffee pot",
+            "states": [],
+            "objects": [
+                "tap",
+                "left hand",
+                "sink",
+                "right hand",
+                "water",
+                "coffee pot"
+            ]
+        },
+        "P18_01_11": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000002241.jpg",
+            "random_image": "./frame_0000002418.jpg",
+            "end_image": "./frame_0000002508.jpg",
+            "action": "put coffee pot in coffee machine",
+            "states": [],
+            "objects": [
+                "coffee machine",
+                "left hand",
+                "sink",
+                "coffee pot"
+            ]
+        },
+        "P18_01_12": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000002547.jpg",
+            "random_image": "./frame_0000002557.jpg",
+            "end_image": "./frame_0000002600.jpg",
+            "action": "open cupboard",
+            "states": [],
+            "objects": [
+                "coffee machine",
+                "left hand",
+                "cupboard"
+            ]
+        },
+        "P18_01_13": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000002620.jpg",
+            "random_image": "./frame_0000002631.jpg",
+            "end_image": "./frame_0000002673.jpg",
+            "action": "take coffee filter",
+            "states": [],
+            "objects": [
+                "coffee machine",
+                "left hand",
+                "cupboard",
+                "right hand",
+                "coffee filter bag"
+            ]
+        },
+        "P18_01_14": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000003097.jpg",
+            "random_image": "./frame_0000003127.jpg",
+            "end_image": "./frame_0000003231.jpg",
+            "action": "put filter in coffee machine",
+            "states": [],
+            "objects": [
+                "coffee machine",
+                "left hand",
+                "cupboard",
+                "right hand",
+                "coffee filter",
+                "coffee filter bag"
+            ]
+        },
+        "P18_01_15": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000003346.jpg",
+            "random_image": "./frame_0000003546.jpg",
+            "end_image": "./frame_0000003609.jpg",
+            "action": "put filters no take out the coffee from the cupboard",
+            "states": [],
+            "objects": [
+                "left hand",
+                "cupboard",
+                "right hand",
+                "coffee",
+                "coffee filter bag",
+                "coffee machine"
+            ]
+        },
+        "P18_01_16": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000003619.jpg",
+            "random_image": "./frame_0000003654.jpg",
+            "end_image": "./frame_0000003712.jpg",
+            "action": "put the filters back into the cupboard",
+            "states": [],
+            "objects": [
+                "left hand",
+                "cupboard",
+                "coffee filter bag",
+                "coffee machine"
+            ]
+        },
+        "P18_01_17": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000003791.jpg",
+            "random_image": "./frame_0000003860.jpg",
+            "end_image": "./frame_0000003871.jpg",
+            "action": "open drawer",
+            "states": [],
+            "objects": [
+                "drawer"
+            ]
+        },
+        "P18_01_18": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000003916.jpg",
+            "random_image": "./frame_0000003934.jpg",
+            "end_image": "./frame_0000004048.jpg",
+            "action": "take spoon",
+            "states": [],
+            "objects": [
+                "left hand",
+                "spoon",
+                "drawer"
+            ]
+        },
+        "P18_01_19": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000004122.jpg",
+            "random_image": "./frame_0000004238.jpg",
+            "end_image": "./frame_0000004306.jpg",
+            "action": "open coffee",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "coffee",
+                "spoon",
+                "coffee filter"
+            ]
+        },
+        "P18_01_20": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000004831.jpg",
+            "random_image": "./frame_0000004887.jpg",
+            "end_image": "./frame_0000004889.jpg",
+            "action": "put coffee into coffee filter",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "coffee",
+                "coffee filter",
+                "coffee bag",
+                "coffee machine"
+            ]
+        },
+        "P18_01_21": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000005286.jpg",
+            "random_image": "./frame_0000005343.jpg",
+            "end_image": "./frame_0000005359.jpg",
+            "action": "close coffee machine drawer",
+            "states": [],
+            "objects": [
+                "coffee machine",
+                "left hand",
+                "coffee machine drawer",
+                "right hand",
+                "spoon",
+                "coffee bag"
+            ]
+        },
+        "P18_01_22": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000005365.jpg",
+            "random_image": "./frame_0000005419.jpg",
+            "end_image": "./frame_0000005434.jpg",
+            "action": "turn on coffee machine",
+            "states": [],
+            "objects": [
+                "coffee machine",
+                "left hand",
+                "coffee machine drawer",
+                "right hand",
+                "spoon",
+                "coffee bag"
+            ]
+        },
+        "P18_01_23": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000005589.jpg",
+            "random_image": "./frame_0000005667.jpg",
+            "end_image": "./frame_0000005700.jpg",
+            "action": "put spoon back in drawer",
+            "states": [],
+            "objects": [
+                "left hand",
+                "spoon",
+                "drawer"
+            ]
+        },
+        "P18_01_25": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000005830.jpg",
+            "random_image": "./frame_0000005900.jpg",
+            "end_image": "./frame_0000006131.jpg",
+            "action": "wrap up coffee",
+            "states": [],
+            "objects": [
+                "left hand",
+                "plate",
+                "right hand",
+                "coffee"
+            ]
+        },
+        "P18_01_27": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000006240.jpg",
+            "random_image": "./frame_0000006280.jpg",
+            "end_image": "./frame_0000006525.jpg",
+            "action": "put coffee in cupboard",
+            "states": [],
+            "objects": [
+                "left hand",
+                "plate",
+                "cupboard",
+                "right hand",
+                "coffee"
+            ]
+        },
+        "P18_01_29": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000006649.jpg",
+            "random_image": "./frame_0000006668.jpg",
+            "end_image": "./frame_0000006744.jpg",
+            "action": "take plate",
+            "states": [],
+            "objects": [
+                "left hand",
+                "plate",
+                "cupboard",
+                "right hand"
+            ]
+        },
+        "P18_01_31": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000006984.jpg",
+            "random_image": "./frame_0000007011.jpg",
+            "end_image": "./frame_0000007074.jpg",
+            "action": "take mug",
+            "states": [],
+            "objects": [
+                "fork",
+                "right hand",
+                "counter",
+                "mug"
+            ]
+        },
+        "P18_01_32": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000007080.jpg",
+            "random_image": "./frame_0000007097.jpg",
+            "end_image": "./frame_0000007155.jpg",
+            "action": "put mug on counter",
+            "states": [],
+            "objects": [
+                "fork",
+                "right hand",
+                "counter",
+                "mug"
+            ]
+        },
+        "P18_01_33": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000007174.jpg",
+            "random_image": "./frame_0000007181.jpg",
+            "end_image": "./frame_0000007227.jpg",
+            "action": "take fork",
+            "states": [],
+            "objects": [
+                "fork",
+                "left hand",
+                "counter",
+                "mug"
+            ]
+        },
+        "P18_01_34": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000007291.jpg",
+            "random_image": "./frame_0000007327.jpg",
+            "end_image": "./frame_0000007432.jpg",
+            "action": "put fork in drawer",
+            "states": [],
+            "objects": [
+                "drawer",
+                "left hand"
+            ]
+        },
+        "P18_01_35": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000007438.jpg",
+            "random_image": "./frame_0000007501.jpg",
+            "end_image": "./frame_0000007518.jpg",
+            "action": "take spreading knife",
+            "states": [],
+            "objects": [
+                "drawer"
+            ]
+        },
+        "P18_01_36": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000007651.jpg",
+            "random_image": "./frame_0000007674.jpg",
+            "end_image": "./frame_0000007698.jpg",
+            "action": "place it on the plate",
+            "states": [],
+            "objects": [
+                "spreading knife",
+                "plate",
+                "right hand"
+            ]
+        },
+        "P18_01_37": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000007735.jpg",
+            "random_image": "./frame_0000007764.jpg",
+            "end_image": "./frame_0000007850.jpg",
+            "action": "take toast bread",
+            "states": [],
+            "objects": [
+                "left hand",
+                "bread package"
+            ]
+        },
+        "P18_01_38": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000007983.jpg",
+            "random_image": "./frame_0000008190.jpg",
+            "end_image": "./frame_0000008279.jpg",
+            "action": "open toast bread",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "bread package",
+                "spreading knife",
+                "plate"
+            ]
+        },
+        "P18_01_39": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000008335.jpg",
+            "random_image": "./frame_0000008364.jpg",
+            "end_image": "./frame_0000008508.jpg",
+            "action": "take two slices from the toast bread",
+            "states": [],
+            "objects": [
+                "left hand",
+                "bread package",
+                "spreading knife",
+                "plate"
+            ]
+        },
+        "P18_01_40": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000008551.jpg",
+            "random_image": "./frame_0000008629.jpg",
+            "end_image": "./frame_0000008656.jpg",
+            "action": "separate them",
+            "states": [],
+            "objects": [
+                "left hand",
+                "toast bread",
+                "toaster",
+                "right hand",
+                "bread package",
+                "spreading knife",
+                "plate"
+            ]
+        },
+        "P18_01_41": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_01.tar",
+            "start_image": "./frame_0000008676.jpg",
+            "random_image": "./frame_0000008791.jpg",
+            "end_image": "./frame_0000008823.jpg",
+            "action": "put them in the toaster",
+            "states": [],
+            "objects": [
+                "toast bread",
+                "toaster",
+                "right hand",
+                "plate"
+            ]
+        }
+    }
+}

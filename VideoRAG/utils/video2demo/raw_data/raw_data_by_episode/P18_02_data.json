@@ -1,0 +1,448 @@
+{
+    "P18_02": {
+        "P18_02_0": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_02.tar",
+            "start_image": "./frame_0000000222.jpg",
+            "random_image": "./frame_0000000286.jpg",
+            "end_image": "./frame_0000000297.jpg",
+            "action": "stop toaster",
+            "states": [],
+            "objects": [
+                "left hand",
+                "toaster",
+                "right hand",
+                "coffee pot",
+                "mug",
+                "coffee machine"
+            ]
+        },
+        "P18_02_1": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_02.tar",
+            "start_image": "./frame_0000000326.jpg",
+            "random_image": "./frame_0000000391.jpg",
+            "end_image": "./frame_0000000418.jpg",
+            "action": "take off coffee",
+            "states": [],
+            "objects": [
+                "left hand",
+                "toaster",
+                "right hand",
+                "coffee pot",
+                "mug",
+                "coffee machine"
+            ]
+        },
+        "P18_02_2": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_02.tar",
+            "start_image": "./frame_0000000424.jpg",
+            "random_image": "./frame_0000000799.jpg",
+            "end_image": "./frame_0000000889.jpg",
+            "action": "pour coffee in mug",
+            "states": [],
+            "objects": [
+                "right hand",
+                "toaster",
+                "left hand",
+                "coffee pot",
+                "mug",
+                "coffee machine"
+            ]
+        },
+        "P18_02_3": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_02.tar",
+            "start_image": "./frame_0000000895.jpg",
+            "random_image": "./frame_0000001004.jpg",
+            "end_image": "./frame_0000001036.jpg",
+            "action": "place coffee pot in sink",
+            "states": [],
+            "objects": [
+                "tap",
+                "coffee pot",
+                "sink",
+                "right hand",
+                "sponge"
+            ]
+        },
+        "P18_02_4": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_02.tar",
+            "start_image": "./frame_0000001144.jpg",
+            "random_image": "./frame_0000001225.jpg",
+            "end_image": "./frame_0000001451.jpg",
+            "action": "take out slices or switch around the slices of bread",
+            "states": [],
+            "objects": [
+                "bread slice",
+                "left hand",
+                "right hand",
+                "toaster"
+            ]
+        },
+        "P18_02_5": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_02.tar",
+            "start_image": "./frame_0000001242.jpg",
+            "random_image": "./frame_0000001378.jpg",
+            "end_image": "./frame_0000001464.jpg",
+            "action": "put back in toaster",
+            "states": [],
+            "objects": [
+                "bread slice",
+                "left hand",
+                "right hand",
+                "toaster"
+            ]
+        },
+        "P18_02_6": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_02.tar",
+            "start_image": "./frame_0000001651.jpg",
+            "random_image": "./frame_0000001759.jpg",
+            "end_image": "./frame_0000001798.jpg",
+            "action": "take sponge",
+            "states": [],
+            "objects": [
+                "left hand",
+                "sink",
+                "right hand",
+                "sponge",
+                "water",
+                "tap"
+            ]
+        },
+        "P18_02_7": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_02.tar",
+            "start_image": "./frame_0000001819.jpg",
+            "random_image": "./frame_0000001837.jpg",
+            "end_image": "./frame_0000001996.jpg",
+            "action": "put dish soap on sponge",
+            "states": [],
+            "objects": [
+                "tap",
+                "left hand",
+                "plate",
+                "dish soap bottle",
+                "sink",
+                "right hand",
+                "sponge",
+                "lid",
+                "spoon",
+                "coffee pot",
+                "water",
+                "drying rack"
+            ]
+        },
+        "P18_02_8": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_02.tar",
+            "start_image": "./frame_0000001968.jpg",
+            "random_image": "./frame_0000002416.jpg",
+            "end_image": "./frame_0000002674.jpg",
+            "action": "wash spoon",
+            "states": [],
+            "objects": [
+                "tap",
+                "left hand",
+                "plate",
+                "dish soap bottle",
+                "sink",
+                "right hand",
+                "sponge",
+                "lid",
+                "spoon",
+                "coffee pot",
+                "water",
+                "drying rack"
+            ]
+        },
+        "P18_02_9": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_02.tar",
+            "start_image": "./frame_0000002745.jpg",
+            "random_image": "./frame_0000002882.jpg",
+            "end_image": "./frame_0000003580.jpg",
+            "action": "wash plate",
+            "states": [],
+            "objects": [
+                "tap",
+                "left hand",
+                "plate",
+                "dish soap bottle",
+                "sink",
+                "right hand",
+                "sponge",
+                "lid",
+                "spoon",
+                "coffee pot",
+                "water",
+                "drying rack"
+            ]
+        },
+        "P18_02_10": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_02.tar",
+            "start_image": "./frame_0000003683.jpg",
+            "random_image": "./frame_0000003707.jpg",
+            "end_image": "./frame_0000003736.jpg",
+            "action": "take off the lid",
+            "states": [],
+            "objects": [
+                "tap",
+                "left hand",
+                "plate",
+                "dish soap bottle",
+                "sink",
+                "right hand",
+                "sponge",
+                "lid",
+                "spoon",
+                "coffee pot",
+                "water",
+                "drying rack"
+            ]
+        },
+        "P18_02_11": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_02.tar",
+            "start_image": "./frame_0000003685.jpg",
+            "random_image": "./frame_0000003707.jpg",
+            "end_image": "./frame_0000003735.jpg",
+            "action": "take coffee pot",
+            "states": [],
+            "objects": [
+                "tap",
+                "left hand",
+                "plate",
+                "dish soap bottle",
+                "sink",
+                "right hand",
+                "sponge",
+                "lid",
+                "spoon",
+                "coffee pot",
+                "water",
+                "drying rack"
+            ]
+        },
+        "P18_02_12": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_02.tar",
+            "start_image": "./frame_0000003742.jpg",
+            "random_image": "./frame_0000004756.jpg",
+            "end_image": "./frame_0000004965.jpg",
+            "action": "wash lid",
+            "states": [],
+            "objects": [
+                "tap",
+                "left hand",
+                "sink",
+                "right hand",
+                "lid",
+                "coffee pot",
+                "water",
+                "dish soap bottle",
+                "sponge",
+                "drying rack"
+            ]
+        },
+        "P18_02_13": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_02.tar",
+            "start_image": "./frame_0000005011.jpg",
+            "random_image": "./frame_0000005211.jpg",
+            "end_image": "./frame_0000005650.jpg",
+            "action": "wash coffee pot",
+            "states": [],
+            "objects": [
+                "sponge",
+                "tap",
+                "left hand",
+                "sink",
+                "right hand",
+                "lid",
+                "dish soap bottle",
+                "coffee pot",
+                "water",
+                "drying rack"
+            ]
+        },
+        "P18_02_14": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_02.tar",
+            "start_image": "./frame_0000005683.jpg",
+            "random_image": "./frame_0000006824.jpg",
+            "end_image": "./frame_0000007395.jpg",
+            "action": "still washing coffee pot",
+            "states": [],
+            "objects": [
+                "tap",
+                "left hand",
+                "sink",
+                "right hand",
+                "lid",
+                "coffee pot",
+                "water",
+                "dish soap bottle",
+                "sponge",
+                "drying rack"
+            ]
+        },
+        "P18_02_15": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_02.tar",
+            "start_image": "./frame_0000007484.jpg",
+            "random_image": "./frame_0000007575.jpg",
+            "end_image": "./frame_0000007609.jpg",
+            "action": "put soap on hands",
+            "states": [],
+            "objects": [
+                "tap",
+                "left hand",
+                "sink",
+                "right hand",
+                "dish soap bottle",
+                "water",
+                "coffee pot"
+            ]
+        },
+        "P18_02_16": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_02.tar",
+            "start_image": "./frame_0000007615.jpg",
+            "random_image": "./frame_0000008083.jpg",
+            "end_image": "./frame_0000008205.jpg",
+            "action": "wash hands",
+            "states": [],
+            "objects": [
+                "tap",
+                "left hand",
+                "sink",
+                "right hand",
+                "dish soap bottle",
+                "water",
+                "coffee pot"
+            ]
+        },
+        "P18_02_18": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_02.tar",
+            "start_image": "./frame_0000008268.jpg",
+            "random_image": "./frame_0000008386.jpg",
+            "end_image": "./frame_0000008781.jpg",
+            "action": "dry hands on towel",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "towel"
+            ]
+        },
+        "P18_02_20": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_02.tar",
+            "start_image": "./frame_0000008915.jpg",
+            "random_image": "./frame_0000009211.jpg",
+            "end_image": "./frame_0000009325.jpg",
+            "action": "take slices out of toaster",
+            "states": [],
+            "objects": [
+                "bread slice",
+                "left hand",
+                "toaster",
+                "right hand",
+                "plate"
+            ]
+        },
+        "P18_02_21": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_02.tar",
+            "start_image": "./frame_0000009331.jpg",
+            "random_image": "./frame_0000009448.jpg",
+            "end_image": "./frame_0000009481.jpg",
+            "action": "unscrew peanut butter",
+            "states": [],
+            "objects": [
+                "cap",
+                "bread slice",
+                "left hand",
+                "toaster",
+                "peanut butter",
+                "right hand",
+                "knife",
+                "plate",
+                "jar"
+            ]
+        },
+        "P18_02_22": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_02.tar",
+            "start_image": "./frame_0000009610.jpg",
+            "random_image": "./frame_0000009689.jpg",
+            "end_image": "./frame_0000009732.jpg",
+            "action": "put knife in peanut butter",
+            "states": [],
+            "objects": [
+                "jar",
+                "left hand",
+                "toaster",
+                "peanut butter",
+                "right hand",
+                "knife",
+                "plate",
+                "bread slice",
+                "cap"
+            ]
+        },
+        "P18_02_23": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_02.tar",
+            "start_image": "./frame_0000009779.jpg",
+            "random_image": "./frame_0000010294.jpg",
+            "end_image": "./frame_0000010407.jpg",
+            "action": "spread peanut butter onto toast",
+            "states": [],
+            "objects": [
+                "plate",
+                "bread slice",
+                "left hand",
+                "peanut butter",
+                "right hand",
+                "knife",
+                "cap",
+                "jar"
+            ]
+        },
+        "P18_02_25": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_02.tar",
+            "start_image": "./frame_0000010848.jpg",
+            "random_image": "./frame_0000010975.jpg",
+            "end_image": "./frame_0000011004.jpg",
+            "action": "put the cap on the peanut butter",
+            "states": [],
+            "objects": [
+                "plate",
+                "jar",
+                "left hand",
+                "bread slice",
+                "peanut butter",
+                "cupboard",
+                "right hand",
+                "cap"
+            ]
+        },
+        "P18_02_26": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_02.tar",
+            "start_image": "./frame_0000011064.jpg",
+            "random_image": "./frame_0000011092.jpg",
+            "end_image": "./frame_0000011129.jpg",
+            "action": "open cupboard",
+            "states": [],
+            "objects": [
+                "plate",
+                "jar",
+                "left hand",
+                "bread slice",
+                "cupboard",
+                "right hand",
+                "knife",
+                "cap",
+                "peanut butter"
+            ]
+        },
+        "P18_02_28": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_02.tar",
+            "start_image": "./frame_0000011221.jpg",
+            "random_image": "./frame_0000011287.jpg",
+            "end_image": "./frame_0000011296.jpg",
+            "action": "close cupboard",
+            "states": [],
+            "objects": [
+                "cupboard",
+                "right hand"
+            ]
+        }
+    }
+}

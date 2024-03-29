@@ -1,0 +1,309 @@
+{
+    "P04_33": {
+        "P04_33_0": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_33.tar",
+            "start_image": "./frame_0000000406.jpg",
+            "random_image": "./frame_0000000406.jpg",
+            "end_image": "./frame_0000000442.jpg",
+            "action": "put rice back",
+            "states": [],
+            "objects": [
+                "right hand",
+                "rice",
+                "plate",
+                "left hand",
+                "spoon",
+                "rice cooker"
+            ]
+        },
+        "P04_33_1": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_33.tar",
+            "start_image": "./frame_0000000441.jpg",
+            "random_image": "./frame_0000000789.jpg",
+            "end_image": "./frame_0000000808.jpg",
+            "action": "spoon rice onto plate",
+            "states": [],
+            "objects": [
+                "right hand",
+                "rice",
+                "plate",
+                "left hand",
+                "spoon",
+                "rice cooker"
+            ]
+        },
+        "P04_33_2": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_33.tar",
+            "start_image": "./frame_0000000703.jpg",
+            "random_image": "./frame_0000000789.jpg",
+            "end_image": "./frame_0000001040.jpg",
+            "action": "spoon rice onto plate",
+            "states": [],
+            "objects": [
+                "right hand",
+                "rice",
+                "plate",
+                "left hand",
+                "spoon",
+                "rice cooker"
+            ]
+        },
+        "P04_33_3": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_33.tar",
+            "start_image": "./frame_0000001132.jpg",
+            "random_image": "./frame_0000001172.jpg",
+            "end_image": "./frame_0000001186.jpg",
+            "action": "open cupboard",
+            "states": [],
+            "objects": [
+                "right hand",
+                "rice",
+                "plate",
+                "cupboard"
+            ]
+        },
+        "P04_33_4": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_33.tar",
+            "start_image": "./frame_0000001208.jpg",
+            "random_image": "./frame_0000001234.jpg",
+            "end_image": "./frame_0000001408.jpg",
+            "action": "pick up tupperware",
+            "states": [],
+            "objects": [
+                "left hand",
+                "glass"
+            ]
+        },
+        "P04_33_5": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_33.tar",
+            "start_image": "./frame_0000001590.jpg",
+            "random_image": "./frame_0000001733.jpg",
+            "end_image": "./frame_0000002277.jpg",
+            "action": "spoon rice into tupperware",
+            "states": [],
+            "objects": [
+                "right hand",
+                "rice",
+                "rice cooker",
+                "left hand",
+                "spoon",
+                "tupperware",
+                "socket",
+                "plug"
+            ]
+        },
+        "P04_33_6": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_33.tar",
+            "start_image": "./frame_0000002800.jpg",
+            "random_image": "./frame_0000002815.jpg",
+            "end_image": "./frame_0000002926.jpg",
+            "action": "turn off rice cooker",
+            "states": [],
+            "objects": [
+                "right hand",
+                "rice",
+                "rice cooker",
+                "socket",
+                "plug"
+            ]
+        },
+        "P04_33_7": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_33.tar",
+            "start_image": "./frame_0000002932.jpg",
+            "random_image": "./frame_0000003073.jpg",
+            "end_image": "./frame_0000003360.jpg",
+            "action": "plug in kettle",
+            "states": [],
+            "objects": [
+                "right hand",
+                "kettle",
+                "socket",
+                "plug"
+            ]
+        },
+        "P04_33_8": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_33.tar",
+            "start_image": "./frame_0000003393.jpg",
+            "random_image": "./frame_0000003536.jpg",
+            "end_image": "./frame_0000003573.jpg",
+            "action": "close tupperware",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "tupperware",
+                "kettle"
+            ]
+        },
+        "P04_33_9": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_33.tar",
+            "start_image": "./frame_0000003579.jpg",
+            "random_image": "./frame_0000003695.jpg",
+            "end_image": "./frame_0000003744.jpg",
+            "action": "put tupperware into freezer",
+            "states": [],
+            "objects": [
+                "right hand",
+                "freezer"
+            ]
+        },
+        "P04_33_10": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_33.tar",
+            "start_image": "./frame_0000003898.jpg",
+            "random_image": "./frame_0000003905.jpg",
+            "end_image": "./frame_0000003996.jpg",
+            "action": "open slow cooker",
+            "states": [],
+            "objects": [
+                "right hand",
+                "plate",
+                "slow cooker",
+                "left hand"
+            ]
+        },
+        "P04_33_11": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_33.tar",
+            "start_image": "./frame_0000004555.jpg",
+            "random_image": "./frame_0000004743.jpg",
+            "end_image": "./frame_0000004846.jpg",
+            "action": "serve curry",
+            "states": [],
+            "objects": [
+                "right hand",
+                "plate",
+                "slow cooker",
+                "curry",
+                "left hand",
+                "spoon"
+            ]
+        },
+        "P04_33_12": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_33.tar",
+            "start_image": "./frame_0000005100.jpg",
+            "random_image": "./frame_0000005466.jpg",
+            "end_image": "./frame_0000007320.jpg",
+            "action": "serve curry",
+            "states": [],
+            "objects": [
+                "right hand",
+                "plate",
+                "slow cooker",
+                "curry",
+                "left hand",
+                "spoon"
+            ]
+        },
+        "P04_33_13": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_33.tar",
+            "start_image": "./frame_0000007629.jpg",
+            "random_image": "./frame_0000007684.jpg",
+            "end_image": "./frame_0000007858.jpg",
+            "action": "turn off hob",
+            "states": [],
+            "objects": [
+                "right hand",
+                "broccoli",
+                "plate",
+                "left hand",
+                "hob/cooktop/stovetop",
+                "fork",
+                "pan"
+            ]
+        },
+        "P04_33_14": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_33.tar",
+            "start_image": "./frame_0000007863.jpg",
+            "random_image": "./frame_0000008061.jpg",
+            "end_image": "./frame_0000008112.jpg",
+            "action": "put broccoli on plate",
+            "states": [],
+            "objects": [
+                "right hand",
+                "broccoli",
+                "plate",
+                "left hand",
+                "hob/cooktop/stovetop",
+                "fork",
+                "pan"
+            ]
+        },
+        "P04_33_16": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_33.tar",
+            "start_image": "./frame_0000008168.jpg",
+            "random_image": "./frame_0000008431.jpg",
+            "end_image": "./frame_0000008572.jpg",
+            "action": "drain broccoli",
+            "states": [],
+            "objects": [
+                "right hand",
+                "broccoli",
+                "left hand",
+                "pan",
+                "colander"
+            ]
+        },
+        "P04_33_17": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_33.tar",
+            "start_image": "./frame_0000008656.jpg",
+            "random_image": "./frame_0000009983.jpg",
+            "end_image": "./frame_0000010365.jpg",
+            "action": "put broccoli on plate",
+            "states": [],
+            "objects": [
+                "right hand",
+                "broccoli",
+                "plate",
+                "left hand",
+                "fork"
+            ]
+        },
+        "P04_33_18": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_33.tar",
+            "start_image": "./frame_0000010636.jpg",
+            "random_image": "./frame_0000010665.jpg",
+            "end_image": "./frame_0000010739.jpg",
+            "action": "open drawer",
+            "states": [],
+            "objects": [
+                "left hand",
+                "drawer"
+            ]
+        },
+        "P04_33_19": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_33.tar",
+            "start_image": "./frame_0000010715.jpg",
+            "random_image": "./frame_0000010719.jpg",
+            "end_image": "./frame_0000010792.jpg",
+            "action": "pick up fork",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "drawer"
+            ]
+        },
+        "P04_33_20": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_33.tar",
+            "start_image": "./frame_0000010779.jpg",
+            "random_image": "./frame_0000010783.jpg",
+            "end_image": "./frame_0000010823.jpg",
+            "action": "put fork on plate",
+            "states": [],
+            "objects": [
+                "right hand",
+                "drawer"
+            ]
+        },
+        "P04_33_21": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_33.tar",
+            "start_image": "./frame_0000010824.jpg",
+            "random_image": "./frame_0000010937.jpg",
+            "end_image": "./frame_0000010970.jpg",
+            "action": "turn off light",
+            "states": [],
+            "objects": [
+                "right hand"
+            ]
+        }
+    }
+}

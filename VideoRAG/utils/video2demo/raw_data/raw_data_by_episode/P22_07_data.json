@@ -1,0 +1,360 @@
+{
+    "P22_07": {
+        "P22_07_363": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P22/rgb_frames/P22_07.tar",
+            "start_image": "./frame_0000060325.jpg",
+            "random_image": "./frame_0000060377.jpg",
+            "end_image": "./frame_0000060429.jpg",
+            "action": "open tap",
+            "states": [],
+            "objects": [
+                "left hand",
+                "water",
+                "tap",
+                "sink",
+                "right hand",
+                "chopping board",
+                "potato peeler",
+                "knife"
+            ]
+        },
+        "P22_07_365": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P22/rgb_frames/P22_07.tar",
+            "start_image": "./frame_0000060451.jpg",
+            "random_image": "./frame_0000060495.jpg",
+            "end_image": "./frame_0000060539.jpg",
+            "action": "rinse sponge",
+            "states": [],
+            "objects": [
+                "left hand",
+                "water",
+                "sponge",
+                "tap",
+                "sink",
+                "right hand",
+                "chopping board",
+                "potato peeler",
+                "knife"
+            ]
+        },
+        "P22_07_366": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P22/rgb_frames/P22_07.tar",
+            "start_image": "./frame_0000060530.jpg",
+            "random_image": "./frame_0000060594.jpg",
+            "end_image": "./frame_0000060658.jpg",
+            "action": "move cutting board",
+            "states": [],
+            "objects": []
+        },
+        "P22_07_367": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P22/rgb_frames/P22_07.tar",
+            "start_image": "./frame_0000060712.jpg",
+            "random_image": "./frame_0000060990.jpg",
+            "end_image": "./frame_0000061269.jpg",
+            "action": "clean mezzaluna",
+            "states": [],
+            "objects": [
+                "left hand",
+                "sponge",
+                "right hand",
+                "mincing knife",
+                "potato peeler",
+                "sink"
+            ]
+        },
+        "P22_07_368": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P22/rgb_frames/P22_07.tar",
+            "start_image": "./frame_0000061469.jpg",
+            "random_image": "./frame_0000061514.jpg",
+            "end_image": "./frame_0000061559.jpg",
+            "action": "put down mincing knife",
+            "states": [],
+            "objects": [
+                "left hand",
+                "sponge",
+                "right hand",
+                "mincing knife",
+                "potato peeler",
+                "sink"
+            ]
+        },
+        "P22_07_369": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P22/rgb_frames/P22_07.tar",
+            "start_image": "./frame_0000061562.jpg",
+            "random_image": "./frame_0000061687.jpg",
+            "end_image": "./frame_0000061812.jpg",
+            "action": "lather potato peeler",
+            "states": [],
+            "objects": [
+                "left hand",
+                "sponge",
+                "right hand",
+                "mincing knife",
+                "potato peeler",
+                "sink"
+            ]
+        },
+        "P22_07_370": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P22/rgb_frames/P22_07.tar",
+            "start_image": "./frame_0000061818.jpg",
+            "random_image": "./frame_0000061926.jpg",
+            "end_image": "./frame_0000062034.jpg",
+            "action": "lather knife",
+            "states": [],
+            "objects": [
+                "left hand",
+                "sponge",
+                "tap",
+                "sink",
+                "chopping board",
+                "right hand",
+                "knife"
+            ]
+        },
+        "P22_07_371": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P22/rgb_frames/P22_07.tar",
+            "start_image": "./frame_0000061920.jpg",
+            "random_image": "./frame_0000062280.jpg",
+            "end_image": "./frame_0000062641.jpg",
+            "action": "lather cutting board",
+            "states": [],
+            "objects": [
+                "left hand",
+                "sponge",
+                "tap",
+                "sink",
+                "chopping board",
+                "right hand",
+                "knife"
+            ]
+        },
+        "P22_07_372": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P22/rgb_frames/P22_07.tar",
+            "start_image": "./frame_0000062055.jpg",
+            "random_image": "./frame_0000062346.jpg",
+            "end_image": "./frame_0000062638.jpg",
+            "action": "lather cutting board",
+            "states": [],
+            "objects": [
+                "left hand",
+                "sponge",
+                "tap",
+                "sink",
+                "chopping board",
+                "right hand",
+                "knife"
+            ]
+        },
+        "P22_07_373": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P22/rgb_frames/P22_07.tar",
+            "start_image": "./frame_0000062631.jpg",
+            "random_image": "./frame_0000062663.jpg",
+            "end_image": "./frame_0000062695.jpg",
+            "action": "put down cutting board",
+            "states": [],
+            "objects": [
+                "left hand",
+                "sponge",
+                "tap",
+                "sink",
+                "chopping board",
+                "right hand"
+            ]
+        },
+        "P22_07_374": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P22/rgb_frames/P22_07.tar",
+            "start_image": "./frame_0000062671.jpg",
+            "random_image": "./frame_0000062699.jpg",
+            "end_image": "./frame_0000062728.jpg",
+            "action": "open tap",
+            "states": [],
+            "objects": [
+                "left hand",
+                "sponge",
+                "tap",
+                "sink",
+                "chopping board",
+                "right hand"
+            ]
+        },
+        "P22_07_375": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P22/rgb_frames/P22_07.tar",
+            "start_image": "./frame_0000062727.jpg",
+            "random_image": "./frame_0000063028.jpg",
+            "end_image": "./frame_0000063329.jpg",
+            "action": "rinse cutting board",
+            "states": [],
+            "objects": []
+        },
+        "P22_07_376": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P22/rgb_frames/P22_07.tar",
+            "start_image": "./frame_0000063325.jpg",
+            "random_image": "./frame_0000063508.jpg",
+            "end_image": "./frame_0000063692.jpg",
+            "action": "rinse cutting board",
+            "states": [],
+            "objects": [
+                "left hand",
+                "water",
+                "tap",
+                "sink",
+                "chopping board",
+                "right hand"
+            ]
+        },
+        "P22_07_377": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P22/rgb_frames/P22_07.tar",
+            "start_image": "./frame_0000063698.jpg",
+            "random_image": "./frame_0000063842.jpg",
+            "end_image": "./frame_0000063986.jpg",
+            "action": "rinse cutting board",
+            "states": [],
+            "objects": [
+                "left hand",
+                "water",
+                "tap",
+                "sink",
+                "chopping board",
+                "right hand"
+            ]
+        },
+        "P22_07_378": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P22/rgb_frames/P22_07.tar",
+            "start_image": "./frame_0000063992.jpg",
+            "random_image": "./frame_0000064077.jpg",
+            "end_image": "./frame_0000064162.jpg",
+            "action": "put down cutting board",
+            "states": [],
+            "objects": [
+                "left hand",
+                "water",
+                "tap",
+                "sink",
+                "chopping board",
+                "right hand",
+                "knife"
+            ]
+        },
+        "P22_07_379": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P22/rgb_frames/P22_07.tar",
+            "start_image": "./frame_0000064150.jpg",
+            "random_image": "./frame_0000064349.jpg",
+            "end_image": "./frame_0000064548.jpg",
+            "action": "rinse mincing knife",
+            "states": [],
+            "objects": []
+        },
+        "P22_07_380": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P22/rgb_frames/P22_07.tar",
+            "start_image": "./frame_0000064527.jpg",
+            "random_image": "./frame_0000064568.jpg",
+            "end_image": "./frame_0000064609.jpg",
+            "action": "put down mincing knife",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "potato peeler",
+                "mincing knife",
+                "water",
+                "sink",
+                "tap"
+            ]
+        },
+        "P22_07_381": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P22/rgb_frames/P22_07.tar",
+            "start_image": "./frame_0000064605.jpg",
+            "random_image": "./frame_0000064674.jpg",
+            "end_image": "./frame_0000064743.jpg",
+            "action": "rinse potato peeler",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "sink",
+                "knife",
+                "water",
+                "potato peeler",
+                "tap"
+            ]
+        },
+        "P22_07_382": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P22/rgb_frames/P22_07.tar",
+            "start_image": "./frame_0000064738.jpg",
+            "random_image": "./frame_0000064767.jpg",
+            "end_image": "./frame_0000064797.jpg",
+            "action": "put down potato peeler",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "potato peeler",
+                "knife",
+                "water",
+                "sink"
+            ]
+        },
+        "P22_07_383": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P22/rgb_frames/P22_07.tar",
+            "start_image": "./frame_0000064795.jpg",
+            "random_image": "./frame_0000064840.jpg",
+            "end_image": "./frame_0000064886.jpg",
+            "action": "rinse knife",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "potato peeler",
+                "knife",
+                "water",
+                "sink",
+                "tap"
+            ]
+        },
+        "P22_07_384": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P22/rgb_frames/P22_07.tar",
+            "start_image": "./frame_0000064877.jpg",
+            "random_image": "./frame_0000064901.jpg",
+            "end_image": "./frame_0000064925.jpg",
+            "action": "put down knife",
+            "states": [],
+            "objects": [
+                "right hand",
+                "water",
+                "sink",
+                "tap"
+            ]
+        },
+        "P22_07_385": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P22/rgb_frames/P22_07.tar",
+            "start_image": "./frame_0000064999.jpg",
+            "random_image": "./frame_0000065046.jpg",
+            "end_image": "./frame_0000065094.jpg",
+            "action": "rinse cloth",
+            "states": [],
+            "objects": [
+                "left hand",
+                "water",
+                "cloth",
+                "tap",
+                "sink",
+                "right hand"
+            ]
+        },
+        "P22_07_386": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P22/rgb_frames/P22_07.tar",
+            "start_image": "./frame_0000065100.jpg",
+            "random_image": "./frame_0000065119.jpg",
+            "end_image": "./frame_0000065139.jpg",
+            "action": "close tap",
+            "states": [],
+            "objects": [
+                "left hand",
+                "cloth",
+                "tap",
+                "sink",
+                "right hand"
+            ]
+        }
+    }
+}

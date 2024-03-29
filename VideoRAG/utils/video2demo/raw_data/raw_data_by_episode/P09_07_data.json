@@ -1,0 +1,250 @@
+{
+    "P09_07": {
+        "P09_07_0": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P09/rgb_frames/P09_07.tar",
+            "start_image": "./frame_0000000065.jpg",
+            "random_image": "./frame_0000000081.jpg",
+            "end_image": "./frame_0000000116.jpg",
+            "action": "take mixer",
+            "states": [],
+            "objects": [
+                "drawer",
+                "left hand",
+                "mixer",
+                "right hand"
+            ]
+        },
+        "P09_07_1": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P09/rgb_frames/P09_07.tar",
+            "start_image": "./frame_0000000150.jpg",
+            "random_image": "./frame_0000000227.jpg",
+            "end_image": "./frame_0000000250.jpg",
+            "action": "open mixer",
+            "states": [],
+            "objects": [
+                "drawer",
+                "left hand",
+                "mixer",
+                "right hand"
+            ]
+        },
+        "P09_07_2": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P09/rgb_frames/P09_07.tar",
+            "start_image": "./frame_0000000308.jpg",
+            "random_image": "./frame_0000000369.jpg",
+            "end_image": "./frame_0000000378.jpg",
+            "action": "open drawer",
+            "states": [],
+            "objects": [
+                "drawer",
+                "right hand",
+                "cupboard"
+            ]
+        },
+        "P09_07_3": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P09/rgb_frames/P09_07.tar",
+            "start_image": "./frame_0000000417.jpg",
+            "random_image": "./frame_0000000470.jpg",
+            "end_image": "./frame_0000000488.jpg",
+            "action": "take supplement",
+            "states": [],
+            "objects": [
+                "supplement",
+                "right hand",
+                "drawer",
+                "cupboard"
+            ]
+        },
+        "P09_07_4": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P09/rgb_frames/P09_07.tar",
+            "start_image": "./frame_0000000577.jpg",
+            "random_image": "./frame_0000000595.jpg",
+            "end_image": "./frame_0000000669.jpg",
+            "action": "take supplement",
+            "states": [],
+            "objects": [
+                "supplement",
+                "right hand",
+                "drawer",
+                "cupboard"
+            ]
+        },
+        "P09_07_5": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P09/rgb_frames/P09_07.tar",
+            "start_image": "./frame_0000000736.jpg",
+            "random_image": "./frame_0000000840.jpg",
+            "end_image": "./frame_0000000887.jpg",
+            "action": "open supplement",
+            "states": [],
+            "objects": [
+                "left hand",
+                "supplement",
+                "right hand"
+            ]
+        },
+        "P09_07_6": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P09/rgb_frames/P09_07.tar",
+            "start_image": "./frame_0000000915.jpg",
+            "random_image": "./frame_0000001342.jpg",
+            "end_image": "./frame_0000001506.jpg",
+            "action": "put supplement in mixer",
+            "states": [],
+            "objects": [
+                "drawer",
+                "left hand",
+                "right hand",
+                "mixer",
+                "supplement",
+                "measuring spoon",
+                "supplement box"
+            ]
+        },
+        "P09_07_7": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P09/rgb_frames/P09_07.tar",
+            "start_image": "./frame_0000000936.jpg",
+            "random_image": "./frame_0000001342.jpg",
+            "end_image": "./frame_0000001533.jpg",
+            "action": "put supplement in mixer",
+            "states": [],
+            "objects": [
+                "drawer",
+                "left hand",
+                "right hand",
+                "mixer",
+                "supplement",
+                "measuring spoon",
+                "supplement box"
+            ]
+        },
+        "P09_07_8": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P09/rgb_frames/P09_07.tar",
+            "start_image": "./frame_0000001523.jpg",
+            "random_image": "./frame_0000001610.jpg",
+            "end_image": "./frame_0000001643.jpg",
+            "action": "close supplement",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "mixer",
+                "supplement"
+            ]
+        },
+        "P09_07_9": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P09/rgb_frames/P09_07.tar",
+            "start_image": "./frame_0000001782.jpg",
+            "random_image": "./frame_0000001801.jpg",
+            "end_image": "./frame_0000001897.jpg",
+            "action": "close drawer",
+            "states": [],
+            "objects": [
+                "drawer",
+                "right hand",
+                "supplement",
+                "cupboard"
+            ]
+        },
+        "P09_07_10": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P09/rgb_frames/P09_07.tar",
+            "start_image": "./frame_0000001955.jpg",
+            "random_image": "./frame_0000002033.jpg",
+            "end_image": "./frame_0000002052.jpg",
+            "action": "open supplement",
+            "states": [],
+            "objects": [
+                "mixer",
+                "supplement",
+                "left hand",
+                "right hand",
+                "supplement box lid",
+                "supplement box"
+            ]
+        },
+        "P09_07_11": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P09/rgb_frames/P09_07.tar",
+            "start_image": "./frame_0000002072.jpg",
+            "random_image": "./frame_0000002269.jpg",
+            "end_image": "./frame_0000002365.jpg",
+            "action": "put supplement in mixer",
+            "states": [],
+            "objects": [
+                "mixer",
+                "supplement",
+                "left hand",
+                "right hand",
+                "measuring spoon",
+                "supplement box lid",
+                "supplement box"
+            ]
+        },
+        "P09_07_12": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P09/rgb_frames/P09_07.tar",
+            "start_image": "./frame_0000002383.jpg",
+            "random_image": "./frame_0000002485.jpg",
+            "end_image": "./frame_0000002537.jpg",
+            "action": "close supplement",
+            "states": [],
+            "objects": [
+                "mixer",
+                "supplement",
+                "left hand",
+                "right hand"
+            ]
+        },
+        "P09_07_13": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P09/rgb_frames/P09_07.tar",
+            "start_image": "./frame_0000002637.jpg",
+            "random_image": "./frame_0000002661.jpg",
+            "end_image": "./frame_0000002710.jpg",
+            "action": "open drawer",
+            "states": [],
+            "objects": [
+                "drawer",
+                "right hand",
+                "cupboard"
+            ]
+        },
+        "P09_07_14": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P09/rgb_frames/P09_07.tar",
+            "start_image": "./frame_0000002729.jpg",
+            "random_image": "./frame_0000002747.jpg",
+            "end_image": "./frame_0000002799.jpg",
+            "action": "put mixer in drawer",
+            "states": [],
+            "objects": [
+                "drawer",
+                "left hand",
+                "right hand",
+                "supplement",
+                "cupboard"
+            ]
+        },
+        "P09_07_15": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P09/rgb_frames/P09_07.tar",
+            "start_image": "./frame_0000002800.jpg",
+            "random_image": "./frame_0000002814.jpg",
+            "end_image": "./frame_0000002855.jpg",
+            "action": "close drawer",
+            "states": [],
+            "objects": [
+                "drawer",
+                "right hand",
+                "supplement",
+                "cupboard"
+            ]
+        },
+        "P09_07_16": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P09/rgb_frames/P09_07.tar",
+            "start_image": "./frame_0000002900.jpg",
+            "random_image": "./frame_0000003025.jpg",
+            "end_image": "./frame_0000003071.jpg",
+            "action": "close mixer",
+            "states": [],
+            "objects": [
+                "left hand",
+                "mixer",
+                "right hand"
+            ]
+        }
+    }
+}
