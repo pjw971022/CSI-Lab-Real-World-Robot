@@ -179,4 +179,4 @@ cliport
 test_llm.ipynb
 outputs/
 real_bot/save_vision/obs/
-VideoRAG/*
+physical_reasoning/pc_2d/utils/LLaVA
