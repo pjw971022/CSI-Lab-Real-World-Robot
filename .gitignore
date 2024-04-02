@@ -178,4 +178,6 @@ pyrightconfig.json
 cliport
 test_llm.ipynb
 outputs/
-sembot/src/spatial_utils/video2demo
+real_bot/save_vision/obs/
+physical_reasoning/pc_2d/utils/LLaVA
+physical_reasoning/pc_3d/ShapeLLM
