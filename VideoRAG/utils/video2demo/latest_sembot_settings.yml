@@ -102,7 +102,6 @@ llava_prompt:
   question_template: |
     <image>\nYou must only mention these objects in your answer: <obj_list>. <question>
 
-
 api_mode: google
 openai_settings:
   model: gpt-4-1106-preview
@@ -113,8 +112,8 @@ google_settings:
   temperature: 1
   max_tokens: 2049
 llava_model:
-  mmproj: "/home/pjw971022/.cache/spatial_vlm/mmproj-model-f16.gguf"
-  model_path: "/home/pjw971022/.cache/spatial_vlm/ggml-model-q4_0.gguf"
+  mmproj: "/home/pjw971022/Sembot/VideoRAG/mmproj-model-f16.gguf"
+  model_path: "/home/pjw971022/Sembot/VideoRAG/ggml-model-q4_0.gguf"
   temperature: 0.2
   # model_path: liuhaotian/llava-v1.5-13b-lora # liuhaotian/llava-v1.5-13b-lora
   # model_base: remyxai/SpaceLLaVA # liuhaotian/llava-v1.6-34b liuhaotian/llava-v1.6-vicuna-7b remyxai/SpaceLLaVA
