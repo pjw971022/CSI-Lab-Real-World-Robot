@@ -1,0 +1,388 @@
+{
+    "P06_14": {
+        "P06_14_0": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_14.tar",
+            "start_image": "./frame_0000000235.jpg",
+            "random_image": "./frame_0000000280.jpg",
+            "end_image": "./frame_0000000315.jpg",
+            "action": "turn off extractor fan",
+            "states": [],
+            "objects": [
+                "right hand"
+            ]
+        },
+        "P06_14_1": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_14.tar",
+            "start_image": "./frame_0000000346.jpg",
+            "random_image": "./frame_0000000382.jpg",
+            "end_image": "./frame_0000000463.jpg",
+            "action": "open cupboard",
+            "states": [],
+            "objects": [
+                "right hand"
+            ]
+        },
+        "P06_14_2": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_14.tar",
+            "start_image": "./frame_0000000486.jpg",
+            "random_image": "./frame_0000000642.jpg",
+            "end_image": "./frame_0000000669.jpg",
+            "action": "take cereal",
+            "states": [],
+            "objects": [
+                "right hand",
+                "cereal",
+                "cupboard"
+            ]
+        },
+        "P06_14_4": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_14.tar",
+            "start_image": "./frame_0000000791.jpg",
+            "random_image": "./frame_0000000814.jpg",
+            "end_image": "./frame_0000000888.jpg",
+            "action": "close cupboard",
+            "states": [],
+            "objects": [
+                "cupboard",
+                "cereal"
+            ]
+        },
+        "P06_14_5": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_14.tar",
+            "start_image": "./frame_0000000896.jpg",
+            "random_image": "./frame_0000000918.jpg",
+            "end_image": "./frame_0000001001.jpg",
+            "action": "open cupboard",
+            "states": [],
+            "objects": [
+                "cupboard",
+                "cereal"
+            ]
+        },
+        "P06_14_6": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_14.tar",
+            "start_image": "./frame_0000001032.jpg",
+            "random_image": "./frame_0000001138.jpg",
+            "end_image": "./frame_0000001167.jpg",
+            "action": "take bowl",
+            "states": [],
+            "objects": [
+                "left hand",
+                "bowl",
+                "cereal"
+            ]
+        },
+        "P06_14_7": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_14.tar",
+            "start_image": "./frame_0000001231.jpg",
+            "random_image": "./frame_0000001295.jpg",
+            "end_image": "./frame_0000001321.jpg",
+            "action": "open drawer",
+            "states": [],
+            "objects": [
+                "right hand",
+                "drawer"
+            ]
+        },
+        "P06_14_9": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_14.tar",
+            "start_image": "./frame_0000001405.jpg",
+            "random_image": "./frame_0000001449.jpg",
+            "end_image": "./frame_0000001465.jpg",
+            "action": "put spoon in bowl",
+            "states": [],
+            "objects": [
+                "right hand",
+                "cereal",
+                "bowl",
+                "left hand",
+                "spoon"
+            ]
+        },
+        "P06_14_10": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_14.tar",
+            "start_image": "./frame_0000001476.jpg",
+            "random_image": "./frame_0000001532.jpg",
+            "end_image": "./frame_0000001623.jpg",
+            "action": "take cereal",
+            "states": [],
+            "objects": [
+                "right hand",
+                "cereal",
+                "bowl",
+                "left hand",
+                "spoon"
+            ]
+        },
+        "P06_14_11": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_14.tar",
+            "start_image": "./frame_0000001698.jpg",
+            "random_image": "./frame_0000001773.jpg",
+            "end_image": "./frame_0000001980.jpg",
+            "action": "put cereal in bowl",
+            "states": [],
+            "objects": [
+                "right hand",
+                "cereal",
+                "packet",
+                "bowl",
+                "left hand",
+                "cereal box"
+            ]
+        },
+        "P06_14_13": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_14.tar",
+            "start_image": "./frame_0000002082.jpg",
+            "random_image": "./frame_0000002140.jpg",
+            "end_image": "./frame_0000002149.jpg",
+            "action": "take raisins",
+            "states": [],
+            "objects": [
+                "right hand",
+                "cereal",
+                "packet",
+                "left hand",
+                "raisin"
+            ]
+        },
+        "P06_14_14": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_14.tar",
+            "start_image": "./frame_0000002223.jpg",
+            "random_image": "./frame_0000002267.jpg",
+            "end_image": "./frame_0000002433.jpg",
+            "action": "pour raisins into bowl",
+            "states": [],
+            "objects": [
+                "right hand",
+                "cereal",
+                "packet",
+                "bowl",
+                "left hand"
+            ]
+        },
+        "P06_14_15": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_14.tar",
+            "start_image": "./frame_0000002634.jpg",
+            "random_image": "./frame_0000002689.jpg",
+            "end_image": "./frame_0000002806.jpg",
+            "action": "put rubbish in bin",
+            "states": [],
+            "objects": [
+                "left hand",
+                "rubbish",
+                "right hand"
+            ]
+        },
+        "P06_14_17": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_14.tar",
+            "start_image": "./frame_0000002962.jpg",
+            "random_image": "./frame_0000003014.jpg",
+            "end_image": "./frame_0000003096.jpg",
+            "action": "take raisins",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "raisin"
+            ]
+        },
+        "P06_14_18": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_14.tar",
+            "start_image": "./frame_0000003177.jpg",
+            "random_image": "./frame_0000003225.jpg",
+            "end_image": "./frame_0000003507.jpg",
+            "action": "open raisins with scissors",
+            "states": [],
+            "objects": [
+                "right hand",
+                "scissors",
+                "left hand",
+                "raisin"
+            ]
+        },
+        "P06_14_19": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_14.tar",
+            "start_image": "./frame_0000003528.jpg",
+            "random_image": "./frame_0000003622.jpg",
+            "end_image": "./frame_0000003879.jpg",
+            "action": "pour raisins into pan",
+            "states": [],
+            "objects": [
+                "bowl",
+                "right hand",
+                "cereal",
+                "left hand",
+                "spoon",
+                "raisin",
+                "packet"
+            ]
+        },
+        "P06_14_21": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_14.tar",
+            "start_image": "./frame_0000004289.jpg",
+            "random_image": "./frame_0000004370.jpg",
+            "end_image": "./frame_0000004394.jpg",
+            "action": "open cupboard",
+            "states": [],
+            "objects": [
+                "cereal",
+                "bowl",
+                "left hand",
+                "spoon",
+                "raisin",
+                "packet"
+            ]
+        },
+        "P06_14_22": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_14.tar",
+            "start_image": "./frame_0000004320.jpg",
+            "random_image": "./frame_0000004370.jpg",
+            "end_image": "./frame_0000004457.jpg",
+            "action": "put raisins in cupboard",
+            "states": [],
+            "objects": [
+                "cereal",
+                "bowl",
+                "left hand",
+                "spoon",
+                "raisin",
+                "packet"
+            ]
+        },
+        "P06_14_23": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_14.tar",
+            "start_image": "./frame_0000004491.jpg",
+            "random_image": "./frame_0000004649.jpg",
+            "end_image": "./frame_0000004681.jpg",
+            "action": "put cereal in cupboard",
+            "states": [],
+            "objects": [
+                "right hand",
+                "cereal box",
+                "bowl",
+                "left hand",
+                "spoon",
+                "cupboard"
+            ]
+        },
+        "P06_14_24": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_14.tar",
+            "start_image": "./frame_0000004687.jpg",
+            "random_image": "./frame_0000004700.jpg",
+            "end_image": "./frame_0000004783.jpg",
+            "action": "close cupboard",
+            "states": [],
+            "objects": [
+                "left hand",
+                "cupboard"
+            ]
+        },
+        "P06_14_25": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_14.tar",
+            "start_image": "./frame_0000004882.jpg",
+            "random_image": "./frame_0000004926.jpg",
+            "end_image": "./frame_0000004935.jpg",
+            "action": "open fridge",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand"
+            ]
+        },
+        "P06_14_26": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_14.tar",
+            "start_image": "./frame_0000004938.jpg",
+            "random_image": "./frame_0000004986.jpg",
+            "end_image": "./frame_0000005015.jpg",
+            "action": "take milk",
+            "states": [],
+            "objects": [
+                "right hand",
+                "fridge",
+                "left hand",
+                "milk"
+            ]
+        },
+        "P06_14_27": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_14.tar",
+            "start_image": "./frame_0000005166.jpg",
+            "random_image": "./frame_0000005348.jpg",
+            "end_image": "./frame_0000005414.jpg",
+            "action": "pour milk into bowl",
+            "states": [],
+            "objects": [
+                "milk",
+                "right hand",
+                "lid",
+                "bowl",
+                "left hand",
+                "milk bottle",
+                "spoon",
+                "raisin",
+                "cereal"
+            ]
+        },
+        "P06_14_28": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_14.tar",
+            "start_image": "./frame_0000005420.jpg",
+            "random_image": "./frame_0000005450.jpg",
+            "end_image": "./frame_0000005539.jpg",
+            "action": "put lid on milk",
+            "states": [],
+            "objects": [
+                "milk",
+                "right hand",
+                "lid",
+                "left hand",
+                "milk bottle",
+                "raisin",
+                "cereal",
+                "bowl",
+                "spoon"
+            ]
+        },
+        "P06_14_29": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_14.tar",
+            "start_image": "./frame_0000005609.jpg",
+            "random_image": "./frame_0000005633.jpg",
+            "end_image": "./frame_0000005662.jpg",
+            "action": "open fridge",
+            "states": [],
+            "objects": [
+                "right hand",
+                "fridge",
+                "left hand",
+                "milk"
+            ]
+        },
+        "P06_14_30": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_14.tar",
+            "start_image": "./frame_0000005668.jpg",
+            "random_image": "./frame_0000005677.jpg",
+            "end_image": "./frame_0000005735.jpg",
+            "action": "put milk in fridge",
+            "states": [],
+            "objects": [
+                "fridge",
+                "left hand",
+                "milk"
+            ]
+        },
+        "P06_14_31": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_14.tar",
+            "start_image": "./frame_0000005913.jpg",
+            "random_image": "./frame_0000005924.jpg",
+            "end_image": "./frame_0000005989.jpg",
+            "action": "pick up bowl",
+            "states": [],
+            "objects": [
+                "right hand",
+                "bowl",
+                "left hand",
+                "milk",
+                "spoon",
+                "cereal"
+            ]
+        }
+    }
+}

@@ -1,0 +1,244 @@
+{
+    "P04_101": {
+        "P04_101_171": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_101.tar",
+            "start_image": "./frame_0000018850.jpg",
+            "random_image": "./frame_0000018951.jpg",
+            "end_image": "./frame_0000019053.jpg",
+            "action": "pick up mug",
+            "states": [],
+            "objects": [
+                "right hand",
+                "mug"
+            ]
+        },
+        "P04_101_173": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_101.tar",
+            "start_image": "./frame_0000019337.jpg",
+            "random_image": "./frame_0000019359.jpg",
+            "end_image": "./frame_0000019381.jpg",
+            "action": "pick up washing up liquid",
+            "states": [],
+            "objects": [
+                "sink",
+                "right hand",
+                "tap",
+                "washing up liquid",
+                "left hand",
+                "mug"
+            ]
+        },
+        "P04_101_175": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_101.tar",
+            "start_image": "./frame_0000019459.jpg",
+            "random_image": "./frame_0000019474.jpg",
+            "end_image": "./frame_0000019489.jpg",
+            "action": "put down washing up liquid",
+            "states": [],
+            "objects": [
+                "sink",
+                "right hand",
+                "tap",
+                "washing up liquid",
+                "left hand",
+                "mug"
+            ]
+        },
+        "P04_101_176": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_101.tar",
+            "start_image": "./frame_0000019495.jpg",
+            "random_image": "./frame_0000019534.jpg",
+            "end_image": "./frame_0000019573.jpg",
+            "action": "turn on tap",
+            "states": [],
+            "objects": [
+                "sink",
+                "right hand",
+                "tap",
+                "left hand",
+                "mug",
+                "washing up liquid",
+                "water"
+            ]
+        },
+        "P04_101_177": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_101.tar",
+            "start_image": "./frame_0000019574.jpg",
+            "random_image": "./frame_0000019610.jpg",
+            "end_image": "./frame_0000019647.jpg",
+            "action": "pick up sponge",
+            "states": [],
+            "objects": [
+                "sink",
+                "right hand",
+                "sponge",
+                "tap",
+                "left hand",
+                "mug",
+                "washing up liquid",
+                "water"
+            ]
+        },
+        "P04_101_180": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_101.tar",
+            "start_image": "./frame_0000019839.jpg",
+            "random_image": "./frame_0000019895.jpg",
+            "end_image": "./frame_0000019951.jpg",
+            "action": "wash mug",
+            "states": [],
+            "objects": [
+                "sink",
+                "right hand",
+                "tap",
+                "left hand",
+                "mug",
+                "washing up liquid",
+                "sponge"
+            ]
+        },
+        "P04_101_181": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_101.tar",
+            "start_image": "./frame_0000019957.jpg",
+            "random_image": "./frame_0000019985.jpg",
+            "end_image": "./frame_0000020013.jpg",
+            "action": "turn off tap",
+            "states": [],
+            "objects": [
+                "sink",
+                "right hand",
+                "tap",
+                "washing up liquid",
+                "water"
+            ]
+        },
+        "P04_101_182": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_101.tar",
+            "start_image": "./frame_0000020012.jpg",
+            "random_image": "./frame_0000020046.jpg",
+            "end_image": "./frame_0000020080.jpg",
+            "action": "turn on tap",
+            "states": [],
+            "objects": []
+        },
+        "P04_101_183": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_101.tar",
+            "start_image": "./frame_0000020067.jpg",
+            "random_image": "./frame_0000020325.jpg",
+            "end_image": "./frame_0000020584.jpg",
+            "action": "wash mug",
+            "states": [],
+            "objects": [
+                "sink",
+                "right hand",
+                "tap",
+                "left hand",
+                "mug",
+                "washing up liquid",
+                "water"
+            ]
+        },
+        "P04_101_184": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_101.tar",
+            "start_image": "./frame_0000020584.jpg",
+            "random_image": "./frame_0000020626.jpg",
+            "end_image": "./frame_0000020668.jpg",
+            "action": "rinse mug",
+            "states": [],
+            "objects": []
+        },
+        "P04_101_185": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_101.tar",
+            "start_image": "./frame_0000020660.jpg",
+            "random_image": "./frame_0000020715.jpg",
+            "end_image": "./frame_0000020771.jpg",
+            "action": "wash mug",
+            "states": [],
+            "objects": [
+                "sink",
+                "right hand",
+                "tap",
+                "left hand",
+                "mug",
+                "washing up liquid",
+                "water"
+            ]
+        },
+        "P04_101_186": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_101.tar",
+            "start_image": "./frame_0000020769.jpg",
+            "random_image": "./frame_0000020779.jpg",
+            "end_image": "./frame_0000020790.jpg",
+            "action": "put down sponge",
+            "states": [],
+            "objects": []
+        },
+        "P04_101_187": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_101.tar",
+            "start_image": "./frame_0000020802.jpg",
+            "random_image": "./frame_0000020885.jpg",
+            "end_image": "./frame_0000020968.jpg",
+            "action": "rinse mug",
+            "states": [],
+            "objects": [
+                "sink",
+                "right hand",
+                "sponge",
+                "tap",
+                "left hand",
+                "mug",
+                "washing up liquid",
+                "water"
+            ]
+        },
+        "P04_101_188": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_101.tar",
+            "start_image": "./frame_0000020953.jpg",
+            "random_image": "./frame_0000020981.jpg",
+            "end_image": "./frame_0000021010.jpg",
+            "action": "turn off tap",
+            "states": [],
+            "objects": [
+                "sink",
+                "right hand",
+                "tap",
+                "left hand",
+                "mug",
+                "washing up liquid",
+                "water"
+            ]
+        },
+        "P04_101_191": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_101.tar",
+            "start_image": "./frame_0000021147.jpg",
+            "random_image": "./frame_0000021470.jpg",
+            "end_image": "./frame_0000021794.jpg",
+            "action": "dry mug",
+            "states": [],
+            "objects": [
+                "towel",
+                "fridge",
+                "starter",
+                "bowl",
+                "mug",
+                "spoon",
+                "container"
+            ]
+        },
+        "P04_101_192": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P04/rgb_frames/P04_101.tar",
+            "start_image": "./frame_0000021799.jpg",
+            "random_image": "./frame_0000021828.jpg",
+            "end_image": "./frame_0000021857.jpg",
+            "action": "put down mug",
+            "states": [],
+            "objects": [
+                "towel",
+                "starter",
+                "bowl",
+                "mug",
+                "container",
+                "spoon"
+            ]
+        }
+    }
+}

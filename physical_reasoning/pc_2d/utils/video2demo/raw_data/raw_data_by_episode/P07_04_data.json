@@ -1,0 +1,121 @@
+{
+    "P07_04": {
+        "P07_04_0": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P07/rgb_frames/P07_04.tar",
+            "start_image": "./frame_0000000454.jpg",
+            "random_image": "./frame_0000000634.jpg",
+            "end_image": "./frame_0000000814.jpg",
+            "action": "wash forks",
+            "states": [],
+            "objects": ["sink", "tap", "hand", "fork", "sponge"]
+        },
+        "P07_04_1": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P07/rgb_frames/P07_04.tar",
+            "start_image": "./frame_0000000884.jpg",
+            "random_image": "./frame_0000000983.jpg",
+            "end_image": "./frame_0000001082.jpg",
+            "action": "wash forks",
+            "states": [],
+            "objects": ["sink", "tap", "hand", "fork", "sponge"]
+        },
+        "P07_04_2": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P07/rgb_frames/P07_04.tar",
+            "start_image": "./frame_0000001109.jpg",
+            "random_image": "./frame_0000001141.jpg",
+            "end_image": "./frame_0000001174.jpg",
+            "action": "open tap",
+            "states": [],
+            "objects": ["sink", "tap", "hand", "fork"]
+        },
+        "P07_04_3": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P07/rgb_frames/P07_04.tar",
+            "start_image": "./frame_0000001188.jpg",
+            "random_image": "./frame_0000001295.jpg",
+            "end_image": "./frame_0000001402.jpg",
+            "action": "rinse forks",
+            "states": [],
+            "objects": ["sink", "tap", "hand", "fork"]
+        },
+        "P07_04_4": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P07/rgb_frames/P07_04.tar",
+            "start_image": "./frame_0000001747.jpg",
+            "random_image": "./frame_0000001799.jpg",
+            "end_image": "./frame_0000001851.jpg",
+            "action": "close tap",
+            "states": [],
+            "objects": ["sink", "tap", "hand"]
+        },
+        "P07_04_5": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P07/rgb_frames/P07_04.tar",
+            "start_image": "./frame_0000001882.jpg",
+            "random_image": "./frame_0000001931.jpg",
+            "end_image": "./frame_0000001980.jpg",
+            "action": "take plate",
+            "states": [],
+            "objects": ["counter", "hand", "plate"]
+        },
+        "P07_04_6": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P07/rgb_frames/P07_04.tar",
+            "start_image": "./frame_0000001967.jpg",
+            "random_image": "./frame_0000002027.jpg",
+            "end_image": "./frame_0000002087.jpg",
+            "action": "open tap",
+            "states": [],
+            "objects": ["sink", "tap", "hand"]
+        },
+        "P07_04_7": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P07/rgb_frames/P07_04.tar",
+            "start_image": "./frame_0000002137.jpg",
+            "random_image": "./frame_0000002265.jpg",
+            "end_image": "./frame_0000002393.jpg",
+            "action": "wash plate",
+            "states": [],
+            "objects": ["sink", "tap", "hand", "plate", "sponge"]
+        },
+        "P07_04_8": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P07/rgb_frames/P07_04.tar",
+            "start_image": "./frame_0000002334.jpg",
+            "random_image": "./frame_0000002437.jpg",
+            "end_image": "./frame_0000002541.jpg",
+            "action": "wash plate",
+            "states": [],
+            "objects": ["sink", "tap", "hand", "plate", "sponge"]
+        },
+        "P07_04_9": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P07/rgb_frames/P07_04.tar",
+            "start_image": "./frame_0000002547.jpg",
+            "random_image": "./frame_0000003026.jpg",
+            "end_image": "./frame_0000003505.jpg",
+            "action": "wash plate",
+            "states": [],
+            "objects": ["sink", "tap", "hand", "plate", "sponge"]
+        },
+        "P07_04_10": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P07/rgb_frames/P07_04.tar",
+            "start_image": "./frame_0000003576.jpg",
+            "random_image": "./frame_0000003819.jpg",
+            "end_image": "./frame_0000004063.jpg",
+            "action": "rinse plate",
+            "states": [],
+            "objects": ["sink", "tap", "hand", "plate"]
+        },
+        "P07_04_11": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P07/rgb_frames/P07_04.tar",
+            "start_image": "./frame_0000003788.jpg",
+            "random_image": "./frame_0000003909.jpg",
+            "end_image": "./frame_0000004030.jpg",
+            "action": "rinse plate",
+            "states": [],
+            "objects": ["sink", "tap", "hand", "plate", "water"]
+        },
+        "P07_04_12": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P07/rgb_frames/P07_04.tar",
+            "start_image": "./frame_0000004487.jpg",
+            "random_image": "./frame_0000004516.jpg",
+            "end_image": "./frame_0000004546.jpg",
+            "action": "close tap",
+            "states": [],
+            "objects": []
+        }
+    }
+}

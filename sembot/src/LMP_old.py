@@ -24,6 +24,7 @@ class LMP:
         self._fixed_vars = fixed_vars
         self._variable_vars = variable_vars
         self.exec_hist = ''
+        
         self._context = None
         self._cache = DiskCache(load_cache=self._cfg['load_cache'])
         self.text_config = {"max_output_tokens": self._cfg['max_tokens'], "temperature": self._cfg['temperature'], "top_p": 1, "stop_sequences" : self._stop_tokens}

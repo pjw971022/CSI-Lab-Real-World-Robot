@@ -1,7 +1,0 @@
-- task=real-world-speech2demo
-- agent_mode=3
-- mode=test
-- category_mode=0
-- record.save_video=False
-- task_level=1
-- command_format=speech

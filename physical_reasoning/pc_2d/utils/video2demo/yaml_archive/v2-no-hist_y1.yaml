@@ -1,0 +1,174 @@
+api_mode: google
+generate_all: false
+generate_from_id:
+- P30_07
+google_settings:
+  max_tokens: 2049
+  model: gemini-1.0-pro-latest
+  temperature: 1
+llava_model:
+  conv_mode: spatial_vlm
+  model_base: remyxai/SpaceLLaVA
+  model_path: liuhaotian/llava-v1.5-13b-lora
+  temperature: 0.2
+llava_prompt:
+  question_template: |
+    <image>\nYou must only mention these objects in your answer: <obj_list>. <question>
+  system: |
+    You are a language and vision assistant tasked with analyzing egocentric images to provide insights based on specified objects and actions.  Your goal is to clarify what's occurring in the scene by detailing actions, movements, and, if possible, quantifying these to enhance understanding.
+openai_settings:
+  max_tokens: 2049
+  model: gpt-4-1106-preview
+  temperature: 1
+prompt:
+  system: "[[Your goal]]\nYour goal is to get information from several images that\
+    \ represent a timestep and determine (1) the action of that timestep, (2) the\
+    \ states right before that action, and (3) the states right after that action.\
+    \ You cannot directly see the images, but you can ask a visual assistant (VA)\
+    \ who can look at only one image at a time and answer your questions.\n[[Information\
+    \ about the input]]\nYou will receive: \n- [[Chat Log]], which is a log of all\
+    \ the conversations that you have had with the visual assistant for this timestep.\
+    \ \n- [[Current Instruction]], which contains rules about what you can do at the\
+    \ current round. \n[[General rules]]\nEach time, you must first provide reasoning\
+    \ before choosing what to do. You must reply following this template:\n[start_of_template]\n\
+    {\n\"reason\": \"<put_your_reasoning_here>\",\n\"act\": \"<put_what_you_are_doing_here>\"\
+    \n}\n[end_of_template]\n[[Domain]]\nA person is doing some household chores.\n\
+    \nState predicates to describe a timestep could include:\n1) the location of the\
+    \ human (e.g. \"human_is_at(<LOC>)\", \"human_is_near(<LOC>)\", etc)\n2) the relationship\
+    \ between the human and the objects (e.g. \"human_is_holding(<A>)\", \"human_is_touching(<A>),\
+    \ \"human_is_reaching_inside(<A>)\", etc)\n3) the positional relationship of the\
+    \ objects (e.g. \"is_on_top_of(<A>, <B>)\", \"is_underneath(<A>, <B>)\", \"is_left_of(<A>,\
+    \ <B>)\", \"is_right_of(<A>, <B>)\", \"is_in_front_of(<A>, <B>)\", \"is_behind(<A>,\
+    \ <B>)\", \"is_inside(<A>, <B>)\", etc)\n4) the status/property of the objects\
+    \ (e.g. \"is_on(<A>)\", \"is_off(<A>)\", \"is_open(<A>)\", \"is_closed(<A>)\"\
+    , \"is_empty(<A>)\", \"is_filled_with(<A>, <B>)\", \"is_cut(<A>)\", \"is_cooked(<A>)\"\
+    , etc)\n5) the location of the objects (e.g. \"is_at(<A>, <LOC>)\", \"is_near(<A>,\
+    \ <LOC>)\", etc)\n\nYou must assume that the person can only do one action at\
+    \ a time. Some examples of action predicates are: \"pick_up(<A>)\", \"pick up_from(<A>,\
+    \ <location_B>)\", \"place_down(<A>)\", \"place_down_at(<A>, <location_B>)\",\
+    \ \"open(<A>)\", \"close(<A>)\", \"turn_on(<A>)\", \"turn_off(<B>)\", \"wash(<A>)\"\
+    , \"cut(<A>)\", \"cook(<A>)\", \"stir(<A>)\", etc.\n\nYou must follow these rules\
+    \ when you are writing state predicates and action predicates:\n- State predicates\
+    \ and action predicates should be represented as a Python function call. \n- The\
+    \ function parameters should not contain strings that directly refer to the human\
+    \ (e.g. \"person\", \"human\", \"user\", \"man\", \"woman\", etc.) For example,\
+    \ if a person is near a sink, you should not say \"is_near('person', sink)\".\
+    \ Instead, you should say \"human_is_near('sink'). Similarly, if a person's hand\
+    \ is touching a cup, you should not say \"is_touching('hand', 'cup')\". You should\
+    \ say \"human_is_touching('hand', 'cup')\". \n- You can use the predicates in\
+    \ the examples above, but you can also create new ones as long as they are defined\
+    \ like a Python function call.\n"
+prompt_name: v2-no-hist
+query_build_settings:
+  chat_log_size: 6
+  prev_prediction_keys_to_use:
+  - objects
+  - start_states
+  - action
+  prev_prediction_size: 1
+  round_size: 5
+query_template:
+  action_prediction_instruction: "Now, you must determine the action in this timestep.\
+    \ You can use the state states and end states that you have determined for this\
+    \ timestep. You need to critically examine the information from the chat log,\
+    \ which could contain false information. \n\nYou must follow these rules when\
+    \ you are reasoning: \n- You can trust the list of objects that are in the current\
+    \ timesteps. \n- You should critically examine the VA's answers because they could\
+    \ be incorrect. In each round of the conversation, the VA does not have any memory\
+    \ of its previous answers. Its answer is only based on looking at one image. \n\
+    - You should also use the start states and end states that you just predicted\
+    \ in [[Current Timestep's States Prediction]]\n\nYou must follow these rules when\
+    \ writing action predicates:\n- You must predict exactly one action. You cannot\
+    \ predict more than one action. You cannot predict that the human is doing nothing,\
+    \ and you cannot set the action to be \"None\", \"null\", \"none\", etc. The action\
+    \ should describe what the human is doing in the current timestep. \n- An action\
+    \ predicate must be represented as a Python function call. The function parameters\
+    \ should be objects from this object list: <obj_list>\n- You can use the examples\
+    \ of action predicates in [[Domain]], but you can also define new ones.\n- You\
+    \ must make your prediction following this format:\n<start_of_template>\n{\n\"\
+    reason\": \"<put_your_reasoning_here>\",\n\"act\": {\n\"action\": \"<action_predicate>\"\
+    \n}\n}\n<end_of_template>\n"
+  chat_log_template: |
+    IMG: <image_type>
+    Q: <question>
+    VA: <answer>
+  final_main: |
+    [[Chat Log]]
+    <chat_log_to_fill>
+    [[Current Timestep's States Prediction]]
+    <states_prediction_to_fill>
+    [[Current Instruction]]
+    <action_space_to_fill>
+  init_act:
+    image_to_ask_about: start_image
+    question: What objects are in this timestep?
+  init_obs_template: |
+    These objects are in this timestep: <obj_list>.
+  init_reason: |
+    I just got a new timestep to predict, so I should ask the system (SYS) to tell me what objects are in the scene before I ask the VA questions.
+  main: |
+    [[Chat Log]]
+    <chat_log_to_fill>
+    [[Current Instruction]]
+    <action_space_to_fill>
+  q_and_a_instruction: "Currently, you are in the process of asking the visual assistant\
+    \ question. You have <rounds_left> rounds left, so you should ask questions that\
+    \ maximize the information gain. \n\nYou must follow these rules when you are\
+    \ deciding what to do: \n## General information\n- Given 2 images ('start_image'\
+    \ and 'end_image') of a timestep, Your goal is to ask questions that collect as\
+    \ much information as possible and help you determine the start states (representing\
+    \ the beginning of this timestep'), the end states (representing the end of this\
+    \ timestep), and the action that happened during the timestep. \n## Rules for\
+    \ asking questions\n- You should at least ask one question about \"start_image\"\
+    \ and one question about \"end_image\". \n- You should ask questions that help\
+    \ you understand 1) the location of the human, 2) the relationship between the\
+    \ human and the objects, 3) the positional relationship of the objects, 4) the\
+    \ property/status of the objects, 5) the location of the objects, etc.\n- You\
+    \ should not ask yes or no questions. You should not ask a question just about\
+    \ one state of one object in the image unless you really need to clarify an inconsistency.\
+    \ \n- You should either ask about (1) one category of states for multiple objects\
+    \ or (2) multiple categories of states for one object. You should make the VA\
+    \ answer with as many details as possible. The VA should not be able to answer\
+    \ your question with just one sentence. \n- The VA can only look at one image\
+    \ at a time, and it does not have any memory of its previous answers. The VA does\
+    \ not understand what it means for an image to be a \"start_image\" or an \"end_image\"\
+    . \n- Thus, you must not ask any questions that require the VA to compare two\
+    \ images. You must not ask it to compare an image with its previous answer or\
+    \ answer your question based on what image it has seen before. You must not ask\
+    \ it about changes: e.g. \"what changes it see\", or \"how does something or the\
+    \ surrounding change\", etc\n## Rules for reasoning about the VA's answers: \n\
+    - The VA tends to make mistakes, so you must critically analyze its answer. \n\
+    - You must ignore any objects in VA's answers that are not in the initial object\
+    \ list. You should not ask questions about objects that are not in the object\
+    \ list. \n- You should only ask clarification questions if the VA is inconsistent\
+    \ about objects in the object list.\n\nYou can either (1) ask questions about\
+    \ one image (\"start_image\" or \"end_image\") or (2) decide to finish asking\
+    \ questions early. Questions could be in multiple sentences, but all sentences\
+    \ should be enclosed in the same string. Remember: you are not allowed to ask\
+    \ the VA to compare two images, or compare the current image with its previous\
+    \ answers, or answer what has changed. You must choose from one of the following\
+    \ templates:\n- To ask a question about the start image:\n{\n\"reason\": \"<put_your_reasoning_here>\"\
+    ,\n\"act\": {\n  \"image_to_ask_about\": \"start_image\",\n  \"question\": \"\
+    <put_your_question_here>\"\n}\n}\n- To ask a question about the end image:\n{\n\
+    \"reason\": \"<put_your_reasoning_here>\",\n\"act\": {\n  \"image_to_ask_about\"\
+    : \"end_image\",\n  \"question\": \"<put_your_question_here>\"\n}\n}\n- To finish\
+    \ asking questions early:\n{\n\"reason\": \"<put_your_reasoning_here>\",\n\"act\"\
+    : \"finish_asking_question\"\n}\n"
+  states_prediction_instruction: "Now, you must determine the start states and end\
+    \ states in this timestep. You need to critically examine the information from\
+    \ the chat log, which could contain false information. \n\nYou must follow these\
+    \ rules when you are reasoning: \n- You can trust the list of objects that are\
+    \ in the current timestep. \n- You should critically examine the VA's answers\
+    \ because they could be incorrect. In each round of the conversation, the VA does\
+    \ not have any memory of its previous answers. Its answer is only based on looking\
+    \ at one image. \n\nYou must follow these rules when writing state predicates:\n\
+    - You must produce a list of states for start states and end states. Each list\
+    \ needs to have at least one predicate.\n- Each state predicate must be represented\
+    \ as a Python function call. The function parameters should be objects in the\
+    \ images (from the object list or the chat log). \n- You can use the examples\
+    \ of state predicates in [[Domain]], but you can also define new ones. \n- You\
+    \ must make your prediction following this format:\n<start_of_template>\n{\n\"\
+    reason\": \"<put_your_reasoning_here>\",\n\"act\": {\n\"start_states\": [\"<state_predicate_1>\"\
+    , \"<state_predicate_2>\", \u2026],\n\"end_states\": [\"<state_predicate_a>\"\
+    , \"<state_predicate_b>\", \u2026]\n}\n}\n<end_of_template>\n"
+yaml_version: y1

@@ -1,0 +1,901 @@
+{
+    "P06_13": {
+        "P06_13_0": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000000117.jpg",
+            "random_image": "./frame_0000000181.jpg",
+            "end_image": "./frame_0000000215.jpg",
+            "action": "pick up oven glove",
+            "states": [],
+            "objects": [
+                "cooker",
+                "glove",
+                "pot"
+            ]
+        },
+        "P06_13_1": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000000159.jpg",
+            "random_image": "./frame_0000000181.jpg",
+            "end_image": "./frame_0000000231.jpg",
+            "action": "pick up oven glove",
+            "states": [],
+            "objects": [
+                "cooker",
+                "glove",
+                "pot"
+            ]
+        },
+        "P06_13_3": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000000361.jpg",
+            "random_image": "./frame_0000000421.jpg",
+            "end_image": "./frame_0000000441.jpg",
+            "action": "turn off cooker",
+            "states": [],
+            "objects": [
+                "cooker",
+                "left hand",
+                "glove",
+                "right glove",
+                "pot"
+            ]
+        },
+        "P06_13_4": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000000498.jpg",
+            "random_image": "./frame_0000000724.jpg",
+            "end_image": "./frame_0000000785.jpg",
+            "action": "put on oven glove",
+            "states": [],
+            "objects": [
+                "cooker",
+                "left hand",
+                "left glove",
+                "right glove",
+                "pot"
+            ]
+        },
+        "P06_13_6": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000000855.jpg",
+            "random_image": "./frame_0000000880.jpg",
+            "end_image": "./frame_0000000952.jpg",
+            "action": "shake lid",
+            "states": [],
+            "objects": [
+                "lid",
+                "pot",
+                "left hand",
+                "spoon",
+                "left glove",
+                "right glove",
+                "cooker",
+                "sauce"
+            ]
+        },
+        "P06_13_8": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000001036.jpg",
+            "random_image": "./frame_0000001367.jpg",
+            "end_image": "./frame_0000001486.jpg",
+            "action": "stir pan",
+            "states": [],
+            "objects": [
+                "lid",
+                "right hand",
+                "pot",
+                "left hand",
+                "spoon",
+                "left glove",
+                "right glove",
+                "cooker",
+                "sauce",
+                "chicken food"
+            ]
+        },
+        "P06_13_9": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000001506.jpg",
+            "random_image": "./frame_0000001552.jpg",
+            "end_image": "./frame_0000001579.jpg",
+            "action": "put lid on pan",
+            "states": [],
+            "objects": [
+                "lid",
+                "right hand",
+                "pot",
+                "left hand",
+                "spoon",
+                "left glove",
+                "right glove",
+                "cooker",
+                "sauce"
+            ]
+        },
+        "P06_13_10": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000001585.jpg",
+            "random_image": "./frame_0000001643.jpg",
+            "end_image": "./frame_0000001660.jpg",
+            "action": "put spoon down",
+            "states": [],
+            "objects": [
+                "lid",
+                "pot",
+                "left hand",
+                "left glove",
+                "cooker",
+                "sauce"
+            ]
+        },
+        "P06_13_11": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000001753.jpg",
+            "random_image": "./frame_0000001814.jpg",
+            "end_image": "./frame_0000001834.jpg",
+            "action": "take lid off pan",
+            "states": [],
+            "objects": [
+                "lid",
+                "right hand",
+                "pot",
+                "left hand",
+                "right glove",
+                "left glove",
+                "cooker",
+                "vegetable"
+            ]
+        },
+        "P06_13_12": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000001835.jpg",
+            "random_image": "./frame_0000001979.jpg",
+            "end_image": "./frame_0000001996.jpg",
+            "action": "shake lid",
+            "states": [],
+            "objects": [
+                "lid",
+                "right hand",
+                "pot",
+                "right glove",
+                "left glove",
+                "cooker",
+                "vegetable"
+            ]
+        },
+        "P06_13_14": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000002090.jpg",
+            "random_image": "./frame_0000002126.jpg",
+            "end_image": "./frame_0000002255.jpg",
+            "action": "pick up pan",
+            "states": [],
+            "objects": [
+                "lid",
+                "right hand",
+                "left hand",
+                "vegetable",
+                "pot",
+                "cooker",
+                "left glove",
+                "right glove"
+            ]
+        },
+        "P06_13_15": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000002319.jpg",
+            "random_image": "./frame_0000002608.jpg",
+            "end_image": "./frame_0000002764.jpg",
+            "action": "drain vegetables",
+            "states": [],
+            "objects": [
+                "right hand",
+                "colander",
+                "sink",
+                "left hand",
+                "vegetable",
+                "pot",
+                "left glove",
+                "right glove"
+            ]
+        },
+        "P06_13_16": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000002872.jpg",
+            "random_image": "./frame_0000003094.jpg",
+            "end_image": "./frame_0000003160.jpg",
+            "action": "shake vegetables in colander",
+            "states": [],
+            "objects": [
+                "lid",
+                "colander",
+                "sink",
+                "tap",
+                "left hand",
+                "vegetable",
+                "pot",
+                "cooker",
+                "left glove",
+                "right glove"
+            ]
+        },
+        "P06_13_18": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000003376.jpg",
+            "random_image": "./frame_0000003443.jpg",
+            "end_image": "./frame_0000003639.jpg",
+            "action": "take off oven gloves",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left glove",
+                "right glove",
+                "sink"
+            ]
+        },
+        "P06_13_20": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000003761.jpg",
+            "random_image": "./frame_0000003845.jpg",
+            "end_image": "./frame_0000003881.jpg",
+            "action": "open cupboard",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "cupboard"
+            ]
+        },
+        "P06_13_21": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000003918.jpg",
+            "random_image": "./frame_0000004101.jpg",
+            "end_image": "./frame_0000004143.jpg",
+            "action": "take tupperware",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "cupboard",
+                "tupperware"
+            ]
+        },
+        "P06_13_22": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000004154.jpg",
+            "random_image": "./frame_0000004189.jpg",
+            "end_image": "./frame_0000004381.jpg",
+            "action": "put tupperware down",
+            "states": [],
+            "objects": [
+                "right hand",
+                "tupperware",
+                "left hand",
+                "chopping board",
+                "lid"
+            ]
+        },
+        "P06_13_23": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000004167.jpg",
+            "random_image": "./frame_0000004189.jpg",
+            "end_image": "./frame_0000004253.jpg",
+            "action": "move chopping board",
+            "states": [],
+            "objects": [
+                "right hand",
+                "tupperware",
+                "left hand",
+                "chopping board",
+                "lid"
+            ]
+        },
+        "P06_13_24": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000004386.jpg",
+            "random_image": "./frame_0000004398.jpg",
+            "end_image": "./frame_0000004446.jpg",
+            "action": "close cupboard",
+            "states": [],
+            "objects": [
+                "right hand",
+                "tupperware",
+                "left hand",
+                "cupboard",
+                "chopping board",
+                "lid"
+            ]
+        },
+        "P06_13_26": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000004468.jpg",
+            "random_image": "./frame_0000004525.jpg",
+            "end_image": "./frame_0000004652.jpg",
+            "action": "take plate",
+            "states": [],
+            "objects": [
+                "right hand",
+                "plate",
+                "cupboard"
+            ]
+        },
+        "P06_13_27": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000004726.jpg",
+            "random_image": "./frame_0000004758.jpg",
+            "end_image": "./frame_0000004825.jpg",
+            "action": "move lid",
+            "states": [],
+            "objects": [
+                "lid",
+                "right hand",
+                "plate",
+                "left hand",
+                "vegetable",
+                "cooker",
+                "colander"
+            ]
+        },
+        "P06_13_29": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000004858.jpg",
+            "random_image": "./frame_0000004880.jpg",
+            "end_image": "./frame_0000004956.jpg",
+            "action": "open drawer",
+            "states": [],
+            "objects": [
+                "right hand",
+                "drawer"
+            ]
+        },
+        "P06_13_31": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000005098.jpg",
+            "random_image": "./frame_0000005136.jpg",
+            "end_image": "./frame_0000005276.jpg",
+            "action": "shake vegetables",
+            "states": [],
+            "objects": [
+                "right hand",
+                "plate",
+                "left hand",
+                "vegetable",
+                "spoon",
+                "cooker",
+                "colander"
+            ]
+        },
+        "P06_13_32": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000005291.jpg",
+            "random_image": "./frame_0000006472.jpg",
+            "end_image": "./frame_0000007007.jpg",
+            "action": "put vegetables onto plate",
+            "states": [],
+            "objects": [
+                "right hand",
+                "plate",
+                "left hand",
+                "spoon",
+                "vegetable",
+                "tupperware",
+                "colander",
+                "cooker"
+            ]
+        },
+        "P06_13_33": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000006325.jpg",
+            "random_image": "./frame_0000006472.jpg",
+            "end_image": "./frame_0000007443.jpg",
+            "action": "still spooning vegetables onto plate",
+            "states": [],
+            "objects": [
+                "right hand",
+                "plate",
+                "left hand",
+                "spoon",
+                "vegetable",
+                "tupperware",
+                "colander",
+                "cooker"
+            ]
+        },
+        "P06_13_34": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000007491.jpg",
+            "random_image": "./frame_0000007689.jpg",
+            "end_image": "./frame_0000008092.jpg",
+            "action": "scrape vegetables into tupperware",
+            "states": [],
+            "objects": [
+                "right hand",
+                "plate",
+                "left hand",
+                "spoon",
+                "vegetable",
+                "tupperware",
+                "colander",
+                "cooker"
+            ]
+        },
+        "P06_13_35": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000008139.jpg",
+            "random_image": "./frame_0000008355.jpg",
+            "end_image": "./frame_0000008392.jpg",
+            "action": "scrape vegetables onto plate",
+            "states": [],
+            "objects": [
+                "right hand",
+                "plate",
+                "left hand",
+                "spoon",
+                "vegetable",
+                "tupperware",
+                "colander",
+                "cooker"
+            ]
+        },
+        "P06_13_36": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000008541.jpg",
+            "random_image": "./frame_0000008566.jpg",
+            "end_image": "./frame_0000008657.jpg",
+            "action": "put colander down",
+            "states": [],
+            "objects": [
+                "right hand",
+                "lid",
+                "pot",
+                "colander",
+                "plate",
+                "left hand",
+                "glove",
+                "spoon",
+                "vegetable",
+                "tupperware"
+            ]
+        },
+        "P06_13_37": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000008668.jpg",
+            "random_image": "./frame_0000008753.jpg",
+            "end_image": "./frame_0000008783.jpg",
+            "action": "pick up oven glove",
+            "states": [],
+            "objects": [
+                "right hand",
+                "lid",
+                "pot",
+                "colander",
+                "plate",
+                "left hand",
+                "glove",
+                "spoon",
+                "vegetable",
+                "tupperware"
+            ]
+        },
+        "P06_13_38": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000008785.jpg",
+            "random_image": "./frame_0000008867.jpg",
+            "end_image": "./frame_0000008925.jpg",
+            "action": "take lid off pan",
+            "states": [],
+            "objects": [
+                "right hand",
+                "lid",
+                "pot",
+                "colander",
+                "plate",
+                "left hand",
+                "glove",
+                "spoon",
+                "vegetable",
+                "tupperware"
+            ]
+        },
+        "P06_13_40": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000009117.jpg",
+            "random_image": "./frame_0000009130.jpg",
+            "end_image": "./frame_0000009207.jpg",
+            "action": "put lid down",
+            "states": [],
+            "objects": [
+                "lid",
+                "right hand",
+                "colander",
+                "left hand",
+                "glove",
+                "spoon",
+                "plate",
+                "cooker",
+                "vegetable",
+                "chicken food",
+                "pot"
+            ]
+        },
+        "P06_13_41": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000009308.jpg",
+            "random_image": "./frame_0000009380.jpg",
+            "end_image": "./frame_0000009410.jpg",
+            "action": "scrape peas off spoon",
+            "states": [],
+            "objects": [
+                "lid",
+                "right hand",
+                "pot",
+                "left hand",
+                "glove",
+                "spoon",
+                "plate",
+                "cooker",
+                "vegetable",
+                "chicken food",
+                "tupperware"
+            ]
+        },
+        "P06_13_42": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000009416.jpg",
+            "random_image": "./frame_0000009738.jpg",
+            "end_image": "./frame_0000009816.jpg",
+            "action": "stir pan",
+            "states": [],
+            "objects": [
+                "lid",
+                "right hand",
+                "pot",
+                "left hand",
+                "glove",
+                "spoon",
+                "sauce",
+                "plate",
+                "cooker",
+                "vegetable",
+                "chicken food",
+                "tupperware"
+            ]
+        },
+        "P06_13_43": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000009855.jpg",
+            "random_image": "./frame_0000009941.jpg",
+            "end_image": "./frame_0000009974.jpg",
+            "action": "put chicken onto plate",
+            "states": [],
+            "objects": [
+                "chicken",
+                "right hand",
+                "pot",
+                "plate",
+                "left hand",
+                "sauce",
+                "spoon",
+                "cooker",
+                "vegetable",
+                "tupperware"
+            ]
+        },
+        "P06_13_44": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000010104.jpg",
+            "random_image": "./frame_0000010130.jpg",
+            "end_image": "./frame_0000010209.jpg",
+            "action": "put sauce onto plate",
+            "states": [],
+            "objects": [
+                "chicken",
+                "right hand",
+                "pot",
+                "plate",
+                "left hand",
+                "sauce",
+                "spoon",
+                "cooker",
+                "vegetable",
+                "tupperware"
+            ]
+        },
+        "P06_13_45": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000010302.jpg",
+            "random_image": "./frame_0000010323.jpg",
+            "end_image": "./frame_0000010409.jpg",
+            "action": "put sauce onto plate",
+            "states": [],
+            "objects": [
+                "chicken",
+                "right hand",
+                "pot",
+                "plate",
+                "left hand",
+                "sauce",
+                "spoon",
+                "cooker",
+                "vegetable",
+                "tupperware"
+            ]
+        },
+        "P06_13_46": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000010512.jpg",
+            "random_image": "./frame_0000010539.jpg",
+            "end_image": "./frame_0000010612.jpg",
+            "action": "put sauce onto plate",
+            "states": [],
+            "objects": [
+                "chicken",
+                "right hand",
+                "plate",
+                "left hand",
+                "sauce",
+                "spoon",
+                "vegetable",
+                "pot",
+                "tupperware"
+            ]
+        },
+        "P06_13_47": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000010729.jpg",
+            "random_image": "./frame_0000010792.jpg",
+            "end_image": "./frame_0000010819.jpg",
+            "action": "put sauce onto plate",
+            "states": [],
+            "objects": [
+                "chicken",
+                "right hand",
+                "plate",
+                "left hand",
+                "sauce",
+                "spoon",
+                "vegetable",
+                "pot",
+                "cooker",
+                "tupperware"
+            ]
+        },
+        "P06_13_48": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000011065.jpg",
+            "random_image": "./frame_0000011082.jpg",
+            "end_image": "./frame_0000011122.jpg",
+            "action": "put sauce onto plate",
+            "states": [],
+            "objects": [
+                "chicken",
+                "right hand",
+                "plate",
+                "left hand",
+                "sauce",
+                "spoon",
+                "vegetable",
+                "pot",
+                "cooker",
+                "tupperware"
+            ]
+        },
+        "P06_13_49": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000011278.jpg",
+            "random_image": "./frame_0000011292.jpg",
+            "end_image": "./frame_0000011365.jpg",
+            "action": "wipe plate",
+            "states": [],
+            "objects": [
+                "right hand",
+                "chicken",
+                "plate",
+                "left hand",
+                "sauce",
+                "spoon",
+                "tupperware",
+                "pot",
+                "cooker",
+                "vegetable"
+            ]
+        },
+        "P06_13_50": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000011424.jpg",
+            "random_image": "./frame_0000011560.jpg",
+            "end_image": "./frame_0000011592.jpg",
+            "action": "put plate down",
+            "states": [],
+            "objects": [
+                "right hand",
+                "chicken",
+                "plate",
+                "left hand",
+                "sauce",
+                "spoon",
+                "tupperware",
+                "pot",
+                "cooker",
+                "vegetable"
+            ]
+        },
+        "P06_13_51": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000011725.jpg",
+            "random_image": "./frame_0000011953.jpg",
+            "end_image": "./frame_0000011995.jpg",
+            "action": "spoon chicken into tupperware",
+            "states": [],
+            "objects": [
+                "right hand",
+                "chicken",
+                "plate",
+                "left hand",
+                "sauce",
+                "spoon",
+                "tupperware",
+                "pot",
+                "cooker",
+                "vegetable"
+            ]
+        },
+        "P06_13_52": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000011928.jpg",
+            "random_image": "./frame_0000011953.jpg",
+            "end_image": "./frame_0000012163.jpg",
+            "action": "spoon sauce into tupperware",
+            "states": [],
+            "objects": [
+                "right hand",
+                "chicken",
+                "plate",
+                "left hand",
+                "sauce",
+                "spoon",
+                "tupperware",
+                "pot",
+                "cooker",
+                "vegetable"
+            ]
+        },
+        "P06_13_53": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000012060.jpg",
+            "random_image": "./frame_0000012140.jpg",
+            "end_image": "./frame_0000012177.jpg",
+            "action": "spoon sauce into tupperware",
+            "states": [],
+            "objects": [
+                "chicken",
+                "right hand",
+                "left hand",
+                "sauce",
+                "spoon",
+                "tupperware",
+                "vegetable",
+                "pot",
+                "cooker",
+                "plate"
+            ]
+        },
+        "P06_13_55": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000012868.jpg",
+            "random_image": "./frame_0000012914.jpg",
+            "end_image": "./frame_0000013029.jpg",
+            "action": "spoon sauce into tupperware",
+            "states": [],
+            "objects": [
+                "chicken",
+                "right hand",
+                "left hand",
+                "sauce",
+                "spoon",
+                "tupperware",
+                "vegetable",
+                "pot",
+                "cooker",
+                "plate"
+            ]
+        },
+        "P06_13_57": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000013409.jpg",
+            "random_image": "./frame_0000013494.jpg",
+            "end_image": "./frame_0000013521.jpg",
+            "action": "put down spoon",
+            "states": [],
+            "objects": [
+                "chicken",
+                "right hand",
+                "left hand",
+                "sauce",
+                "spoon",
+                "tupperware",
+                "vegetable",
+                "pot",
+                "cooker",
+                "plate"
+            ]
+        },
+        "P06_13_58": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000013542.jpg",
+            "random_image": "./frame_0000013605.jpg",
+            "end_image": "./frame_0000013803.jpg",
+            "action": "put lid on tupperware",
+            "states": [],
+            "objects": [
+                "chicken",
+                "right hand",
+                "left hand",
+                "glove",
+                "pot",
+                "tupperware",
+                "tupperware lid",
+                "pan lid",
+                "cooker",
+                "plate"
+            ]
+        },
+        "P06_13_59": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000013840.jpg",
+            "random_image": "./frame_0000013889.jpg",
+            "end_image": "./frame_0000013906.jpg",
+            "action": "take lid",
+            "states": [],
+            "objects": [
+                "chicken",
+                "right hand",
+                "left hand",
+                "glove",
+                "pot",
+                "tupperware",
+                "tupperware lid",
+                "pan lid",
+                "cooker",
+                "plate",
+                "lid"
+            ]
+        },
+        "P06_13_61": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000013998.jpg",
+            "random_image": "./frame_0000014018.jpg",
+            "end_image": "./frame_0000014099.jpg",
+            "action": "put down oven glove",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "glove",
+                "pot",
+                "tupperware lid",
+                "pan lid",
+                "cooker",
+                "plate"
+            ]
+        },
+        "P06_13_62": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P06/rgb_frames/P06_13.tar",
+            "start_image": "./frame_0000014141.jpg",
+            "random_image": "./frame_0000014244.jpg",
+            "end_image": "./frame_0000014305.jpg",
+            "action": "pick up plate",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "plate",
+                "vegetable",
+                "cooker",
+                "sauce",
+                "spoon"
+            ]
+        }
+    }
+}

@@ -1,0 +1,1636 @@
+{
+    "P08_17": {
+        "P08_17_0": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000000001.jpg",
+            "random_image": "./frame_0000000090.jpg",
+            "end_image": "./frame_0000000108.jpg",
+            "action": "enter kitchen",
+            "states": [],
+            "objects": [
+                "lid",
+                "hob/cooktop/stovetop",
+                "pot"
+            ]
+        },
+        "P08_17_1": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000000110.jpg",
+            "random_image": "./frame_0000000128.jpg",
+            "end_image": "./frame_0000000217.jpg",
+            "action": "adjust temperature",
+            "states": [],
+            "objects": [
+                "right hand",
+                "lid",
+                "hob/cooktop/stovetop",
+                "pot"
+            ]
+        },
+        "P08_17_2": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000000247.jpg",
+            "random_image": "./frame_0000000269.jpg",
+            "end_image": "./frame_0000000316.jpg",
+            "action": "open lid",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "lid",
+                "hob/cooktop/stovetop",
+                "pot"
+            ]
+        },
+        "P08_17_3": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000000332.jpg",
+            "random_image": "./frame_0000000361.jpg",
+            "end_image": "./frame_0000000394.jpg",
+            "action": "get spoon",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "food",
+                "lid",
+                "spoon",
+                "pot",
+                "hob/cooktop/stovetop"
+            ]
+        },
+        "P08_17_4": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000000398.jpg",
+            "random_image": "./frame_0000000805.jpg",
+            "end_image": "./frame_0000000923.jpg",
+            "action": "mix food in pan",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "food",
+                "lid",
+                "spoon",
+                "pot",
+                "hob/cooktop/stovetop"
+            ]
+        },
+        "P08_17_5": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000000988.jpg",
+            "random_image": "./frame_0000001001.jpg",
+            "end_image": "./frame_0000001063.jpg",
+            "action": "place lid",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "food",
+                "lid",
+                "spoon",
+                "pot",
+                "hob/cooktop/stovetop"
+            ]
+        },
+        "P08_17_6": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000001129.jpg",
+            "random_image": "./frame_0000001149.jpg",
+            "end_image": "./frame_0000001201.jpg",
+            "action": "adjust temperature",
+            "states": [],
+            "objects": [
+                "lid",
+                "left hand",
+                "right hand",
+                "hob/cooktop/stovetop",
+                "pot"
+            ]
+        },
+        "P08_17_7": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000001389.jpg",
+            "random_image": "./frame_0000001408.jpg",
+            "end_image": "./frame_0000001442.jpg",
+            "action": "get pan",
+            "states": [],
+            "objects": [
+                "right hand",
+                "hob/cooktop/stovetop",
+                "pot"
+            ]
+        },
+        "P08_17_8": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000001448.jpg",
+            "random_image": "./frame_0000001533.jpg",
+            "end_image": "./frame_0000001555.jpg",
+            "action": "place pan",
+            "states": [],
+            "objects": [
+                "lid",
+                "left hand",
+                "right hand",
+                "hob/cooktop/stovetop",
+                "pot",
+                "pan"
+            ]
+        },
+        "P08_17_9": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000001559.jpg",
+            "random_image": "./frame_0000001663.jpg",
+            "end_image": "./frame_0000001703.jpg",
+            "action": "open cooker",
+            "states": [],
+            "objects": [
+                "fork",
+                "left hand",
+                "bowl",
+                "right hand",
+                "cooker",
+                "lid",
+                "pot"
+            ]
+        },
+        "P08_17_10": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000002307.jpg",
+            "random_image": "./frame_0000002327.jpg",
+            "end_image": "./frame_0000002390.jpg",
+            "action": "get fork",
+            "states": [],
+            "objects": [
+                "fork",
+                "left hand",
+                "cooker",
+                "lid",
+                "pot"
+            ]
+        },
+        "P08_17_12": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000002946.jpg",
+            "random_image": "./frame_0000002982.jpg",
+            "end_image": "./frame_0000003081.jpg",
+            "action": "get wrap",
+            "states": [],
+            "objects": [
+                "fork",
+                "left hand",
+                "bowl",
+                "right hand",
+                "cooker",
+                "film"
+            ]
+        },
+        "P08_17_14": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000003225.jpg",
+            "random_image": "./frame_0000003285.jpg",
+            "end_image": "./frame_0000003474.jpg",
+            "action": "close lid",
+            "states": [],
+            "objects": [
+                "left hand",
+                "bowl",
+                "right hand",
+                "lid",
+                "box"
+            ]
+        },
+        "P08_17_15": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000003475.jpg",
+            "random_image": "./frame_0000003515.jpg",
+            "end_image": "./frame_0000003533.jpg",
+            "action": "open fridge",
+            "states": [],
+            "objects": [
+                "left hand",
+                "bowl",
+                "fridge",
+                "lid",
+                "box"
+            ]
+        },
+        "P08_17_17": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000003624.jpg",
+            "random_image": "./frame_0000003681.jpg",
+            "end_image": "./frame_0000003693.jpg",
+            "action": "get bowl",
+            "states": [],
+            "objects": [
+                "bowl",
+                "fridge"
+            ]
+        },
+        "P08_17_19": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000003900.jpg",
+            "random_image": "./frame_0000003929.jpg",
+            "end_image": "./frame_0000003973.jpg",
+            "action": "open cupboard",
+            "states": [],
+            "objects": [
+                "cupboard"
+            ]
+        },
+        "P08_17_21": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000004144.jpg",
+            "random_image": "./frame_0000004194.jpg",
+            "end_image": "./frame_0000005046.jpg",
+            "action": "skin the garlic",
+            "states": [],
+            "objects": [
+                "right hand",
+                "cupboard",
+                "chopping board",
+                "garlic"
+            ]
+        },
+        "P08_17_22": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000005052.jpg",
+            "random_image": "./frame_0000005119.jpg",
+            "end_image": "./frame_0000005127.jpg",
+            "action": "place garlic on chopping board",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "chopping board",
+                "knife",
+                "garlic"
+            ]
+        },
+        "P08_17_23": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000005268.jpg",
+            "random_image": "./frame_0000005496.jpg",
+            "end_image": "./frame_0000006213.jpg",
+            "action": "cut garlic",
+            "states": [],
+            "objects": [
+                "left hand",
+                "chopping board",
+                "right hand",
+                "knife",
+                "garlic"
+            ]
+        },
+        "P08_17_24": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000006338.jpg",
+            "random_image": "./frame_0000006487.jpg",
+            "end_image": "./frame_0000006859.jpg",
+            "action": "skin garlic",
+            "states": [],
+            "objects": [
+                "left hand",
+                "chopping board",
+                "right hand",
+                "knife",
+                "garlic"
+            ]
+        },
+        "P08_17_25": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000006869.jpg",
+            "random_image": "./frame_0000007178.jpg",
+            "end_image": "./frame_0000007289.jpg",
+            "action": "chop garlic",
+            "states": [],
+            "objects": [
+                "left hand",
+                "chopping board",
+                "right hand",
+                "knife",
+                "garlic"
+            ]
+        },
+        "P08_17_26": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000007310.jpg",
+            "random_image": "./frame_0000007378.jpg",
+            "end_image": "./frame_0000007550.jpg",
+            "action": "press garlic",
+            "states": [],
+            "objects": [
+                "left hand",
+                "chopping board",
+                "right hand",
+                "knife",
+                "garlic",
+                "pot"
+            ]
+        },
+        "P08_17_27": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000007624.jpg",
+            "random_image": "./frame_0000007675.jpg",
+            "end_image": "./frame_0000007800.jpg",
+            "action": "check temperature",
+            "states": [],
+            "objects": [
+                "left hand",
+                "pot",
+                "pan",
+                "hob/cooktop/stovetop"
+            ]
+        },
+        "P08_17_28": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000008012.jpg",
+            "random_image": "./frame_0000008105.jpg",
+            "end_image": "./frame_0000008147.jpg",
+            "action": "open cupboard",
+            "states": [],
+            "objects": [
+                "left hand",
+                "pan",
+                "hob/cooktop/stovetop"
+            ]
+        },
+        "P08_17_29": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000008183.jpg",
+            "random_image": "./frame_0000008347.jpg",
+            "end_image": "./frame_0000008384.jpg",
+            "action": "get oil",
+            "states": [],
+            "objects": [
+                "left hand",
+                "pot",
+                "pan",
+                "olive oil bottle",
+                "hob/cooktop/stovetop"
+            ]
+        },
+        "P08_17_30": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000008281.jpg",
+            "random_image": "./frame_0000008347.jpg",
+            "end_image": "./frame_0000008452.jpg",
+            "action": "open it",
+            "states": [],
+            "objects": [
+                "left hand",
+                "pot",
+                "pan",
+                "olive oil bottle",
+                "hob/cooktop/stovetop"
+            ]
+        },
+        "P08_17_31": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000008466.jpg",
+            "random_image": "./frame_0000008672.jpg",
+            "end_image": "./frame_0000008736.jpg",
+            "action": "pour oil in pan",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "pot",
+                "pan",
+                "olive oil bottle",
+                "hob/cooktop/stovetop",
+                "olive oil"
+            ]
+        },
+        "P08_17_32": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000008952.jpg",
+            "random_image": "./frame_0000009245.jpg",
+            "end_image": "./frame_0000009297.jpg",
+            "action": "pour olive oil in pan",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "pot",
+                "pan",
+                "olive oil",
+                "hob/cooktop/stovetop",
+                "olive oil bottle"
+            ]
+        },
+        "P08_17_33": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000009486.jpg",
+            "random_image": "./frame_0000009496.jpg",
+            "end_image": "./frame_0000009567.jpg",
+            "action": "get spoon",
+            "states": [],
+            "objects": [
+                "left hand",
+                "spoon",
+                "chopping board"
+            ]
+        },
+        "P08_17_34": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000009572.jpg",
+            "random_image": "./frame_0000009821.jpg",
+            "end_image": "./frame_0000009947.jpg",
+            "action": "mix oil",
+            "states": [],
+            "objects": [
+                "garlic",
+                "left hand",
+                "oil",
+                "right hand",
+                "spoon",
+                "pan",
+                "chopping board"
+            ]
+        },
+        "P08_17_36": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000010112.jpg",
+            "random_image": "./frame_0000010152.jpg",
+            "end_image": "./frame_0000010309.jpg",
+            "action": "get garlic",
+            "states": [],
+            "objects": [
+                "garlic",
+                "left hand",
+                "right hand",
+                "spoon",
+                "pot",
+                "chopping board"
+            ]
+        },
+        "P08_17_38": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000010569.jpg",
+            "random_image": "./frame_0000010632.jpg",
+            "end_image": "./frame_0000010656.jpg",
+            "action": "get rice",
+            "states": [],
+            "objects": [
+                "right hand",
+                "spoon",
+                "pot",
+                "pan",
+                "garlic",
+                "hob/cooktop/stovetop"
+            ]
+        },
+        "P08_17_39": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000010631.jpg",
+            "random_image": "./frame_0000010632.jpg",
+            "end_image": "./frame_0000011142.jpg",
+            "action": "mix garlic in pan",
+            "states": [],
+            "objects": [
+                "right hand",
+                "spoon",
+                "pot",
+                "pan",
+                "garlic",
+                "hob/cooktop/stovetop"
+            ]
+        },
+        "P08_17_40": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000011175.jpg",
+            "random_image": "./frame_0000011309.jpg",
+            "end_image": "./frame_0000011575.jpg",
+            "action": "pour cooked rice in pan",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "spoon",
+                "cooked rice",
+                "pot",
+                "pan",
+                "sieve",
+                "hob/cooktop/stovetop"
+            ]
+        },
+        "P08_17_41": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000011899.jpg",
+            "random_image": "./frame_0000012361.jpg",
+            "end_image": "./frame_0000012549.jpg",
+            "action": "pour rice in pan",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "spoon",
+                "cooked rice",
+                "pot",
+                "pan",
+                "sieve",
+                "hob/cooktop/stovetop"
+            ]
+        },
+        "P08_17_43": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000012662.jpg",
+            "random_image": "./frame_0000012724.jpg",
+            "end_image": "./frame_0000013059.jpg",
+            "action": "mix rice in pan",
+            "states": [],
+            "objects": [
+                "rice",
+                "left hand",
+                "bowl",
+                "right hand",
+                "spoon",
+                "pot",
+                "pan",
+                "hob/cooktop/stovetop"
+            ]
+        },
+        "P08_17_45": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000013115.jpg",
+            "random_image": "./frame_0000013203.jpg",
+            "end_image": "./frame_0000013423.jpg",
+            "action": "pour whisked egg",
+            "states": [],
+            "objects": [
+                "fork",
+                "rice",
+                "left hand",
+                "bowl",
+                "right hand",
+                "whisked egg",
+                "spoon",
+                "pot",
+                "pan"
+            ]
+        },
+        "P08_17_46": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000013429.jpg",
+            "random_image": "./frame_0000013505.jpg",
+            "end_image": "./frame_0000013544.jpg",
+            "action": "place bowl in sink",
+            "states": [],
+            "objects": [
+                "fork",
+                "left hand",
+                "bowl",
+                "sink",
+                "whisked egg"
+            ]
+        },
+        "P08_17_47": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000013660.jpg",
+            "random_image": "./frame_0000014022.jpg",
+            "end_image": "./frame_0000014137.jpg",
+            "action": "mix egg",
+            "states": [],
+            "objects": [
+                "egg",
+                "rice",
+                "left hand",
+                "right hand",
+                "hob/cooktop/stovetop",
+                "pot",
+                "pan"
+            ]
+        },
+        "P08_17_49": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000014316.jpg",
+            "random_image": "./frame_0000015186.jpg",
+            "end_image": "./frame_0000015331.jpg",
+            "action": "mix egg in rice",
+            "states": [],
+            "objects": [
+                "rice",
+                "left hand",
+                "right hand",
+                "hob/cooktop/stovetop",
+                "pot",
+                "pan"
+            ]
+        },
+        "P08_17_51": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000015786.jpg",
+            "random_image": "./frame_0000015797.jpg",
+            "end_image": "./frame_0000015835.jpg",
+            "action": "get bowl",
+            "states": [],
+            "objects": [
+                "rice",
+                "left hand",
+                "bowl",
+                "right hand",
+                "hob/cooktop/stovetop",
+                "pan",
+                "pepper shaker"
+            ]
+        },
+        "P08_17_52": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000015863.jpg",
+            "random_image": "./frame_0000016097.jpg",
+            "end_image": "./frame_0000016131.jpg",
+            "action": "mix food in pan",
+            "states": [],
+            "objects": [
+                "rice",
+                "left hand",
+                "bowl",
+                "right hand",
+                "food",
+                "hob/cooktop/stovetop",
+                "pot",
+                "pan"
+            ]
+        },
+        "P08_17_54": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000016192.jpg",
+            "random_image": "./frame_0000016264.jpg",
+            "end_image": "./frame_0000016479.jpg",
+            "action": "mix food in pan",
+            "states": [],
+            "objects": [
+                "rice",
+                "bowl",
+                "right hand",
+                "food",
+                "hob/cooktop/stovetop",
+                "pot",
+                "pan"
+            ]
+        },
+        "P08_17_55": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000017286.jpg",
+            "random_image": "./frame_0000017286.jpg",
+            "end_image": "./frame_0000017340.jpg",
+            "action": "get bowl",
+            "states": [],
+            "objects": [
+                "rice",
+                "left hand",
+                "bowl",
+                "right hand",
+                "food",
+                "hob/cooktop/stovetop",
+                "pot",
+                "pan"
+            ]
+        },
+        "P08_17_56": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000017364.jpg",
+            "random_image": "./frame_0000017418.jpg",
+            "end_image": "./frame_0000017540.jpg",
+            "action": "put corn in pan",
+            "states": [],
+            "objects": [
+                "bell pepper",
+                "left hand",
+                "bowl",
+                "right hand",
+                "food",
+                "corn",
+                "pot",
+                "pan"
+            ]
+        },
+        "P08_17_57": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000018376.jpg",
+            "random_image": "./frame_0000018560.jpg",
+            "end_image": "./frame_0000018630.jpg",
+            "action": "put bell pepper in pan",
+            "states": [],
+            "objects": [
+                "bell pepper",
+                "left hand",
+                "bowl",
+                "right hand",
+                "food",
+                "corn",
+                "pot",
+                "pan"
+            ]
+        },
+        "P08_17_58": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000018803.jpg",
+            "random_image": "./frame_0000019102.jpg",
+            "end_image": "./frame_0000019985.jpg",
+            "action": "mix contents of pan",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "food",
+                "corn",
+                "pot",
+                "pan"
+            ]
+        },
+        "P08_17_59": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000020019.jpg",
+            "random_image": "./frame_0000020153.jpg",
+            "end_image": "./frame_0000020189.jpg",
+            "action": "shake pan",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "pot",
+                "pan",
+                "food"
+            ]
+        },
+        "P08_17_61": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000020436.jpg",
+            "random_image": "./frame_0000020480.jpg",
+            "end_image": "./frame_0000020491.jpg",
+            "action": "open drawer",
+            "states": [],
+            "objects": [
+                "drawer",
+                "left hand",
+                "right hand"
+            ]
+        },
+        "P08_17_62": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000020497.jpg",
+            "random_image": "./frame_0000020507.jpg",
+            "end_image": "./frame_0000020589.jpg",
+            "action": "get fork",
+            "states": [],
+            "objects": [
+                "drawer",
+                "fork",
+                "left hand",
+                "right hand"
+            ]
+        },
+        "P08_17_63": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000020683.jpg",
+            "random_image": "./frame_0000020722.jpg",
+            "end_image": "./frame_0000020810.jpg",
+            "action": "taste food",
+            "states": [],
+            "objects": [
+                "fork",
+                "right hand",
+                "food",
+                "hob/cooktop/stovetop",
+                "spoon",
+                "pot",
+                "pan"
+            ]
+        },
+        "P08_17_64": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000020816.jpg",
+            "random_image": "./frame_0000020895.jpg",
+            "end_image": "./frame_0000020922.jpg",
+            "action": "place fork",
+            "states": [],
+            "objects": [
+                "fork",
+                "left hand",
+                "right hand",
+                "food",
+                "hob/cooktop/stovetop",
+                "spoon",
+                "pot",
+                "pan"
+            ]
+        },
+        "P08_17_65": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000020928.jpg",
+            "random_image": "./frame_0000021116.jpg",
+            "end_image": "./frame_0000021168.jpg",
+            "action": "open cupboard",
+            "states": [],
+            "objects": [
+                "right hand",
+                "cupboard",
+                "food",
+                "hob/cooktop/stovetop",
+                "spoon",
+                "pot",
+                "pan"
+            ]
+        },
+        "P08_17_66": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000021094.jpg",
+            "random_image": "./frame_0000021116.jpg",
+            "end_image": "./frame_0000021184.jpg",
+            "action": "get soy sauce",
+            "states": [],
+            "objects": [
+                "right hand",
+                "cupboard",
+                "food",
+                "hob/cooktop/stovetop",
+                "spoon",
+                "pot",
+                "pan"
+            ]
+        },
+        "P08_17_67": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000021301.jpg",
+            "random_image": "./frame_0000021515.jpg",
+            "end_image": "./frame_0000021604.jpg",
+            "action": "pour soy sauce",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "food",
+                "soy sauce",
+                "pot",
+                "pan",
+                "spatula",
+                "hob/cooktop/stovetop",
+                "soy sauce bottle lid"
+            ]
+        },
+        "P08_17_68": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000021651.jpg",
+            "random_image": "./frame_0000021983.jpg",
+            "end_image": "./frame_0000022090.jpg",
+            "action": "pour pepper",
+            "states": [],
+            "objects": [
+                "pepper shaker",
+                "left hand",
+                "food",
+                "pot",
+                "pan",
+                "spatula",
+                "hob/cooktop/stovetop"
+            ]
+        },
+        "P08_17_70": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000022191.jpg",
+            "random_image": "./frame_0000022267.jpg",
+            "end_image": "./frame_0000022489.jpg",
+            "action": "mix food in pan",
+            "states": [],
+            "objects": [
+                "pepper shaker",
+                "left hand",
+                "right hand",
+                "food",
+                "soy sauce",
+                "pot",
+                "pan",
+                "spatula",
+                "hob/cooktop/stovetop"
+            ]
+        },
+        "P08_17_71": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000022504.jpg",
+            "random_image": "./frame_0000022584.jpg",
+            "end_image": "./frame_0000022600.jpg",
+            "action": "shake pan",
+            "states": [],
+            "objects": [
+                "spatula",
+                "right hand",
+                "food",
+                "pot",
+                "pan",
+                "hob/cooktop/stovetop"
+            ]
+        },
+        "P08_17_72": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000022606.jpg",
+            "random_image": "./frame_0000023274.jpg",
+            "end_image": "./frame_0000023453.jpg",
+            "action": "still shake food in pan",
+            "states": [],
+            "objects": [
+                "left hand",
+                "spatula",
+                "right hand",
+                "food",
+                "pot",
+                "pan",
+                "hob/cooktop/stovetop"
+            ]
+        },
+        "P08_17_73": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000023481.jpg",
+            "random_image": "./frame_0000023524.jpg",
+            "end_image": "./frame_0000023703.jpg",
+            "action": "shake pan",
+            "states": [],
+            "objects": [
+                "left hand",
+                "spatula",
+                "right hand",
+                "food",
+                "pot",
+                "pan",
+                "hob/cooktop/stovetop"
+            ]
+        },
+        "P08_17_74": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000023709.jpg",
+            "random_image": "./frame_0000024325.jpg",
+            "end_image": "./frame_0000024459.jpg",
+            "action": "mix food in pan",
+            "states": [],
+            "objects": [
+                "fork",
+                "left hand",
+                "spatula",
+                "right hand",
+                "food",
+                "pot",
+                "pan",
+                "hob/cooktop/stovetop"
+            ]
+        },
+        "P08_17_75": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000024465.jpg",
+            "random_image": "./frame_0000024812.jpg",
+            "end_image": "./frame_0000024885.jpg",
+            "action": "taste food",
+            "states": [],
+            "objects": [
+                "fork",
+                "spatula",
+                "right hand",
+                "food",
+                "pot",
+                "pan",
+                "hob/cooktop/stovetop"
+            ]
+        },
+        "P08_17_76": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000024988.jpg",
+            "random_image": "./frame_0000025062.jpg",
+            "end_image": "./frame_0000025279.jpg",
+            "action": "mix food in pan",
+            "states": [],
+            "objects": [
+                "fork",
+                "left hand",
+                "spatula",
+                "right hand",
+                "food",
+                "pot",
+                "pan",
+                "hob/cooktop/stovetop"
+            ]
+        },
+        "P08_17_77": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000025285.jpg",
+            "random_image": "./frame_0000026157.jpg",
+            "end_image": "./frame_0000026378.jpg",
+            "action": "still mix food in pan",
+            "states": [],
+            "objects": [
+                "spatula",
+                "right hand",
+                "food",
+                "pot",
+                "pan",
+                "hob/cooktop/stovetop"
+            ]
+        },
+        "P08_17_78": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000026384.jpg",
+            "random_image": "./frame_0000026467.jpg",
+            "end_image": "./frame_0000026508.jpg",
+            "action": "shake pan",
+            "states": [],
+            "objects": [
+                "left hand",
+                "spatula",
+                "right hand",
+                "food",
+                "pot",
+                "pan",
+                "hob/cooktop/stovetop"
+            ]
+        },
+        "P08_17_79": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000026608.jpg",
+            "random_image": "./frame_0000026663.jpg",
+            "end_image": "./frame_0000026686.jpg",
+            "action": "turn heat on low",
+            "states": [],
+            "objects": [
+                "left hand",
+                "spatula",
+                "right hand",
+                "food",
+                "pot",
+                "pan",
+                "hob/cooktop/stovetop"
+            ]
+        },
+        "P08_17_80": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000026770.jpg",
+            "random_image": "./frame_0000026825.jpg",
+            "end_image": "./frame_0000026857.jpg",
+            "action": "close cupboard",
+            "states": [],
+            "objects": [
+                "left hand"
+            ]
+        },
+        "P08_17_81": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000026863.jpg",
+            "random_image": "./frame_0000027074.jpg",
+            "end_image": "./frame_0000027130.jpg",
+            "action": "unwrap salad in bowl",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "spinach leaf",
+                "bowl",
+                "film"
+            ]
+        },
+        "P08_17_82": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000027158.jpg",
+            "random_image": "./frame_0000027183.jpg",
+            "end_image": "./frame_0000027233.jpg",
+            "action": "open cupboard",
+            "states": [],
+            "objects": [
+                "left hand",
+                "cupboard"
+            ]
+        },
+        "P08_17_83": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000027238.jpg",
+            "random_image": "./frame_0000027344.jpg",
+            "end_image": "./frame_0000027371.jpg",
+            "action": "get plate",
+            "states": [],
+            "objects": [
+                "salad bowl",
+                "spinach leaf",
+                "plate",
+                "right hand",
+                "cupboard"
+            ]
+        },
+        "P08_17_84": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000027463.jpg",
+            "random_image": "./frame_0000027770.jpg",
+            "end_image": "./frame_0000027858.jpg",
+            "action": "put spinach leaves on plate",
+            "states": [],
+            "objects": [
+                "left hand",
+                "salad bowl",
+                "spinach leaf",
+                "plate",
+                "right hand",
+                "film"
+            ]
+        },
+        "P08_17_85": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000027848.jpg",
+            "random_image": "./frame_0000027910.jpg",
+            "end_image": "./frame_0000028025.jpg",
+            "action": "close wrap",
+            "states": [],
+            "objects": [
+                "left hand",
+                "spinach leaf",
+                "plate",
+                "right hand",
+                "bowl",
+                "film"
+            ]
+        },
+        "P08_17_86": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000028029.jpg",
+            "random_image": "./frame_0000028051.jpg",
+            "end_image": "./frame_0000028087.jpg",
+            "action": "get salad bowl",
+            "states": [],
+            "objects": [
+                "left hand",
+                "spinach leaf",
+                "plate",
+                "right hand",
+                "film",
+                "bowl"
+            ]
+        },
+        "P08_17_87": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000028180.jpg",
+            "random_image": "./frame_0000028205.jpg",
+            "end_image": "./frame_0000028260.jpg",
+            "action": "place fridge",
+            "states": [],
+            "objects": [
+                "left hand",
+                "fridge"
+            ]
+        },
+        "P08_17_88": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000028390.jpg",
+            "random_image": "./frame_0000028494.jpg",
+            "end_image": "./frame_0000028525.jpg",
+            "action": "get vegetable rice",
+            "states": [],
+            "objects": [
+                "left hand",
+                "spinach leaf",
+                "plate",
+                "right hand",
+                "vegetable rice",
+                "hob/cooktop/stovetop",
+                "pot",
+                "pan",
+                "spatula"
+            ]
+        },
+        "P08_17_89": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000028531.jpg",
+            "random_image": "./frame_0000028647.jpg",
+            "end_image": "./frame_0000028965.jpg",
+            "action": "place on plate",
+            "states": [],
+            "objects": [
+                "left hand",
+                "spinach leaf",
+                "plate",
+                "right hand",
+                "vegetable rice",
+                "hob/cooktop/stovetop",
+                "pot",
+                "pan",
+                "spatula"
+            ]
+        },
+        "P08_17_90": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000028991.jpg",
+            "random_image": "./frame_0000029010.jpg",
+            "end_image": "./frame_0000029050.jpg",
+            "action": "turn off hob",
+            "states": [],
+            "objects": [
+                "right hand",
+                "hob/cooktop/stovetop",
+                "lid",
+                "spoon",
+                "pan",
+                "vegetable rice"
+            ]
+        },
+        "P08_17_91": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000029171.jpg",
+            "random_image": "./frame_0000029252.jpg",
+            "end_image": "./frame_0000029281.jpg",
+            "action": "take lid off",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "hob/cooktop/stovetop",
+                "lid",
+                "spoon",
+                "pot",
+                "pan",
+                "vegetable rice"
+            ]
+        },
+        "P08_17_92": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000029441.jpg",
+            "random_image": "./frame_0000029503.jpg",
+            "end_image": "./frame_0000029527.jpg",
+            "action": "get spoon",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "hob/cooktop/stovetop",
+                "lid",
+                "spoon",
+                "pan",
+                "meat",
+                "vegetable rice"
+            ]
+        },
+        "P08_17_93": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000029556.jpg",
+            "random_image": "./frame_0000029631.jpg",
+            "end_image": "./frame_0000029847.jpg",
+            "action": "spoon meat on plate",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "spoon",
+                "pot",
+                "pan",
+                "meat",
+                "vegetable rice"
+            ]
+        },
+        "P08_17_94": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000030254.jpg",
+            "random_image": "./frame_0000030284.jpg",
+            "end_image": "./frame_0000030389.jpg",
+            "action": "spoon meat on plate",
+            "states": [],
+            "objects": [
+                "left hand",
+                "plate",
+                "right hand",
+                "spoon",
+                "pan",
+                "meat"
+            ]
+        },
+        "P08_17_95": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000030461.jpg",
+            "random_image": "./frame_0000030572.jpg",
+            "end_image": "./frame_0000030609.jpg",
+            "action": "spoon meat on plate",
+            "states": [],
+            "objects": [
+                "left hand",
+                "plate",
+                "right hand",
+                "spoon",
+                "pot",
+                "pan",
+                "meat",
+                "vegetable rice"
+            ]
+        },
+        "P08_17_96": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000031067.jpg",
+            "random_image": "./frame_0000031154.jpg",
+            "end_image": "./frame_0000031191.jpg",
+            "action": "place pan",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "lid",
+                "spoon",
+                "pot",
+                "pan",
+                "vegetable rice"
+            ]
+        },
+        "P08_17_97": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000031197.jpg",
+            "random_image": "./frame_0000031276.jpg",
+            "end_image": "./frame_0000031332.jpg",
+            "action": "place lid on pan",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "lid",
+                "spoon",
+                "pot",
+                "pan",
+                "vegetable rice"
+            ]
+        },
+        "P08_17_98": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000031334.jpg",
+            "random_image": "./frame_0000031379.jpg",
+            "end_image": "./frame_0000031390.jpg",
+            "action": "place spoon",
+            "states": [],
+            "objects": [
+                "left hand",
+                "bowl",
+                "right hand",
+                "lid",
+                "spoon",
+                "pot",
+                "pan",
+                "hob/cooktop/stovetop"
+            ]
+        },
+        "P08_17_100": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000031648.jpg",
+            "random_image": "./frame_0000031659.jpg",
+            "end_image": "./frame_0000031817.jpg",
+            "action": "get knife",
+            "states": [],
+            "objects": [
+                "drawer",
+                "left hand",
+                "right hand",
+                "knife"
+            ]
+        },
+        "P08_17_99": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000031599.jpg",
+            "random_image": "./frame_0000031659.jpg",
+            "end_image": "./frame_0000031676.jpg",
+            "action": "open drawer",
+            "states": [],
+            "objects": [
+                "drawer",
+                "left hand",
+                "right hand",
+                "knife"
+            ]
+        },
+        "P08_17_101": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000031830.jpg",
+            "random_image": "./frame_0000031893.jpg",
+            "end_image": "./frame_0000031936.jpg",
+            "action": "get plate",
+            "states": [],
+            "objects": [
+                "fork",
+                "left hand",
+                "plate",
+                "right hand",
+                "knife",
+                "food"
+            ]
+        },
+        "P08_17_102": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000032054.jpg",
+            "random_image": "./frame_0000032107.jpg",
+            "end_image": "./frame_0000032183.jpg",
+            "action": "place fork and knife",
+            "states": [],
+            "objects": [
+                "fork",
+                "left hand",
+                "plate",
+                "right hand",
+                "knife",
+                "food"
+            ]
+        },
+        "P08_17_103": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000032386.jpg",
+            "random_image": "./frame_0000032403.jpg",
+            "end_image": "./frame_0000032437.jpg",
+            "action": "get garlic",
+            "states": [],
+            "objects": [
+                "right hand",
+                "garlic",
+                "cupboard"
+            ]
+        },
+        "P08_17_104": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000032520.jpg",
+            "random_image": "./frame_0000032584.jpg",
+            "end_image": "./frame_0000032607.jpg",
+            "action": "place sponge",
+            "states": [],
+            "objects": [
+                "right hand",
+                "sponge",
+                "sponge handle"
+            ]
+        },
+        "P08_17_105": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000032631.jpg",
+            "random_image": "./frame_0000032726.jpg",
+            "end_image": "./frame_0000032901.jpg",
+            "action": "throw away the garlic bits",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "garlic skin"
+            ]
+        },
+        "P08_17_106": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000032947.jpg",
+            "random_image": "./frame_0000033019.jpg",
+            "end_image": "./frame_0000033042.jpg",
+            "action": "open dishwasher",
+            "states": [],
+            "objects": [
+                "colander",
+                "left hand",
+                "dishwasher",
+                "kitchen towel",
+                "sink"
+            ]
+        },
+        "P08_17_107": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000033088.jpg",
+            "random_image": "./frame_0000033160.jpg",
+            "end_image": "./frame_0000033420.jpg",
+            "action": "clean colander",
+            "states": [],
+            "objects": [
+                "colander",
+                "left hand",
+                "right hand",
+                "dishwasher",
+                "kitchen towel",
+                "sink"
+            ]
+        },
+        "P08_17_108": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000033440.jpg",
+            "random_image": "./frame_0000033569.jpg",
+            "end_image": "./frame_0000033585.jpg",
+            "action": "place colander",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dishwasher",
+                "kitchen towel",
+                "sink"
+            ]
+        },
+        "P08_17_109": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000033606.jpg",
+            "random_image": "./frame_0000033620.jpg",
+            "end_image": "./frame_0000033648.jpg",
+            "action": "get fork",
+            "states": [],
+            "objects": [
+                "fork",
+                "right hand",
+                "sink"
+            ]
+        },
+        "P08_17_110": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000033664.jpg",
+            "random_image": "./frame_0000033684.jpg",
+            "end_image": "./frame_0000033707.jpg",
+            "action": "place fork",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dishwasher",
+                "sink"
+            ]
+        },
+        "P08_17_111": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000033729.jpg",
+            "random_image": "./frame_0000033748.jpg",
+            "end_image": "./frame_0000033801.jpg",
+            "action": "get bowl",
+            "states": [],
+            "objects": [
+                "right hand",
+                "bowl",
+                "sink"
+            ]
+        },
+        "P08_17_112": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000033850.jpg",
+            "random_image": "./frame_0000033869.jpg",
+            "end_image": "./frame_0000033891.jpg",
+            "action": "open drawer",
+            "states": [],
+            "objects": [
+                "left hand",
+                "bowl",
+                "right hand",
+                "kitchen towel",
+                "dishwasher",
+                "sink"
+            ]
+        },
+        "P08_17_114": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000034072.jpg",
+            "random_image": "./frame_0000034191.jpg",
+            "end_image": "./frame_0000034228.jpg",
+            "action": "wipe off pan",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "pan",
+                "kitchen towel",
+                "dishwasher",
+                "sink"
+            ]
+        },
+        "P08_17_115": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000034305.jpg",
+            "random_image": "./frame_0000034353.jpg",
+            "end_image": "./frame_0000034569.jpg",
+            "action": "place pan",
+            "states": [],
+            "objects": [
+                "bowl",
+                "right hand",
+                "pan",
+                "dishwasher"
+            ]
+        },
+        "P08_17_116": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000034612.jpg",
+            "random_image": "./frame_0000034630.jpg",
+            "end_image": "./frame_0000034689.jpg",
+            "action": "close drawer",
+            "states": [],
+            "objects": [
+                "dishwasher"
+            ]
+        },
+        "P08_17_117": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000034698.jpg",
+            "random_image": "./frame_0000034770.jpg",
+            "end_image": "./frame_0000034786.jpg",
+            "action": "close dishwasher",
+            "states": [],
+            "objects": [
+                "left hand",
+                "sink",
+                "right hand",
+                "dishwasher"
+            ]
+        },
+        "P08_17_118": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P08/rgb_frames/P08_17.tar",
+            "start_image": "./frame_0000034818.jpg",
+            "random_image": "./frame_0000034856.jpg",
+            "end_image": "./frame_0000034939.jpg",
+            "action": "wipe off hands",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "kitchen towel"
+            ]
+        }
+    }
+}

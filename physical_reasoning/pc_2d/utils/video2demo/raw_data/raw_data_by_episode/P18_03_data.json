@@ -1,0 +1,1488 @@
+{
+    "P18_03": {
+        "P18_03_0": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000000210.jpg",
+            "random_image": "./frame_0000000224.jpg",
+            "end_image": "./frame_0000000268.jpg",
+            "action": "take cup",
+            "states": [],
+            "objects": [
+                "cup",
+                "right hand"
+            ]
+        },
+        "P18_03_1": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000000253.jpg",
+            "random_image": "./frame_0000000414.jpg",
+            "end_image": "./frame_0000000423.jpg",
+            "action": "drink water",
+            "states": [],
+            "objects": [
+                "cup",
+                "plate",
+                "right hand"
+            ]
+        },
+        "P18_03_2": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000000370.jpg",
+            "random_image": "./frame_0000000490.jpg",
+            "end_image": "./frame_0000000541.jpg",
+            "action": "put cup down",
+            "states": [],
+            "objects": [
+                "cup",
+                "left hand",
+                "plate",
+                "right hand"
+            ]
+        },
+        "P18_03_4": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000000647.jpg",
+            "random_image": "./frame_0000000698.jpg",
+            "end_image": "./frame_0000000739.jpg",
+            "action": "put plate on counter",
+            "states": [],
+            "objects": [
+                "cup",
+                "left hand",
+                "plate",
+                "right hand"
+            ]
+        },
+        "P18_03_5": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000000745.jpg",
+            "random_image": "./frame_0000000811.jpg",
+            "end_image": "./frame_0000000845.jpg",
+            "action": "take coffee pot",
+            "states": [],
+            "objects": [
+                "coffee machine",
+                "left hand",
+                "lid",
+                "coffee pot"
+            ]
+        },
+        "P18_03_6": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000000851.jpg",
+            "random_image": "./frame_0000000865.jpg",
+            "end_image": "./frame_0000000904.jpg",
+            "action": "take lid",
+            "states": [],
+            "objects": [
+                "coffee machine",
+                "left hand",
+                "right hand",
+                "lid",
+                "coffee pot"
+            ]
+        },
+        "P18_03_7": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000000892.jpg",
+            "random_image": "./frame_0000000939.jpg",
+            "end_image": "./frame_0000000963.jpg",
+            "action": "put lid on pot",
+            "states": [],
+            "objects": [
+                "coffee machine",
+                "left hand",
+                "right hand",
+                "coffee pot",
+                "lid"
+            ]
+        },
+        "P18_03_8": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000000988.jpg",
+            "random_image": "./frame_0000001013.jpg",
+            "end_image": "./frame_0000001087.jpg",
+            "action": "put pot in coffee machine",
+            "states": [],
+            "objects": [
+                "coffee machine",
+                "left hand",
+                "lid",
+                "coffee pot"
+            ]
+        },
+        "P18_03_9": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000001117.jpg",
+            "random_image": "./frame_0000001159.jpg",
+            "end_image": "./frame_0000001242.jpg",
+            "action": "take knife and spoon",
+            "states": [],
+            "objects": [
+                "cup",
+                "left hand",
+                "right hand",
+                "knife",
+                "spoon",
+                "mug",
+                "container"
+            ]
+        },
+        "P18_03_10": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000001291.jpg",
+            "random_image": "./frame_0000001341.jpg",
+            "end_image": "./frame_0000001356.jpg",
+            "action": "take mug",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "knife",
+                "spoon",
+                "mug",
+                "container"
+            ]
+        },
+        "P18_03_11": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000001374.jpg",
+            "random_image": "./frame_0000001403.jpg",
+            "end_image": "./frame_0000001437.jpg",
+            "action": "take cup",
+            "states": [],
+            "objects": [
+                "cup",
+                "right hand",
+                "container"
+            ]
+        },
+        "P18_03_12": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000001546.jpg",
+            "random_image": "./frame_0000001584.jpg",
+            "end_image": "./frame_0000001650.jpg",
+            "action": "open cupboard",
+            "states": [],
+            "objects": [
+                "cupboard",
+                "right hand"
+            ]
+        },
+        "P18_03_13": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000001682.jpg",
+            "random_image": "./frame_0000001700.jpg",
+            "end_image": "./frame_0000001750.jpg",
+            "action": "put cup",
+            "states": [],
+            "objects": [
+                "cupboard",
+                "right hand"
+            ]
+        },
+        "P18_03_14": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000001791.jpg",
+            "random_image": "./frame_0000001804.jpg",
+            "end_image": "./frame_0000001851.jpg",
+            "action": "put mug in cupboard",
+            "states": [],
+            "objects": [
+                "cupboard",
+                "right hand",
+                "mug"
+            ]
+        },
+        "P18_03_15": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000001883.jpg",
+            "random_image": "./frame_0000001893.jpg",
+            "end_image": "./frame_0000001949.jpg",
+            "action": "close cupboard",
+            "states": [],
+            "objects": [
+                "left hand",
+                "cupboard",
+                "right hand",
+                "cloth"
+            ]
+        },
+        "P18_03_16": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000001989.jpg",
+            "random_image": "./frame_0000002008.jpg",
+            "end_image": "./frame_0000002056.jpg",
+            "action": "open drawer",
+            "states": [],
+            "objects": [
+                "drawer",
+                "right hand"
+            ]
+        },
+        "P18_03_17": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000002120.jpg",
+            "random_image": "./frame_0000002128.jpg",
+            "end_image": "./frame_0000002162.jpg",
+            "action": "put knife and spoon in drawer",
+            "states": [],
+            "objects": [
+                "drawer",
+                "left hand",
+                "right hand",
+                "knife",
+                "spoon",
+                "fork"
+            ]
+        },
+        "P18_03_18": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000002168.jpg",
+            "random_image": "./frame_0000002214.jpg",
+            "end_image": "./frame_0000002349.jpg",
+            "action": "take knife and fork out of drawer",
+            "states": [],
+            "objects": [
+                "drawer",
+                "fork",
+                "left hand",
+                "right hand",
+                "knife"
+            ]
+        },
+        "P18_03_19": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000002529.jpg",
+            "random_image": "./frame_0000002597.jpg",
+            "end_image": "./frame_0000002610.jpg",
+            "action": "put them on the plate",
+            "states": [],
+            "objects": [
+                "fork",
+                "left hand",
+                "plate",
+                "right hand",
+                "knife"
+            ]
+        },
+        "P18_03_20": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000002686.jpg",
+            "random_image": "./frame_0000002737.jpg",
+            "end_image": "./frame_0000002756.jpg",
+            "action": "open cupboard",
+            "states": [],
+            "objects": [
+                "right hand"
+            ]
+        },
+        "P18_03_21": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000002825.jpg",
+            "random_image": "./frame_0000002971.jpg",
+            "end_image": "./frame_0000003000.jpg",
+            "action": "take bowl",
+            "states": [],
+            "objects": [
+                "left hand",
+                "bowl"
+            ]
+        },
+        "P18_03_22": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000003047.jpg",
+            "random_image": "./frame_0000003095.jpg",
+            "end_image": "./frame_0000003108.jpg",
+            "action": "put on counter",
+            "states": [],
+            "objects": [
+                "left hand",
+                "bowl",
+                "right hand"
+            ]
+        },
+        "P18_03_24": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000003337.jpg",
+            "random_image": "./frame_0000003361.jpg",
+            "end_image": "./frame_0000003413.jpg",
+            "action": "open fridge",
+            "states": [],
+            "objects": [
+                "fridge",
+                "right hand"
+            ]
+        },
+        "P18_03_25": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000003482.jpg",
+            "random_image": "./frame_0000003514.jpg",
+            "end_image": "./frame_0000003624.jpg",
+            "action": "take tupperware",
+            "states": [],
+            "objects": [
+                "right hand",
+                "fridge"
+            ]
+        },
+        "P18_03_26": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000003628.jpg",
+            "random_image": "./frame_0000003686.jpg",
+            "end_image": "./frame_0000003710.jpg",
+            "action": "put on counter",
+            "states": [],
+            "objects": [
+                "tupperware",
+                "left hand",
+                "fridge"
+            ]
+        },
+        "P18_03_27": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000003784.jpg",
+            "random_image": "./frame_0000003835.jpg",
+            "end_image": "./frame_0000003856.jpg",
+            "action": "take cucumber",
+            "states": [],
+            "objects": [
+                "tupperware",
+                "cucumber",
+                "fridge"
+            ]
+        },
+        "P18_03_28": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000003889.jpg",
+            "random_image": "./frame_0000003921.jpg",
+            "end_image": "./frame_0000003986.jpg",
+            "action": "take salad",
+            "states": [],
+            "objects": [
+                "left hand",
+                "fridge",
+                "salad bag"
+            ]
+        },
+        "P18_03_29": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000004046.jpg",
+            "random_image": "./frame_0000004068.jpg",
+            "end_image": "./frame_0000004175.jpg",
+            "action": "close fridge",
+            "states": [],
+            "objects": [
+                "fridge",
+                "tupperware"
+            ]
+        },
+        "P18_03_30": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000004231.jpg",
+            "random_image": "./frame_0000004322.jpg",
+            "end_image": "./frame_0000004353.jpg",
+            "action": "put salad and cucumber on counter",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "cucumber",
+                "salad bag"
+            ]
+        },
+        "P18_03_31": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000004468.jpg",
+            "random_image": "./frame_0000004649.jpg",
+            "end_image": "./frame_0000004708.jpg",
+            "action": "open lid of tupperware",
+            "states": [],
+            "objects": [
+                "tupperware",
+                "tap",
+                "left hand",
+                "sink",
+                "right hand",
+                "tupperware lid",
+                "pasta"
+            ]
+        },
+        "P18_03_32": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000004714.jpg",
+            "random_image": "./frame_0000004719.jpg",
+            "end_image": "./frame_0000004800.jpg",
+            "action": "put lid in sink",
+            "states": [],
+            "objects": [
+                "tupperware",
+                "tap",
+                "left hand",
+                "sink",
+                "right hand",
+                "tupperware lid",
+                "pasta"
+            ]
+        },
+        "P18_03_33": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000004960.jpg",
+            "random_image": "./frame_0000004990.jpg",
+            "end_image": "./frame_0000005091.jpg",
+            "action": "put tupperware in oven",
+            "states": [],
+            "objects": [
+                "tupperware",
+                "left hand",
+                "oven",
+                "pasta"
+            ]
+        },
+        "P18_03_34": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000005097.jpg",
+            "random_image": "./frame_0000005169.jpg",
+            "end_image": "./frame_0000005176.jpg",
+            "action": "close oven",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oven"
+            ]
+        },
+        "P18_03_35": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000005250.jpg",
+            "random_image": "./frame_0000005271.jpg",
+            "end_image": "./frame_0000005326.jpg",
+            "action": "take salad",
+            "states": [],
+            "objects": [
+                "left hand",
+                "salad bag"
+            ]
+        },
+        "P18_03_36": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000005332.jpg",
+            "random_image": "./frame_0000005435.jpg",
+            "end_image": "./frame_0000005695.jpg",
+            "action": "open salad bag",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "salad bag"
+            ]
+        },
+        "P18_03_37": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000005743.jpg",
+            "random_image": "./frame_0000005810.jpg",
+            "end_image": "./frame_0000006215.jpg",
+            "action": "pour salad in bowl",
+            "states": [],
+            "objects": [
+                "left hand",
+                "bowl",
+                "salad",
+                "salad bag",
+                "container"
+            ]
+        },
+        "P18_03_38": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000006221.jpg",
+            "random_image": "./frame_0000006326.jpg",
+            "end_image": "./frame_0000006663.jpg",
+            "action": "close salad bag",
+            "states": [],
+            "objects": [
+                "left hand",
+                "bowl",
+                "salad",
+                "right hand",
+                "salad bag",
+                "container"
+            ]
+        },
+        "P18_03_39": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000006796.jpg",
+            "random_image": "./frame_0000006823.jpg",
+            "end_image": "./frame_0000006855.jpg",
+            "action": "take elastic",
+            "states": [],
+            "objects": [
+                "right hand"
+            ]
+        },
+        "P18_03_40": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000006861.jpg",
+            "random_image": "./frame_0000006909.jpg",
+            "end_image": "./frame_0000007030.jpg",
+            "action": "put over salad",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "salad bag"
+            ]
+        },
+        "P18_03_41": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000007059.jpg",
+            "random_image": "./frame_0000007141.jpg",
+            "end_image": "./frame_0000007174.jpg",
+            "action": "open fridge",
+            "states": [],
+            "objects": [
+                "right hand",
+                "fridge"
+            ]
+        },
+        "P18_03_42": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000007180.jpg",
+            "random_image": "./frame_0000007223.jpg",
+            "end_image": "./frame_0000007402.jpg",
+            "action": "put salad in fridge",
+            "states": [],
+            "objects": [
+                "left hand",
+                "fridge"
+            ]
+        },
+        "P18_03_43": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000007252.jpg",
+            "random_image": "./frame_0000007358.jpg",
+            "end_image": "./frame_0000007575.jpg",
+            "action": "take out bag",
+            "states": [],
+            "objects": [
+                "right hand",
+                "fridge"
+            ]
+        },
+        "P18_03_44": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000007921.jpg",
+            "random_image": "./frame_0000007941.jpg",
+            "end_image": "./frame_0000008023.jpg",
+            "action": "open bag",
+            "states": [],
+            "objects": [
+                "left hand",
+                "salad",
+                "right hand",
+                "bag",
+                "bowl",
+                "bag clip"
+            ]
+        },
+        "P18_03_45": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000008048.jpg",
+            "random_image": "./frame_0000008121.jpg",
+            "end_image": "./frame_0000008233.jpg",
+            "action": "take out raisins",
+            "states": [],
+            "objects": [
+                "left hand",
+                "salad",
+                "right hand",
+                "bag",
+                "bowl"
+            ]
+        },
+        "P18_03_46": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000008278.jpg",
+            "random_image": "./frame_0000008536.jpg",
+            "end_image": "./frame_0000008652.jpg",
+            "action": "put raisins in salad",
+            "states": [],
+            "objects": [
+                "left hand",
+                "salad",
+                "right hand",
+                "raisin",
+                "bag",
+                "bowl"
+            ]
+        },
+        "P18_03_48": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000008832.jpg",
+            "random_image": "./frame_0000008914.jpg",
+            "end_image": "./frame_0000008952.jpg",
+            "action": "close bag",
+            "states": [],
+            "objects": [
+                "left hand",
+                "bag",
+                "right hand"
+            ]
+        },
+        "P18_03_49": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000008958.jpg",
+            "random_image": "./frame_0000008987.jpg",
+            "end_image": "./frame_0000009094.jpg",
+            "action": "seal bag",
+            "states": [],
+            "objects": [
+                "left hand",
+                "fridge",
+                "bag",
+                "right hand",
+                "bag clip"
+            ]
+        },
+        "P18_03_51": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000009181.jpg",
+            "random_image": "./frame_0000009234.jpg",
+            "end_image": "./frame_0000009258.jpg",
+            "action": "put bag in fridge",
+            "states": [],
+            "objects": [
+                "left hand",
+                "fridge",
+                "right hand",
+                "bag clip"
+            ]
+        },
+        "P18_03_52": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000009264.jpg",
+            "random_image": "./frame_0000009387.jpg",
+            "end_image": "./frame_0000009406.jpg",
+            "action": "close fridge",
+            "states": [],
+            "objects": [
+                "fridge",
+                "knife",
+                "plate",
+                "fork"
+            ]
+        },
+        "P18_03_53": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000009415.jpg",
+            "random_image": "./frame_0000009501.jpg",
+            "end_image": "./frame_0000009538.jpg",
+            "action": "take cucumber",
+            "states": [],
+            "objects": [
+                "left hand",
+                "cucumber"
+            ]
+        },
+        "P18_03_54": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000009733.jpg",
+            "random_image": "./frame_0000009779.jpg",
+            "end_image": "./frame_0000009792.jpg",
+            "action": "take knife",
+            "states": [],
+            "objects": [
+                "left hand",
+                "cucumber",
+                "right hand",
+                "knife",
+                "plate",
+                "fork"
+            ]
+        },
+        "P18_03_56": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000010056.jpg",
+            "random_image": "./frame_0000010197.jpg",
+            "end_image": "./frame_0000010223.jpg",
+            "action": "cut the end off the cucumber",
+            "states": [],
+            "objects": [
+                "left hand",
+                "cucumber",
+                "right hand",
+                "knife"
+            ]
+        },
+        "P18_03_57": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000010255.jpg",
+            "random_image": "./frame_0000010339.jpg",
+            "end_image": "./frame_0000010657.jpg",
+            "action": "take plastic wrap off of cucumber",
+            "states": [],
+            "objects": [
+                "left hand",
+                "cucumber",
+                "right hand",
+                "knife",
+                "plastic wrap"
+            ]
+        },
+        "P18_03_58": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000010663.jpg",
+            "random_image": "./frame_0000010782.jpg",
+            "end_image": "./frame_0000010825.jpg",
+            "action": "throw out the plastic wrap",
+            "states": [],
+            "objects": [
+                "left hand",
+                "cupboard"
+            ]
+        },
+        "P18_03_59": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000011005.jpg",
+            "random_image": "./frame_0000011028.jpg",
+            "end_image": "./frame_0000011102.jpg",
+            "action": "open fridge",
+            "states": [],
+            "objects": [
+                "right hand",
+                "fridge"
+            ]
+        },
+        "P18_03_60": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000011112.jpg",
+            "random_image": "./frame_0000011178.jpg",
+            "end_image": "./frame_0000011218.jpg",
+            "action": "put cucumber in fridge",
+            "states": [],
+            "objects": [
+                "left hand",
+                "fridge"
+            ]
+        },
+        "P18_03_61": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000011233.jpg",
+            "random_image": "./frame_0000011250.jpg",
+            "end_image": "./frame_0000011274.jpg",
+            "action": "close fridge",
+            "states": [],
+            "objects": [
+                "cucumber"
+            ]
+        },
+        "P18_03_62": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000011321.jpg",
+            "random_image": "./frame_0000011398.jpg",
+            "end_image": "./frame_0000011419.jpg",
+            "action": "open tap",
+            "states": [],
+            "objects": [
+                "tap",
+                "left hand",
+                "sink",
+                "right hand",
+                "water",
+                "soap dispenser"
+            ]
+        },
+        "P18_03_63": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000011458.jpg",
+            "random_image": "./frame_0000011533.jpg",
+            "end_image": "./frame_0000011584.jpg",
+            "action": "put soap on hands",
+            "states": [],
+            "objects": [
+                "tap",
+                "left hand",
+                "sink",
+                "right hand",
+                "water",
+                "soap dispenser"
+            ]
+        },
+        "P18_03_64": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000011601.jpg",
+            "random_image": "./frame_0000011743.jpg",
+            "end_image": "./frame_0000012114.jpg",
+            "action": "wash hands",
+            "states": [],
+            "objects": [
+                "tap",
+                "left hand",
+                "sink",
+                "right hand",
+                "water",
+                "soap dispenser",
+                "knife"
+            ]
+        },
+        "P18_03_65": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000012333.jpg",
+            "random_image": "./frame_0000012463.jpg",
+            "end_image": "./frame_0000012516.jpg",
+            "action": "wash knife",
+            "states": [],
+            "objects": [
+                "tap",
+                "left hand",
+                "sink",
+                "right hand",
+                "sponge",
+                "knife",
+                "soap dispenser",
+                "water"
+            ]
+        },
+        "P18_03_66": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000012760.jpg",
+            "random_image": "./frame_0000012862.jpg",
+            "end_image": "./frame_0000012895.jpg",
+            "action": "put more soap on sponge",
+            "states": [],
+            "objects": [
+                "tap",
+                "left hand",
+                "sink",
+                "right hand",
+                "sponge",
+                "knife",
+                "soap dispenser",
+                "water"
+            ]
+        },
+        "P18_03_67": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000012923.jpg",
+            "random_image": "./frame_0000013110.jpg",
+            "end_image": "./frame_0000013163.jpg",
+            "action": "wash knife",
+            "states": [],
+            "objects": [
+                "tap",
+                "left hand",
+                "sink",
+                "right hand",
+                "sponge",
+                "knife",
+                "soap dispenser",
+                "water"
+            ]
+        },
+        "P18_03_68": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000013632.jpg",
+            "random_image": "./frame_0000013751.jpg",
+            "end_image": "./frame_0000014291.jpg",
+            "action": "wash plate",
+            "states": [],
+            "objects": [
+                "tap",
+                "left hand",
+                "plate",
+                "sink",
+                "cucumber",
+                "right hand",
+                "sponge",
+                "lid",
+                "drainer",
+                "water"
+            ]
+        },
+        "P18_03_69": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000014416.jpg",
+            "random_image": "./frame_0000014558.jpg",
+            "end_image": "./frame_0000015295.jpg",
+            "action": "wash the lid of the tupperware",
+            "states": [],
+            "objects": [
+                "tap",
+                "left hand",
+                "plate",
+                "sink",
+                "cucumber",
+                "right hand",
+                "sponge",
+                "lid",
+                "drainer",
+                "water"
+            ]
+        },
+        "P18_03_70": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000015796.jpg",
+            "random_image": "./frame_0000016061.jpg",
+            "end_image": "./frame_0000016170.jpg",
+            "action": "rinse hands",
+            "states": [],
+            "objects": [
+                "tap",
+                "left hand",
+                "plate",
+                "sink",
+                "cucumber",
+                "right hand",
+                "sponge",
+                "lid",
+                "drainer",
+                "water"
+            ]
+        },
+        "P18_03_72": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000015865.jpg",
+            "random_image": "./frame_0000016221.jpg",
+            "end_image": "./frame_0000016227.jpg",
+            "action": "wash cucumber",
+            "states": [],
+            "objects": [
+                "tap",
+                "left hand",
+                "sink",
+                "cucumber",
+                "right hand",
+                "water",
+                "plate"
+            ]
+        },
+        "P18_03_73": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000016192.jpg",
+            "random_image": "./frame_0000016277.jpg",
+            "end_image": "./frame_0000016311.jpg",
+            "action": "close tap",
+            "states": [],
+            "objects": [
+                "tap",
+                "left hand",
+                "sink",
+                "cucumber",
+                "right hand",
+                "plate"
+            ]
+        },
+        "P18_03_74": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000016442.jpg",
+            "random_image": "./frame_0000016495.jpg",
+            "end_image": "./frame_0000016674.jpg",
+            "action": "dry hands with towel",
+            "states": [],
+            "objects": [
+                "cucumber",
+                "right hand",
+                "towel",
+                "oven",
+                "plate"
+            ]
+        },
+        "P18_03_75": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000016755.jpg",
+            "random_image": "./frame_0000016798.jpg",
+            "end_image": "./frame_0000016944.jpg",
+            "action": "dry cucumber with towel",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "towel",
+                "oven",
+                "plate"
+            ]
+        },
+        "P18_03_76": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000016960.jpg",
+            "random_image": "./frame_0000016986.jpg",
+            "end_image": "./frame_0000017026.jpg",
+            "action": "take knife",
+            "states": [],
+            "objects": [
+                "fork",
+                "left hand",
+                "cucumber",
+                "right hand",
+                "knife",
+                "plate",
+                "drainer"
+            ]
+        },
+        "P18_03_77": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000017045.jpg",
+            "random_image": "./frame_0000017208.jpg",
+            "end_image": "./frame_0000017256.jpg",
+            "action": "put fork in bowl",
+            "states": [],
+            "objects": [
+                "fork",
+                "left hand",
+                "cucumber",
+                "plate",
+                "drainer",
+                "cutlery bowl"
+            ]
+        },
+        "P18_03_78": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000017305.jpg",
+            "random_image": "./frame_0000017394.jpg",
+            "end_image": "./frame_0000017410.jpg",
+            "action": "cut cucumber",
+            "states": [],
+            "objects": [
+                "fork",
+                "left hand",
+                "cucumber",
+                "right hand",
+                "knife",
+                "plate",
+                "drainer",
+                "cutlery bowl"
+            ]
+        },
+        "P18_03_79": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000017388.jpg",
+            "random_image": "./frame_0000017394.jpg",
+            "end_image": "./frame_0000017545.jpg",
+            "action": "eat cucumber",
+            "states": [],
+            "objects": [
+                "fork",
+                "left hand",
+                "cucumber",
+                "right hand",
+                "knife",
+                "plate",
+                "drainer",
+                "cutlery bowl"
+            ]
+        },
+        "P18_03_80": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000017546.jpg",
+            "random_image": "./frame_0000018029.jpg",
+            "end_image": "./frame_0000018155.jpg",
+            "action": "still cutting cucumber",
+            "states": [],
+            "objects": [
+                "left hand",
+                "bowl",
+                "right hand",
+                "knife",
+                "cucumber",
+                "salad",
+                "fork"
+            ]
+        },
+        "P18_03_81": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000018217.jpg",
+            "random_image": "./frame_0000018788.jpg",
+            "end_image": "./frame_0000019093.jpg",
+            "action": "put cut cucumber in bowl",
+            "states": [],
+            "objects": [
+                "left hand",
+                "bowl",
+                "right hand",
+                "knife",
+                "cucumber",
+                "salad",
+                "fork"
+            ]
+        },
+        "P18_03_83": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000018600.jpg",
+            "random_image": "./frame_0000018788.jpg",
+            "end_image": "./frame_0000018895.jpg",
+            "action": "cut cucumber",
+            "states": [],
+            "objects": [
+                "left hand",
+                "bowl",
+                "right hand",
+                "knife",
+                "cucumber",
+                "salad",
+                "fork"
+            ]
+        },
+        "P18_03_84": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000019099.jpg",
+            "random_image": "./frame_0000019310.jpg",
+            "end_image": "./frame_0000019387.jpg",
+            "action": "open cupboard",
+            "states": [],
+            "objects": [
+                "left hand",
+                "bowl",
+                "right hand",
+                "knife",
+                "salad",
+                "fork"
+            ]
+        },
+        "P18_03_85": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000019393.jpg",
+            "random_image": "./frame_0000019420.jpg",
+            "end_image": "./frame_0000019587.jpg",
+            "action": "take out oregano",
+            "states": [],
+            "objects": [
+                "tap",
+                "left hand",
+                "sink",
+                "cupboard"
+            ]
+        },
+        "P18_03_87": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000020046.jpg",
+            "random_image": "./frame_0000020099.jpg",
+            "end_image": "./frame_0000020121.jpg",
+            "action": "open tap",
+            "states": [],
+            "objects": [
+                "tap",
+                "sink",
+                "right hand"
+            ]
+        },
+        "P18_03_88": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000020127.jpg",
+            "random_image": "./frame_0000020177.jpg",
+            "end_image": "./frame_0000020296.jpg",
+            "action": "rinse hands",
+            "states": [],
+            "objects": [
+                "tap",
+                "sink",
+                "right hand",
+                "oregano",
+                "water"
+            ]
+        },
+        "P18_03_89": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000020302.jpg",
+            "random_image": "./frame_0000020315.jpg",
+            "end_image": "./frame_0000020349.jpg",
+            "action": "close tap",
+            "states": [],
+            "objects": [
+                "tap",
+                "sink",
+                "right hand",
+                "water",
+                "oregano tupperware"
+            ]
+        },
+        "P18_03_91": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000020494.jpg",
+            "random_image": "./frame_0000020542.jpg",
+            "end_image": "./frame_0000020671.jpg",
+            "action": "close tupperware of oregano",
+            "states": [],
+            "objects": [
+                "tap",
+                "sink",
+                "right hand",
+                "oregano tupperware",
+                "tupperware lid"
+            ]
+        },
+        "P18_03_92": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000020829.jpg",
+            "random_image": "./frame_0000020951.jpg",
+            "end_image": "./frame_0000021003.jpg",
+            "action": "put tupperware of oregano in cupboard",
+            "states": [],
+            "objects": [
+                "left hand",
+                "cupboard",
+                "right hand"
+            ]
+        },
+        "P18_03_93": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000021073.jpg",
+            "random_image": "./frame_0000021082.jpg",
+            "end_image": "./frame_0000021130.jpg",
+            "action": "take salt",
+            "states": [],
+            "objects": [
+                "left hand",
+                "tupperware lid",
+                "cupboard"
+            ]
+        },
+        "P18_03_94": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000021140.jpg",
+            "random_image": "./frame_0000021288.jpg",
+            "end_image": "./frame_0000021338.jpg",
+            "action": "take off the cap of salt",
+            "states": [],
+            "objects": [
+                "salt cap",
+                "left hand",
+                "salad",
+                "right hand",
+                "tupperware lid",
+                "salt bottle",
+                "bowl",
+                "fork"
+            ]
+        },
+        "P18_03_95": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000021344.jpg",
+            "random_image": "./frame_0000021402.jpg",
+            "end_image": "./frame_0000021527.jpg",
+            "action": "put salt in salad",
+            "states": [],
+            "objects": [
+                "salt cap",
+                "left hand",
+                "salad",
+                "right hand",
+                "tupperware lid",
+                "salt bottle",
+                "bowl"
+            ]
+        },
+        "P18_03_97": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000021674.jpg",
+            "random_image": "./frame_0000021723.jpg",
+            "end_image": "./frame_0000021727.jpg",
+            "action": "put salt in cupboard",
+            "states": [],
+            "objects": [
+                "right hand",
+                "cupboard"
+            ]
+        },
+        "P18_03_98": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000021837.jpg",
+            "random_image": "./frame_0000021875.jpg",
+            "end_image": "./frame_0000021891.jpg",
+            "action": "close cupboard",
+            "states": [],
+            "objects": [
+                "bowl",
+                "salad",
+                "fork"
+            ]
+        },
+        "P18_03_99": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000022056.jpg",
+            "random_image": "./frame_0000022119.jpg",
+            "end_image": "./frame_0000022124.jpg",
+            "action": "untwist cap of olive oil",
+            "states": [],
+            "objects": [
+                "left hand",
+                "right hand",
+                "olive oil cap",
+                "olive oil bottle",
+                "bowl",
+                "salad",
+                "fork"
+            ]
+        },
+        "P18_03_100": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000022161.jpg",
+            "random_image": "./frame_0000022253.jpg",
+            "end_image": "./frame_0000022434.jpg",
+            "action": "pour olive oil on salad",
+            "states": [],
+            "objects": [
+                "vinegar cap",
+                "salad",
+                "right hand",
+                "olive oil bottle",
+                "vinegar bottle",
+                "bowl",
+                "fork"
+            ]
+        },
+        "P18_03_102": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000022551.jpg",
+            "random_image": "./frame_0000022620.jpg",
+            "end_image": "./frame_0000022629.jpg",
+            "action": "untwist cap of vinegar",
+            "states": [],
+            "objects": [
+                "vinegar cap",
+                "left hand",
+                "salad",
+                "right hand",
+                "olive oil bottle",
+                "olive oil cap",
+                "vinegar bottle",
+                "bowl",
+                "fork"
+            ]
+        },
+        "P18_03_103": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000022683.jpg",
+            "random_image": "./frame_0000022804.jpg",
+            "end_image": "./frame_0000022876.jpg",
+            "action": "pour vinegar on salad",
+            "states": [],
+            "objects": [
+                "vinegar",
+                "left hand",
+                "salad",
+                "right hand",
+                "olive oil bottle",
+                "olive oil cap",
+                "vinegar bottle",
+                "bowl",
+                "fork"
+            ]
+        },
+        "P18_03_104": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000022882.jpg",
+            "random_image": "./frame_0000022914.jpg",
+            "end_image": "./frame_0000022998.jpg",
+            "action": "close vinegar",
+            "states": [],
+            "objects": [
+                "left hand",
+                "salad",
+                "right hand",
+                "vinegar bottle",
+                "vinegar cap",
+                "bowl",
+                "fork"
+            ]
+        },
+        "P18_03_105": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000023034.jpg",
+            "random_image": "./frame_0000023244.jpg",
+            "end_image": "./frame_0000023946.jpg",
+            "action": "stir salad",
+            "states": [],
+            "objects": [
+                "left hand",
+                "salad",
+                "right hand",
+                "oven",
+                "vinegar bottle",
+                "bowl",
+                "fork"
+            ]
+        },
+        "P18_03_106": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000024005.jpg",
+            "random_image": "./frame_0000024205.jpg",
+            "end_image": "./frame_0000024251.jpg",
+            "action": "open oven",
+            "states": [],
+            "objects": [
+                "left hand",
+                "salad",
+                "right hand",
+                "spoon",
+                "oven",
+                "bowl"
+            ]
+        },
+        "P18_03_107": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000024514.jpg",
+            "random_image": "./frame_0000024566.jpg",
+            "end_image": "./frame_0000024588.jpg",
+            "action": "take oven mittens",
+            "states": [],
+            "objects": [
+                "left hand",
+                "oven mitten",
+                "right hand",
+                "oven"
+            ]
+        },
+        "P18_03_108": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000024687.jpg",
+            "random_image": "./frame_0000024767.jpg",
+            "end_image": "./frame_0000024795.jpg",
+            "action": "open oven again",
+            "states": [],
+            "objects": [
+                "oven mitten",
+                "right hand",
+                "oven",
+                "pasta"
+            ]
+        },
+        "P18_03_109": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000024801.jpg",
+            "random_image": "./frame_0000024866.jpg",
+            "end_image": "./frame_0000025003.jpg",
+            "action": "take out tupperware",
+            "states": [],
+            "objects": [
+                "tupperware",
+                "oven mitten",
+                "right hand",
+                "oven",
+                "pasta"
+            ]
+        },
+        "P18_03_110": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000025203.jpg",
+            "random_image": "./frame_0000025306.jpg",
+            "end_image": "./frame_0000025341.jpg",
+            "action": "turn off oven",
+            "states": [],
+            "objects": [
+                "left hand",
+                "hob"
+            ]
+        },
+        "P18_03_111": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P18/rgb_frames/P18_03.tar",
+            "start_image": "./frame_0000025356.jpg",
+            "random_image": "./frame_0000025406.jpg",
+            "end_image": "./frame_0000025435.jpg",
+            "action": "take off mitten",
+            "states": [],
+            "objects": [
+                "left hand",
+                "mitten",
+                "right hand"
+            ]
+        }
+    }
+}

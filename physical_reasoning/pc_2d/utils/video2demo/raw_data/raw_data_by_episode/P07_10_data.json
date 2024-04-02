@@ -1,0 +1,76 @@
+{
+    "P07_10": {
+        "P07_10_79": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P07/rgb_frames/P07_10.tar",
+            "start_image": "./frame_0000022942.jpg",
+            "random_image": "./frame_0000022980.jpg",
+            "end_image": "./frame_0000023019.jpg",
+            "action": "open tap",
+            "states": [],
+            "objects": ["sink", "hand", "tap", "pan"]
+        },
+        "P07_10_80": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P07/rgb_frames/P07_10.tar",
+            "start_image": "./frame_0000023050.jpg",
+            "random_image": "./frame_0000023093.jpg",
+            "end_image": "./frame_0000023137.jpg",
+            "action": "put soap in pan",
+            "states": [],
+            "objects": ["sink", "hand", "tap", "pan", "dish soap bottle"]
+        },
+        "P07_10_81": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P07/rgb_frames/P07_10.tar",
+            "start_image": "./frame_0000023224.jpg",
+            "random_image": "./frame_0000023363.jpg",
+            "end_image": "./frame_0000023503.jpg",
+            "action": "wash pan",
+            "states": [],
+            "objects": ["sink", "hand", "tap", "pan", "sponge"]
+        },
+        "P07_10_82": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P07/rgb_frames/P07_10.tar",
+            "start_image": "./frame_0000023452.jpg",
+            "random_image": "./frame_0000023605.jpg",
+            "end_image": "./frame_0000023758.jpg",
+            "action": "wash pan",
+            "states": [],
+            "objects": ["sink", "hand", "tap", "pan", "sponge"]
+        },
+        "P07_10_83": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P07/rgb_frames/P07_10.tar",
+            "start_image": "./frame_0000023935.jpg",
+            "random_image": "./frame_0000023976.jpg",
+            "end_image": "./frame_0000024017.jpg",
+            "action": "open tap",
+            "states": [],
+            "objects": ["sink", "hand", "tap", "pan"]
+        },
+        "P07_10_84": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P07/rgb_frames/P07_10.tar",
+            "start_image": "./frame_0000023972.jpg",
+            "random_image": "./frame_0000024089.jpg",
+            "end_image": "./frame_0000024207.jpg",
+            "action": "rinse pan",
+            "states": [],
+            "objects": ["sink", "hand", "tap", "pan"]
+        },
+        "P07_10_85": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P07/rgb_frames/P07_10.tar",
+            "start_image": "./frame_0000024201.jpg",
+            "random_image": "./frame_0000024322.jpg",
+            "end_image": "./frame_0000024444.jpg",
+            "action": "rinse pan",
+            "states": [],
+            "objects": ["sink", "hand", "tap", "pan"]
+        },
+        "P07_10_86": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P07/rgb_frames/P07_10.tar",
+            "start_image": "./frame_0000024471.jpg",
+            "random_image": "./frame_0000024502.jpg",
+            "end_image": "./frame_0000024534.jpg",
+            "action": "closes tap",
+            "states": [],
+            "objects": ["sink", "hand", "tap", "pan"]
+        }
+    }
+}

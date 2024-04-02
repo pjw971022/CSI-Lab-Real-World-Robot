@@ -1,0 +1,301 @@
+{
+    "P03_22": {
+        "P03_22_0": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P03/rgb_frames/P03_22.tar",
+            "start_image": "./frame_0000000118.jpg",
+            "random_image": "./frame_0000000122.jpg",
+            "end_image": "./frame_0000000181.jpg",
+            "action": "put bag",
+            "states": [],
+            "objects": [
+                "right hand",
+                "bag"
+            ]
+        },
+        "P03_22_1": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P03/rgb_frames/P03_22.tar",
+            "start_image": "./frame_0000000211.jpg",
+            "random_image": "./frame_0000000216.jpg",
+            "end_image": "./frame_0000000262.jpg",
+            "action": "put glass",
+            "states": [],
+            "objects": [
+                "glass",
+                "left hand"
+            ]
+        },
+        "P03_22_2": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P03/rgb_frames/P03_22.tar",
+            "start_image": "./frame_0000000345.jpg",
+            "random_image": "./frame_0000000362.jpg",
+            "end_image": "./frame_0000000409.jpg",
+            "action": "open fridge",
+            "states": [],
+            "objects": [
+                "fridge"
+            ]
+        },
+        "P03_22_3": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P03/rgb_frames/P03_22.tar",
+            "start_image": "./frame_0000000435.jpg",
+            "random_image": "./frame_0000000502.jpg",
+            "end_image": "./frame_0000000544.jpg",
+            "action": "grab lunch box",
+            "states": [],
+            "objects": [
+                "fridge",
+                "lunch box",
+                "left hand"
+            ]
+        },
+        "P03_22_5": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P03/rgb_frames/P03_22.tar",
+            "start_image": "./frame_0000000670.jpg",
+            "random_image": "./frame_0000000695.jpg",
+            "end_image": "./frame_0000000762.jpg",
+            "action": "grab fork",
+            "states": [],
+            "objects": [
+                "left hand"
+            ]
+        },
+        "P03_22_6": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P03/rgb_frames/P03_22.tar",
+            "start_image": "./frame_0000000906.jpg",
+            "random_image": "./frame_0000001019.jpg",
+            "end_image": "./frame_0000001080.jpg",
+            "action": "open bag",
+            "states": [],
+            "objects": [
+                "right hand",
+                "bag",
+                "left hand"
+            ]
+        },
+        "P03_22_7": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P03/rgb_frames/P03_22.tar",
+            "start_image": "./frame_0000001097.jpg",
+            "random_image": "./frame_0000001121.jpg",
+            "end_image": "./frame_0000001215.jpg",
+            "action": "put lunch box in bag",
+            "states": [],
+            "objects": [
+                "right hand",
+                "lunch box"
+            ]
+        },
+        "P03_22_8": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P03/rgb_frames/P03_22.tar",
+            "start_image": "./frame_0000001294.jpg",
+            "random_image": "./frame_0000001307.jpg",
+            "end_image": "./frame_0000001350.jpg",
+            "action": "put fork in bag",
+            "states": [],
+            "objects": [
+                "right hand",
+                "bag",
+                "lunch box",
+                "left hand"
+            ]
+        },
+        "P03_22_9": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P03/rgb_frames/P03_22.tar",
+            "start_image": "./frame_0000001390.jpg",
+            "random_image": "./frame_0000001413.jpg",
+            "end_image": "./frame_0000001459.jpg",
+            "action": "open fridge",
+            "states": [],
+            "objects": [
+                "right hand",
+                "fridge"
+            ]
+        },
+        "P03_22_10": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P03/rgb_frames/P03_22.tar",
+            "start_image": "./frame_0000001465.jpg",
+            "random_image": "./frame_0000001487.jpg",
+            "end_image": "./frame_0000001539.jpg",
+            "action": "grab drink",
+            "states": [],
+            "objects": [
+                "fridge",
+                "left hand"
+            ]
+        },
+        "P03_22_11": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P03/rgb_frames/P03_22.tar",
+            "start_image": "./frame_0000001544.jpg",
+            "random_image": "./frame_0000001564.jpg",
+            "end_image": "./frame_0000001584.jpg",
+            "action": "close fridge",
+            "states": [],
+            "objects": [
+                "right hand",
+                "drink",
+                "bag",
+                "left hand"
+            ]
+        },
+        "P03_22_12": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P03/rgb_frames/P03_22.tar",
+            "start_image": "./frame_0000001590.jpg",
+            "random_image": "./frame_0000001693.jpg",
+            "end_image": "./frame_0000001804.jpg",
+            "action": "put drink in bag",
+            "states": [],
+            "objects": [
+                "right hand",
+                "drink",
+                "bag",
+                "left hand"
+            ]
+        },
+        "P03_22_13": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P03/rgb_frames/P03_22.tar",
+            "start_image": "./frame_0000001810.jpg",
+            "random_image": "./frame_0000002010.jpg",
+            "end_image": "./frame_0000002059.jpg",
+            "action": "close bag",
+            "states": [],
+            "objects": [
+                "bag",
+                "left hand",
+                "right hand"
+            ]
+        },
+        "P03_22_14": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P03/rgb_frames/P03_22.tar",
+            "start_image": "./frame_0000002084.jpg",
+            "random_image": "./frame_0000002121.jpg",
+            "end_image": "./frame_0000002189.jpg",
+            "action": "pick up bag",
+            "states": [],
+            "objects": [
+                "bag",
+                "left hand"
+            ]
+        },
+        "P03_22_15": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P03/rgb_frames/P03_22.tar",
+            "start_image": "./frame_0000002239.jpg",
+            "random_image": "./frame_0000002254.jpg",
+            "end_image": "./frame_0000002301.jpg",
+            "action": "open fridge",
+            "states": [],
+            "objects": [
+                "fridge"
+            ]
+        },
+        "P03_22_17": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P03/rgb_frames/P03_22.tar",
+            "start_image": "./frame_0000002455.jpg",
+            "random_image": "./frame_0000002494.jpg",
+            "end_image": "./frame_0000002521.jpg",
+            "action": "close fridge",
+            "states": [],
+            "objects": [
+                "fridge",
+                "left hand"
+            ]
+        },
+        "P03_22_18": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P03/rgb_frames/P03_22.tar",
+            "start_image": "./frame_0000002770.jpg",
+            "random_image": "./frame_0000002781.jpg",
+            "end_image": "./frame_0000002835.jpg",
+            "action": "open cupboard",
+            "states": [],
+            "objects": [
+                "right hand",
+                "cupboard"
+            ]
+        },
+        "P03_22_19": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P03/rgb_frames/P03_22.tar",
+            "start_image": "./frame_0000002841.jpg",
+            "random_image": "./frame_0000002862.jpg",
+            "end_image": "./frame_0000002911.jpg",
+            "action": "take plate",
+            "states": [],
+            "objects": [
+                "right hand",
+                "plate",
+                "cupboard"
+            ]
+        },
+        "P03_22_20": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P03/rgb_frames/P03_22.tar",
+            "start_image": "./frame_0000002929.jpg",
+            "random_image": "./frame_0000002970.jpg",
+            "end_image": "./frame_0000002980.jpg",
+            "action": "put plate",
+            "states": [],
+            "objects": [
+                "right hand",
+                "plate",
+                "left hand"
+            ]
+        },
+        "P03_22_21": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P03/rgb_frames/P03_22.tar",
+            "start_image": "./frame_0000002995.jpg",
+            "random_image": "./frame_0000003018.jpg",
+            "end_image": "./frame_0000003062.jpg",
+            "action": "put pancakes on plate",
+            "states": [],
+            "objects": [
+                "right hand",
+                "pancake",
+                "plate",
+                "left hand"
+            ]
+        },
+        "P03_22_22": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P03/rgb_frames/P03_22.tar",
+            "start_image": "./frame_0000003094.jpg",
+            "random_image": "./frame_0000003102.jpg",
+            "end_image": "./frame_0000003152.jpg",
+            "action": "close cupboard",
+            "states": [],
+            "objects": [
+                "cupboard"
+            ]
+        },
+        "P03_22_23": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P03/rgb_frames/P03_22.tar",
+            "start_image": "./frame_0000003294.jpg",
+            "random_image": "./frame_0000003334.jpg",
+            "end_image": "./frame_0000003366.jpg",
+            "action": "put in bin",
+            "states": [],
+            "objects": [
+                "bin/garbage can/recycling bin",
+                "bag"
+            ]
+        },
+        "P03_22_24": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P03/rgb_frames/P03_22.tar",
+            "start_image": "./frame_0000003399.jpg",
+            "random_image": "./frame_0000003423.jpg",
+            "end_image": "./frame_0000003471.jpg",
+            "action": "take plate",
+            "states": [],
+            "objects": [
+                "right hand"
+            ]
+        },
+        "P03_22_25": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P03/rgb_frames/P03_22.tar",
+            "start_image": "./frame_0000003526.jpg",
+            "random_image": "./frame_0000003546.jpg",
+            "end_image": "./frame_0000003628.jpg",
+            "action": "take bag",
+            "states": [],
+            "objects": [
+                "bin/garbage can/recycling bin",
+                "right hand",
+                "bag"
+            ]
+        }
+    }
+}

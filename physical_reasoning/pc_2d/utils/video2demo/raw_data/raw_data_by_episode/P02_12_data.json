@@ -1,0 +1,5309 @@
+{
+    "P02_12": {
+        "P02_12_0": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000000231.jpg",
+            "random_image": "./frame_0000000241.jpg",
+            "end_image": "./frame_0000000263.jpg",
+            "action": "hold pan",
+            "states": [],
+            "objects": [
+                "left hand",
+                "pan",
+                "cupboard",
+                "hob",
+                "meat"
+            ]
+        },
+        "P02_12_1": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000000257.jpg",
+            "random_image": "./frame_0000000291.jpg",
+            "end_image": "./frame_0000000313.jpg",
+            "action": "move pan",
+            "states": [],
+            "objects": [
+                "left hand",
+                "pan",
+                "hob",
+                "meat"
+            ]
+        },
+        "P02_12_2": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000000333.jpg",
+            "random_image": "./frame_0000000342.jpg",
+            "end_image": "./frame_0000000393.jpg",
+            "action": "open cupboard",
+            "states": [],
+            "objects": [
+                "right hand",
+                "pan",
+                "cupboard",
+                "hob",
+                "meat"
+            ]
+        },
+        "P02_12_3": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000000429.jpg",
+            "random_image": "./frame_0000000471.jpg",
+            "end_image": "./frame_0000000534.jpg",
+            "action": "pick up herb",
+            "states": [],
+            "objects": [
+                "right hand",
+                "cupboard",
+                "herb jar",
+                "hob"
+            ]
+        },
+        "P02_12_4": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000000555.jpg",
+            "random_image": "./frame_0000000572.jpg",
+            "end_image": "./frame_0000000591.jpg",
+            "action": "open herb",
+            "states": [],
+            "objects": [
+                "right hand",
+                "herb",
+                "left hand",
+                "meat",
+                "pan",
+                "hob",
+                "lid",
+                "herb jar"
+            ]
+        },
+        "P02_12_5": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000000606.jpg",
+            "random_image": "./frame_0000000812.jpg",
+            "end_image": "./frame_0000000878.jpg",
+            "action": "sprinkle herb on meat",
+            "states": [],
+            "objects": [
+                "right hand",
+                "herb",
+                "left hand",
+                "meat",
+                "pan",
+                "hob",
+                "lid",
+                "herb jar"
+            ]
+        },
+        "P02_12_6": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000000882.jpg",
+            "random_image": "./frame_0000001108.jpg",
+            "end_image": "./frame_0000001212.jpg",
+            "action": "sprinkle herb on meat",
+            "states": [],
+            "objects": [
+                "right hand",
+                "herb",
+                "left hand",
+                "meat",
+                "pan",
+                "hob",
+                "lid",
+                "herb jar"
+            ]
+        },
+        "P02_12_7": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000001295.jpg",
+            "random_image": "./frame_0000001311.jpg",
+            "end_image": "./frame_0000001387.jpg",
+            "action": "close herb",
+            "states": [],
+            "objects": [
+                "lid",
+                "right hand",
+                "left hand",
+                "herb jar",
+                "meat",
+                "pan",
+                "hob"
+            ]
+        },
+        "P02_12_9": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000001620.jpg",
+            "random_image": "./frame_0000001674.jpg",
+            "end_image": "./frame_0000001680.jpg",
+            "action": "open drawer",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "spoon",
+                "drawer"
+            ]
+        },
+        "P02_12_10": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000001686.jpg",
+            "random_image": "./frame_0000001743.jpg",
+            "end_image": "./frame_0000001866.jpg",
+            "action": "get spoon",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "spoon",
+                "drawer"
+            ]
+        },
+        "P02_12_11": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000001887.jpg",
+            "random_image": "./frame_0000001896.jpg",
+            "end_image": "./frame_0000001977.jpg",
+            "action": "open fridge",
+            "states": [],
+            "objects": [
+                "drawer",
+                "right hand",
+                "fridge",
+                "spoon"
+            ]
+        },
+        "P02_12_12": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000002008.jpg",
+            "random_image": "./frame_0000002037.jpg",
+            "end_image": "./frame_0000002079.jpg",
+            "action": "pick up yoghurt",
+            "states": [],
+            "objects": [
+                "fridge",
+                "left hand",
+                "yoghurt cup"
+            ]
+        },
+        "P02_12_13": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000002359.jpg",
+            "random_image": "./frame_0000002380.jpg",
+            "end_image": "./frame_0000002419.jpg",
+            "action": "put yoghurt",
+            "states": [],
+            "objects": [
+                "yoghurt cup",
+                "right hand",
+                "left hand",
+                "yoghurt lid",
+                "spoon"
+            ]
+        },
+        "P02_12_15": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000002464.jpg",
+            "random_image": "./frame_0000002524.jpg",
+            "end_image": "./frame_0000002556.jpg",
+            "action": "pick up tahini",
+            "states": [],
+            "objects": [
+                "cupboard",
+                "right hand",
+                "lid",
+                "tahini jar"
+            ]
+        },
+        "P02_12_16": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000002566.jpg",
+            "random_image": "./frame_0000002584.jpg",
+            "end_image": "./frame_0000002629.jpg",
+            "action": "open tahini",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "spoon",
+                "lid",
+                "tahini jar",
+                "hob",
+                "meat",
+                "pan"
+            ]
+        },
+        "P02_12_17": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000002648.jpg",
+            "random_image": "./frame_0000002661.jpg",
+            "end_image": "./frame_0000002703.jpg",
+            "action": "pick up spoon",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "tahini",
+                "spoon",
+                "lid",
+                "tahini jar",
+                "hob",
+                "meat",
+                "pan"
+            ]
+        },
+        "P02_12_18": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000002701.jpg",
+            "random_image": "./frame_0000002702.jpg",
+            "end_image": "./frame_0000003125.jpg",
+            "action": "mix tahini",
+            "states": [],
+            "objects": [
+                "left hand",
+                "tahini",
+                "spoon",
+                "lid",
+                "tahini jar",
+                "hob",
+                "meat",
+                "pan"
+            ]
+        },
+        "P02_12_19": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000002842.jpg",
+            "random_image": "./frame_0000003184.jpg",
+            "end_image": "./frame_0000003287.jpg",
+            "action": "stirring tahini",
+            "states": [],
+            "objects": [
+                "right hand",
+                "tahini",
+                "meat",
+                "left hand",
+                "spoon",
+                "pan",
+                "hob",
+                "tahini jar"
+            ]
+        },
+        "P02_12_20": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000003299.jpg",
+            "random_image": "./frame_0000003313.jpg",
+            "end_image": "./frame_0000003448.jpg",
+            "action": "scoop tahini",
+            "states": [],
+            "objects": [
+                "right hand",
+                "tahini",
+                "meat",
+                "left hand",
+                "spoon",
+                "pan",
+                "hob",
+                "tahini jar"
+            ]
+        },
+        "P02_12_21": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000003384.jpg",
+            "random_image": "./frame_0000003416.jpg",
+            "end_image": "./frame_0000003450.jpg",
+            "action": "scoop tahini",
+            "states": [],
+            "objects": [
+                "right hand",
+                "tahini",
+                "meat",
+                "left hand",
+                "spoon",
+                "pan",
+                "hob",
+                "tahini jar"
+            ]
+        },
+        "P02_12_22": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000003453.jpg",
+            "random_image": "./frame_0000003545.jpg",
+            "end_image": "./frame_0000003911.jpg",
+            "action": "pour tahini on meat",
+            "states": [],
+            "objects": [
+                "right hand",
+                "tahini",
+                "meat",
+                "left hand",
+                "spoon",
+                "pan",
+                "hob",
+                "tahini jar"
+            ]
+        },
+        "P02_12_23": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000003456.jpg",
+            "random_image": "./frame_0000003545.jpg",
+            "end_image": "./frame_0000003567.jpg",
+            "action": "put tahini on meat",
+            "states": [],
+            "objects": [
+                "right hand",
+                "tahini",
+                "meat",
+                "left hand",
+                "spoon",
+                "pan",
+                "hob",
+                "tahini jar"
+            ]
+        },
+        "P02_12_24": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000004013.jpg",
+            "random_image": "./frame_0000004085.jpg",
+            "end_image": "./frame_0000004109.jpg",
+            "action": "close tahini",
+            "states": [],
+            "objects": [
+                "spoon",
+                "right hand",
+                "yoghurt lid",
+                "left hand",
+                "tahini",
+                "tahini jar",
+                "lid",
+                "meat",
+                "pan",
+                "hob"
+            ]
+        },
+        "P02_12_25": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000004115.jpg",
+            "random_image": "./frame_0000004158.jpg",
+            "end_image": "./frame_0000004182.jpg",
+            "action": "put tahini away",
+            "states": [],
+            "objects": [
+                "cupboard",
+                "right hand",
+                "tahini jar",
+                "lid"
+            ]
+        },
+        "P02_12_26": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000004198.jpg",
+            "random_image": "./frame_0000004235.jpg",
+            "end_image": "./frame_0000004422.jpg",
+            "action": "open yoghurt",
+            "states": [],
+            "objects": [
+                "spoon",
+                "right hand",
+                "left hand",
+                "tahini",
+                "yoghurt lid",
+                "meat",
+                "pan",
+                "hob"
+            ]
+        },
+        "P02_12_27": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000004428.jpg",
+            "random_image": "./frame_0000004473.jpg",
+            "end_image": "./frame_0000004476.jpg",
+            "action": "pick up spoon",
+            "states": [],
+            "objects": [
+                "tahini",
+                "yoghurt lid",
+                "right hand",
+                "left hand",
+                "yoghurt",
+                "spoon",
+                "yoghurt cup",
+                "meat",
+                "pan",
+                "hob"
+            ]
+        },
+        "P02_12_28": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000004473.jpg",
+            "random_image": "./frame_0000004473.jpg",
+            "end_image": "./frame_0000004639.jpg",
+            "action": "scoop yoghurt",
+            "states": [],
+            "objects": [
+                "tahini",
+                "yoghurt lid",
+                "right hand",
+                "left hand",
+                "yoghurt",
+                "spoon",
+                "yoghurt cup",
+                "meat",
+                "pan",
+                "hob"
+            ]
+        },
+        "P02_12_29": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000004635.jpg",
+            "random_image": "./frame_0000004666.jpg",
+            "end_image": "./frame_0000004812.jpg",
+            "action": "put yoghurt",
+            "states": [],
+            "objects": [
+                "yoghurt lid",
+                "tahini",
+                "right hand",
+                "left hand",
+                "yoghurt",
+                "spoon",
+                "yoghurt cup",
+                "meat",
+                "pan",
+                "hob"
+            ]
+        },
+        "P02_12_30": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000004828.jpg",
+            "random_image": "./frame_0000004832.jpg",
+            "end_image": "./frame_0000004893.jpg",
+            "action": "put spoon",
+            "states": [],
+            "objects": [
+                "tahini",
+                "right hand",
+                "yoghurt",
+                "spoon",
+                "meat",
+                "pan",
+                "hob",
+                "chopping board"
+            ]
+        },
+        "P02_12_31": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000004894.jpg",
+            "random_image": "./frame_0000004926.jpg",
+            "end_image": "./frame_0000005055.jpg",
+            "action": "close yoghurt",
+            "states": [],
+            "objects": [
+                "hob",
+                "right hand",
+                "tahini",
+                "meat",
+                "left hand",
+                "yoghurt",
+                "spoon",
+                "drawer",
+                "yoghurt lid",
+                "pan",
+                "chopping board"
+            ]
+        },
+        "P02_12_32": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000004897.jpg",
+            "random_image": "./frame_0000005027.jpg",
+            "end_image": "./frame_0000005061.jpg",
+            "action": "put yoghurt",
+            "states": [],
+            "objects": [
+                "hob",
+                "right hand",
+                "tahini",
+                "meat",
+                "left hand",
+                "yoghurt",
+                "spoon",
+                "yoghurt lid",
+                "pan"
+            ]
+        },
+        "P02_12_33": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000005083.jpg",
+            "random_image": "./frame_0000005166.jpg",
+            "end_image": "./frame_0000005410.jpg",
+            "action": "mix meat",
+            "states": [],
+            "objects": [
+                "right hand",
+                "tahini",
+                "meat",
+                "left hand",
+                "yoghurt",
+                "spoon",
+                "drawer",
+                "yoghurt cup",
+                "pan"
+            ]
+        },
+        "P02_12_35": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000006121.jpg",
+            "random_image": "./frame_0000006127.jpg",
+            "end_image": "./frame_0000006214.jpg",
+            "action": "open drawer",
+            "states": [],
+            "objects": [
+                "right hand",
+                "drawer"
+            ]
+        },
+        "P02_12_36": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000006246.jpg",
+            "random_image": "./frame_0000006283.jpg",
+            "end_image": "./frame_0000006291.jpg",
+            "action": "get tupperware",
+            "states": [],
+            "objects": [
+                "right hand",
+                "tupperware",
+                "drawer"
+            ]
+        },
+        "P02_12_37": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000006310.jpg",
+            "random_image": "./frame_0000006315.jpg",
+            "end_image": "./frame_0000006363.jpg",
+            "action": "open drawer",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "tupperware",
+                "drawer"
+            ]
+        },
+        "P02_12_38": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000006393.jpg",
+            "random_image": "./frame_0000006417.jpg",
+            "end_image": "./frame_0000006453.jpg",
+            "action": "get spoon",
+            "states": [],
+            "objects": [
+                "right hand",
+                "spoon",
+                "tupperware",
+                "drawer"
+            ]
+        },
+        "P02_12_39": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000006462.jpg",
+            "random_image": "./frame_0000006479.jpg",
+            "end_image": "./frame_0000006557.jpg",
+            "action": "close drawer",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "spoon",
+                "tupperware",
+                "drawer"
+            ]
+        },
+        "P02_12_40": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000006663.jpg",
+            "random_image": "./frame_0000006742.jpg",
+            "end_image": "./frame_0000006765.jpg",
+            "action": "open tupperware",
+            "states": [],
+            "objects": [
+                "meat",
+                "left hand",
+                "spoon",
+                "tupperware",
+                "pan",
+                "hob",
+                "tupperware lid"
+            ]
+        },
+        "P02_12_41": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000006801.jpg",
+            "random_image": "./frame_0000006862.jpg",
+            "end_image": "./frame_0000006876.jpg",
+            "action": "pick up meat",
+            "states": [],
+            "objects": [
+                "right hand",
+                "meat",
+                "left hand",
+                "spoon",
+                "tupperware",
+                "pan",
+                "hob",
+                "tupperware lid"
+            ]
+        },
+        "P02_12_42": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000006859.jpg",
+            "random_image": "./frame_0000006862.jpg",
+            "end_image": "./frame_0000006929.jpg",
+            "action": "put meat in tupperware",
+            "states": [],
+            "objects": [
+                "right hand",
+                "meat",
+                "left hand",
+                "spoon",
+                "tupperware",
+                "pan",
+                "hob",
+                "tupperware lid"
+            ]
+        },
+        "P02_12_43": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000006930.jpg",
+            "random_image": "./frame_0000006998.jpg",
+            "end_image": "./frame_0000007035.jpg",
+            "action": "pick up meat",
+            "states": [],
+            "objects": [
+                "right hand",
+                "meat",
+                "left hand",
+                "spoon",
+                "tupperware",
+                "pan",
+                "hob"
+            ]
+        },
+        "P02_12_44": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000007041.jpg",
+            "random_image": "./frame_0000007074.jpg",
+            "end_image": "./frame_0000007119.jpg",
+            "action": "put meat in tupperware",
+            "states": [],
+            "objects": [
+                "right hand",
+                "meat",
+                "left hand",
+                "spoon",
+                "tupperware",
+                "pan",
+                "hob"
+            ]
+        },
+        "P02_12_45": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000007130.jpg",
+            "random_image": "./frame_0000007178.jpg",
+            "end_image": "./frame_0000007262.jpg",
+            "action": "pick up meat",
+            "states": [],
+            "objects": [
+                "right hand",
+                "meat",
+                "left hand",
+                "spoon",
+                "tupperware",
+                "pan",
+                "hob"
+            ]
+        },
+        "P02_12_46": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000007265.jpg",
+            "random_image": "./frame_0000007328.jpg",
+            "end_image": "./frame_0000007347.jpg",
+            "action": "put in tupperware",
+            "states": [],
+            "objects": [
+                "right hand",
+                "meat",
+                "left hand",
+                "spoon",
+                "tupperware",
+                "pan",
+                "hob"
+            ]
+        },
+        "P02_12_47": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000007353.jpg",
+            "random_image": "./frame_0000007418.jpg",
+            "end_image": "./frame_0000007455.jpg",
+            "action": "pick up meat",
+            "states": [],
+            "objects": [
+                "right hand",
+                "meat",
+                "spoon",
+                "tupperware",
+                "pan",
+                "hob"
+            ]
+        },
+        "P02_12_48": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000007461.jpg",
+            "random_image": "./frame_0000007478.jpg",
+            "end_image": "./frame_0000007545.jpg",
+            "action": "put in tupperware",
+            "states": [],
+            "objects": [
+                "right hand",
+                "meat",
+                "left hand",
+                "spoon",
+                "tupperware",
+                "pan",
+                "hob"
+            ]
+        },
+        "P02_12_49": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000007551.jpg",
+            "random_image": "./frame_0000007599.jpg",
+            "end_image": "./frame_0000007603.jpg",
+            "action": "put spoon",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "spoon",
+                "tupperware",
+                "chopping board",
+                "meat",
+                "tupperware lid"
+            ]
+        },
+        "P02_12_50": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000007609.jpg",
+            "random_image": "./frame_0000007719.jpg",
+            "end_image": "./frame_0000007746.jpg",
+            "action": "close tupperware",
+            "states": [],
+            "objects": [
+                "hob",
+                "pan",
+                "right hand",
+                "left hand",
+                "spoon",
+                "tupperware",
+                "chopping board",
+                "meat",
+                "tupperware lid"
+            ]
+        },
+        "P02_12_51": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000007778.jpg",
+            "random_image": "./frame_0000007829.jpg",
+            "end_image": "./frame_0000007845.jpg",
+            "action": "put tupperware away",
+            "states": [],
+            "objects": [
+                "hob",
+                "pan",
+                "right hand",
+                "left hand",
+                "spoon",
+                "tupperware",
+                "chopping board",
+                "meat",
+                "tupperware lid"
+            ]
+        },
+        "P02_12_53": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000007921.jpg",
+            "random_image": "./frame_0000008005.jpg",
+            "end_image": "./frame_0000008262.jpg",
+            "action": "stir meat with tahini and yoghurt",
+            "states": [],
+            "objects": [
+                "right hand",
+                "meat",
+                "left hand",
+                "spoon",
+                "pan",
+                "hob"
+            ]
+        },
+        "P02_12_54": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000008268.jpg",
+            "random_image": "./frame_0000008649.jpg",
+            "end_image": "./frame_0000008814.jpg",
+            "action": "mixing meat",
+            "states": [],
+            "objects": [
+                "right hand",
+                "meat",
+                "left hand",
+                "yoghurt cup",
+                "spoon",
+                "pan",
+                "hob"
+            ]
+        },
+        "P02_12_55": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000008851.jpg",
+            "random_image": "./frame_0000009010.jpg",
+            "end_image": "./frame_0000009091.jpg",
+            "action": "open yoghurt",
+            "states": [],
+            "objects": [
+                "yoghurt lid",
+                "right hand",
+                "meat",
+                "left hand",
+                "spoon",
+                "pan",
+                "hob"
+            ]
+        },
+        "P02_12_56": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000009097.jpg",
+            "random_image": "./frame_0000009139.jpg",
+            "end_image": "./frame_0000009231.jpg",
+            "action": "pick up spoon",
+            "states": [],
+            "objects": [
+                "yoghurt lid",
+                "yoghurt cup",
+                "chopping board",
+                "right hand",
+                "left hand",
+                "yoghurt",
+                "spoon"
+            ]
+        },
+        "P02_12_57": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000009237.jpg",
+            "random_image": "./frame_0000009340.jpg",
+            "end_image": "./frame_0000009356.jpg",
+            "action": "scoop yoghurt",
+            "states": [],
+            "objects": [
+                "yoghurt lid",
+                "right hand",
+                "left hand",
+                "yoghurt",
+                "spoon",
+                "yoghurt cup"
+            ]
+        },
+        "P02_12_58": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000009362.jpg",
+            "random_image": "./frame_0000009389.jpg",
+            "end_image": "./frame_0000009459.jpg",
+            "action": "pour yoghurt",
+            "states": [],
+            "objects": [
+                "hob",
+                "pan",
+                "meat",
+                "yoghurt lid",
+                "right hand",
+                "left hand",
+                "yoghurt",
+                "spoon",
+                "yoghurt cup"
+            ]
+        },
+        "P02_12_59": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000009450.jpg",
+            "random_image": "./frame_0000009508.jpg",
+            "end_image": "./frame_0000009528.jpg",
+            "action": "put spoon",
+            "states": [],
+            "objects": [
+                "chopping board",
+                "hob",
+                "right hand",
+                "meat",
+                "left hand",
+                "yoghurt",
+                "pan",
+                "spoon",
+                "yoghurt lid"
+            ]
+        },
+        "P02_12_60": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000009482.jpg",
+            "random_image": "./frame_0000009578.jpg",
+            "end_image": "./frame_0000009589.jpg",
+            "action": "put yoghurt",
+            "states": [],
+            "objects": [
+                "yoghurt cup",
+                "meat",
+                "left hand",
+                "yoghurt",
+                "pan",
+                "spoon",
+                "yoghurt lid",
+                "hob"
+            ]
+        },
+        "P02_12_62": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000009632.jpg",
+            "random_image": "./frame_0000009953.jpg",
+            "end_image": "./frame_0000010120.jpg",
+            "action": "stir meat with yoghurt",
+            "states": [],
+            "objects": [
+                "right hand",
+                "meat",
+                "left hand",
+                "yoghurt cup",
+                "pan",
+                "spoon",
+                "yoghurt lid",
+                "hob"
+            ]
+        },
+        "P02_12_64": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000010857.jpg",
+            "random_image": "./frame_0000010935.jpg",
+            "end_image": "./frame_0000010962.jpg",
+            "action": "taste meat mix",
+            "states": [],
+            "objects": [
+                "right hand",
+                "meat",
+                "pan",
+                "spoon",
+                "hob"
+            ]
+        },
+        "P02_12_65": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000010968.jpg",
+            "random_image": "./frame_0000011022.jpg",
+            "end_image": "./frame_0000011208.jpg",
+            "action": "stir meat",
+            "states": [],
+            "objects": [
+                "right hand",
+                "pan",
+                "meat mix",
+                "left hand",
+                "spoon",
+                "hob"
+            ]
+        },
+        "P02_12_66": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000011209.jpg",
+            "random_image": "./frame_0000011209.jpg",
+            "end_image": "./frame_0000011244.jpg",
+            "action": "pick up pan",
+            "states": [],
+            "objects": [
+                "right hand",
+                "pan",
+                "meat mix",
+                "spoon",
+                "hob"
+            ]
+        },
+        "P02_12_67": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000011377.jpg",
+            "random_image": "./frame_0000011399.jpg",
+            "end_image": "./frame_0000011458.jpg",
+            "action": "put pan",
+            "states": [],
+            "objects": [
+                "pan",
+                "meat mix",
+                "left hand",
+                "spoon"
+            ]
+        },
+        "P02_12_68": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000011479.jpg",
+            "random_image": "./frame_0000011501.jpg",
+            "end_image": "./frame_0000011586.jpg",
+            "action": "move pan",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "pan",
+                "meat mix",
+                "spoon"
+            ]
+        },
+        "P02_12_69": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000011746.jpg",
+            "random_image": "./frame_0000011773.jpg",
+            "end_image": "./frame_0000011836.jpg",
+            "action": "open cupboard",
+            "states": [],
+            "objects": [
+                "right hand",
+                "cupboard"
+            ]
+        },
+        "P02_12_70": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000011932.jpg",
+            "random_image": "./frame_0000012195.jpg",
+            "end_image": "./frame_0000012277.jpg",
+            "action": "pick up tray",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "cupboard",
+                "tray",
+                "bag"
+            ]
+        },
+        "P02_12_71": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000012309.jpg",
+            "random_image": "./frame_0000012341.jpg",
+            "end_image": "./frame_0000012463.jpg",
+            "action": "pick up tray",
+            "states": [],
+            "objects": [
+                "right hand",
+                "bag",
+                "cupboard",
+                "tray"
+            ]
+        },
+        "P02_12_72": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000012657.jpg",
+            "random_image": "./frame_0000012824.jpg",
+            "end_image": "./frame_0000012862.jpg",
+            "action": "move bags",
+            "states": [],
+            "objects": [
+                "right hand",
+                "bag",
+                "cupboard",
+                "tray"
+            ]
+        },
+        "P02_12_73": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000012868.jpg",
+            "random_image": "./frame_0000012930.jpg",
+            "end_image": "./frame_0000012945.jpg",
+            "action": "close cupboard",
+            "states": [],
+            "objects": [
+                "right hand",
+                "cupboard"
+            ]
+        },
+        "P02_12_75": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000013076.jpg",
+            "random_image": "./frame_0000013100.jpg",
+            "end_image": "./frame_0000013210.jpg",
+            "action": "put tray",
+            "states": [],
+            "objects": [
+                "tray"
+            ]
+        },
+        "P02_12_77": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000013467.jpg",
+            "random_image": "./frame_0000013470.jpg",
+            "end_image": "./frame_0000013527.jpg",
+            "action": "pick up open cupboard",
+            "states": [],
+            "objects": [
+                "left hand",
+                "cupboard"
+            ]
+        },
+        "P02_12_78": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000013781.jpg",
+            "random_image": "./frame_0000013863.jpg",
+            "end_image": "./frame_0000013883.jpg",
+            "action": "return tray",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "tray",
+                "cupboard"
+            ]
+        },
+        "P02_12_79": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000013861.jpg",
+            "random_image": "./frame_0000013863.jpg",
+            "end_image": "./frame_0000014273.jpg",
+            "action": "pick another tray",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "tray",
+                "cupboard"
+            ]
+        },
+        "P02_12_80": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000014272.jpg",
+            "random_image": "./frame_0000014273.jpg",
+            "end_image": "./frame_0000014310.jpg",
+            "action": "remove lid",
+            "states": [],
+            "objects": [
+                "lid",
+                "right hand",
+                "left hand",
+                "cupboard",
+                "tray"
+            ]
+        },
+        "P02_12_82": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000014389.jpg",
+            "random_image": "./frame_0000014405.jpg",
+            "end_image": "./frame_0000014449.jpg",
+            "action": "close cupboard",
+            "states": [],
+            "objects": [
+                "lid",
+                "right hand",
+                "left hand",
+                "cupboard",
+                "tray"
+            ]
+        },
+        "P02_12_83": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000014443.jpg",
+            "random_image": "./frame_0000014502.jpg",
+            "end_image": "./frame_0000014571.jpg",
+            "action": "shake tray",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "tray"
+            ]
+        },
+        "P02_12_84": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000014774.jpg",
+            "random_image": "./frame_0000014794.jpg",
+            "end_image": "./frame_0000014820.jpg",
+            "action": "move tray",
+            "states": [],
+            "objects": [
+                "coffee tray",
+                "left hand",
+                "tray"
+            ]
+        },
+        "P02_12_85": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000014857.jpg",
+            "random_image": "./frame_0000014919.jpg",
+            "end_image": "./frame_0000014927.jpg",
+            "action": "put tray",
+            "states": [],
+            "objects": [
+                "left hand",
+                "tray",
+                "cupboard"
+            ]
+        },
+        "P02_12_86": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000015268.jpg",
+            "random_image": "./frame_0000015330.jpg",
+            "end_image": "./frame_0000015358.jpg",
+            "action": "pick up plate",
+            "states": [],
+            "objects": [
+                "right hand",
+                "plate",
+                "cupboard"
+            ]
+        },
+        "P02_12_87": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000015614.jpg",
+            "random_image": "./frame_0000015700.jpg",
+            "end_image": "./frame_0000015734.jpg",
+            "action": "move can",
+            "states": [],
+            "objects": [
+                "right hand",
+                "can",
+                "cupboard"
+            ]
+        },
+        "P02_12_88": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000015777.jpg",
+            "random_image": "./frame_0000015856.jpg",
+            "end_image": "./frame_0000015907.jpg",
+            "action": "get thyme",
+            "states": [],
+            "objects": [
+                "right hand",
+                "thyme jar",
+                "cupboard"
+            ]
+        },
+        "P02_12_89": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000016048.jpg",
+            "random_image": "./frame_0000016058.jpg",
+            "end_image": "./frame_0000016078.jpg",
+            "action": "put plate",
+            "states": [],
+            "objects": [
+                "right hand",
+                "plate",
+                "left hand",
+                "thyme jar"
+            ]
+        },
+        "P02_12_91": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000016277.jpg",
+            "random_image": "./frame_0000016295.jpg",
+            "end_image": "./frame_0000016337.jpg",
+            "action": "set off timer",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oven",
+                "timer",
+                "cupboard"
+            ]
+        },
+        "P02_12_92": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000016374.jpg",
+            "random_image": "./frame_0000016442.jpg",
+            "end_image": "./frame_0000016470.jpg",
+            "action": "open oven",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "oven",
+                "drawer",
+                "tray",
+                "towel"
+            ]
+        },
+        "P02_12_94": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000016531.jpg",
+            "random_image": "./frame_0000016593.jpg",
+            "end_image": "./frame_0000016612.jpg",
+            "action": "pick up bowl",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "oven",
+                "tray",
+                "towel"
+            ]
+        },
+        "P02_12_95": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000016654.jpg",
+            "random_image": "./frame_0000016683.jpg",
+            "end_image": "./frame_0000016734.jpg",
+            "action": "push drawer",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oven",
+                "drawer",
+                "tray",
+                "towel"
+            ]
+        },
+        "P02_12_96": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000016737.jpg",
+            "random_image": "./frame_0000016774.jpg",
+            "end_image": "./frame_0000016825.jpg",
+            "action": "close oven",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oven",
+                "tray",
+                "towel"
+            ]
+        },
+        "P02_12_97": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000017055.jpg",
+            "random_image": "./frame_0000017100.jpg",
+            "end_image": "./frame_0000017181.jpg",
+            "action": "move tray",
+            "states": [],
+            "objects": [
+                "oven",
+                "tray",
+                "towel"
+            ]
+        },
+        "P02_12_98": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000017335.jpg",
+            "random_image": "./frame_0000017361.jpg",
+            "end_image": "./frame_0000017409.jpg",
+            "action": "set off timer",
+            "states": [],
+            "objects": [
+                "timer button",
+                "right hand",
+                "oven",
+                "timer",
+                "towel"
+            ]
+        },
+        "P02_12_99": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000017541.jpg",
+            "random_image": "./frame_0000017569.jpg",
+            "end_image": "./frame_0000017604.jpg",
+            "action": "put bowl",
+            "states": [],
+            "objects": [
+                "left hand",
+                "towel"
+            ]
+        },
+        "P02_12_100": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000017612.jpg",
+            "random_image": "./frame_0000017689.jpg",
+            "end_image": "./frame_0000017712.jpg",
+            "action": "remove towels",
+            "states": [],
+            "objects": [
+                "bowl",
+                "towel",
+                "left hand",
+                "dough"
+            ]
+        },
+        "P02_12_101": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000017832.jpg",
+            "random_image": "./frame_0000017869.jpg",
+            "end_image": "./frame_0000017896.jpg",
+            "action": "close drawer",
+            "states": [],
+            "objects": [
+                "right hand",
+                "drawer"
+            ]
+        },
+        "P02_12_103": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000017955.jpg",
+            "random_image": "./frame_0000017970.jpg",
+            "end_image": "./frame_0000018020.jpg",
+            "action": "put towels",
+            "states": [],
+            "objects": [
+                "right hand",
+                "towel",
+                "left hand",
+                "drawer"
+            ]
+        },
+        "P02_12_104": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000018026.jpg",
+            "random_image": "./frame_0000018059.jpg",
+            "end_image": "./frame_0000018090.jpg",
+            "action": "close drawer",
+            "states": [],
+            "objects": [
+                "right hand",
+                "towel",
+                "drawer"
+            ]
+        },
+        "P02_12_105": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000018176.jpg",
+            "random_image": "./frame_0000018229.jpg",
+            "end_image": "./frame_0000018353.jpg",
+            "action": "knead dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "left hand",
+                "bowl"
+            ]
+        },
+        "P02_12_106": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000018419.jpg",
+            "random_image": "./frame_0000018496.jpg",
+            "end_image": "./frame_0000018694.jpg",
+            "action": "knead dough in bowl",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "left hand",
+                "bowl"
+            ]
+        },
+        "P02_12_107": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000018734.jpg",
+            "random_image": "./frame_0000018788.jpg",
+            "end_image": "./frame_0000018940.jpg",
+            "action": "hold bowl",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "left hand",
+                "bowl"
+            ]
+        },
+        "P02_12_108": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000019125.jpg",
+            "random_image": "./frame_0000020397.jpg",
+            "end_image": "./frame_0000020742.jpg",
+            "action": "knead dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "left hand",
+                "bowl"
+            ]
+        },
+        "P02_12_109": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000019278.jpg",
+            "random_image": "./frame_0000020397.jpg",
+            "end_image": "./frame_0000020568.jpg",
+            "action": "hold bowl",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "left hand",
+                "bowl"
+            ]
+        },
+        "P02_12_111": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000021107.jpg",
+            "random_image": "./frame_0000021172.jpg",
+            "end_image": "./frame_0000021312.jpg",
+            "action": "move bowl",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "bowl",
+                "paper towel",
+                "left hand"
+            ]
+        },
+        "P02_12_112": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000021393.jpg",
+            "random_image": "./frame_0000021407.jpg",
+            "end_image": "./frame_0000021469.jpg",
+            "action": "pick up tray",
+            "states": [],
+            "objects": [
+                "left hand",
+                "tray"
+            ]
+        },
+        "P02_12_114": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000021804.jpg",
+            "random_image": "./frame_0000021833.jpg",
+            "end_image": "./frame_0000021890.jpg",
+            "action": "move paper towel",
+            "states": [],
+            "objects": [
+                "dough",
+                "bowl",
+                "paper towel",
+                "left hand",
+                "meat mix",
+                "spoon",
+                "pan"
+            ]
+        },
+        "P02_12_115": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000021896.jpg",
+            "random_image": "./frame_0000021954.jpg",
+            "end_image": "./frame_0000021984.jpg",
+            "action": "move pan",
+            "states": [],
+            "objects": [
+                "left hand",
+                "pan",
+                "oil bottle",
+                "tray",
+                "meat mix",
+                "spoon"
+            ]
+        },
+        "P02_12_116": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000021990.jpg",
+            "random_image": "./frame_0000022043.jpg",
+            "end_image": "./frame_0000022057.jpg",
+            "action": "move tray",
+            "states": [],
+            "objects": [
+                "left hand",
+                "pan",
+                "oil bottle",
+                "tray",
+                "meat mix",
+                "spoon"
+            ]
+        },
+        "P02_12_117": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000022036.jpg",
+            "random_image": "./frame_0000022043.jpg",
+            "end_image": "./frame_0000022164.jpg",
+            "action": "pick up olive oil",
+            "states": [],
+            "objects": [
+                "left hand",
+                "pan",
+                "oil bottle",
+                "tray",
+                "meat mix",
+                "spoon"
+            ]
+        },
+        "P02_12_118": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000022158.jpg",
+            "random_image": "./frame_0000022267.jpg",
+            "end_image": "./frame_0000022336.jpg",
+            "action": "open olive oil bottle",
+            "states": [],
+            "objects": [
+                "left hand",
+                "pan",
+                "oil bottle",
+                "tray",
+                "meat mix",
+                "spoon"
+            ]
+        },
+        "P02_12_119": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000022444.jpg",
+            "random_image": "./frame_0000022452.jpg",
+            "end_image": "./frame_0000022482.jpg",
+            "action": "pick up olive oil",
+            "states": [],
+            "objects": [
+                "left hand",
+                "oil bottle",
+                "tray"
+            ]
+        },
+        "P02_12_120": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000022525.jpg",
+            "random_image": "./frame_0000022611.jpg",
+            "end_image": "./frame_0000022673.jpg",
+            "action": "pour oil onto tray",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "oil bottle",
+                "tray",
+                "oil"
+            ]
+        },
+        "P02_12_121": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000022698.jpg",
+            "random_image": "./frame_0000022730.jpg",
+            "end_image": "./frame_0000022767.jpg",
+            "action": "put olive oil bottle",
+            "states": [],
+            "objects": [
+                "left hand",
+                "oil bottle",
+                "tray",
+                "oil"
+            ]
+        },
+        "P02_12_122": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000022797.jpg",
+            "random_image": "./frame_0000022845.jpg",
+            "end_image": "./frame_0000023037.jpg",
+            "action": "spread olive in tray",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "left hand",
+                "oil bottle",
+                "tray",
+                "bowl",
+                "oil"
+            ]
+        },
+        "P02_12_123": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000023043.jpg",
+            "random_image": "./frame_0000023479.jpg",
+            "end_image": "./frame_0000023701.jpg",
+            "action": "spread olive in tray",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "left hand",
+                "oil bottle",
+                "tray",
+                "bowl",
+                "oil"
+            ]
+        },
+        "P02_12_124": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000023721.jpg",
+            "random_image": "./frame_0000023773.jpg",
+            "end_image": "./frame_0000023976.jpg",
+            "action": "pick up dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "left hand",
+                "oil bottle",
+                "tray",
+                "bowl"
+            ]
+        },
+        "P02_12_125": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000024005.jpg",
+            "random_image": "./frame_0000024175.jpg",
+            "end_image": "./frame_0000024261.jpg",
+            "action": "get a bowl of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "plate",
+                "left hand",
+                "bowl",
+                "oil bottle",
+                "tray"
+            ]
+        },
+        "P02_12_127": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000024399.jpg",
+            "random_image": "./frame_0000024419.jpg",
+            "end_image": "./frame_0000024489.jpg",
+            "action": "pour olive oil in plate",
+            "states": [],
+            "objects": [
+                "tray",
+                "right hand",
+                "dough",
+                "plate",
+                "left hand",
+                "bowl",
+                "oil bottle",
+                "oil"
+            ]
+        },
+        "P02_12_128": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000024540.jpg",
+            "random_image": "./frame_0000024545.jpg",
+            "end_image": "./frame_0000024600.jpg",
+            "action": "put olive oil",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "plate",
+                "left hand",
+                "bowl",
+                "oil bottle",
+                "oil",
+                "tray"
+            ]
+        },
+        "P02_12_129": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000024636.jpg",
+            "random_image": "./frame_0000024674.jpg",
+            "end_image": "./frame_0000024675.jpg",
+            "action": "pick up some oil",
+            "states": [],
+            "objects": [
+                "tray",
+                "right hand",
+                "oil",
+                "dough",
+                "left hand",
+                "bowl",
+                "plate"
+            ]
+        },
+        "P02_12_130": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000024783.jpg",
+            "random_image": "./frame_0000025406.jpg",
+            "end_image": "./frame_0000025609.jpg",
+            "action": "knead dough in hand",
+            "states": [],
+            "objects": [
+                "tray",
+                "right hand",
+                "oil",
+                "dough",
+                "left hand",
+                "bowl",
+                "plate"
+            ]
+        },
+        "P02_12_131": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000025789.jpg",
+            "random_image": "./frame_0000025840.jpg",
+            "end_image": "./frame_0000026008.jpg",
+            "action": "roll dough",
+            "states": [],
+            "objects": [
+                "tray",
+                "right hand",
+                "oil",
+                "dough",
+                "left hand",
+                "bowl",
+                "plate"
+            ]
+        },
+        "P02_12_132": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000026059.jpg",
+            "random_image": "./frame_0000026089.jpg",
+            "end_image": "./frame_0000026146.jpg",
+            "action": "put bowl of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "left hand",
+                "oil",
+                "bowl",
+                "tray",
+                "plate"
+            ]
+        },
+        "P02_12_133": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000026152.jpg",
+            "random_image": "./frame_0000026202.jpg",
+            "end_image": "./frame_0000026389.jpg",
+            "action": "get bowl of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "left hand",
+                "oil",
+                "bowl",
+                "tray",
+                "plate",
+                "dough ball"
+            ]
+        },
+        "P02_12_134": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000026590.jpg",
+            "random_image": "./frame_0000026608.jpg",
+            "end_image": "./frame_0000026650.jpg",
+            "action": "pick up oil",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "left hand",
+                "oil",
+                "bowl",
+                "tray",
+                "plate",
+                "dough ball"
+            ]
+        },
+        "P02_12_135": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000026656.jpg",
+            "random_image": "./frame_0000027238.jpg",
+            "end_image": "./frame_0000027478.jpg",
+            "action": "knead dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "dough",
+                "left hand",
+                "plate",
+                "tray",
+                "bowl",
+                "dough ball"
+            ]
+        },
+        "P02_12_136": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000027484.jpg",
+            "random_image": "./frame_0000027519.jpg",
+            "end_image": "./frame_0000027538.jpg",
+            "action": "pick up oil",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "dough",
+                "left hand",
+                "plate",
+                "tray",
+                "bowl",
+                "dough ball"
+            ]
+        },
+        "P02_12_137": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000027906.jpg",
+            "random_image": "./frame_0000028139.jpg",
+            "end_image": "./frame_0000028265.jpg",
+            "action": "roll dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "dough",
+                "left hand",
+                "plate",
+                "tray",
+                "bowl",
+                "dough ball"
+            ]
+        },
+        "P02_12_138": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000028391.jpg",
+            "random_image": "./frame_0000028409.jpg",
+            "end_image": "./frame_0000028447.jpg",
+            "action": "pick up oil",
+            "states": [],
+            "objects": [
+                "plate",
+                "right hand",
+                "dough",
+                "left hand",
+                "oil",
+                "bowl",
+                "tray",
+                "dough ball"
+            ]
+        },
+        "P02_12_139": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000028431.jpg",
+            "random_image": "./frame_0000028476.jpg",
+            "end_image": "./frame_0000028505.jpg",
+            "action": "spread oil on hand",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "left hand",
+                "oil",
+                "bowl",
+                "tray",
+                "dough ball"
+            ]
+        },
+        "P02_12_140": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000028511.jpg",
+            "random_image": "./frame_0000028620.jpg",
+            "end_image": "./frame_0000028648.jpg",
+            "action": "get a bowl of dough",
+            "states": [],
+            "objects": [
+                "plate",
+                "right hand",
+                "dough",
+                "left hand",
+                "oil",
+                "bowl",
+                "tray",
+                "dough ball"
+            ]
+        },
+        "P02_12_141": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000028654.jpg",
+            "random_image": "./frame_0000028865.jpg",
+            "end_image": "./frame_0000028941.jpg",
+            "action": "knead bowl of dough",
+            "states": [],
+            "objects": [
+                "plate",
+                "right hand",
+                "dough",
+                "left hand",
+                "oil",
+                "bowl",
+                "tray",
+                "dough ball"
+            ]
+        },
+        "P02_12_142": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000029517.jpg",
+            "random_image": "./frame_0000029842.jpg",
+            "end_image": "./frame_0000030017.jpg",
+            "action": "roll bowl of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "left hand",
+                "oil",
+                "plate",
+                "bowl",
+                "tray",
+                "dough ball"
+            ]
+        },
+        "P02_12_143": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000029995.jpg",
+            "random_image": "./frame_0000030011.jpg",
+            "end_image": "./frame_0000030121.jpg",
+            "action": "put bowl of dough",
+            "states": [],
+            "objects": [
+                "dough ball",
+                "right hand",
+                "dough",
+                "left hand",
+                "oil",
+                "plate",
+                "bowl",
+                "tray"
+            ]
+        },
+        "P02_12_144": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000030166.jpg",
+            "random_image": "./frame_0000030181.jpg",
+            "end_image": "./frame_0000030204.jpg",
+            "action": "get some oil",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "left hand",
+                "oil",
+                "dough ball",
+                "plate",
+                "bowl",
+                "tray"
+            ]
+        },
+        "P02_12_146": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000030281.jpg",
+            "random_image": "./frame_0000030342.jpg",
+            "end_image": "./frame_0000030551.jpg",
+            "action": "get ball of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "left hand",
+                "oil",
+                "dough ball",
+                "plate",
+                "bowl",
+                "tray"
+            ]
+        },
+        "P02_12_148": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000031141.jpg",
+            "random_image": "./frame_0000031393.jpg",
+            "end_image": "./frame_0000031460.jpg",
+            "action": "roll ball of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "left hand",
+                "dough ball",
+                "dough",
+                "plate",
+                "bowl",
+                "tray"
+            ]
+        },
+        "P02_12_150": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000031572.jpg",
+            "random_image": "./frame_0000031573.jpg",
+            "end_image": "./frame_0000031646.jpg",
+            "action": "get some oil",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "left hand",
+                "dough ball",
+                "dough",
+                "plate",
+                "bowl",
+                "tray"
+            ]
+        },
+        "P02_12_151": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000031662.jpg",
+            "random_image": "./frame_0000031683.jpg",
+            "end_image": "./frame_0000031716.jpg",
+            "action": "spread oil on hand",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "left hand",
+                "dough ball",
+                "dough",
+                "plate",
+                "bowl",
+                "tray"
+            ]
+        },
+        "P02_12_152": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000031702.jpg",
+            "random_image": "./frame_0000031713.jpg",
+            "end_image": "./frame_0000031873.jpg",
+            "action": "get ball of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "left hand",
+                "dough ball",
+                "dough",
+                "plate",
+                "bowl",
+                "tray"
+            ]
+        },
+        "P02_12_153": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000031868.jpg",
+            "random_image": "./frame_0000032042.jpg",
+            "end_image": "./frame_0000032794.jpg",
+            "action": "knead ball of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "left hand",
+                "dough ball",
+                "dough",
+                "bowl",
+                "plate",
+                "tray"
+            ]
+        },
+        "P02_12_155": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000032889.jpg",
+            "random_image": "./frame_0000032912.jpg",
+            "end_image": "./frame_0000032936.jpg",
+            "action": "get some oil",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "left hand",
+                "dough ball",
+                "dough",
+                "bowl",
+                "plate",
+                "tray"
+            ]
+        },
+        "P02_12_157": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000033259.jpg",
+            "random_image": "./frame_0000033453.jpg",
+            "end_image": "./frame_0000033524.jpg",
+            "action": "put ball of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "left hand",
+                "dough ball",
+                "dough",
+                "bowl",
+                "plate",
+                "tray"
+            ]
+        },
+        "P02_12_158": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000033543.jpg",
+            "random_image": "./frame_0000033717.jpg",
+            "end_image": "./frame_0000033774.jpg",
+            "action": "get ball of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "left hand",
+                "dough ball",
+                "bowl",
+                "dough",
+                "tray",
+                "plate"
+            ]
+        },
+        "P02_12_159": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000033829.jpg",
+            "random_image": "./frame_0000033848.jpg",
+            "end_image": "./frame_0000033877.jpg",
+            "action": "get some oil",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "left hand",
+                "dough ball",
+                "bowl",
+                "dough",
+                "tray",
+                "plate"
+            ]
+        },
+        "P02_12_160": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000033883.jpg",
+            "random_image": "./frame_0000034038.jpg",
+            "end_image": "./frame_0000034099.jpg",
+            "action": "knead ball of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "left hand",
+                "dough ball",
+                "bowl",
+                "dough",
+                "tray",
+                "plate"
+            ]
+        },
+        "P02_12_161": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000034932.jpg",
+            "random_image": "./frame_0000034938.jpg",
+            "end_image": "./frame_0000035002.jpg",
+            "action": "roll ball of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "left hand",
+                "dough ball",
+                "plate",
+                "tray",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_162": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000035016.jpg",
+            "random_image": "./frame_0000035031.jpg",
+            "end_image": "./frame_0000035059.jpg",
+            "action": "get some oil",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "left hand",
+                "dough ball",
+                "plate",
+                "tray",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_163": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000035065.jpg",
+            "random_image": "./frame_0000035133.jpg",
+            "end_image": "./frame_0000035467.jpg",
+            "action": "roll ball of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "left hand",
+                "dough ball",
+                "plate",
+                "tray",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_164": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000035473.jpg",
+            "random_image": "./frame_0000035506.jpg",
+            "end_image": "./frame_0000035549.jpg",
+            "action": "put ball of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "left hand",
+                "dough ball",
+                "plate",
+                "dough",
+                "bowl",
+                "tray"
+            ]
+        },
+        "P02_12_165": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000035588.jpg",
+            "random_image": "./frame_0000035611.jpg",
+            "end_image": "./frame_0000035632.jpg",
+            "action": "get some oil",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "left hand",
+                "dough ball",
+                "plate",
+                "dough",
+                "bowl",
+                "tray"
+            ]
+        },
+        "P02_12_166": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000035638.jpg",
+            "random_image": "./frame_0000035645.jpg",
+            "end_image": "./frame_0000035683.jpg",
+            "action": "spread oil on hand",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "left hand",
+                "dough ball",
+                "plate",
+                "dough",
+                "bowl",
+                "tray"
+            ]
+        },
+        "P02_12_167": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000035689.jpg",
+            "random_image": "./frame_0000035900.jpg",
+            "end_image": "./frame_0000035944.jpg",
+            "action": "get ball of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "left hand",
+                "dough ball",
+                "bowl",
+                "dough",
+                "tray",
+                "plate"
+            ]
+        },
+        "P02_12_168": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000035950.jpg",
+            "random_image": "./frame_0000036027.jpg",
+            "end_image": "./frame_0000036055.jpg",
+            "action": "knead ball of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "left hand",
+                "dough ball",
+                "bowl",
+                "dough",
+                "tray",
+                "plate"
+            ]
+        },
+        "P02_12_171": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000036082.jpg",
+            "random_image": "./frame_0000036247.jpg",
+            "end_image": "./frame_0000036442.jpg",
+            "action": "knead ball of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "left hand",
+                "dough ball",
+                "bowl",
+                "dough",
+                "tray",
+                "plate"
+            ]
+        },
+        "P02_12_170": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000036057.jpg",
+            "random_image": "./frame_0000036556.jpg",
+            "end_image": "./frame_0000036709.jpg",
+            "action": "knead ball of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "left hand",
+                "dough ball",
+                "bowl",
+                "dough",
+                "tray",
+                "plate"
+            ]
+        },
+        "P02_12_172": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000036403.jpg",
+            "random_image": "./frame_0000036556.jpg",
+            "end_image": "./frame_0000036744.jpg",
+            "action": "roll",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "left hand",
+                "dough ball",
+                "bowl",
+                "dough",
+                "tray",
+                "plate"
+            ]
+        },
+        "P02_12_174": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000036851.jpg",
+            "random_image": "./frame_0000036968.jpg",
+            "end_image": "./frame_0000037002.jpg",
+            "action": "pour oil bottle into plate",
+            "states": [],
+            "objects": [
+                "bowl",
+                "dough",
+                "right hand",
+                "oil bottle",
+                "plate",
+                "left hand",
+                "oil",
+                "dough ball",
+                "tray"
+            ]
+        },
+        "P02_12_175": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000037012.jpg",
+            "random_image": "./frame_0000037108.jpg",
+            "end_image": "./frame_0000037119.jpg",
+            "action": "put bottle of oil",
+            "states": [],
+            "objects": [
+                "bowl",
+                "dough",
+                "right hand",
+                "oil bottle",
+                "plate",
+                "left hand",
+                "oil",
+                "dough ball",
+                "tray"
+            ]
+        },
+        "P02_12_176": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000037125.jpg",
+            "random_image": "./frame_0000037173.jpg",
+            "end_image": "./frame_0000037179.jpg",
+            "action": "get some oil",
+            "states": [],
+            "objects": [
+                "bowl",
+                "dough",
+                "right hand",
+                "oil bottle",
+                "plate",
+                "left hand",
+                "oil",
+                "dough ball",
+                "tray"
+            ]
+        },
+        "P02_12_177": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000037171.jpg",
+            "random_image": "./frame_0000037173.jpg",
+            "end_image": "./frame_0000037229.jpg",
+            "action": "spread oil on hand",
+            "states": [],
+            "objects": [
+                "bowl",
+                "dough",
+                "right hand",
+                "oil bottle",
+                "plate",
+                "left hand",
+                "oil",
+                "dough ball",
+                "tray"
+            ]
+        },
+        "P02_12_178": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000037226.jpg",
+            "random_image": "./frame_0000037508.jpg",
+            "end_image": "./frame_0000037647.jpg",
+            "action": "knead ball of dough",
+            "states": [],
+            "objects": [
+                "bowl",
+                "dough",
+                "right hand",
+                "left hand",
+                "dough ball",
+                "tray"
+            ]
+        },
+        "P02_12_179": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000037653.jpg",
+            "random_image": "./frame_0000037744.jpg",
+            "end_image": "./frame_0000037778.jpg",
+            "action": "roll ball of dough",
+            "states": [],
+            "objects": [
+                "bowl",
+                "dough",
+                "right hand",
+                "left hand",
+                "dough ball",
+                "tray"
+            ]
+        },
+        "P02_12_180": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000038191.jpg",
+            "random_image": "./frame_0000038199.jpg",
+            "end_image": "./frame_0000038262.jpg",
+            "action": "put ball of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "dough ball",
+                "tray",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_181": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000038269.jpg",
+            "random_image": "./frame_0000038295.jpg",
+            "end_image": "./frame_0000038373.jpg",
+            "action": "get some oil",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "left hand",
+                "dough ball",
+                "plate",
+                "tray",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_182": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000038280.jpg",
+            "random_image": "./frame_0000038337.jpg",
+            "end_image": "./frame_0000038360.jpg",
+            "action": "spread oil on hand",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "left hand",
+                "dough ball",
+                "plate",
+                "tray",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_184": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000038553.jpg",
+            "random_image": "./frame_0000039055.jpg",
+            "end_image": "./frame_0000039291.jpg",
+            "action": "knead ball of dough",
+            "states": [],
+            "objects": [
+                "bowl",
+                "dough",
+                "right hand",
+                "oil",
+                "left hand",
+                "dough ball",
+                "plate",
+                "tray"
+            ]
+        },
+        "P02_12_186": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000039567.jpg",
+            "random_image": "./frame_0000039581.jpg",
+            "end_image": "./frame_0000039622.jpg",
+            "action": "put ball of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "left hand",
+                "dough ball",
+                "plate",
+                "tray",
+                "dough",
+                "bowl"
+            ]
+        },
+        "P02_12_187": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000039686.jpg",
+            "random_image": "./frame_0000039821.jpg",
+            "end_image": "./frame_0000039853.jpg",
+            "action": "get some meat from pan",
+            "states": [],
+            "objects": [
+                "right hand",
+                "meat mix",
+                "left hand",
+                "pan",
+                "dough ball",
+                "tray",
+                "spoon",
+                "dough",
+                "bowl"
+            ]
+        },
+        "P02_12_188": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000039864.jpg",
+            "random_image": "./frame_0000040121.jpg",
+            "end_image": "./frame_0000040258.jpg",
+            "action": "put meat on ball of dough",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "meat mix",
+                "left hand",
+                "pan",
+                "dough ball",
+                "tray",
+                "spoon",
+                "dough",
+                "bowl"
+            ]
+        },
+        "P02_12_189": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000040275.jpg",
+            "random_image": "./frame_0000040308.jpg",
+            "end_image": "./frame_0000040375.jpg",
+            "action": "get some meat",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "meat mix",
+                "left hand",
+                "pan",
+                "dough ball",
+                "tray",
+                "spoon",
+                "dough",
+                "bowl"
+            ]
+        },
+        "P02_12_190": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000040287.jpg",
+            "random_image": "./frame_0000040361.jpg",
+            "end_image": "./frame_0000040393.jpg",
+            "action": "get some meat",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "meat mix",
+                "left hand",
+                "pan",
+                "dough ball",
+                "tray",
+                "spoon",
+                "dough",
+                "bowl"
+            ]
+        },
+        "P02_12_191": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000040389.jpg",
+            "random_image": "./frame_0000040422.jpg",
+            "end_image": "./frame_0000040577.jpg",
+            "action": "put meat on ball of dough",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "meat mix",
+                "left hand",
+                "dough ball",
+                "pan",
+                "tray",
+                "dough",
+                "bowl"
+            ]
+        },
+        "P02_12_192": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000040404.jpg",
+            "random_image": "./frame_0000040511.jpg",
+            "end_image": "./frame_0000040634.jpg",
+            "action": "put meat on ball of dough",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "meat mix",
+                "left hand",
+                "dough ball",
+                "pan",
+                "tray",
+                "dough",
+                "bowl"
+            ]
+        },
+        "P02_12_194": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000040650.jpg",
+            "random_image": "./frame_0000040714.jpg",
+            "end_image": "./frame_0000040737.jpg",
+            "action": "get some meat",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "meat mix",
+                "left hand",
+                "dough ball",
+                "pan",
+                "tray",
+                "dough",
+                "bowl"
+            ]
+        },
+        "P02_12_195": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000040753.jpg",
+            "random_image": "./frame_0000041022.jpg",
+            "end_image": "./frame_0000041081.jpg",
+            "action": "put meat on ball of dough",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "meat mix",
+                "left hand",
+                "dough ball",
+                "pan",
+                "tray",
+                "dough",
+                "bowl"
+            ]
+        },
+        "P02_12_196": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000041091.jpg",
+            "random_image": "./frame_0000041112.jpg",
+            "end_image": "./frame_0000041154.jpg",
+            "action": "get meat",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "meat mix",
+                "left hand",
+                "dough ball",
+                "tray",
+                "pan",
+                "dough",
+                "bowl"
+            ]
+        },
+        "P02_12_197": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000041213.jpg",
+            "random_image": "./frame_0000041262.jpg",
+            "end_image": "./frame_0000041276.jpg",
+            "action": "put meat on ball of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "tray",
+                "pie",
+                "pan",
+                "meat mix",
+                "dough ball",
+                "dough",
+                "bowl"
+            ]
+        },
+        "P02_12_198": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000041397.jpg",
+            "random_image": "./frame_0000041442.jpg",
+            "end_image": "./frame_0000041539.jpg",
+            "action": "get meat mix",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "meat mix",
+                "left hand",
+                "dough ball",
+                "tray",
+                "pan",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_199": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000041554.jpg",
+            "random_image": "./frame_0000041803.jpg",
+            "end_image": "./frame_0000041858.jpg",
+            "action": "put meat on ball of dough",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "meat mix",
+                "left hand",
+                "dough ball",
+                "pan",
+                "tray"
+            ]
+        },
+        "P02_12_200": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000041870.jpg",
+            "random_image": "./frame_0000041923.jpg",
+            "end_image": "./frame_0000041931.jpg",
+            "action": "get meat mix",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "meat mix",
+                "left hand",
+                "dough ball",
+                "pan",
+                "tray"
+            ]
+        },
+        "P02_12_201": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000041998.jpg",
+            "random_image": "./frame_0000042103.jpg",
+            "end_image": "./frame_0000042171.jpg",
+            "action": "put meat on ball of dough",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "meat mix",
+                "left hand",
+                "dough ball",
+                "pan",
+                "tray",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_202": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000043161.jpg",
+            "random_image": "./frame_0000043186.jpg",
+            "end_image": "./frame_0000043365.jpg",
+            "action": "get meat mix",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "meat mix",
+                "left hand",
+                "dough ball",
+                "tray",
+                "pan",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_203": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000043371.jpg",
+            "random_image": "./frame_0000043441.jpg",
+            "end_image": "./frame_0000043681.jpg",
+            "action": "put mix on ball of dough",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "meat mix",
+                "left hand",
+                "dough ball",
+                "tray",
+                "pan",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_204": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000043688.jpg",
+            "random_image": "./frame_0000043755.jpg",
+            "end_image": "./frame_0000043773.jpg",
+            "action": "get meat mix",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "meat mix",
+                "left hand",
+                "dough ball",
+                "tray",
+                "pan",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_205": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000043792.jpg",
+            "random_image": "./frame_0000043845.jpg",
+            "end_image": "./frame_0000043948.jpg",
+            "action": "put mix on ball of dough",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "meat mix",
+                "left hand",
+                "dough ball",
+                "pan",
+                "tray",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_206": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000043957.jpg",
+            "random_image": "./frame_0000043995.jpg",
+            "end_image": "./frame_0000044187.jpg",
+            "action": "get meat mix",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "meat mix",
+                "left hand",
+                "dough ball",
+                "pan",
+                "tray",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_207": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000044207.jpg",
+            "random_image": "./frame_0000044295.jpg",
+            "end_image": "./frame_0000044614.jpg",
+            "action": "put mix on ball of dough",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "meat mix",
+                "left hand",
+                "dough ball",
+                "pan",
+                "tray",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_208": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000044628.jpg",
+            "random_image": "./frame_0000044634.jpg",
+            "end_image": "./frame_0000044692.jpg",
+            "action": "get meat mix from pan",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "left hand",
+                "pan",
+                "dough ball",
+                "meat mix",
+                "tray",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_210": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000044823.jpg",
+            "random_image": "./frame_0000044857.jpg",
+            "end_image": "./frame_0000044940.jpg",
+            "action": "get meat mix from pan",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "pan",
+                "dough ball",
+                "meat mix",
+                "tray",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_211": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000044826.jpg",
+            "random_image": "./frame_0000044900.jpg",
+            "end_image": "./frame_0000044954.jpg",
+            "action": "get meat mix from pan",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "left hand",
+                "pan",
+                "dough ball",
+                "meat mix",
+                "tray",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_212": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000044953.jpg",
+            "random_image": "./frame_0000045016.jpg",
+            "end_image": "./frame_0000045315.jpg",
+            "action": "put meat mix on ball of dough",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "left hand",
+                "pan",
+                "dough ball",
+                "meat mix",
+                "tray"
+            ]
+        },
+        "P02_12_213": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000044955.jpg",
+            "random_image": "./frame_0000045226.jpg",
+            "end_image": "./frame_0000045313.jpg",
+            "action": "put mix meat on ball of dough",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "left hand",
+                "pan",
+                "dough ball",
+                "meat mix",
+                "tray"
+            ]
+        },
+        "P02_12_214": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000045324.jpg",
+            "random_image": "./frame_0000045382.jpg",
+            "end_image": "./frame_0000045404.jpg",
+            "action": "get meat mix from pan",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "left hand",
+                "pan",
+                "dough ball",
+                "meat mix",
+                "tray",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_215": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000045706.jpg",
+            "random_image": "./frame_0000045767.jpg",
+            "end_image": "./frame_0000046039.jpg",
+            "action": "put meat mix on ball of dough",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "left hand",
+                "pan",
+                "dough ball",
+                "meat mix",
+                "tray"
+            ]
+        },
+        "P02_12_217": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000046106.jpg",
+            "random_image": "./frame_0000046262.jpg",
+            "end_image": "./frame_0000046317.jpg",
+            "action": "put meat mix on ball of dough",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "left hand",
+                "pan",
+                "meat mix",
+                "tray"
+            ]
+        },
+        "P02_12_218": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000046429.jpg",
+            "random_image": "./frame_0000046506.jpg",
+            "end_image": "./frame_0000046700.jpg",
+            "action": "pick up tray",
+            "states": [],
+            "objects": [
+                "pan",
+                "pie",
+                "right hand",
+                "left hand",
+                "tray",
+                "meat mix",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_219": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000046730.jpg",
+            "random_image": "./frame_0000046848.jpg",
+            "end_image": "./frame_0000046873.jpg",
+            "action": "put tray on stove",
+            "states": [],
+            "objects": [
+                "right hand",
+                "hob",
+                "left hand",
+                "tray",
+                "pie"
+            ]
+        },
+        "P02_12_220": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000047040.jpg",
+            "random_image": "./frame_0000047069.jpg",
+            "end_image": "./frame_0000047137.jpg",
+            "action": "pick up tray",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "tray"
+            ]
+        },
+        "P02_12_221": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000047160.jpg",
+            "random_image": "./frame_0000047181.jpg",
+            "end_image": "./frame_0000047226.jpg",
+            "action": "put tray",
+            "states": [],
+            "objects": [
+                "right hand",
+                "plate",
+                "left hand",
+                "oil",
+                "tray",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_223": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000047266.jpg",
+            "random_image": "./frame_0000047294.jpg",
+            "end_image": "./frame_0000047385.jpg",
+            "action": "pour oil from plate to tray",
+            "states": [],
+            "objects": [
+                "right hand",
+                "plate",
+                "left hand",
+                "oil",
+                "tray",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_224": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000047415.jpg",
+            "random_image": "./frame_0000047755.jpg",
+            "end_image": "./frame_0000047847.jpg",
+            "action": "spread oil in tray",
+            "states": [],
+            "objects": [
+                "right hand",
+                "plate",
+                "left hand",
+                "oil",
+                "tray",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_225": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000047876.jpg",
+            "random_image": "./frame_0000047890.jpg",
+            "end_image": "./frame_0000047911.jpg",
+            "action": "pick up plate",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "bowl",
+                "plate",
+                "left hand",
+                "oil",
+                "tray"
+            ]
+        },
+        "P02_12_226": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000047896.jpg",
+            "random_image": "./frame_0000048007.jpg",
+            "end_image": "./frame_0000048069.jpg",
+            "action": "pour oil in tray",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "bowl",
+                "plate",
+                "left hand",
+                "oil",
+                "tray"
+            ]
+        },
+        "P02_12_227": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000048075.jpg",
+            "random_image": "./frame_0000048229.jpg",
+            "end_image": "./frame_0000048271.jpg",
+            "action": "spread oil in tray",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "bowl",
+                "plate",
+                "left hand",
+                "oil",
+                "tray"
+            ]
+        },
+        "P02_12_228": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000048277.jpg",
+            "random_image": "./frame_0000048319.jpg",
+            "end_image": "./frame_0000048460.jpg",
+            "action": "get bowl of dough from bowl",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "bowl",
+                "plate",
+                "left hand",
+                "oil",
+                "tray"
+            ]
+        },
+        "P02_12_229": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000048465.jpg",
+            "random_image": "./frame_0000048620.jpg",
+            "end_image": "./frame_0000049160.jpg",
+            "action": "knead dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "bowl",
+                "left hand",
+                "tray"
+            ]
+        },
+        "P02_12_230": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000049270.jpg",
+            "random_image": "./frame_0000049490.jpg",
+            "end_image": "./frame_0000049573.jpg",
+            "action": "roll bowl of dough",
+            "states": [],
+            "objects": [
+                "dough",
+                "bowl",
+                "oven"
+            ]
+        },
+        "P02_12_232": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000049781.jpg",
+            "random_image": "./frame_0000049971.jpg",
+            "end_image": "./frame_0000050404.jpg",
+            "action": "turn oven on",
+            "states": [],
+            "objects": [
+                "pie",
+                "oven switch",
+                "right hand",
+                "dough",
+                "oven",
+                "tray"
+            ]
+        },
+        "P02_12_233": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000050561.jpg",
+            "random_image": "./frame_0000050733.jpg",
+            "end_image": "./frame_0000050787.jpg",
+            "action": "get ball of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "left hand",
+                "dough ball",
+                "tray",
+                "bowl"
+            ]
+        },
+        "P02_12_235": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000051561.jpg",
+            "random_image": "./frame_0000051695.jpg",
+            "end_image": "./frame_0000051767.jpg",
+            "action": "roll ball of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "left hand",
+                "dough ball",
+                "tray",
+                "bowl"
+            ]
+        },
+        "P02_12_237": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000051806.jpg",
+            "random_image": "./frame_0000051923.jpg",
+            "end_image": "./frame_0000051985.jpg",
+            "action": "get ball of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "left hand",
+                "dough ball",
+                "tray",
+                "bowl"
+            ]
+        },
+        "P02_12_238": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000051991.jpg",
+            "random_image": "./frame_0000052013.jpg",
+            "end_image": "./frame_0000052041.jpg",
+            "action": "get some oil",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "left hand",
+                "oil",
+                "dough ball",
+                "bowl",
+                "tray",
+                "plate"
+            ]
+        },
+        "P02_12_239": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000052038.jpg",
+            "random_image": "./frame_0000052482.jpg",
+            "end_image": "./frame_0000052854.jpg",
+            "action": "knead ball of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "left hand",
+                "oil",
+                "dough ball",
+                "bowl",
+                "tray",
+                "plate"
+            ]
+        },
+        "P02_12_240": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000052871.jpg",
+            "random_image": "./frame_0000053094.jpg",
+            "end_image": "./frame_0000053196.jpg",
+            "action": "roll ball of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "left hand",
+                "oil",
+                "dough ball",
+                "bowl",
+                "tray",
+                "plate"
+            ]
+        },
+        "P02_12_242": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000053283.jpg",
+            "random_image": "./frame_0000053300.jpg",
+            "end_image": "./frame_0000053316.jpg",
+            "action": "get some oil",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "left hand",
+                "oil",
+                "dough ball",
+                "bowl",
+                "tray",
+                "plate"
+            ]
+        },
+        "P02_12_243": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000053290.jpg",
+            "random_image": "./frame_0000053300.jpg",
+            "end_image": "./frame_0000053337.jpg",
+            "action": "spread oil on hand",
+            "states": [],
+            "objects": [
+                "right hand",
+                "dough",
+                "left hand",
+                "oil",
+                "dough ball",
+                "bowl",
+                "tray",
+                "plate"
+            ]
+        },
+        "P02_12_244": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000053326.jpg",
+            "random_image": "./frame_0000053356.jpg",
+            "end_image": "./frame_0000053521.jpg",
+            "action": "get ball of dough",
+            "states": [],
+            "objects": [
+                "plate",
+                "right hand",
+                "oil",
+                "left hand",
+                "dough ball",
+                "bowl",
+                "dough",
+                "tray"
+            ]
+        },
+        "P02_12_246": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000054087.jpg",
+            "random_image": "./frame_0000054348.jpg",
+            "end_image": "./frame_0000054450.jpg",
+            "action": "roll ball of dough",
+            "states": [],
+            "objects": [
+                "plate",
+                "right hand",
+                "left hand",
+                "oil",
+                "dough ball",
+                "bowl",
+                "dough",
+                "tray"
+            ]
+        },
+        "P02_12_248": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000054490.jpg",
+            "random_image": "./frame_0000054535.jpg",
+            "end_image": "./frame_0000054552.jpg",
+            "action": "get some oil",
+            "states": [],
+            "objects": [
+                "plate",
+                "right hand",
+                "oil",
+                "left hand",
+                "dough ball",
+                "bowl",
+                "dough",
+                "tray"
+            ]
+        },
+        "P02_12_249": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000054528.jpg",
+            "random_image": "./frame_0000054535.jpg",
+            "end_image": "./frame_0000054571.jpg",
+            "action": "spread oil on hand",
+            "states": [],
+            "objects": [
+                "plate",
+                "right hand",
+                "oil",
+                "left hand",
+                "dough ball",
+                "bowl",
+                "dough",
+                "tray"
+            ]
+        },
+        "P02_12_251": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000054753.jpg",
+            "random_image": "./frame_0000055333.jpg",
+            "end_image": "./frame_0000055866.jpg",
+            "action": "knead ball of dough",
+            "states": [],
+            "objects": [
+                "bowl",
+                "dough",
+                "right hand",
+                "left hand",
+                "dough ball",
+                "tray"
+            ]
+        },
+        "P02_12_253": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000055915.jpg",
+            "random_image": "./frame_0000056054.jpg",
+            "end_image": "./frame_0000056427.jpg",
+            "action": "roll all ball of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "dough ball",
+                "tray",
+                "dough",
+                "bowl"
+            ]
+        },
+        "P02_12_254": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000056428.jpg",
+            "random_image": "./frame_0000056437.jpg",
+            "end_image": "./frame_0000056470.jpg",
+            "action": "put ball of dough",
+            "states": [],
+            "objects": [
+                "bowl",
+                "dough",
+                "right hand",
+                "left hand",
+                "dough ball",
+                "tray"
+            ]
+        },
+        "P02_12_256": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000056524.jpg",
+            "random_image": "./frame_0000056543.jpg",
+            "end_image": "./frame_0000056565.jpg",
+            "action": "spread oil on hand",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "dough ball",
+                "plate",
+                "bowl",
+                "dough",
+                "tray"
+            ]
+        },
+        "P02_12_257": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000056571.jpg",
+            "random_image": "./frame_0000056707.jpg",
+            "end_image": "./frame_0000056767.jpg",
+            "action": "get ball of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "dough ball",
+                "plate",
+                "bowl",
+                "dough",
+                "tray"
+            ]
+        },
+        "P02_12_258": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000056836.jpg",
+            "random_image": "./frame_0000056878.jpg",
+            "end_image": "./frame_0000056880.jpg",
+            "action": "get some oil",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "dough ball",
+                "plate",
+                "bowl",
+                "dough",
+                "tray"
+            ]
+        },
+        "P02_12_259": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000056886.jpg",
+            "random_image": "./frame_0000056888.jpg",
+            "end_image": "./frame_0000056924.jpg",
+            "action": "spread oil on hand",
+            "states": [],
+            "objects": [
+                "bowl",
+                "right hand",
+                "dough",
+                "left hand",
+                "dough ball",
+                "plate",
+                "tray"
+            ]
+        },
+        "P02_12_260": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000056911.jpg",
+            "random_image": "./frame_0000057273.jpg",
+            "end_image": "./frame_0000057618.jpg",
+            "action": "knead ball of dough",
+            "states": [],
+            "objects": [
+                "pan",
+                "bowl",
+                "right hand",
+                "dough",
+                "left hand",
+                "oil",
+                "dough ball",
+                "meat mix",
+                "plate",
+                "tray"
+            ]
+        },
+        "P02_12_261": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000057558.jpg",
+            "random_image": "./frame_0000057659.jpg",
+            "end_image": "./frame_0000058071.jpg",
+            "action": "roll",
+            "states": [],
+            "objects": [
+                "pan",
+                "bowl",
+                "right hand",
+                "dough",
+                "left hand",
+                "oil",
+                "dough ball",
+                "meat mix",
+                "plate",
+                "tray"
+            ]
+        },
+        "P02_12_263": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000058143.jpg",
+            "random_image": "./frame_0000058169.jpg",
+            "end_image": "./frame_0000058213.jpg",
+            "action": "get meat mix",
+            "states": [],
+            "objects": [
+                "bowl",
+                "pan",
+                "right hand",
+                "dough",
+                "left hand",
+                "oil",
+                "dough ball",
+                "meat mix",
+                "plate",
+                "tray"
+            ]
+        },
+        "P02_12_264": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000058218.jpg",
+            "random_image": "./frame_0000058334.jpg",
+            "end_image": "./frame_0000058368.jpg",
+            "action": "put meat mix on dough",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "left hand",
+                "pan",
+                "dough ball",
+                "meat mix",
+                "tray",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_266": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000058452.jpg",
+            "random_image": "./frame_0000058518.jpg",
+            "end_image": "./frame_0000058640.jpg",
+            "action": "put meat mix on dough",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "left hand",
+                "pan",
+                "dough ball",
+                "meat mix",
+                "tray",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_267": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000058642.jpg",
+            "random_image": "./frame_0000058684.jpg",
+            "end_image": "./frame_0000058739.jpg",
+            "action": "get mix meat from pan",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "left hand",
+                "pan",
+                "dough ball",
+                "meat mix",
+                "tray",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_268": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000058745.jpg",
+            "random_image": "./frame_0000058950.jpg",
+            "end_image": "./frame_0000059000.jpg",
+            "action": "put mix meat on dough",
+            "states": [],
+            "objects": [
+                "bowl",
+                "pie",
+                "right hand",
+                "dough",
+                "left hand",
+                "pan",
+                "tray",
+                "dough ball",
+                "meat mix"
+            ]
+        },
+        "P02_12_270": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000059006.jpg",
+            "random_image": "./frame_0000059055.jpg",
+            "end_image": "./frame_0000059085.jpg",
+            "action": "get meat mix from pan",
+            "states": [],
+            "objects": [
+                "bowl",
+                "pie",
+                "right hand",
+                "dough",
+                "pan",
+                "tray",
+                "dough ball",
+                "meat mix"
+            ]
+        },
+        "P02_12_269": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000058817.jpg",
+            "random_image": "./frame_0000059130.jpg",
+            "end_image": "./frame_0000059499.jpg",
+            "action": "put meat mix on dough",
+            "states": [],
+            "objects": [
+                "bowl",
+                "pie",
+                "right hand",
+                "dough",
+                "left hand",
+                "pan",
+                "tray",
+                "dough ball",
+                "meat mix"
+            ]
+        },
+        "P02_12_271": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000059109.jpg",
+            "random_image": "./frame_0000059201.jpg",
+            "end_image": "./frame_0000059227.jpg",
+            "action": "put meat mix on dough",
+            "states": [],
+            "objects": [
+                "bowl",
+                "pie",
+                "right hand",
+                "dough",
+                "left hand",
+                "pan",
+                "tray",
+                "dough ball",
+                "meat mix"
+            ]
+        },
+        "P02_12_272": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000059232.jpg",
+            "random_image": "./frame_0000059340.jpg",
+            "end_image": "./frame_0000059359.jpg",
+            "action": "get meat mix from pan",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "left hand",
+                "spoon",
+                "pan",
+                "meat mix",
+                "dough ball",
+                "tray"
+            ]
+        },
+        "P02_12_273": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000059522.jpg",
+            "random_image": "./frame_0000059550.jpg",
+            "end_image": "./frame_0000059663.jpg",
+            "action": "get meat mix from pan from spoon",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "left hand",
+                "pan",
+                "meat mix",
+                "dough ball",
+                "tray"
+            ]
+        },
+        "P02_12_274": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000059684.jpg",
+            "random_image": "./frame_0000059701.jpg",
+            "end_image": "./frame_0000059762.jpg",
+            "action": "put meat mix on dough",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "left hand",
+                "spoon",
+                "pan",
+                "meat mix",
+                "dough ball",
+                "tray"
+            ]
+        },
+        "P02_12_275": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000059768.jpg",
+            "random_image": "./frame_0000060030.jpg",
+            "end_image": "./frame_0000060179.jpg",
+            "action": "get meat mix from pan",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "pan",
+                "spoon",
+                "dough ball",
+                "tray"
+            ]
+        },
+        "P02_12_276": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000060181.jpg",
+            "random_image": "./frame_0000060341.jpg",
+            "end_image": "./frame_0000060372.jpg",
+            "action": "put meat mix on dough",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "left hand",
+                "pan",
+                "spoon",
+                "dough ball",
+                "tray"
+            ]
+        },
+        "P02_12_277": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000060990.jpg",
+            "random_image": "./frame_0000061016.jpg",
+            "end_image": "./frame_0000061066.jpg",
+            "action": "open cupboard",
+            "states": [],
+            "objects": [
+                "left hand",
+                "cupboard"
+            ]
+        },
+        "P02_12_278": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000061159.jpg",
+            "random_image": "./frame_0000061317.jpg",
+            "end_image": "./frame_0000061383.jpg",
+            "action": "get tray",
+            "states": [],
+            "objects": [
+                "left hand",
+                "bag",
+                "tray",
+                "cupboard"
+            ]
+        },
+        "P02_12_279": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000061426.jpg",
+            "random_image": "./frame_0000061488.jpg",
+            "end_image": "./frame_0000061504.jpg",
+            "action": "remove bags",
+            "states": [],
+            "objects": [
+                "pie",
+                "left hand",
+                "bag",
+                "tray",
+                "cupboard"
+            ]
+        },
+        "P02_12_280": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000061685.jpg",
+            "random_image": "./frame_0000061703.jpg",
+            "end_image": "./frame_0000061756.jpg",
+            "action": "pick up tray",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "tray",
+                "dough ball",
+                "oil",
+                "plate"
+            ]
+        },
+        "P02_12_281": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000061841.jpg",
+            "random_image": "./frame_0000061911.jpg",
+            "end_image": "./frame_0000061915.jpg",
+            "action": "put tray",
+            "states": [],
+            "objects": [
+                "plate",
+                "left hand",
+                "oil",
+                "tray"
+            ]
+        },
+        "P02_12_282": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000061845.jpg",
+            "random_image": "./frame_0000061911.jpg",
+            "end_image": "./frame_0000061970.jpg",
+            "action": "put tray",
+            "states": [],
+            "objects": [
+                "plate",
+                "left hand",
+                "oil",
+                "tray"
+            ]
+        },
+        "P02_12_283": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000061935.jpg",
+            "random_image": "./frame_0000061953.jpg",
+            "end_image": "./frame_0000061980.jpg",
+            "action": "pick up plate",
+            "states": [],
+            "objects": [
+                "plate",
+                "left hand",
+                "oil",
+                "tray"
+            ]
+        },
+        "P02_12_284": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000061986.jpg",
+            "random_image": "./frame_0000062013.jpg",
+            "end_image": "./frame_0000062061.jpg",
+            "action": "pour oil",
+            "states": [],
+            "objects": [
+                "right hand",
+                "plate",
+                "left hand",
+                "oil",
+                "tray"
+            ]
+        },
+        "P02_12_285": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000062253.jpg",
+            "random_image": "./frame_0000062300.jpg",
+            "end_image": "./frame_0000062311.jpg",
+            "action": "pick up olive oil bottle",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "oil",
+                "oil bottle",
+                "tray",
+                "plate",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_286": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000062298.jpg",
+            "random_image": "./frame_0000062300.jpg",
+            "end_image": "./frame_0000062390.jpg",
+            "action": "pour oil on tray",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "oil",
+                "oil bottle",
+                "tray",
+                "plate",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_287": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000062484.jpg",
+            "random_image": "./frame_0000062824.jpg",
+            "end_image": "./frame_0000062934.jpg",
+            "action": "spread oil in tray",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "oil",
+                "oil bottle",
+                "tray",
+                "plate",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_288": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000062955.jpg",
+            "random_image": "./frame_0000063064.jpg",
+            "end_image": "./frame_0000063090.jpg",
+            "action": "pick up dough half dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "oil",
+                "oil bottle",
+                "tray",
+                "plate",
+                "bowl",
+                "dough"
+            ]
+        },
+        "P02_12_289": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000063138.jpg",
+            "random_image": "./frame_0000063304.jpg",
+            "end_image": "./frame_0000063365.jpg",
+            "action": "knead ball of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "dough",
+                "bowl",
+                "tray"
+            ]
+        },
+        "P02_12_290": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000063358.jpg",
+            "random_image": "./frame_0000063963.jpg",
+            "end_image": "./frame_0000063991.jpg",
+            "action": "roll ball of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "dough",
+                "bowl",
+                "tray"
+            ]
+        },
+        "P02_12_291": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000063945.jpg",
+            "random_image": "./frame_0000063963.jpg",
+            "end_image": "./frame_0000064005.jpg",
+            "action": "put ball of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "dough",
+                "bowl",
+                "tray"
+            ]
+        },
+        "P02_12_292": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000064025.jpg",
+            "random_image": "./frame_0000064056.jpg",
+            "end_image": "./frame_0000064070.jpg",
+            "action": "pick up ball of dough",
+            "states": [],
+            "objects": [
+                "dough",
+                "right hand",
+                "left hand",
+                "dough ball",
+                "bowl",
+                "tray"
+            ]
+        },
+        "P02_12_294": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000064082.jpg",
+            "random_image": "./frame_0000064143.jpg",
+            "end_image": "./frame_0000064265.jpg",
+            "action": "knead ball of dough",
+            "states": [],
+            "objects": [
+                "bowl",
+                "right hand",
+                "left hand",
+                "dough",
+                "tray"
+            ]
+        },
+        "P02_12_293": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000064053.jpg",
+            "random_image": "./frame_0000064206.jpg",
+            "end_image": "./frame_0000064245.jpg",
+            "action": "roll",
+            "states": [],
+            "objects": [
+                "bowl",
+                "right hand",
+                "left hand",
+                "dough",
+                "tray"
+            ]
+        },
+        "P02_12_295": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000064652.jpg",
+            "random_image": "./frame_0000064762.jpg",
+            "end_image": "./frame_0000064824.jpg",
+            "action": "roll ball of dough",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "dough ball",
+                "tray"
+            ]
+        },
+        "P02_12_297": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000064979.jpg",
+            "random_image": "./frame_0000064988.jpg",
+            "end_image": "./frame_0000065039.jpg",
+            "action": "open drawer",
+            "states": [],
+            "objects": [
+                "pie",
+                "left hand",
+                "dough ball",
+                "tray",
+                "drawer"
+            ]
+        },
+        "P02_12_298": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000065060.jpg",
+            "random_image": "./frame_0000065092.jpg",
+            "end_image": "./frame_0000065140.jpg",
+            "action": "pick up spoon",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "spoon",
+                "drawer",
+                "tray",
+                "dough ball"
+            ]
+        },
+        "P02_12_299": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000065246.jpg",
+            "random_image": "./frame_0000065300.jpg",
+            "end_image": "./frame_0000065307.jpg",
+            "action": "pick up olive oil bottle",
+            "states": [],
+            "objects": [
+                "right hand",
+                "plate",
+                "left hand",
+                "spoon",
+                "oil bottle",
+                "tray",
+                "dough ball",
+                "oil"
+            ]
+        },
+        "P02_12_300": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000065327.jpg",
+            "random_image": "./frame_0000065468.jpg",
+            "end_image": "./frame_0000065522.jpg",
+            "action": "pour olive oil in plate",
+            "states": [],
+            "objects": [
+                "right hand",
+                "plate",
+                "left hand",
+                "spoon",
+                "oil bottle",
+                "oil",
+                "tray",
+                "dough ball"
+            ]
+        },
+        "P02_12_301": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000065528.jpg",
+            "random_image": "./frame_0000065532.jpg",
+            "end_image": "./frame_0000065588.jpg",
+            "action": "put olive oil bottle",
+            "states": [],
+            "objects": [
+                "oil",
+                "right hand",
+                "left hand",
+                "spoon",
+                "jar",
+                "oil bottle",
+                "plate",
+                "dough ball",
+                "tray"
+            ]
+        },
+        "P02_12_302": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000065620.jpg",
+            "random_image": "./frame_0000065858.jpg",
+            "end_image": "./frame_0000065963.jpg",
+            "action": "open jar",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "spoon",
+                "jar",
+                "oil bottle",
+                "plate"
+            ]
+        },
+        "P02_12_303": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000065969.jpg",
+            "random_image": "./frame_0000065978.jpg",
+            "end_image": "./frame_0000066058.jpg",
+            "action": "scoop thyme",
+            "states": [],
+            "objects": [
+                "oil",
+                "lid",
+                "right hand",
+                "thyme",
+                "left hand",
+                "spoon",
+                "jar",
+                "oil bottle",
+                "plate"
+            ]
+        },
+        "P02_12_304": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000066064.jpg",
+            "random_image": "./frame_0000066068.jpg",
+            "end_image": "./frame_0000066114.jpg",
+            "action": "put thyme in tray",
+            "states": [],
+            "objects": [
+                "right hand",
+                "plate",
+                "left hand",
+                "thyme",
+                "tray",
+                "oil",
+                "jar",
+                "spoon",
+                "dough ball"
+            ]
+        },
+        "P02_12_306": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000066179.jpg",
+            "random_image": "./frame_0000066244.jpg",
+            "end_image": "./frame_0000066528.jpg",
+            "action": "mix thyme and olive oil in plate",
+            "states": [],
+            "objects": [
+                "mixture",
+                "right hand",
+                "plate",
+                "left hand",
+                "thyme",
+                "tray",
+                "jar",
+                "spoon",
+                "dough ball"
+            ]
+        },
+        "P02_12_307": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000066534.jpg",
+            "random_image": "./frame_0000066609.jpg",
+            "end_image": "./frame_0000066627.jpg",
+            "action": "scoop thyme and olive oil using hand",
+            "states": [],
+            "objects": [
+                "mixture",
+                "right hand",
+                "plate",
+                "left hand",
+                "thyme",
+                "tray",
+                "jar",
+                "spoon",
+                "dough ball"
+            ]
+        },
+        "P02_12_308": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000066593.jpg",
+            "random_image": "./frame_0000066609.jpg",
+            "end_image": "./frame_0000066824.jpg",
+            "action": "put thyme and olive oil on dough",
+            "states": [],
+            "objects": [
+                "mixture",
+                "right hand",
+                "plate",
+                "left hand",
+                "thyme",
+                "tray",
+                "jar",
+                "spoon",
+                "dough ball"
+            ]
+        },
+        "P02_12_309": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000066820.jpg",
+            "random_image": "./frame_0000066830.jpg",
+            "end_image": "./frame_0000066861.jpg",
+            "action": "scoop thyme and olive oil using hand",
+            "states": [],
+            "objects": [
+                "pie",
+                "mixture",
+                "right hand",
+                "left hand",
+                "tray",
+                "dough ball",
+                "plate"
+            ]
+        },
+        "P02_12_310": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000066947.jpg",
+            "random_image": "./frame_0000067149.jpg",
+            "end_image": "./frame_0000067378.jpg",
+            "action": "put thyme and olive oil on dough",
+            "states": [],
+            "objects": [
+                "jar",
+                "pie",
+                "mixture",
+                "right hand",
+                "left hand",
+                "thyme",
+                "tray",
+                "plate"
+            ]
+        },
+        "P02_12_311": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000067449.jpg",
+            "random_image": "./frame_0000067458.jpg",
+            "end_image": "./frame_0000067503.jpg",
+            "action": "pick up tray",
+            "states": [],
+            "objects": [
+                "pie",
+                "jar",
+                "right hand",
+                "left hand",
+                "thyme",
+                "tray",
+                "plate"
+            ]
+        },
+        "P02_12_313": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000067939.jpg",
+            "random_image": "./frame_0000067985.jpg",
+            "end_image": "./frame_0000068005.jpg",
+            "action": "pick up olive oil bottle",
+            "states": [],
+            "objects": [
+                "right hand",
+                "plate",
+                "left hand",
+                "oil bottle",
+                "spoon",
+                "jar",
+                "thyme"
+            ]
+        },
+        "P02_12_314": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000068009.jpg",
+            "random_image": "./frame_0000068140.jpg",
+            "end_image": "./frame_0000068177.jpg",
+            "action": "pour olive oil into plate",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "plate",
+                "left hand",
+                "oil bottle",
+                "spoon",
+                "jar",
+                "thyme"
+            ]
+        },
+        "P02_12_316": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000068242.jpg",
+            "random_image": "./frame_0000068290.jpg",
+            "end_image": "./frame_0000068300.jpg",
+            "action": "hold plate",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "plate",
+                "left hand",
+                "oil bottle",
+                "spoon",
+                "jar",
+                "thyme"
+            ]
+        },
+        "P02_12_317": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000068303.jpg",
+            "random_image": "./frame_0000068320.jpg",
+            "end_image": "./frame_0000068349.jpg",
+            "action": "get thyme",
+            "states": [],
+            "objects": [
+                "right hand",
+                "oil",
+                "plate",
+                "left hand",
+                "thyme",
+                "jar",
+                "spoon",
+                "oil bottle"
+            ]
+        },
+        "P02_12_318": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000068430.jpg",
+            "random_image": "./frame_0000068464.jpg",
+            "end_image": "./frame_0000068565.jpg",
+            "action": "mix thyme in plate",
+            "states": [],
+            "objects": [
+                "mixture",
+                "right hand",
+                "plate",
+                "left hand",
+                "thyme",
+                "jar",
+                "spoon",
+                "oil bottle"
+            ]
+        },
+        "P02_12_319": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000068571.jpg",
+            "random_image": "./frame_0000068588.jpg",
+            "end_image": "./frame_0000068607.jpg",
+            "action": "pick up olive oil",
+            "states": [],
+            "objects": [
+                "mixture",
+                "right hand",
+                "plate",
+                "left hand",
+                "thyme",
+                "jar",
+                "spoon",
+                "oil bottle"
+            ]
+        },
+        "P02_12_321": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000068733.jpg",
+            "random_image": "./frame_0000068821.jpg",
+            "end_image": "./frame_0000069076.jpg",
+            "action": "mix olive oil and thyme",
+            "states": [],
+            "objects": [
+                "jar",
+                "spoon",
+                "mixture",
+                "right hand",
+                "plate",
+                "left hand",
+                "thyme"
+            ]
+        },
+        "P02_12_323": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000068920.jpg",
+            "random_image": "./frame_0000069033.jpg",
+            "end_image": "./frame_0000069078.jpg",
+            "action": "hold plate",
+            "states": [],
+            "objects": [
+                "pie",
+                "mixture",
+                "right hand",
+                "dough ball",
+                "plate",
+                "left hand",
+                "tray"
+            ]
+        },
+        "P02_12_324": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000069147.jpg",
+            "random_image": "./frame_0000069161.jpg",
+            "end_image": "./frame_0000069297.jpg",
+            "action": "scoop olive oil and thyme",
+            "states": [],
+            "objects": [
+                "pie",
+                "mixture",
+                "right hand",
+                "dough ball",
+                "plate",
+                "left hand",
+                "tray"
+            ]
+        },
+        "P02_12_325": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000069160.jpg",
+            "random_image": "./frame_0000069161.jpg",
+            "end_image": "./frame_0000069328.jpg",
+            "action": "put olive oil and thyme into dough",
+            "states": [],
+            "objects": [
+                "pie",
+                "mixture",
+                "right hand",
+                "dough ball",
+                "plate",
+                "left hand",
+                "tray"
+            ]
+        },
+        "P02_12_326": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000069334.jpg",
+            "random_image": "./frame_0000069401.jpg",
+            "end_image": "./frame_0000069608.jpg",
+            "action": "put mixture of olive oil and thyme onto dough",
+            "states": [],
+            "objects": [
+                "pie",
+                "mixture",
+                "right hand",
+                "dough ball",
+                "plate",
+                "left hand",
+                "tray"
+            ]
+        },
+        "P02_12_327": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000069750.jpg",
+            "random_image": "./frame_0000069822.jpg",
+            "end_image": "./frame_0000070020.jpg",
+            "action": "scoop olive oil and dough from plate",
+            "states": [],
+            "objects": [
+                "pie",
+                "mixture",
+                "right hand",
+                "plate",
+                "left hand",
+                "tray"
+            ]
+        },
+        "P02_12_328": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000070026.jpg",
+            "random_image": "./frame_0000070047.jpg",
+            "end_image": "./frame_0000070116.jpg",
+            "action": "add olive oil and thyme to dough",
+            "states": [],
+            "objects": [
+                "mixture",
+                "right hand",
+                "dough ball",
+                "plate",
+                "left hand",
+                "tray"
+            ]
+        },
+        "P02_12_329": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000070122.jpg",
+            "random_image": "./frame_0000070332.jpg",
+            "end_image": "./frame_0000070809.jpg",
+            "action": "pour olive oil and thyme from plate to dough",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "plate",
+                "left hand",
+                "tray"
+            ]
+        },
+        "P02_12_330": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000070869.jpg",
+            "random_image": "./frame_0000070893.jpg",
+            "end_image": "./frame_0000070992.jpg",
+            "action": "put plate",
+            "states": [],
+            "objects": [
+                "right hand",
+                "thyme",
+                "plate",
+                "left hand",
+                "spoon",
+                "jar"
+            ]
+        },
+        "P02_12_332": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000071161.jpg",
+            "random_image": "./frame_0000071178.jpg",
+            "end_image": "./frame_0000071241.jpg",
+            "action": "add thyme to dough",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "plate",
+                "left hand",
+                "tray"
+            ]
+        },
+        "P02_12_331": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000070921.jpg",
+            "random_image": "./frame_0000071233.jpg",
+            "end_image": "./frame_0000071575.jpg",
+            "action": "scoop thyme using spoon",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "plate",
+                "left hand",
+                "tray"
+            ]
+        },
+        "P02_12_333": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000071372.jpg",
+            "random_image": "./frame_0000071474.jpg",
+            "end_image": "./frame_0000071510.jpg",
+            "action": "pour thyme from plate to dough",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "plate",
+                "left hand",
+                "tray"
+            ]
+        },
+        "P02_12_334": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000071665.jpg",
+            "random_image": "./frame_0000071676.jpg",
+            "end_image": "./frame_0000071752.jpg",
+            "action": "put plate in sink",
+            "states": [],
+            "objects": [
+                "right hand",
+                "tap",
+                "plate",
+                "sink"
+            ]
+        },
+        "P02_12_335": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000071758.jpg",
+            "random_image": "./frame_0000071864.jpg",
+            "end_image": "./frame_0000071892.jpg",
+            "action": "open tap",
+            "states": [],
+            "objects": [
+                "right hand",
+                "water",
+                "tap",
+                "plate",
+                "sink"
+            ]
+        },
+        "P02_12_336": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000071898.jpg",
+            "random_image": "./frame_0000072144.jpg",
+            "end_image": "./frame_0000072823.jpg",
+            "action": "wash hands",
+            "states": [],
+            "objects": [
+                "right hand",
+                "water",
+                "tap",
+                "plate",
+                "sink",
+                "left hand"
+            ]
+        },
+        "P02_12_337": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000072829.jpg",
+            "random_image": "./frame_0000072869.jpg",
+            "end_image": "./frame_0000073015.jpg",
+            "action": "pick up towel",
+            "states": [],
+            "objects": [
+                "towel",
+                "left hand",
+                "cupboard"
+            ]
+        },
+        "P02_12_338": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000072909.jpg",
+            "random_image": "./frame_0000072945.jpg",
+            "end_image": "./frame_0000073043.jpg",
+            "action": "dry hands",
+            "states": [],
+            "objects": [
+                "towel",
+                "left hand",
+                "cupboard"
+            ]
+        },
+        "P02_12_339": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000073120.jpg",
+            "random_image": "./frame_0000073163.jpg",
+            "end_image": "./frame_0000073392.jpg",
+            "action": "open cupboard",
+            "states": [],
+            "objects": [
+                "tray",
+                "pie",
+                "coffee tray"
+            ]
+        },
+        "P02_12_341": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000073360.jpg",
+            "random_image": "./frame_0000073611.jpg",
+            "end_image": "./frame_0000073618.jpg",
+            "action": "pour pine nuts into hand",
+            "states": [],
+            "objects": [
+                "right hand",
+                "pine nut",
+                "left hand",
+                "pine nut bag",
+                "tray",
+                "pie",
+                "coffee tray"
+            ]
+        },
+        "P02_12_342": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000073597.jpg",
+            "random_image": "./frame_0000073611.jpg",
+            "end_image": "./frame_0000073687.jpg",
+            "action": "place pine nuts",
+            "states": [],
+            "objects": [
+                "right hand",
+                "pine nut",
+                "left hand",
+                "pine nut bag",
+                "tray",
+                "pie",
+                "coffee tray"
+            ]
+        },
+        "P02_12_343": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000073717.jpg",
+            "random_image": "./frame_0000073743.jpg",
+            "end_image": "./frame_0000073816.jpg",
+            "action": "add pine nuts to pie",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "pine nut",
+                "pine nut bag",
+                "left hand",
+                "tray"
+            ]
+        },
+        "P02_12_345": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000073907.jpg",
+            "random_image": "./frame_0000074139.jpg",
+            "end_image": "./frame_0000074213.jpg",
+            "action": "put pine nuts on pie",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "pine nut",
+                "pine nut bag",
+                "left hand",
+                "tray"
+            ]
+        },
+        "P02_12_346": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000074219.jpg",
+            "random_image": "./frame_0000074440.jpg",
+            "end_image": "./frame_0000074499.jpg",
+            "action": "put pine nuts on pie",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "pine nut",
+                "pine nut bag",
+                "left hand",
+                "tray"
+            ]
+        },
+        "P02_12_347": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000074523.jpg",
+            "random_image": "./frame_0000074597.jpg",
+            "end_image": "./frame_0000074673.jpg",
+            "action": "pick up pine nuts bag",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "pine nut bag",
+                "tray"
+            ]
+        },
+        "P02_12_348": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000074709.jpg",
+            "random_image": "./frame_0000074837.jpg",
+            "end_image": "./frame_0000074889.jpg",
+            "action": "pour pine nuts bag into hand",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "pine nut",
+                "pine nut bag",
+                "left hand",
+                "tray",
+                "hob"
+            ]
+        },
+        "P02_12_349": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000074895.jpg",
+            "random_image": "./frame_0000074922.jpg",
+            "end_image": "./frame_0000074964.jpg",
+            "action": "put pine nuts bag",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "pine nut bag",
+                "left hand",
+                "tray",
+                "hob"
+            ]
+        },
+        "P02_12_350": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000074988.jpg",
+            "random_image": "./frame_0000075041.jpg",
+            "end_image": "./frame_0000075176.jpg",
+            "action": "add pine nuts to pie",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "pine nut",
+                "left hand",
+                "tray",
+                "hob"
+            ]
+        },
+        "P02_12_351": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000075001.jpg",
+            "random_image": "./frame_0000075041.jpg",
+            "end_image": "./frame_0000075165.jpg",
+            "action": "add pine nuts to pie",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "pine nut",
+                "left hand",
+                "tray",
+                "hob"
+            ]
+        },
+        "P02_12_352": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000075245.jpg",
+            "random_image": "./frame_0000075377.jpg",
+            "end_image": "./frame_0000076055.jpg",
+            "action": "add pine nuts to pie",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "pine nut",
+                "left hand",
+                "tray",
+                "hob"
+            ]
+        },
+        "P02_12_353": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000075722.jpg",
+            "random_image": "./frame_0000075785.jpg",
+            "end_image": "./frame_0000075912.jpg",
+            "action": "add pine nuts to pie",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "pine nut",
+                "pine nut bag",
+                "left hand",
+                "tray",
+                "hob"
+            ]
+        },
+        "P02_12_355": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000076162.jpg",
+            "random_image": "./frame_0000076179.jpg",
+            "end_image": "./frame_0000076215.jpg",
+            "action": "pick up pine nuts bag",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "pine nut bag",
+                "tray",
+                "hob"
+            ]
+        },
+        "P02_12_356": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000076253.jpg",
+            "random_image": "./frame_0000076300.jpg",
+            "end_image": "./frame_0000076451.jpg",
+            "action": "pour pine nuts into hand",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "pine nut bag",
+                "left hand",
+                "tray",
+                "hob"
+            ]
+        },
+        "P02_12_358": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000076527.jpg",
+            "random_image": "./frame_0000076644.jpg",
+            "end_image": "./frame_0000076715.jpg",
+            "action": "add pine nuts on pie",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "pine nut",
+                "pine nut bag",
+                "left hand",
+                "tray",
+                "hob"
+            ]
+        },
+        "P02_12_360": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000076926.jpg",
+            "random_image": "./frame_0000077089.jpg",
+            "end_image": "./frame_0000077177.jpg",
+            "action": "put pine nuts on pie",
+            "states": [],
+            "objects": [
+                "pie",
+                "right hand",
+                "left hand",
+                "tray",
+                "hob"
+            ]
+        },
+        "P02_12_361": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000077213.jpg",
+            "random_image": "./frame_0000077229.jpg",
+            "end_image": "./frame_0000077283.jpg",
+            "action": "pick up pine nuts bag",
+            "states": [],
+            "objects": [
+                "right hand",
+                "pine nut bag"
+            ]
+        },
+        "P02_12_362": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000077460.jpg",
+            "random_image": "./frame_0000077510.jpg",
+            "end_image": "./frame_0000077520.jpg",
+            "action": "open fridge",
+            "states": [],
+            "objects": [
+                "fridge",
+                "pine nut bag",
+                "left hand"
+            ]
+        },
+        "P02_12_363": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000077508.jpg",
+            "random_image": "./frame_0000077510.jpg",
+            "end_image": "./frame_0000077568.jpg",
+            "action": "return bag",
+            "states": [],
+            "objects": [
+                "fridge",
+                "pine nut bag",
+                "left hand"
+            ]
+        },
+        "P02_12_364": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000077567.jpg",
+            "random_image": "./frame_0000077625.jpg",
+            "end_image": "./frame_0000077626.jpg",
+            "action": "close fridge",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand"
+            ]
+        },
+        "P02_12_365": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000077760.jpg",
+            "random_image": "./frame_0000077815.jpg",
+            "end_image": "./frame_0000077823.jpg",
+            "action": "pick up towel",
+            "states": [],
+            "objects": [
+                "towel",
+                "left hand",
+                "oven"
+            ]
+        },
+        "P02_12_366": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000077886.jpg",
+            "random_image": "./frame_0000077912.jpg",
+            "end_image": "./frame_0000077946.jpg",
+            "action": "pick up oven gloves",
+            "states": [],
+            "objects": [
+                "right hand",
+                "glove",
+                "oven"
+            ]
+        },
+        "P02_12_367": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000078025.jpg",
+            "random_image": "./frame_0000078049.jpg",
+            "end_image": "./frame_0000078084.jpg",
+            "action": "open oven",
+            "states": [],
+            "objects": [
+                "left hand",
+                "oven"
+            ]
+        },
+        "P02_12_368": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000078105.jpg",
+            "random_image": "./frame_0000078315.jpg",
+            "end_image": "./frame_0000078388.jpg",
+            "action": "remove oven tray",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left hand",
+                "right glove",
+                "oven",
+                "drawer"
+            ]
+        },
+        "P02_12_369": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000078409.jpg",
+            "random_image": "./frame_0000078499.jpg",
+            "end_image": "./frame_0000078532.jpg",
+            "action": "push oven tray",
+            "states": [],
+            "objects": [
+                "right hand",
+                "left glove",
+                "oven",
+                "drawer"
+            ]
+        },
+        "P02_12_370": {
+            "tar_path": "/mnt/EPIC-KITCHENS/P02/rgb_frames/P02_12.tar",
+            "start_image": "./frame_0000078538.jpg",
+            "random_image": "./frame_0000078590.jpg",
+            "end_image": "./frame_0000078603.jpg",
+            "action": "close oven",
+            "states": [],
+            "objects": [
+                "left hand",
+                "oven"
+            ]
+        }
+    }
+}
