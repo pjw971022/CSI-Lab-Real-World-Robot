@@ -1,14 +1,19 @@
 import vertexai
 import os
-WORKSPACE = "/home/pjw971022/workspace"
-video_folder_path = WORKSPACE + '/Sembot/physical_reasoning/database/CharadesEgo/CharadesEgo_v1_480'
-video_description_prompt = "Please explain in detail, focusing on the actions of the arms and hands of the person in the video. When explaining, you must pair primitive actions such as move, grasp, and rotate with the context of the action. Example: <move to the cabinet> - To open a cabinet with a handle, move your hand towards the cabinet."
-PROJECT_ID = "gemini-api-415903"  # @param {type:"string"}
-LOCATION = "asia-northeast3"  # @param {type:"string"}
-key_path = WORKSPACE + "Sembot/physical_reasoning/gemini-api-415903-0f8224218c2c.json"
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = key_path
 
-vertexai.init(project=PROJECT_ID, location=LOCATION)
+WORKSPACE = "/home/pjw971022/workspace"
+video_folder_path = '/mnt/video_rag/database/CharadesEgo/CharadesEgo_v1_480'
+video_description_prompt = "Please explain in detail, focusing on the actions of the arms and hands of the person in the video. When explaining, you must pair primitive actions such as move, grasp, and rotate with the context of the action. Example: <move to the cabinet> - To open a cabinet with a handle, move your hand towards the cabinet."
+
+
+# 1. gcloud CLI 설치: https://cloud.google.com/sdk/docs/install?hl=ko#deb
+# 2. gcloud login https://cloud.google.com/vertex-ai/docs/generative-ai/embeddings/get-multimodal-embeddings?hl=ko#python
 
 from retrieval_utils import VideoRetriever
-retriever = VideoRetriever(video_folder_path,video_description_prompt)
+metadata_path = '/mnt/video_rag/database/embedding_data/CharadesEgo_emb_only_metadata.csv'
+retriever = VideoRetriever(video_folder_path,
+                           video_description_prompt,
+                           use_video_description=False,
+                           metadata_path=metadata_path)
+
+# retriever.find_video("Open the bottom refrigerator door.")

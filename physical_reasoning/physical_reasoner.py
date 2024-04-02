@@ -2,7 +2,9 @@ import json
 import sys
 from PIL import Image
 
-from physical_reasoning.vqa_utils import call_openai_chat, call_google_chat, exec_safe, SpatialVLMQuery, ShapeLLMQuery
+from vqa_utils import call_openai_chat, call_google_chat, exec_safe, SpatialVLMQuery, ShapeLLMQuery
+from retrieval_utils import VideoLLMQuery
+
 WORKSPACE = "/home/pjw971022/workspace"
 
 sys.path.append(WORKSPACE + '/Sembot/VideoRAG/utils')

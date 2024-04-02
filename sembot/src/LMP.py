@@ -72,29 +72,6 @@ class LMP:
         prompt += f'\n{user_query}'
         return prompt, user_query
     
-    def _divide_guideline_api_call(self, **kwargs):
-         # check whether completion endpoint or chat endpoint is used
-        if  any([chat_model in kwargs['model'] for chat_model in ['gemini-pro', 'gemini-pro-vision']]):
-            model = genai.GenerativeModel(kwargs['model'])
-            motion_guideline = kwargs['motion_guideline']
-            subtask = ', '.join(kwargs['subtask'])
-            ##################################################################
-            prompt = \
-                    f"Divide the [Entire guideline] into guidelines necessary for executing each [Subtasks].\n" \
-                    f"[Subtasks] {subtask}" \
-                    f"[Entire guideline] {motion_guideline}\n" \
-
-            response = model.generate_content(prompt,
-                                    generation_config = self.text_config,
-                                    safety_settings=self.safety_settings)
-            ##################################################################
-            ret = response.text
-            # post processing
-            ret = ret.strip()
-            sub_guideline_list = ret.split('.')
-            print(f"@@@@ sub_guideline_list: {sub_guideline_list}")
-            sub_guideline_dict = {}
-            return sub_guideline_dict    
 
     def _cached_api_call(self, **kwargs):
         # check whether completion endpoint or chat endpoint is used

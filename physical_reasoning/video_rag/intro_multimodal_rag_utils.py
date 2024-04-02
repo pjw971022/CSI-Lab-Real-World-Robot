@@ -23,11 +23,6 @@ text_embedding_model = TextEmbeddingModel.from_pretrained("textembedding-gecko@l
 multimodal_embedding_model = MultiModalEmbeddingModel.from_pretrained(
     "multimodalembedding@001"
 )
-
-
-# Functions for getting text and image embeddings
-
-
 def get_text_embedding_from_text_embedding_model(
     text: str,
     return_array: Optional[bool] = False,
@@ -600,20 +595,6 @@ def get_document_metadata(
 # Helper Functions
 
 
-def get_user_query_text_embeddings(user_query: str) -> np.ndarray:
-    """
-    Extracts text embeddings for the user query using a text embedding model.
-
-    Args:
-        user_query: The user query text.
-        embedding_size: The desired embedding size.
-
-    Returns:
-        A NumPy array representing the user query text embedding.
-    """
-
-    return get_text_embedding_from_text_embedding_model(user_query)
-
 
 def get_user_query_image_embeddings(
     image_query_path: str, embedding_size: int
@@ -633,7 +614,7 @@ def get_user_query_image_embeddings(
         image_uri=image_query_path, embedding_size=embedding_size
     )
 
-
+import ast
 def get_cosine_score(
     dataframe: pd.DataFrame, column_name: str, input_text_embd: np.ndarray
 ) -> float:
@@ -648,8 +629,9 @@ def get_cosine_score(
     Returns:
         The cosine similarity score (rounded to two decimal places) between the user query embedding and the dataframe embedding.
     """
+    converted_array = np.array(ast.literal_eval(dataframe[column_name]))
 
-    text_cosine_score = round(np.dot(dataframe[column_name], input_text_embd), 2)
+    text_cosine_score = round(np.dot(converted_array, input_text_embd), 2)
     return text_cosine_score
 
 

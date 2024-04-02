@@ -2,14 +2,10 @@ import os
 import vertexai
 from vertexai.preview.generative_models import GenerativeModel, Part
 from google.cloud import storage
-<<<<<<< HEAD:low_level_planner/src/envs/motion_descriptor(without_QueryGenerator).py
 import openai
 openai.api_key = "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"
 from openai import OpenAI
 
-=======
-curdir = os.getcwd()
->>>>>>> origin/master:low_level_planner/src/envs/motion_descriptor.py
 location = "asia-northeast3"
 project_id = "gemini-api-415903"
 key_path = "/home/shyuni5/file/CORL2024/Sembot/gemini-api-415903-0f8224218c2c.json"

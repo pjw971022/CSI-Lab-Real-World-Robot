@@ -29,7 +29,7 @@ def upload_blob(source_file_name, destination_blob_name, bucket_name = 'expert_v
     
     # 파일에 공개 액세스 권한 설정
     blob.make_public()
-    
+    print(f"###### upload blob: {destination_blob_name}")
     # 파일의 URI 반환
     return f"gs://{bucket_name}/{destination_blob_name}"
 
@@ -74,29 +74,45 @@ class VideoLLMQuery:
         description_video = response.text
         return description_video
 
-from video_rag.utils import get_similar_video_from_query, get_CharadesEgo_document_metadata
+from video_rag.utils import get_similar_video_from_query, get_video_document_metadata
+PROJECT_ID = "gemini-api-415903"  # @param {type:"string"}
+LOCATION = "asia-northeast3"  # @param {type:"string"}
+key_path = WORKSPACE + "/Sembot/physical_reasoning/gemini-api-415903-0f8224218c2c.json"
+
 class VideoRetriever:
-    def __init__(self, video_folder_path, video_description_prompt):
-        multimodal_model = GenerativeModel("gemini-1.0-pro-vision")
-        self.video_metadata_df = get_CharadesEgo_document_metadata(
-            multimodal_model,  # we are passing gemini 1.0 pro vision model
+    def __init__(self, 
+                 video_folder_path,
+                 video_description_prompt,
+                 use_video_description,
+                 metadata_path):
+        self.multimodal_model = self.setup()
+
+        self.video_metadata_df = get_video_document_metadata(
+            self.multimodal_model,  # we are passing gemini 1.0 pro vision model
             video_folder_path=video_folder_path,
             video_description_prompt=video_description_prompt,
             embedding_size=1408,
+            metadata_path=metadata_path,
+            use_video_description=use_video_description,
             # add_sleep_after_page = True, # Uncomment this if you are running into API quota issues
             # generation_config = # see next cell
             # safety_settings =  # see next cell
         )
 
-    def find_video(self, query):
+    def setup(self,):
+        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = key_path
+        vertexai.init(project=PROJECT_ID, location=LOCATION)
+        multimodal_model = GenerativeModel("gemini-1.0-pro-vision")
+        return multimodal_model
+    
+    def find_video(self, query, top_n=1):
         retrieved_video = get_similar_video_from_query(
-            query,
             self.video_metadata_df,
-            column_name="text_embedding_from_video_description",
-            top_n=3,
-            chunk_text=True,
+            query,
+            column_name="video_embedding_from_video_only",
+            top_n=top_n,
+            # chunk_text=True,
             embedding_size=1408
         )
-
         return retrieved_video
     
