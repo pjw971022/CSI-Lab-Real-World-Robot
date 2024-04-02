@@ -1,0 +1,89 @@
+# Data Generation
+
+defaults:
+  - config
+
+root_dir: ''
+
+hydra:
+  run:
+    dir: /home/pjw971022/Sembot/
+
+save_dir: ${root_dir}/${task}/data/${planner.agent_type}-plans/${mode}  # where to store plans from oracle, lm
+disp: False  # visualize PyBullet
+shared_memory: False
+task: packing-seen-google-objects-seq # put-block-in-bowl, towers-of-hanoi-seq
+mode: train  # train, test-success, test-optimal, test-generalize
+n: 500 # number of demos to generate
+save_data: False  # write episodes to disk, default=False
+parallel: True  # use multiprocessing for data generation
+max_steps: 10
+
+# planner type
+planner:
+  agent_type: lm  # oracle, lm
+  model_name: vicuna  # lm model type flan_t5, vicuna
+  decoding_type: greedy_token  # greedy_token, greedy_action, beam_action
+  decoding_score: say  # say, say_can, say_can_pay
+
+dataset:
+  type: 'single' # 'single' or 'multi'
+  images: True
+  cache: True # load episodes to memory instead of reading from disk
+  augment:
+    theta_sigma: 60 # rotation sigma in degrees; N(mu = 0, sigma = theta_sigma).
+
+# record videos (super slow)
+record:
+  save_video: True
+  save_video_path: /home/pjw971022/Sembot/real_bot/save_viz/llm_inference
+  add_text: True
+  fps: 20
+  video_height: 640
+  video_width: 720
+
+
+
+lamorel_args:
+  log_level: info
+  allow_subgraph_use_whith_gradient: false
+  distributed_setup_args:
+    n_rl_processes: 1
+    n_llm_processes: 1
+  accelerate_args:
+    config_file: /home/pjw971022/ConstGym/alfred/examples/configs/accelerate/default_config.yaml
+    machine_rank: 0
+    num_machines: 1
+  decoding_type: greedy_token
+  llm_args:
+    model_type: causal
+    model_path: lmsys/vicuna-7b-v1.5 # meta-llama/Llama-2-70b-hf / lmsys/vicuna-7b-v1.5
+    load_in_4bit: true
+    is_normalize: false # core hyperparam
+    batch_size: 20
+    pretrained: true
+    minibatch_size: 192
+    pre_encode_inputs: true
+    parallelism:
+      use_gpu: true
+      model_parallelism_size: 2
+      synchronize_gpus_after_scoring: false
+      empty_cuda_cache_after_scoring: false
+
+path: logs
+device: cuda
+oracle_flag: false
+eval_episodes: 1
+
+use_vision_fewshot: false
+category_mode: 0
+plan_mode: open_loop
+llm_type: gemini
+agent_mode: 3
+train_config: /home/pjw971022/Sembot/cliport/cliport_quickstart/multi-language-conditioned-cliport-n1000-train/.hydra/config.yaml
+cliport_model_path: /home/pjw971022/Sembot/cliport/cliport_quickstart/multi-language-conditioned-cliport-n1000-train/checkpoints/
+agent: cliport
+data_dir: /home/mnt/data/ravens/
+n_demos: 10
+task_level: 1
+command_format: language

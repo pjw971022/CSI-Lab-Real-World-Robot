@@ -179,3 +179,6 @@ cliport
 OWL_ViT_inference_example.ipynb
 test_llm.ipynb
 outputs/
+sembot/src/spatial_utils/_LLaVA
+sembot/src/visualizations/obs
+sembot/src/spatial_utils/video2demo

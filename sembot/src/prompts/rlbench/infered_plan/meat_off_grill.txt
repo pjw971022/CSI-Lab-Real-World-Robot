@@ -1,0 +1,6 @@
+composer("grasp the meat")
+composer("back to default pose")
+composer("move to 20cm to the left of the grill")
+composer("open gripper")
+composer("back to default pose")
+# done
