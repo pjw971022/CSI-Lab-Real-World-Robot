@@ -4,7 +4,7 @@ from utils import normalize_vector
 import copy
 import time
 from dynamics_models import PushingDynamicsModel
-
+import wandb
 # creating some aliases for end effector and table in case LLMs refer to them differently
 EE_ALIAS = ['ee', 'endeffector', 'end_effector', 'end effector', 'gripper', 'hand']
 
@@ -84,6 +84,11 @@ class Controller:
             target_pose = np.concatenate([target_xyz, target_rotation])
             result = self.env.apply_action(np.concatenate([target_pose, [target_gripper]]))
             info['mp_info'] = result
+            # with open('/home/jinwoo/workspace/Sembot/sembot/src/exec_hist.txt', 'a') as f:
+            #     f.write(f'Reward: {result[1]}\n')
+            #     f.write("#" * 20 + "\n\n\n")
+            wandb.log({"reward": result[1]})
+
         # optimize through dynamics model to obtain robot actions
         else:
             start = time.time()
@@ -160,7 +165,10 @@ class Controller:
 
         returns: batched control sequences [B, 7] (3 for contact position, 3 for gripper direction, 1 for gripper moving distance)
         """
-        pcs = obs['_point_cloud_world']  # [B, N, 3]
+        try:
+            pcs = obs['_point_cloud_world']  # [B, N, 3]
+        except:
+            import ipdb;ipdb.set_trace()
         num_samples, num_points, _ = pcs.shape
         # sample contact position randomly on point cloud
         points_idx = np.random.randint(0, num_points, num_samples)
@@ -194,3 +202,4 @@ class Controller:
             costs.append(cost)
         costs = np.array(costs)  # [B]
         return costs
+    

@@ -1,0 +1,55 @@
+
+
+
+
+########################## Starting episode #########################
+instruction: slide the block onto the target
+########################################
+#### planner ####
+########################################
+objects = ['block', 'target']
+# Query: slide the block onto the target.
+composer("push the block towards the target")
+
+
+########################################
+#### composer ####
+########################################
+# Query: push the block towards the target.
+movable = parse_query_obj('block')
+affordance_map = get_affordance_map('a point 10cm in front of the target')
+execute(movable, affordance_map=affordance_map)
+
+
+########################################
+#### parse_query_obj ####
+########################################
+objects = ['block', 'target']
+# Query: block.
+block = detect('block')
+ret_val = block
+
+
+########################################
+#### get_affordance_map ####
+########################################
+# Query: a point 10cm in front of the target.
+affordance_map = get_empty_affordance_map()
+target = parse_query_obj('target')
+# 10cm in front of so we add to x-axis
+x = target.position[0] + cm2index(10, 'x')
+y = target.position[1]
+z = target.position[2]
+affordance_map[x, y, z] = 1
+ret_val = affordance_map
+
+
+########################################
+#### parse_query_obj ####
+########################################
+objects = ['block', 'target']
+# Query: target.
+target = detect('target')
+ret_val = target
+
+

@@ -1,0 +1,4 @@
+composer("grab 2cm below the bottle cap.")
+composer("turn clockwise by 180 degrees")
+composer("back to default pose")
+# done

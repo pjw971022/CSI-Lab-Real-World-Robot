@@ -1,7 +1,8 @@
 env_name: rlbench
-context_mode: pre_user_command
-episode_length: 10
-
+episode_length: 1
+use_server: true
+use_sembot: false
+server_ip: "tcp://115.145.173.246:5555"
 planner:
   stop_threshold: 0.001
   savgol_polyorder: 3
@@ -31,7 +32,7 @@ lmp_config:
     map_size: 100
     num_waypoints_per_plan: 10000  # set to a large number since we only do open loop for sim
     max_plan_iter: 1
-    visualize: False
+    visualize: true
   lmps:
     planner:
       prompt_fname: planner_prompt

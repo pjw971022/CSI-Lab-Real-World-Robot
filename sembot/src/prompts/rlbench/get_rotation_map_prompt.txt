@@ -51,3 +51,11 @@ rotation_delta = euler2quat(-np.pi / 4, 0, 0)
 target_rotation = qmult(face_plate_quat, rotation_delta)
 rotation_map[:, :, :] = target_rotation
 ret_val = rotation_map
+
+# Query: rotate the gripper 60 degrees forward.
+rotation_map = get_empty_rotation_map()
+curr_rotation = rotation_map[0, 0, 0]
+# rotate 60 degrees around the y-axis
+rotation_delta = euler2quat(0, -np.pi / 3, 0)
+rotation_map[:, :, :] = qmult(curr_rotation, rotation_delta)
+ret_val = rotation_map

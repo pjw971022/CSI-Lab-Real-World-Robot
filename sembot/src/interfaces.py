@@ -12,9 +12,27 @@ import wandb
 EE_ALIAS = ['ee', 'endeffector', 'end_effector', 'end effector', 'gripper', 'hand']
 TABLE_ALIAS = ['table', 'desk', 'workstation', 'work_station', 'work station', 'workspace', 'work_space', 'work space']
 
+
+class APICostTracker:
+    def __init__(self):
+        self.total_cost = 0
+
+    def calculate_cost(self, usage= None):
+        if usage is None:
+            return 0
+        else:
+          prompt_cost = 0.01 * int(usage.prompt_tokens) / 1000.0
+          completion_cost = 0.03 * int(usage.completion_tokens) / 1000.0
+          cost = prompt_cost + completion_cost
+          self.total_cost += cost
+          return cost
+
+    def get_total_cost(self):
+        return self.total_cost
+    
 class LMP_interface():
 
-  def __init__(self, env, lmp_config, controller_config, planner_config, env_name='rlbench'):
+  def __init__(self, env, lmp_config, controller_config, planner_config, env_name, tracker='rlbench'):
     self._env = env
     self._env_name = env_name
     self._cfg = lmp_config
@@ -28,7 +46,7 @@ class LMP_interface():
     print('#' * 50)
     print()
     print()
-  
+
   # ======================================================
   # == functions exposed to LLM
   # ======================================================
@@ -204,7 +222,12 @@ class LMP_interface():
       # move to the final target
       result = self._env.apply_action(np.concatenate([ee_pose_world, [gripper_state]]))
       # save in wandb
+      with open('/home/jinwoo/workspace/Sembot/sembot/src/exec_hist.txt', 'a') as f:
+        f.write(f'Reward: {result[1]}\n')
+        f.write("#" * 30 + "\n\n\n")
+
       wandb.log({"Reward": result[1]})
+
 
     return execute_info
   
@@ -411,7 +434,8 @@ def setup_LMP(env, general_config, debug=False):
   lmps_config = general_config['lmp_config']['lmps']
   env_name = general_config['env_name']
   # LMP env wrapper
-  lmp_env = LMP_interface(env, lmp_env_config, controller_config, planner_config, env_name=env_name)
+  tracker = APICostTracker()
+  lmp_env = LMP_interface(env, lmp_env_config, controller_config, planner_config, env_name, tracker=env_name)
   # creating APIs that the LMPs can interact with
   fixed_vars = {
       'np': np,
@@ -424,24 +448,23 @@ def setup_LMP(env, general_config, debug=False):
       k: getattr(lmp_env, k)
       for k in dir(lmp_env) if callable(getattr(lmp_env, k)) and not k.startswith("_")
   }  # our custom APIs exposed to LMPs
-
   # allow LMPs to access other LMPs
   lmp_names = [name for name in lmps_config.keys() if not name in ['composer', 'planner', 'config']]
   low_level_lmps = {
-      k: LMP(k, lmps_config[k], fixed_vars, variable_vars, debug, env_name)
+      k: LMP(k, lmps_config[k], fixed_vars, variable_vars, debug, env_name, tracker)
       for k in lmp_names
   }
   variable_vars.update(low_level_lmps)
 
   # creating the LMP for skill-level composition
   composer = LMP(
-      'composer', lmps_config['composer'], fixed_vars, variable_vars, debug, env_name
+      'composer', lmps_config['composer'], fixed_vars, variable_vars, debug, env_name, tracker
   )
   variable_vars['composer'] = composer
 
   # creating the LMP that deals w/ high-level language commands
   task_planner = LMP(
-      'planner', lmps_config['planner'], fixed_vars, variable_vars, debug, env_name
+      'planner', lmps_config['planner'], fixed_vars, variable_vars, debug, env_name, tracker
   )
  
   lmps = {
