@@ -5,7 +5,7 @@ from typing import Any, Dict, Iterable, List, Optional, Tuple, Union
 
 from IPython.display import display
 import PIL
-import fitz
+# import fitz
 import numpy as np
 import pandas as pd
 import requests
@@ -109,28 +109,28 @@ def load_image_bytes(image_path):
         return open(image_path, "rb").read()
 
 
-def get_pdf_doc_object(pdf_path: str) -> tuple[fitz.Document, int]:
-    """
-    Opens a PDF file using fitz.open() and returns the PDF document object and the number of pages.
+# def get_pdf_doc_object(pdf_path: str) -> tuple[fitz.Document, int]:
+#     """
+#     Opens a PDF file using fitz.open() and returns the PDF document object and the number of pages.
 
-    Args:
-        pdf_path: The path to the PDF file.
+#     Args:
+#         pdf_path: The path to the PDF file.
 
-    Returns:
-        A tuple containing the `fitz.Document` object and the number of pages in the PDF.
+#     Returns:
+#         A tuple containing the `fitz.Document` object and the number of pages in the PDF.
 
-    Raises:
-        FileNotFoundError: If the provided PDF path is invalid.
+#     Raises:
+#         FileNotFoundError: If the provided PDF path is invalid.
 
-    """
+#     """
 
-    # Open the PDF file
-    doc: fitz.Document = fitz.open(pdf_path)
+#     # Open the PDF file
+#     doc: fitz.Document = fitz.open(pdf_path)
 
-    # Get the number of pages in the PDF file
-    num_pages: int = len(doc)
+#     # Get the number of pages in the PDF file
+#     num_pages: int = len(doc)
 
-    return doc, num_pages
+#     return doc, num_pages
 
 
 # Add colors to the print
@@ -227,100 +227,100 @@ def get_page_text_embedding(text_data: Union[dict, str]) -> dict:
     return embeddings_dict
 
 
-def get_chunk_text_metadata(
-    page: fitz.Page,
-    character_limit: int = 1000,
-    overlap: int = 100,
-    embedding_size: int = 128,
-) -> tuple[str, dict, dict, dict]:
-    """
-    * Extracts text from a given page object, chunks it, and generates embeddings for each chunk.
-    * Takes a page object, character limit per chunk, overlap between chunks, and embedding size as input.
-    * Returns the extracted text, the chunked text dictionary, and the chunk embeddings dictionary.
+# def get_chunk_text_metadata(
+#     page: fitz.Page,
+#     character_limit: int = 1000,
+#     overlap: int = 100,
+#     embedding_size: int = 128,
+# ) -> tuple[str, dict, dict, dict]:
+#     """
+#     * Extracts text from a given page object, chunks it, and generates embeddings for each chunk.
+#     * Takes a page object, character limit per chunk, overlap between chunks, and embedding size as input.
+#     * Returns the extracted text, the chunked text dictionary, and the chunk embeddings dictionary.
 
-    Args:
-        page: The fitz.Page object to process.
-        character_limit: Maximum characters per chunk (defaults to 1000).
-        overlap: Number of overlapping characters between chunks (defaults to 100).
-        embedding_size: Size of the embedding vector (defaults to 128).
+#     Args:
+#         page: The fitz.Page object to process.
+#         character_limit: Maximum characters per chunk (defaults to 1000).
+#         overlap: Number of overlapping characters between chunks (defaults to 100).
+#         embedding_size: Size of the embedding vector (defaults to 128).
 
-    Returns:
-        A tuple containing:
-            - Extracted page text as a string.
-            - Dictionary of embeddings for the entire page text (key="text_embedding").
-            - Dictionary of chunked text (key=chunk number, value=text chunk).
-            - Dictionary of embeddings for each chunk (key=chunk number, value=embedding).
+#     Returns:
+#         A tuple containing:
+#             - Extracted page text as a string.
+#             - Dictionary of embeddings for the entire page text (key="text_embedding").
+#             - Dictionary of chunked text (key=chunk number, value=text chunk).
+#             - Dictionary of embeddings for each chunk (key=chunk number, value=embedding).
 
-    Raises:
-        ValueError: If `overlap` is greater than `character_limit`.
+#     Raises:
+#         ValueError: If `overlap` is greater than `character_limit`.
 
-    """
+#     """
 
-    if overlap > character_limit:
-        raise ValueError("Overlap cannot be larger than character limit.")
+#     if overlap > character_limit:
+#         raise ValueError("Overlap cannot be larger than character limit.")
 
-    # Extract text from the page
-    text: str = page.get_text().encode("ascii", "ignore").decode("utf-8", "ignore")
+#     # Extract text from the page
+#     text: str = page.get_text().encode("ascii", "ignore").decode("utf-8", "ignore")
 
-    # Get whole-page text embeddings
-    page_text_embeddings_dict: dict = get_page_text_embedding(text)
+#     # Get whole-page text embeddings
+#     page_text_embeddings_dict: dict = get_page_text_embedding(text)
 
-    # Chunk the text with the given limit and overlap
-    chunked_text_dict: dict = get_text_overlapping_chunk(text, character_limit, overlap)
-    # print(chunked_text_dict)
+#     # Chunk the text with the given limit and overlap
+#     chunked_text_dict: dict = get_text_overlapping_chunk(text, character_limit, overlap)
+#     # print(chunked_text_dict)
 
-    # Get embeddings for the chunks
-    chunk_embeddings_dict: dict = get_page_text_embedding(chunked_text_dict)
-    # print(chunk_embeddings_dict)
+#     # Get embeddings for the chunks
+#     chunk_embeddings_dict: dict = get_page_text_embedding(chunked_text_dict)
+#     # print(chunk_embeddings_dict)
 
-    # Return all extracted data
-    return text, page_text_embeddings_dict, chunked_text_dict, chunk_embeddings_dict
+#     # Return all extracted data
+#     return text, page_text_embeddings_dict, chunked_text_dict, chunk_embeddings_dict
 
 
-def get_image_for_gemini(
-    doc: fitz.Document,
-    image: tuple,
-    image_no: int,
-    image_save_dir: str,
-    file_name: str,
-    page_num: int,
-) -> Tuple[Image, str]:
-    """
-    Extracts an image from a PDF document, converts it to JPEG format, saves it to a specified directory,
-    and loads it as a PIL Image Object.
+# def get_image_for_gemini(
+#     doc: fitz.Document,
+#     image: tuple,
+#     image_no: int,
+#     image_save_dir: str,
+#     file_name: str,
+#     page_num: int,
+# ) -> Tuple[Image, str]:
+#     """
+#     Extracts an image from a PDF document, converts it to JPEG format, saves it to a specified directory,
+#     and loads it as a PIL Image Object.
 
-    Parameters:
-    - doc (fitz.Document): The PDF document from which the image is extracted.
-    - image (tuple): A tuple containing image information.
-    - image_no (int): The image number for naming purposes.
-    - image_save_dir (str): The directory where the image will be saved.
-    - file_name (str): The base name for the image file.
-    - page_num (int): The page number from which the image is extracted.
+#     Parameters:
+#     - doc (fitz.Document): The PDF document from which the image is extracted.
+#     - image (tuple): A tuple containing image information.
+#     - image_no (int): The image number for naming purposes.
+#     - image_save_dir (str): The directory where the image will be saved.
+#     - file_name (str): The base name for the image file.
+#     - page_num (int): The page number from which the image is extracted.
 
-    Returns:
-    - Tuple[Image.Image, str]: A tuple containing the Gemini Image object and the image filename.
-    """
+#     Returns:
+#     - Tuple[Image.Image, str]: A tuple containing the Gemini Image object and the image filename.
+#     """
 
-    # Extract the image from the document
-    xref = image[0]
-    pix = fitz.Pixmap(doc, xref)
+#     # Extract the image from the document
+#     xref = image[0]
+#     pix = fitz.Pixmap(doc, xref)
 
-    # Convert the image to JPEG format
-    pix.tobytes("jpeg")
+#     # Convert the image to JPEG format
+#     pix.tobytes("jpeg")
 
-    # Create the image file name
-    image_name = f"{image_save_dir}/{file_name}_image_{page_num}_{image_no}_{xref}.jpeg"
+#     # Create the image file name
+#     image_name = f"{image_save_dir}/{file_name}_image_{page_num}_{image_no}_{xref}.jpeg"
 
-    # Create the image save directory if it doesn't exist
-    os.makedirs(image_save_dir, exist_ok=True)
+#     # Create the image save directory if it doesn't exist
+#     os.makedirs(image_save_dir, exist_ok=True)
 
-    # Save the image to the specified location
-    pix.save(image_name)
+#     # Save the image to the specified location
+#     pix.save(image_name)
 
-    # Load the saved image as a Gemini Image Object
-    image_for_gemini = Image.load_from_file(image_name)
+#     # Load the saved image as a Gemini Image Object
+#     image_for_gemini = Image.load_from_file(image_name)
 
-    return image_for_gemini, image_name
+#     return image_for_gemini, image_name
 
 
 def get_gemini_response(
@@ -451,148 +451,148 @@ def get_image_metadata_df(
     return return_df
 
 
-def get_document_metadata(
-    generative_multimodal_model,
-    pdf_folder_path: str,
-    image_save_dir: str,
-    image_description_prompt: str,
-    embedding_size: int = 128,
-    generation_config: Optional[GenerationConfig] = GenerationConfig(
-        temperature=0.2, max_output_tokens=2048
-    ),
-    safety_settings: Optional[dict] = {
-        HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_NONE,
-        HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_NONE,
-        HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_NONE,
-        HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_NONE,
-    },
-    add_sleep_after_page: bool = False,
-    sleep_time_after_page: int = 2,
-) -> Tuple[pd.DataFrame, pd.DataFrame]:
-    """
-    This function takes a PDF path, an image save directory, an image description prompt, an embedding size, and a text embedding text limit as input.
+# def get_document_metadata(
+#     generative_multimodal_model,
+#     pdf_folder_path: str,
+#     image_save_dir: str,
+#     image_description_prompt: str,
+#     embedding_size: int = 128,
+#     generation_config: Optional[GenerationConfig] = GenerationConfig(
+#         temperature=0.2, max_output_tokens=2048
+#     ),
+#     safety_settings: Optional[dict] = {
+#         HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_NONE,
+#         HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_NONE,
+#         HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_NONE,
+#         HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_NONE,
+#     },
+#     add_sleep_after_page: bool = False,
+#     sleep_time_after_page: int = 2,
+# ) -> Tuple[pd.DataFrame, pd.DataFrame]:
+#     """
+#     This function takes a PDF path, an image save directory, an image description prompt, an embedding size, and a text embedding text limit as input.
 
-    Args:
-        pdf_path: The path to the PDF document.
-        image_save_dir: The directory where extracted images should be saved.
-        image_description_prompt: A prompt to guide Gemini for generating image descriptions.
-        embedding_size: The dimensionality of the embedding vectors.
-        text_emb_text_limit: The maximum number of tokens for text embedding.
+#     Args:
+#         pdf_path: The path to the PDF document.
+#         image_save_dir: The directory where extracted images should be saved.
+#         image_description_prompt: A prompt to guide Gemini for generating image descriptions.
+#         embedding_size: The dimensionality of the embedding vectors.
+#         text_emb_text_limit: The maximum number of tokens for text embedding.
 
-    Returns:
-        A tuple containing two DataFrames:
-            * One DataFrame containing the extracted text metadata for each page of the PDF, including the page text, chunked text dictionaries, and chunk embedding dictionaries.
-            * Another DataFrame containing the extracted image metadata for each image in the PDF, including the image path, image description, image embeddings (with and without context), and image description text embedding.
-    """
+#     Returns:
+#         A tuple containing two DataFrames:
+#             * One DataFrame containing the extracted text metadata for each page of the PDF, including the page text, chunked text dictionaries, and chunk embedding dictionaries.
+#             * Another DataFrame containing the extracted image metadata for each image in the PDF, including the image path, image description, image embeddings (with and without context), and image description text embedding.
+#     """
 
-    text_metadata_df_final, image_metadata_df_final = pd.DataFrame(), pd.DataFrame()
+#     text_metadata_df_final, image_metadata_df_final = pd.DataFrame(), pd.DataFrame()
 
-    for pdf_path in glob.glob(pdf_folder_path + "/*.pdf"):
-        print(
-            "\n\n",
-            "Processing the file: ---------------------------------",
-            pdf_path,
-            "\n\n",
-        )
+#     for pdf_path in glob.glob(pdf_folder_path + "/*.pdf"):
+#         print(
+#             "\n\n",
+#             "Processing the file: ---------------------------------",
+#             pdf_path,
+#             "\n\n",
+#         )
 
-        doc, num_pages = get_pdf_doc_object(pdf_path)
+#         doc, num_pages = get_pdf_doc_object(pdf_path)
 
-        file_name = pdf_path.split("/")[-1]
+#         file_name = pdf_path.split("/")[-1]
 
-        text_metadata: Dict[Union[int, str], Dict] = {}
-        image_metadata: Dict[Union[int, str], Dict] = {}
+#         text_metadata: Dict[Union[int, str], Dict] = {}
+#         image_metadata: Dict[Union[int, str], Dict] = {}
 
-        for page_num in range(num_pages):
-            print(f"Processing page: {page_num + 1}")
+#         for page_num in range(num_pages):
+#             print(f"Processing page: {page_num + 1}")
 
-            page = doc[page_num]
+#             page = doc[page_num]
 
-            text = page.get_text()
-            (
-                text,
-                page_text_embeddings_dict,
-                chunked_text_dict,
-                chunk_embeddings_dict,
-            ) = get_chunk_text_metadata(page, embedding_size=embedding_size)
+#             text = page.get_text()
+#             (
+#                 text,
+#                 page_text_embeddings_dict,
+#                 chunked_text_dict,
+#                 chunk_embeddings_dict,
+#             ) = get_chunk_text_metadata(page, embedding_size=embedding_size)
 
-            text_metadata[page_num] = {
-                "text": text,
-                "page_text_embeddings": page_text_embeddings_dict,
-                "chunked_text_dict": chunked_text_dict,
-                "chunk_embeddings_dict": chunk_embeddings_dict,
-            }
+#             text_metadata[page_num] = {
+#                 "text": text,
+#                 "page_text_embeddings": page_text_embeddings_dict,
+#                 "chunked_text_dict": chunked_text_dict,
+#                 "chunk_embeddings_dict": chunk_embeddings_dict,
+#             }
 
-            images = page.get_images()
-            image_metadata[page_num] = {}
+#             images = page.get_images()
+#             image_metadata[page_num] = {}
 
-            for image_no, image in enumerate(images):
-                image_number = int(image_no + 1)
-                image_metadata[page_num][image_number] = {}
+#             for image_no, image in enumerate(images):
+#                 image_number = int(image_no + 1)
+#                 image_metadata[page_num][image_number] = {}
 
-                image_for_gemini, image_name = get_image_for_gemini(
-                    doc, image, image_no, image_save_dir, file_name, page_num
-                )
+#                 image_for_gemini, image_name = get_image_for_gemini(
+#                     doc, image, image_no, image_save_dir, file_name, page_num
+#                 )
 
-                print(
-                    f"Extracting image from page: {page_num + 1}, saved as: {image_name}"
-                )
+#                 print(
+#                     f"Extracting image from page: {page_num + 1}, saved as: {image_name}"
+#                 )
 
-                response = get_gemini_response(
-                    generative_multimodal_model,
-                    model_input=[image_description_prompt, image_for_gemini],
-                    generation_config=generation_config,
-                    safety_settings=safety_settings,
-                    stream=True,
-                )
+#                 response = get_gemini_response(
+#                     generative_multimodal_model,
+#                     model_input=[image_description_prompt, image_for_gemini],
+#                     generation_config=generation_config,
+#                     safety_settings=safety_settings,
+#                     stream=True,
+#                 )
 
-                image_embedding = get_image_embedding_from_multimodal_embedding_model(
-                    image_uri=image_name,
-                    embedding_size=embedding_size,
-                )
+#                 image_embedding = get_image_embedding_from_multimodal_embedding_model(
+#                     image_uri=image_name,
+#                     embedding_size=embedding_size,
+#                 )
 
-                image_description_text_embedding = (
-                    get_text_embedding_from_text_embedding_model(text=response)
-                )
+#                 image_description_text_embedding = (
+#                     get_text_embedding_from_text_embedding_model(text=response)
+#                 )
 
-                image_metadata[page_num][image_number] = {
-                    "img_num": image_number,
-                    "img_path": image_name,
-                    "img_desc": response,
-                    # "mm_embedding_from_text_desc_and_img": image_embedding_with_description,
-                    "mm_embedding_from_img_only": image_embedding,
-                    "text_embedding_from_image_description": image_description_text_embedding,
-                }
+#                 image_metadata[page_num][image_number] = {
+#                     "img_num": image_number,
+#                     "img_path": image_name,
+#                     "img_desc": response,
+#                     # "mm_embedding_from_text_desc_and_img": image_embedding_with_description,
+#                     "mm_embedding_from_img_only": image_embedding,
+#                     "text_embedding_from_image_description": image_description_text_embedding,
+#                 }
 
-            # Add sleep to reduce issues with Quota error on API
-            if add_sleep_after_page:
-                time.sleep(sleep_time_after_page)
-                print(
-                    "Sleeping for ",
-                    sleep_time_after_page,
-                    """ sec before processing the next page to avoid quota issues. You can disable it: "add_sleep_after_page = False"  """,
-                )
+#             # Add sleep to reduce issues with Quota error on API
+#             if add_sleep_after_page:
+#                 time.sleep(sleep_time_after_page)
+#                 print(
+#                     "Sleeping for ",
+#                     sleep_time_after_page,
+#                     """ sec before processing the next page to avoid quota issues. You can disable it: "add_sleep_after_page = False"  """,
+#                 )
 
-        text_metadata_df = get_text_metadata_df(file_name, text_metadata)
-        image_metadata_df = get_image_metadata_df(file_name, image_metadata)
+#         text_metadata_df = get_text_metadata_df(file_name, text_metadata)
+#         image_metadata_df = get_image_metadata_df(file_name, image_metadata)
 
-        text_metadata_df_final = pd.concat(
-            [text_metadata_df_final, text_metadata_df], axis=0
-        )
-        image_metadata_df_final = pd.concat(
-            [
-                image_metadata_df_final,
-                image_metadata_df.drop_duplicates(subset=["img_desc"]),
-            ],
-            axis=0,
-        )
+#         text_metadata_df_final = pd.concat(
+#             [text_metadata_df_final, text_metadata_df], axis=0
+#         )
+#         image_metadata_df_final = pd.concat(
+#             [
+#                 image_metadata_df_final,
+#                 image_metadata_df.drop_duplicates(subset=["img_desc"]),
+#             ],
+#             axis=0,
+#         )
 
-        text_metadata_df_final = text_metadata_df_final.reset_index(drop=True)
-        image_metadata_df_final = image_metadata_df_final.reset_index(drop=True)
+#         text_metadata_df_final = text_metadata_df_final.reset_index(drop=True)
+#         image_metadata_df_final = image_metadata_df_final.reset_index(drop=True)
 
-    return text_metadata_df_final, image_metadata_df_final
+#     return text_metadata_df_final, image_metadata_df_final
 
 
-# Helper Functions
+# # Helper Functions
 
 
 

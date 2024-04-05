@@ -104,12 +104,11 @@ import os
 import time
 WORKSPACE = "/home/pjw971022/workspace"
 location = "asia-northeast3"
-project_id = "gemini-api-415903"
-key_path = WORKSPACE + "/Sembot/physical_reasoning/gemini-api-415903-0f8224218c2c.json"
+project_id = "gemini-video-0403"
+key_path = WORKSPACE + "/Sembot/physical_reasoning/gemini-video-0403-0476b10bf020.json"
 video_path = "/home/pjw971022/Sembot/real_bot/save_vision/obs/"
 
 class LLMAgent:
-
     def __init__(self,) -> None:
         self.sentence_model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
         self.vision_config = {"max_output_tokens": 1024, "temperature": 0.0, "top_p": 1, "top_k": 32}

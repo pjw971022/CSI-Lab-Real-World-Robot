@@ -7,8 +7,8 @@ openai.api_key = "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"
 from openai import OpenAI
 
 location = "asia-northeast3"
-project_id = "gemini-api-415903"
-key_path = "/home/shyuni5/file/CORL2024/Sembot/gemini-api-415903-0f8224218c2c.json"
+project_id = "gemini-video-0403"
+key_path = "/home/shyuni5/file/CORL2024/Sembot/"
 api_key = "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"
 
 # Video & img path는 아래와 같다고 가정.

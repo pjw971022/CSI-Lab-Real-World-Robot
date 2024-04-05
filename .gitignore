@@ -180,3 +180,4 @@ test_llm.ipynb
 outputs/
 real_bot/save_vision/obs/
 physical_reasoning/pc_2d/utils/LLaVA
+sembot/src/envs/gemini-video-0403-0476b10bf020.json

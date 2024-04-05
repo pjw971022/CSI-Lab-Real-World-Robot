@@ -1,108 +1,37 @@
-prompt_name: v2-no-hist
-yaml_version: y1
-query_build_settings:
-  chat_log_size: 6
-  round_size: 5
-  prev_prediction_size: 1
-  prev_prediction_keys_to_use:
-    - objects
-    - start_states
-    - action
-generate_all: False
-generate_from_id:
-  - P30_07
-prompt:
+video_vlm_model:
+  metadata_path: /home/mnt/data/video_rag_database/embedding_data/CharadesEgo_emb_only_metadata.csv
+  video_folder_path: /home/mnt/data/video_rag_database/CharadesEgo/CharadesEgo_v1_480
+
+video_vlm_prompt:
   system: |
-    You are participating in a game with friend 1 and friend 2, where you must intricately construct a "behavior" according to the current environment. This game requires you to observe visual information from the current environment or alter parts of it to generate a "fine-grained behavior" that is suitable for the real environment. The fine-grained behavior must be meticulously crafted so that a robot can perform them appropriately in the current environment. You can see the [Question] and [Possible object] but cannot see visual observations of the current environment or modify parts of it. Friend 1 can only see images of the current environment, and friend 2 is able to modify the environment. You have to decompose the “behavior” and ask your friend 1 about visual observation of the current environment and request environment modifications from your friend 2. Your friends provide answers that can be used to answer the original question.
+    you are a helpful language and video assistant. you have to focus on the actions of the arms and hands of the person in the video.
+  prompt_demo_extractor: |
+    [primitive actions] move, grasp, release with the hand, rotate 
+    Please explain this video in detail. When explaining, you must pair [primitive actions] with the context of the action. Example: <move to the cabinet> - <To open a cabinet with a handle, move your hand towards the cabinet."""
+    
+llm_prompt:
+  system: |
+    You are a participant in a game where you must create fine-grained commands for a robotic arm placed in a tabletop environment. Since you cannot see the environment or reference human actions on your own, you will be provided with two friends to assist you.
   fewshot: |
-    Here is a sample conversation:
-    [Question] How can robot arm push button? Give detailed instruction about how should robot move robot arm.
-    [Possible object] button
-    [You] (To Friend 1) Are there any obstacles around the button that could obstruct access?
-    [Friend 1] No.
-    [you] (To Friend 1) Is the width of the button larger than the width of the gripper?
-    [Friend 1] No.
-    [you] (To Friend 1) How deep should the button be pressed?
-    [Friend 1] 2cm
-    [Answer] Move to 5cm above the button, then close the gripper. Next, move down 2cm below the button. finally, back to default pose.
-    Here is another example:
-    [Question] How can robot take lid off saucepan? Give detailed instruction about how should robot move robot arm.
-    [Possible Object] saucepan, saucepan lid
-    [You] (To Friend 1) Are there any obstacles around the saucepan lid that could obstruct access?
-    [Friend 1] Obscured by the gripper.
-    [You] (To Friend 2) Move the robot gripper 20cm away from the saucepan lid.
-    [Friend 2] Done.
-    [You] (To Friend 1) Are there any obstacles around the saucepan lid that could obstruct access?
-    [Friend 1] No.
-    [You] (To Friend 1) Is the size of the saucepan lid's handle suitable for a gripper to hold?
-    [Friend 1] Yes.
-    [You] (To Friend 1) Where should the saucepan lid be grabbed?
-    [Friend 1] 
-    [You] (To Friend 1) Where on the table is there a spot to place the saucepan lid?
-    [Friend 1] 20cm to the right from the saucepan.
-    [Answer] Grasp 2cm below the saucepan lid, then return to the default pose. Move to a position 10cm above the table, open the gripper, and then return to the default pose again. 
-    Here is another example:
-    [Question] How can robot open the door? Give detailed instruction about how should robot move robot arm.
-    [Possible Object] door, door handle
-    [You] (To Friend 1) Are there any obstacles around the door handel that could obstruct access?
-    [Friend 1] Behind the door handle, there is a door.
-    [You] (To Friend 1) Is the size of the door handle suitable for a gripper to hold?
-    [Friend 1] Yes.
-    [You] (To Friend 1) Is the door handle a lever type or a round knob?
-    [Friend 1] Lever type.
-    [You] (To Friend 1) Which direction does the lever need to be moved to open the door? Up, down, or sideways? 
-    [Friend 1] down
-    [You] (To Friend 1) Which position of the door handle needs to be pushed down and by how much for the door to open.
-    [Friend 1] middle of door handle, 5cm
-    [Answer] Grasp midlle of door handle, then push it down by 5cm. Push it forward by 10cm and then return to the default pose. 
-    Here is another example:
-    [Question] How can robot Plug a USB flash drive into a computer? Give detailed instruction about how should robot move robot arm.
-    [Possible object] USB flash drive, computer, USB port
-    [You] (To Friend 1) Are there any obstacles around the USB flash drive that could obstruct access?
-    [Friend 1] No.
-    [You] (To Friend 1) Is the orientation of the USB port vertical or horizontal?
-    [Friend 1] Horizontal.
-    [You] (To Friend 1) Are there any obstacles around the computer's USB port that could obstruct access?
-    [Friend 1] No.
-    [You] (To Friend 1) How far is the USB port from the bottom surface?
-    [Friend 1] Above 15cm 
-    [You] (To Friend 1) How far is the USB port from the side edge of the computer?
-    [Friend 1] 5cm
-    [You] (To Friend 1) Do robot arm need to rotate the USB flash drive to match the orientation of the port?
-    [Friend 1] Yes, 90 degrees clockwise.
-    [You] (To Friend 1) How far should gripper push the USB flash drive?
-    [Friend 1] 2cm
-    [Answer] grasp the USB flash drive with the gripper. Move to the front of the computer. Move to a point that is 15cm from the bottom surface and 5cm from the side edge of the computer. Rotate the USB flash drive 90 degrees clockwise to match the horizontal orientation of the USB port. Then, carefully move the robot arm forward, inserting the USB flash drive as much as 2cm into the USB port on the computer. Once the USB flash drive is inserted, return the robot arm to its default position.
-    Here is another example:
-    [Question] How can robot watering plants? Give detailed instruction about how should robot move robot arm.
-    [Possible object] plants, water container
-    [You] (To Friend 1) Are there any obstacles around the water container that could obstruct access?
-    [Friend 1] Obscured by the gripper.
-    [You] (To Friend 2) Move the robot gripper 10cm away from the water container.
-    [Friend 2] Done.
-    [You] (To Friend 1) Are there any obstacles around the water container that could obstruct access?
-    [Friend 1] No.
-    [You] (To Friend 1) Where should robot arm hold the water container?
-    [Friend 1] mainly hold the handle
-    [You] (To Friend 1) Which part of the handle should I hold?
-    [Friend 1] Approach the handle on top from the side and hold it.
-    [You] (To Friend 1) Are the plants arranged or scattered around?
-    [Friend 1] arranged
-    [You] (To Friend 1) In which direction and how far should I turn when watering?
-    [Friend 1] Slowly rotate up to 80 degrees
-    [You] (To Friend 1) Where should I water my plants?
-    [Friend 1] The water outlet of the water container should be 10cm above the plant.
-    [Answer] Grasp the water container mainly by its handle, approaching from the top from the side. Move the robot arm to a position where the water outlet of the container is 10cm above the plants. Slowly rotate the arm up to 80 degrees while watering the plants. Once watering is complete, return the robot arm to its default position.
+    In this game, you must generate "fine-grained instruction" as [Answer] based on human video and current environment. All questions you ask your friends must pertain to the object involved in the command or key features of the related action. you can only observe the environment through your friend 1. On the other hand, since Friend 2 can watch videos of human performing actions, you must ask Friend 2 in order to learn the correct behaviors to execute the commands.
 
     Now, given a new question, try to answer the questions by asking your friends for related visual information and requesting modifications the environment.
-    [Question]
-llava_prompt:
+
+
+llava_prompt_3d:
+  system: |
+    You are a helpful language and vision assistant. Each time, the user will provide a first-person, egocentric image and a list of objects that are highly likely to appear in the image. Not all objects might show up in the image because they could be occluded. If you don't see an object from the object list, you should be honest and say that you haven't seen that object. You must not describe any objects that are not listed. In your responses, you must answer the question that the human has specific to this scene and the objects listed.
+  question_template: |
+    <image>\nYou must only mention these objects in your answer: <obj_list>. <question>
+
+llava_prompt_2d:
   system: |
     You are a helpful language and vision assistant. Each time, the user will provide a first-person, egocentric image and a list of objects that are highly likely to appear in the image. Not all objects might show up in the image because they could be occluded. If you don't see an object from the object list, you should be honest and say that you haven't seen that object. You must not describe any objects that are not listed. In your responses, you must answer the question that the human has specific to this scene and the objects listed.
   question_template: |
     <image>\nYou must only mention these objects in your answer: <obj_list>. <question>
 
 
+physical_mode: 3d
 api_mode: google
 openai_settings:
   model: gpt-4-1106-preview
@@ -112,10 +41,19 @@ google_settings:
   model: gemini-1.0-pro-latest
   temperature: 1
   max_tokens: 2049
-llava_model:
+llava_model_2d:
   mmproj: "/home/pjw971022/.cache/spatial_vlm/mmproj-model-f16.gguf"
   model_path: "/home/pjw971022/.cache/spatial_vlm/ggml-model-q4_0.gguf"
   temperature: 0.2
+llava_model_3d:
+  model_path: qizekun/ShapeLLM_13B_general_v1.0
+  model_base: 
+  device: 
+  temperature: 0.2
+  max_new_tokens: 512
+  load_8bit: False
+  load_4bit: False
+
   # model_path: liuhaotian/llava-v1.5-13b-lora # liuhaotian/llava-v1.5-13b-lora
   # model_base: remyxai/SpaceLLaVA # liuhaotian/llava-v1.6-34b liuhaotian/llava-v1.6-vicuna-7b remyxai/SpaceLLaVA
   # conv_mode: spatial_vlm
