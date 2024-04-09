@@ -47,7 +47,7 @@ class Physical_AS_REASONER(object):
             self.recv_dict = {}
             context = zmq.Context()
             self.socket = context.socket(zmq.REP)  # REP (REPLY) socket
-            self.socket.bind("tcp://*:5555")
+            self.socket.bind("tcp://*:8888")
             print("Chat Server Open")
 
     def generate_fg_skill_server(self,):
