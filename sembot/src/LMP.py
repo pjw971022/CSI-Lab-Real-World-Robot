@@ -12,6 +12,7 @@ from LLM_cache import DiskCache
 import google.generativeai as genai
 genai.configure(api_key='AIzaSyDRv4MkxqaTD9Nn4xDieqFkHbf8Ny4eU_I')
 MAX_TRAIAL = 5
+WORKSPACE='/home/pjw971022/workspace'
 SAFETY_SETTINGS = [
             {
             "category": "HARM_CATEGORY_HARASSMENT",
@@ -210,7 +211,7 @@ class LMP:
             to_exec = code_str
             to_log = f'{user_query}\n{to_exec}'
         
-        with open('/home/jinwoo/workspace/Sembot/sembot/src/exec_hist.txt', 'a') as f:
+        with open(WORKSPACE+'/Sembot/sembot/src/exec_hist.txt', 'a') as f:
             f.write(f'{"#"*40}\n#### {self._name} ####\n{"#"*40}\n{to_log}\n\n\n')
             
         to_log_pretty = highlight(to_log, PythonLexer(), TerminalFormatter())
