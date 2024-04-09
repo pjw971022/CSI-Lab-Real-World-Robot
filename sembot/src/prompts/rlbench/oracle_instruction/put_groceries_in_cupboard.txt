@@ -1,0 +1,1 @@
+The head part of the robotic arm with the gripper is 30cm, and the width of the gripper is 12cm. On the table, there is a two-tier cupboard with upper and lower sections. The cupboard is 25cm in height and 20cm in width, and it is empty inside. There are 9 grocery items on the table, among which the spam can needs to be placed in the cupboard.

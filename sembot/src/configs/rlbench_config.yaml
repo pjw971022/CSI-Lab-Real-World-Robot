@@ -1,8 +1,12 @@
 env_name: rlbench
 episode_length: 1
-use_server: true
+use_server: false
+use_oracle_plan: true
+use_oracle_instruction: false
 use_sembot: false
-server_ip: "tcp://115.145.173.246:5555"
+save_pcd: false
+task_random: true
+
 planner:
   stop_threshold: 0.001
   savgol_polyorder: 3
@@ -32,7 +36,7 @@ lmp_config:
     map_size: 100
     num_waypoints_per_plan: 10000  # set to a large number since we only do open loop for sim
     max_plan_iter: 1
-    visualize: true
+    visualize: false
   lmps:
     planner:
       prompt_fname: planner_prompt

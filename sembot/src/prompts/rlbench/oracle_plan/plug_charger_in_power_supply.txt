@@ -1,0 +1,6 @@
+composer("grab the charger")
+composer("move 10cm in front of the plug")
+composer("face the plug")
+composer("rotate the charger 90 degree")
+composer("move forward 5cm towards the plug")
+# done

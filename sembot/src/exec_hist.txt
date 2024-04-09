@@ -3489,3 +3489,8 @@ target_button = detect('target button')
 ret_val = target_button
 
 
+
+
+
+########################## Starting episode #########################
+instruction: pick up 3 books and place them on the top shelf

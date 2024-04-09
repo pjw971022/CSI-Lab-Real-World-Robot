@@ -11,6 +11,8 @@ import rlbench.tasks as tasks
 from pyrep.const import ObjectType
 from utils import normalize_vector, bcolors
 from PIL import Image
+WORKSPACE = '/home/pjw971022/workspace'
+
 class CustomMoveArmThenGripper(MoveArmThenGripper):
     """
     A potential workaround for the default MoveArmThenGripper as we frequently run into zero division errors and failed path.
@@ -45,21 +47,23 @@ import zmq
 from LMP import LMP
 from rlbench.observation_config import ObservationConfig, CameraConfig
 import re
-sys.path.append('/home/jinwoo/workspace/Sembot/sembot/src/spatial_utils')
+sys.path.append(WORKSPACE+'/Sembot/sembot/src/spatial_utils')
 
 
 import yaml
 
 class VoxPoserRLBench():
-    def __init__(self, visualizer=None, save_pcd=False, use_server=True, server_ip="tcp://115.145.173.246:5555"):
+    def __init__(self, visualizer=None,
+                  save_pcd=False,
+                  use_server=True,
+                  server_ip="tcp://115.145.173.246:5555",
+                  task_random=False):
         """
         Initializes the VoxPoserRLBench environment.
 
         Args:
             visualizer: Visualization interface, optional.
         """
-
-
         action_mode = CustomMoveArmThenGripper(arm_action_mode=EndEffectorPoseViaPlanning(),
                                         gripper_action_mode=Discrete())
         cam_config = CameraConfig(image_size=(720,720))
@@ -99,6 +103,7 @@ class VoxPoserRLBench():
             self.task_object_names = json.load(f)
         self._reset_task_variables()
         self.save_pcd = save_pcd
+        self.task_random = task_random
 
         if use_server:               
             context = zmq.Context()
@@ -107,13 +112,6 @@ class VoxPoserRLBench():
             self.socket.setsockopt(zmq.RCVTIMEO, 50000)
             print("### Chat Client Start ###")
 
-        else: 
-            from spatial_utils.video2demo.constants import SETTINGS_YAML_PATH, PATH_TO_OVERALL_RAW_DATA, RAW_DATA_BY_EP_DIR, OUTPUT_DIR, ARE_VAL_DATA
-            from spatial_utils.video2demo.spatial_reasoner import SPATIAL_AS_REASONER
-            print("Reading from YAML file...")
-            with open(SETTINGS_YAML_PATH, "r") as f:
-                settings_dict = yaml.safe_load(f)
-            self.reasoner = SPATIAL_AS_REASONER(settings_dict)
     
     def get_object_names(self):
         """
@@ -261,7 +259,7 @@ class VoxPoserRLBench():
         colors = np.asarray(pcd_downsampled.colors).astype(np.uint8)
         if self.save_pcd:
             task_name = self.task.get_name()
-            file_path = f"/home/jinwoo/workspace/Sembot/sembot/src/pcd_data/{task_name}_pts.ply"  # 저장할 파일 경로와 이름
+            file_path = WORKSPACE+f"/Sembot/sembot/src/pcd_data/{task_name}_pts.ply"  # 저장할 파일 경로와 이름
             o3d.io.write_point_cloud(file_path, pcd_downsampled)
         # import ipdb;ipdb.set_trace()
         return points, colors
@@ -286,7 +284,7 @@ class VoxPoserRLBench():
         for key, val in rgb_dict.items():
             val = val.astype(np.uint8)
             image = Image.fromarray(val)
-            image.save(f'/home/jinwoo/workspace/Sembot/sembot/src/visualizations/obs/{task_name}_{key}.png')
+            image.save(WORKSPACE+f'/Sembot/sembot/src/visualizations/obs/{task_name}_{key}.png')
 
         obs = self._process_obs(obs)
         self.init_obs = obs
@@ -327,7 +325,7 @@ class VoxPoserRLBench():
         for key, val in rgb_dict.items():
             val = val.astype(np.uint8)
             image = Image.fromarray(val)
-            image.save(f'/home/jinwoo/workspace/Sembot/sembot/src/visualizations/obs/{task_name}_{key}.png')
+            image.save(WORKSPACE+f'/Sembot/sembot/src/visualizations/obs/{task_name}_{key}.png')
 
         return obs, reward, terminate
 
@@ -370,7 +368,7 @@ class VoxPoserRLBench():
         
         task_name = self.task.get_name()
         for key in self.image_types:
-            image = Image.open(f'/home/jinwoo/workspace/Sembot/sembot/src/visualizations/obs/{task_name}_{key}.png')
+            image = Image.open(WORKSPACE+f'/Sembot/sembot/src/visualizations/obs/{task_name}_{key}.png')
             send_dict[key] = image
         chat_cmd = self.reasoner.generate_fg_skill_local(send_dict)
         return chat_cmd
@@ -391,7 +389,7 @@ class VoxPoserRLBench():
             
         task_name = self.task.get_name()
         for key in self.image_types:
-            image = Image.open(f'/home/jinwoo/workspace/Sembot/sembot/src/visualizations/obs/{task_name}_{key}.png')
+            image = Image.open(WORKSPACE+f'/Sembot/sembot/src/visualizations/obs/{task_name}_{key}.png')
             image_array = np.array(image)
             send_dict[key] = image_array.tolist()
 

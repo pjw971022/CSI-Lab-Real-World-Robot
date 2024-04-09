@@ -1,4 +1,4 @@
-composer("grasp the {grocery} while staying at least 10cm from the cupboard.")
+composer("grasp the {target_obj} while staying at least 10cm from the cupboard.")
 composer("back to default pose")
 # composer("move ee down for 5cm")
 composer("rotate the gripper 60 degrees forward")

@@ -1,0 +1,1 @@
+A bookshelf is on the table, and on top of it, three books are stacked with their wide sides touching the top surface of the bookshelf. You need to pick up the book on the very top. Except for the thickness, all edges of the book are longer than the gripper.

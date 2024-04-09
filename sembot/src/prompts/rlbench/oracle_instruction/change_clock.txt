@@ -1,0 +1,2 @@
+A round clock is standing on the desk. Behind the clock, there is a cylindrical crown with a diameter of 3cm for adjusting the time, which protrudes 3cm from the back of the clock.
+Please rotate the wheel on the clock to make it show 12.15.

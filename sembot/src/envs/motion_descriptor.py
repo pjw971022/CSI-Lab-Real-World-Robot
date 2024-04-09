@@ -154,7 +154,6 @@ class MotionDescriptor_WithoutQuery:
         response_3 = self.model.generate_content(contents, generation_config=self.text_config) #, safety_settings = self.safety_settings
         return response_3.text
     
-<<<<<<< HEAD:low_level_planner/src/envs/motion_descriptor(without_QueryGenerator).py
     def gpt4_gen_u2c(self, user_command):
         prompt_descriptor_with_instruction = prompt_descriptor.format(user_command)
         message=[{"role": "assistant", "content": self.gpt_assistant_prompt}, {"role": "user", "content": prompt_descriptor_with_instruction}]
@@ -221,14 +220,6 @@ class MotionDescriptor_WithoutQuery:
 
 
 
-=======
-    def gemini_video_QA(self, query, video="demo_video.mp4"):
-        video_uri = upload_blob(video_path + video, video)
-        video_file = Part.from_uri(video_uri, mime_type="video/mp4")
-        contents = [video_file, query]
-        response_3 = self.model.generate_content(contents, generation_config=self.text_config) #, safety_settings = self.safety_settings
-        return response_3.text
->>>>>>> origin/master:low_level_planner/src/envs/motion_descriptor.py
 #-----------------------------------------------------------------------------
 
 # #TEST
