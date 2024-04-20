@@ -76,8 +76,7 @@ def main(cfgs: DictConfig):
     env = VoxPoserRLBench(visualizer=visualizer,
                            save_pcd=save_pcd,
                               use_server=use_server,
-                              server_ip=config['server_ip'],
-                              task_random=config['task_random'],)
+                              server_ip=config['server_ip'],)
     lmps, lmp_env = setup_LMP(env, config, debug=False)
     voxposer_ui = lmps['plan_ui']
     composer_ui = lmps['composer_ui']

@@ -264,8 +264,7 @@ class VoxPoserRLBench():
             tuple: A tuple containing task descriptions and initial observations.
         """
         assert self.task is not None, "Please load a task first"
-        if self.task_random:
-            self.task.sample_variation()
+        self.task.sample_variation()
         descriptions, obs = self.task.reset()
         rgb_dict = {}
         rgb_dict['front_rgb'] = obs.front_rgb
@@ -297,7 +296,7 @@ class VoxPoserRLBench():
         """
         assert self.task is not None, "Please load a task first"
         action = self._process_action(action)
-        obs, reward, terminate, error_feedback = self.task.step(action)
+        obs, reward, terminate = self.task.step(action)
         obs = self._process_obs(obs)
         self.latest_obs = obs
         self.latest_reward = reward
@@ -319,7 +318,7 @@ class VoxPoserRLBench():
             image = Image.fromarray(val)
             image.save(f'/home/jinwoo/workspace/Sembot/sembot/src/visualizations/obs/{key}.png')
 
-        return obs, reward, terminate, error_feedback
+        return obs, reward, terminate
 
     def sensor(self, cmd):
         pattern = r'<([^:]+):([^>]+)>'
@@ -349,53 +348,7 @@ class VoxPoserRLBench():
             #     weight = self.rlbench_env._scene.
             #     return weight
              
-    def send_obs_local(self, robot_res=None):
-        send_dict = {}
-        send_dict['instruction'] = self.instruction
-        send_dict['possible_obj'] = list(self.name2ids.keys())                
-        if robot_res is not None:
-            send_dict['robot_res'] = robot_res
-        else:
-            send_dict['robot_res'] = ''
-        
-        task_name = self.task.get_name()
-        for key in self.image_types:
-            image = Image.open(WORKSPACE+f'/Sembot/sembot/src/visualizations/obs/{task_name}_{key}.png')
-            send_dict[key] = image
-        chat_cmd = self.reasoner.generate_fg_skill_local(send_dict)
-        return chat_cmd
-    
-    def send_obs_server(self, robot_res=None):
-        self.socket.send_string("reset")
-        recv_data = self.socket.recv_string()
-        print(f"#### {recv_data} ####")
 
-        send_dict = {}
-        send_dict['instruction'] = self.instruction
-        send_dict['possible_obj'] = list(self.name2ids.keys())
-        
-        if robot_res is not None:
-            send_dict['robot_res'] = robot_res
-        else:
-            send_dict['robot_res'] = ''
-            
-        task_name = self.task.get_name()
-        for key in self.image_types:
-            image = Image.open(WORKSPACE+f'/Sembot/sembot/src/visualizations/obs/{task_name}_{key}.png')
-            image_array = np.array(image)
-            send_dict[key] = image_array.tolist()
-
-        _, _ = self.get_scene_3d_obs()
-
-        data = json.dumps(send_dict) #         
-        self.socket.send_string(data)
-        print("#### Sent data from server ####")
-    
-        data = self.socket.recv_string()
-        print("#### Received data from server ####")
-        chat_cmd = json.loads(data)
-        return chat_cmd # fg_skill or API action
-            
     def move_to_pose(self, pose, speed=None):
         """
         Moves the robot arm to a specific pose.

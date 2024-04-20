@@ -8,7 +8,7 @@ save_pcd: false
 
 task_random: true
 server_ip: "tcp://10.201.135.230:8887"
-interative_agent:
+interactive_agent:
   api_mode: google
   chat_with: human
   image_path: /home/jinwoo/workspace/Sembot/sembot/src/visualizations/obs

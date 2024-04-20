@@ -189,80 +189,80 @@ class SpatialVLMQuery():
         results = self.spacellava.create_chat_completion(messages=messages, temperature=0.2)
         return results["choices"][0]["message"]["content"]
 
+# from physical_reasoning.pc_3d.ShapeLLM
+# from physical_reasoning.pc_3d.ShapeLLM.llava.utils import disable_torch_init
+# from physical_reasoning.pc_3d.ShapeLLM.llava.model.builder import load_pretrained_model
+# from physical_reasoning.pc_3d.ShapeLLM.llava.conversation import conv_templates, SeparatorStyle
+# from physical_reasoning.pc_3d.ShapeLLM.llava.constants import POINT_TOKEN_INDEX, DEFAULT_POINT_TOKEN, DEFAULT_PT_START_TOKEN, DEFAULT_PT_END_TOKEN
+# from physical_reasoning.pc_3d.ShapeLLM.llava.mm_utils import load_pts, process_pts, rotation, tokenizer_point_token, get_model_name_from_path, \
+#     KeywordsStoppingCriteria
+# import torch
+# from transformers import TextStreamer
 
-from pc_3d.ShapeLLM.llava.utils import disable_torch_init
-from pc_3d.ShapeLLM.llava.model.builder import load_pretrained_model
-from pc_3d.ShapeLLM.llava.conversation import conv_templates, SeparatorStyle
-from pc_3d.ShapeLLM.llava.constants import POINT_TOKEN_INDEX, DEFAULT_POINT_TOKEN, DEFAULT_PT_START_TOKEN, DEFAULT_PT_END_TOKEN
-from pc_3d.ShapeLLM.llava.mm_utils import load_pts, process_pts, rotation, tokenizer_point_token, get_model_name_from_path, \
-    KeywordsStoppingCriteria
-import torch
-from transformers import TextStreamer
+# class ShapeLLMQuery(object):
+#     def __init__(self, model_dict) -> None:
+#         disable_torch_init()
+#         model_name = get_model_name_from_path(model_dict['model_path'])
+#         self.tokenizer, self.model, self.context_len = load_pretrained_model(model_dict['model_path'], model_dict['model_base'], model_name, model_dict['load_8bit'],
+#                                                             model_dict['load_4bit'], device=model_dict['device'])
 
-class ShapeLLMQuery(object):
-    def __init__(self, model_dict) -> None:
-        disable_torch_init()
-        model_name = get_model_name_from_path(model_dict['model_path'])
-        self.tokenizer, self.model, self.context_len = load_pretrained_model(model_dict['model_path'], model_dict['model_base'], model_name, model_dict['load_8bit'],
-                                                            model_dict['load_4bit'], device=model_dict['device'])
+#         conv_mode = "llava_v1"
+#         if model_dict['conv_mode'] is not None and conv_mode != model_dict['conv_mode']:
+#             print(
+#                 '[WARNING] the auto inferred conversation mode is {}, while `--conv-mode` is {}, using {}'.format(conv_mode,
+#                                                                                                                 model_dict['conv_mode'],
+#                                                                                                                 model_dict['conv_mode']))
+#         else:
+#             model_dict['conv_mode'] = conv_mode
 
-        conv_mode = "llava_v1"
-        if model_dict['conv_mode'] is not None and conv_mode != model_dict['conv_mode']:
-            print(
-                '[WARNING] the auto inferred conversation mode is {}, while `--conv-mode` is {}, using {}'.format(conv_mode,
-                                                                                                                model_dict['conv_mode'],
-                                                                                                                model_dict['conv_mode']))
-        else:
-            model_dict['conv_mode'] = conv_mode
+#         self.conv = conv_templates[model_dict['conv_mode']].copy()
 
-        self.conv = conv_templates[model_dict['conv_mode']].copy()
+#         self.model_dict = model_dict
+#         self.temperature = model_dict['temperature']
+#         self.max_new_tokens = model_dict['max_new_tokens']
+#         self.objaverse = False
 
-        self.model_dict = model_dict
-        self.temperature = model_dict['temperature']
-        self.max_new_tokens = model_dict['max_new_tokens']
-        self.objaverse = False
-
-    def reinit(self,):
-        self.conv = conv_templates[self.model_dict['conv_mode']].copy()
+#     def reinit(self,):
+#         self.conv = conv_templates[self.model_dict['conv_mode']].copy()
     
-    def query_one(self, pts, system_msg: str, question: str, debug=False):
-        self.conv.system = system_msg
-        if self.objaverse:
-            pts[:, :3] = rotation(pts[:, :3], [0, 0, -90])
-        pts_tensor = process_pts(pts, self.model.config).unsqueeze(0)
-        pts_tensor = pts_tensor.to(self.model.device, dtype=torch.float16)
+#     def query_one(self, pts, system_msg: str, question: str, debug=False):
+#         self.conv.system = system_msg
+#         if self.objaverse:
+#             pts[:, :3] = rotation(pts[:, :3], [0, 0, -90])
+#         pts_tensor = process_pts(pts, self.model.config).unsqueeze(0)
+#         pts_tensor = pts_tensor.to(self.model.device, dtype=torch.float16)
 
-        inp = question
-        if pts is not None:
-            # first message
-            if self.model.config.mm_use_pt_start_end:
-                inp = DEFAULT_PT_START_TOKEN + DEFAULT_POINT_TOKEN + DEFAULT_PT_END_TOKEN + '\n' + inp
-            else:
-                inp = DEFAULT_POINT_TOKEN + '\n' + inp
-            self.conv.append_message(self.conv.roles[0], inp)
-            pts = None
-        else:
-            # later messages
-            self.conv.append_message(self.conv.roles[0], inp)
-        self.conv.append_message(self.conv.roles[1], None)
-        prompt = self.conv.get_prompt()
+#         inp = question
+#         if pts is not None:
+#             # first message
+#             if self.model.config.mm_use_pt_start_end:
+#                 inp = DEFAULT_PT_START_TOKEN + DEFAULT_POINT_TOKEN + DEFAULT_PT_END_TOKEN + '\n' + inp
+#             else:
+#                 inp = DEFAULT_POINT_TOKEN + '\n' + inp
+#             self.conv.append_message(self.conv.roles[0], inp)
+#             pts = None
+#         else:
+#             # later messages
+#             self.conv.append_message(self.conv.roles[0], inp)
+#         self.conv.append_message(self.conv.roles[1], None)
+#         prompt = self.conv.get_prompt()
 
-        input_ids = tokenizer_point_token(prompt, self.tokenizer, POINT_TOKEN_INDEX, return_tensors='pt').unsqueeze(0).cuda()
+#         input_ids = tokenizer_point_token(prompt, self.tokenizer, POINT_TOKEN_INDEX, return_tensors='pt').unsqueeze(0).cuda()
 
-        with torch.inference_mode():
-            output_ids = self.model.generate(
-                input_ids,
-                points=pts_tensor,
-                do_sample=True,
-                temperature=self.temperature,
-                max_new_tokens=self.max_new_tokens,
-                # streamer=streamer,
-                use_cache=True,
-                # stopping_criteria=[stopping_criteria]
-                )
+#         with torch.inference_mode():
+#             output_ids = self.model.generate(
+#                 input_ids,
+#                 points=pts_tensor,
+#                 do_sample=True,
+#                 temperature=self.temperature,
+#                 max_new_tokens=self.max_new_tokens,
+#                 # streamer=streamer,
+#                 use_cache=True,
+#                 # stopping_criteria=[stopping_criteria]
+#                 )
 
-        outputs = self.tokenizer.decode(output_ids[0, input_ids.shape[1]:]).strip()
-        self.conv.messages[-1][-1] = outputs
+#         outputs = self.tokenizer.decode(output_ids[0, input_ids.shape[1]:]).strip()
+#         self.conv.messages[-1][-1] = outputs
 
-        if debug:
-            print("\n", {"prompt": prompt, "outputs": outputs}, "\n")
+#         if debug:
+#             print("\n", {"prompt": prompt, "outputs": outputs}, "\n")

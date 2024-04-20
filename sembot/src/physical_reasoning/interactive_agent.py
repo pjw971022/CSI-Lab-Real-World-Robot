@@ -1,5 +1,7 @@
 import numpy as np
 import re
+import sys
+sys.path.append('/home/jinwoo/workspace/Sembot/sembot/src/physical_reasoning')
 from vqa_utils import call_openai_chat, call_google_chat
 from web_tools.core.engines.google import Search as GoogleSearch
 from PIL import Image
