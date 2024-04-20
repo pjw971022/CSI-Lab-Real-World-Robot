@@ -12,6 +12,8 @@ import os
 os.environ['OPENAI_API_KEY'] =  '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' 
 import wandb
 import numpy as np
+import sys 
+sys.path.append('/home/jinwoo/workspace/Sembot/physical_reasoning')
 from physical_reasoning.interactive_agent import InteractiveAgent
 MAX_TRY = 20
 CUSTOM_TASKS = [

@@ -14,6 +14,7 @@ import rlbench.tasks as tasks
 from pyrep.const import ObjectType
 from utils import normalize_vector, bcolors
 from PIL import Image
+WORKSPACE = '/home/jinwoo/workspace'
 class CustomMoveArmThenGripper(MoveArmThenGripper):
     """
     A potential workaround for the default MoveArmThenGripper as we frequently run into zero division errors and failed path.
@@ -102,20 +103,6 @@ class VoxPoserRLBench():
         self._reset_task_variables()
         self.save_pcd = save_pcd
 
-        if use_server:               
-            context = zmq.Context()
-            self.socket = context.socket(zmq.REQ)  # REQ (REQUEST) 소켓
-            self.socket.connect(server_ip)
-            self.socket.setsockopt(zmq.RCVTIMEO, 50000)
-            print("### Chat Client Start ###")
-
-        else: 
-            from spatial_utils.video2demo.constants import SETTINGS_YAML_PATH, PATH_TO_OVERALL_RAW_DATA, RAW_DATA_BY_EP_DIR, OUTPUT_DIR, ARE_VAL_DATA
-            from spatial_utils.video2demo.spatial_reasoner import SPATIAL_AS_REASONER
-            print("Reading from YAML file...")
-            with open(SETTINGS_YAML_PATH, "r") as f:
-                settings_dict = yaml.safe_load(f)
-            self.reasoner = SPATIAL_AS_REASONER(settings_dict)
     
     def get_object_names(self):
         """
@@ -330,7 +317,7 @@ class VoxPoserRLBench():
         for key, val in rgb_dict.items():
             val = val.astype(np.uint8)
             image = Image.fromarray(val)
-            image.save(f'/home/jinwoo/workspace/Sembot/sembot/src/visualizations/obs/{task_name}_{key}.png')
+            image.save(f'/home/jinwoo/workspace/Sembot/sembot/src/visualizations/obs/{key}.png')
 
         return obs, reward, terminate, error_feedback
 
@@ -399,8 +386,6 @@ class VoxPoserRLBench():
             send_dict[key] = image_array.tolist()
 
         _, _ = self.get_scene_3d_obs()
-        # send_dict['pcd_points'] = points.tolist()
-        # send_dict['pcd_colors'] = colors.tolist()
 
         data = json.dumps(send_dict) #         
         self.socket.send_string(data)
