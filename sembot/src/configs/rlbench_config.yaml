@@ -1,9 +1,9 @@
 env_name: rlbench
 episode_length: 1
-use_server: true
-use_oracle_plan: true
+use_server: false
+use_oracle_plan: false
 use_oracle_instruction: false
-use_sembot: false
+use_sembot: true
 save_pcd: false
 
 task_random: true

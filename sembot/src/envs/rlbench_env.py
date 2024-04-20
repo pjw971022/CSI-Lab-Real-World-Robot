@@ -272,11 +272,10 @@ class VoxPoserRLBench():
         rgb_dict['overhead_rgb'] = obs.overhead_rgb
         rgb_dict['left_shoulder_rgb'] = obs.left_shoulder_rgb
         rgb_dict['right_shoulder_rgb'] = obs.right_shoulder_rgb
-        task_name = self.task.get_name()
         for key, val in rgb_dict.items():
             val = val.astype(np.uint8)
             image = Image.fromarray(val)
-            image.save(f'/home/jinwoo/workspace/Sembot/sembot/src/visualizations/obs/{task_name}_{key}.png')
+            image.save(f'/home/jinwoo/workspace/Sembot/sembot/src/visualizations/obs/{key}.png')
 
         obs = self._process_obs(obs)
         self.init_obs = obs

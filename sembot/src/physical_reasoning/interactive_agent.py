@@ -44,6 +44,7 @@ class InteractiveAgent:
         self.total_cost = 0
         self.prev_chat = None
         self.image_path = settings_dict["image_path"]
+        
     def __call__(self, obs_dict):
         if self.prev_chat is None:
             self.instr = obs_dict['instruction']

@@ -117,7 +117,7 @@ def main(cfgs: DictConfig):
                 voxposer_ui(oracle_instruction) #
             elif use_sembot:
                 oracle_plan_code = None
-                obs_dict = {}
+                obs_dict = {'instruction': instruction, 'possible_obj': env.get_object_names()}
                 interactive_agent(obs_dict)
             else:
                 voxposer_ui(instruction)
