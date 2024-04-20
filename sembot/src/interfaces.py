@@ -223,13 +223,13 @@ class LMP_interface():
       result = self._env.apply_action(np.concatenate([ee_pose_world, [gripper_state]]))
       # save in wandb
       with open('/home/jinwoo/workspace/Sembot/sembot/src/exec_hist.txt', 'a') as f:
-        f.write(f'Reward: {result[1]}\n')
+        f.write(f'reward: {result[1]}\n')
         f.write("#" * 30 + "\n\n\n")
 
-      wandb.log({"Reward": result[1]})
+      wandb.log({"reward": result[1]})
 
 
-    return execute_info
+    return execute_info # @
   
   def cm2index(self, cm, direction):
     if isinstance(direction, str) and direction == 'x':
@@ -277,7 +277,7 @@ class LMP_interface():
     assert isinstance(vector, np.ndarray) and vector.shape == (3,), f'vector: {vector}'
     return pointat2quat(vector)
 
-  def set_voxel_by_radius(self, voxel_map, voxel_xyz, radius_cm=0, value=1):
+  def set_voxel_by_radius(self, voxel_map, voxel_xyz, radius_cm=0, value=1, **kwargs):
     """given a 3D np array, set the value of the voxel at voxel_xyz to value. If radius is specified, set the value of all voxels within the radius to value."""
     voxel_map[voxel_xyz[0], voxel_xyz[1], voxel_xyz[2]] = value
     if radius_cm > 0:

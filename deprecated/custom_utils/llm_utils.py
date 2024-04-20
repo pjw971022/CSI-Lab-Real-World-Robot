@@ -102,10 +102,11 @@ from vertexai.preview.generative_models import GenerativeModel, Part
 from google.cloud import storage
 import os
 import time
-WORKSPACE = "/home/pjw971022/workspace"
+WORKSPACE = "/home/jinwoo/workspace"
+
 location = "asia-northeast3"
-project_id = "gemini-api-415903"
-key_path = WORKSPACE + "/Sembot/physical_reasoning/gemini-api-415903-0f8224218c2c.json"
+project_id = "gemini-video-0403"
+key_path = WORKSPACE + "/Sembot/physical_reasoning/gemini-video-0403-0476b10bf020.json"
 video_path = "/home/pjw971022/Sembot/real_bot/save_vision/obs/"
 
 class LLMAgent:
@@ -265,71 +266,6 @@ class LLMAgent:
         print(generated_sequence)
         return plan_list
     
-    # def gemini_new_scoring(self, fewshot_prompt, planning_prompt, options, fewshot_img, obs_img):
-    #     model = genai.GenerativeModel('gemini-pro-vision')
-        
-    #     response = model.generate_content(
-    #         contents=[fewshot_img, fewshot_prompt, obs_img, planning_prompt],
-    #         generation_config = self.vision_config)
-            
-    #     generated_sequence = response.text
-
-    #     generated_sequence = generated_sequence.split('.')[0]
-    #     print(f"@@@@ gen act: {generated_sequence}")
-    #     gen_embedding = self.sentence_model.encode(generated_sequence, convert_to_tensor=True,show_progress_bar=False)
-    #     act_embeddings = [ self.sentence_model.encode(action, convert_to_tensor=True,show_progress_bar=False) for action in options]
-    #     _, scores = process_action2(gen_embedding, act_embeddings)
-        
-    #     llm_scores = {action: score for action, score in zip(options, scores)}
-    #     return llm_scores, generated_sequence 
-    
-    # def palm_generate_categories(self, context):
-    #     models = [m for m in genai.list_models() if 'generateText' in m.supported_generation_methods]
-    #     model = models[0].name
-    #     completion = genai.generate_text(
-    #         model=model,
-    #         prompt=context,
-    #         temperature=0,
-    #         # The maximum length of the response
-    #         max_output_tokens=800,
-    #     )
-    #     generated_sequence = completion.result
-    #     categories = generated_sequence.split(',')
-
-    #     return categories
-    
-    # def palm_gen_act(self, fewshot_prompt, planning_prompt):
-    #     models = [m for m in genai.list_models() if 'generateText' in m.supported_generation_methods]
-    #     model = models[0].name
-    #     completion = genai.generate_text(
-    #         model=model,
-    #         prompt=fewshot_prompt + '\n' + planning_prompt,
-    #         temperature=0,
-    #         # The maximum length of the response
-    #         max_output_tokens=800,
-    #     )
-    #     generated_sequence = completion.result
-    #     plan = generated_sequence.split('.')[0]
-    #     return plan
-    
-    # def palm_new_scoring(self, context, options):
-    #     models = [m for m in genai.list_models() if 'generateText' in m.supported_generation_methods]
-    #     model = models[0].name
-    #     completion = genai.generate_text(
-    #         model=model,
-    #         prompt=context,
-    #         temperature=0,
-    #         # The maximum length of the response
-    #         max_output_tokens=800,
-    #     )
-    #     generated_sequence = completion.result
-    #     generated_sequence = generated_sequence.split('.')[0]
-    #     gen_embedding = self.sentence_model.encode(generated_sequence, convert_to_tensor=True,show_progress_bar=False)
-    #     act_embeddings = [ self.sentence_model.encode(action, convert_to_tensor=True,show_progress_bar=False) for action in options]
-    #     _, scores = process_action2(gen_embedding, act_embeddings)
-        
-    #     llm_scores = {action: score for action, score in zip(options, scores)}
-    #     return llm_scores, generated_sequence
 
     def gpt4_gen_all_plan(self, fewshot_prompt, planning_prompt):
         gpt_assistant_prompt = 'You are a planner of a robot arm for manipulation task.'

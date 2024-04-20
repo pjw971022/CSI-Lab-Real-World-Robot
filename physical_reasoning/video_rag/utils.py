@@ -17,8 +17,8 @@ from vertexai.generative_models import (
 )
 from vertexai.vision_models import Video as vision_model_Video
 from vertexai.vision_models import MultiModalEmbeddingModel
-WORKSPACE = "/home/pjw971022/workspace"
-key_path = WORKSPACE + "/Sembot/physical_reasoning/gemini-api-415903-0f8224218c2c.json"
+WORKSPACE = "/home/jinwoo/workspace"
+key_path = '/home/jinwoo/workspace/Sembot/physical_reasoning/gemini-video-0403-0476b10bf020.json' #WORKSPACE + "/Sembot/physical_reasoning/gemini-video-0403-0476b10bf020.json"
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = key_path
 
 multimodal_embedding_model = MultiModalEmbeddingModel.from_pretrained(

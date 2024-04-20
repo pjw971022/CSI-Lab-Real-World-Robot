@@ -1,0 +1,6 @@
+composer("grasp the {target_obj}")
+composer("back to default pose")
+composer("move to warming zone but avoid the grill lid")
+composer("open gripper")
+composer("back to default pose")
+# done

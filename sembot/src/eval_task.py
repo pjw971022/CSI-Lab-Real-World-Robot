@@ -5,43 +5,85 @@ from arguments import get_config
 from interfaces import setup_LMP
 from visualizers import ValueMapVisualizer
 from envs.rlbench_env import VoxPoserRLBench
-from utils import set_lmp_objects
+from utils import set_lmp_objects,load_prompt
 import numpy as np
 from rlbench import tasks
 import os
-from envs.motion_descriptor import MotionDescriptor
-import envs.prompts as prompts
-# os.environ['OPENAI_API_KEY'] =  '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' 
+os.environ['OPENAI_API_KEY'] =  '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' 
 import wandb
-from PIL import Image
+import numpy as np
+from physical_reasoning.interactive_agent import InteractiveAgent
+MAX_TRY = 20
+CUSTOM_TASKS = [
+    ########################   high success rate (with obs)   #########################
+    # tasks.PutRubbishInBin,
+    # tasks.LampOff,
+    # tasks.PutKnifeOnChoppingBoard,
+    # tasks.TakeOffWeighingScales,
+    # tasks.PushButton,
+
+    ########################   middle success rate   #########################
+    # tasks.SlideBlockToTarget, # 타겟의 반대 방향은 좌우앞뒤 중 어디인지 알아야함. 
+    # tasks.OpenWineBottle, 더 깊게 잡지 않아서 실패하는 테스크
+    #  tasks.TakeLidOffSaucepan, 더 깊게 잡지 않아서 실패하는 테스크
+    ########################   low success rate   #########################
+    ####### oracle plan은 되는 테스크
+    #  tasks.PutGroceriesInCupboard,
+
+    ####### oracle plan을 만들기도 어려운 테스크
+    #  tasks.ChangeClock,
+
+    ########################   New tasks   ###########################
+
+    ########## Tasks likely to appear in the video DB. ###############
+    #  tasks.PressSwitch,
+     tasks.PutBooksOnBookshelf,
+    #  tasks.CloseLaptopLid,
+
+    ####################### Detection Error ##########################
+    #  tasks.MeatOffGrill, # grill lid / target position
+    #  tasks.TakeUmbrellaOutOfUmbrellaStand, # umbrella haddle 
+    #  tasks.OpenMicrowave, # microwave handle 
+    #  tasks.OpenWashingMachine, # washing machine handle 
+    #  tasks.GetIceFromFridge, # ice dispenser 
+    #  tasks.PutBottleInFridge, # fridge handle 
+    #  tasks.InsertUsbInComputer, # usb port 
+    ########################   Dynamic object   ######################
+    #  tasks.MoveHanger, 
+    ######################### 방향 맞추기 너무 어려움 #####################
+    #  tasks.PlugChargerInPowerSupply,
+]
+
 @hydra.main(config_path=f'./configs', config_name="rlbench_config")
 def main(cfgs: DictConfig):
     config = cfgs
+    plain_dict = OmegaConf.to_container(config, resolve=True, enum_to_str=True)
+
     # uncomment this if you'd like to change the language model (e.g., for faster speed or lower cost)
     for lmp_name, cfg in config['lmp_config']['lmps'].items():
-        cfg['model'] = 'gemini-pro'
+        cfg['model'] = 'gemini-1.0-pro-latest' # #'gpt-4-1106-preview' #'gemini-1.0-pro-latest'
 
     # initialize env and voxposer ui
+    use_server = config['use_server']
+    use_sembot = config['use_sembot']
+    use_oracle_plan = config['use_oracle_plan']
+    use_oracle_instruction = config['use_oracle_instruction']
+    save_pcd = config['save_pcd']
+
     visualizer = ValueMapVisualizer(config['visualizer'])
-    env = VoxPoserRLBench(visualizer=visualizer)
+    env = VoxPoserRLBench(visualizer=visualizer,
+                           save_pcd=save_pcd,
+                              use_server=use_server,
+                              server_ip=config['server_ip'],
+                              task_random=config['task_random'],)
     lmps, lmp_env = setup_LMP(env, config, debug=False)
     voxposer_ui = lmps['plan_ui']
-    task_list = [
-    # tasks.PutRubbishInBin,
-    #  tasks.LampOff,
-    #  tasks.OpenWineBottle,
-     tasks.PushButton,
-     tasks.TakeOffWeighingScales,
-     tasks.MeatOffGrill,
-     tasks.SlideBlockToTarget,
-     tasks.TakeLidOffSaucepan,
-     tasks.TakeUmbrellaOutOfUmbrellaStand,
-     tasks.PutGroceriesInCupboard
-     ]
-    # below are the tasks that have object names added to the "task_object_names.json" file
-    # uncomment one to use
-    plain_dict = OmegaConf.to_container(config, resolve=True, enum_to_str=True)
-    # wandb.init(project="voxposer-naive", entity="pjw971022", name=config.context_mode, config={})
+    composer_ui = lmps['composer_ui']
+
+    interactive_agent = InteractiveAgent(composer_ui, config['interactive_agent'])
+    
+    task_list = CUSTOM_TASKS
+    
     for task in task_list:
         env.load_task(task)
         task_name = env.task.get_name()
@@ -50,83 +92,38 @@ def main(cfgs: DictConfig):
                    name=task_name, 
                    reinit=True)
         wandb.config.update(plain_dict)
-
-        for i in range(cfgs['episode_length']):
-            descriptions, obs = env.reset()
-            set_lmp_objects(lmps, env.get_object_names())  # set the object names to be used by voxposer
-            instruction = np.random.choice(descriptions)
-            print(f'instruction: {instruction}')
-            if 'pre' in config.context_mode:
-                if env.task.get_name() in prompts.names.keys():
-                    prompt_cls = prompts.names[env.task.get_name()]()
-                    if 'user_command' in config.context_mode:
-                        motion_guideline = prompt_cls.get_u2c()
-                    if 'vision_observation' in config.context_mode:
-                        motion_guideline = prompt_cls.get_o2c()
-                    if 'expert_demo' in config.context_mode:
-                        motion_guideline = prompt_cls.get_d2c()
-                else:
-                    motion_guideline = None
-            elif 'gen' in config.context_mode:
-                frong_rgb = Image.open(f'/home/jinwoo/workspace/Sembot/low_level_planner/src/visualizations/obs/{task_name}/front_rgb.png')
-                expert_demo_video = None
-                motion_descriptor = MotionDescriptor()
-                if 'user_command' in config.context_mode:
-                    motion_guideline = motion_descriptor.gemini_gen_u2c(user_command=instruction)
-                elif 'vision_observation' in config.context_mode:
-                    motion_guideline = motion_descriptor.gemini_gen_o2c(user_command=instruction,
-                                                                        img=frong_rgb)
-                elif 'expert_demo' in config.context_mode:
-                    motion_guideline = motion_descriptor.gemini_gen_d2c(user_command=instruction,
-                                                                        img=frong_rgb,
-                                                                        video=expert_demo_video)
+        i = 0
+        cnt = 0
+        while i < cfgs['episode_length'] and cnt < MAX_TRY:
+            # try:
+            desc_, obs = env.reset()
+            if len(desc_)==2:
+                descriptions, target_obj = desc_
             else:
-                motion_guideline = None
+                descriptions = desc_
+            set_lmp_objects(lmps, env.get_object_names())  # set the object names to be used by voxposer
+            instruction = np.random.choice(descriptions) #f"move the {target_obj} to the cupboard." 
+            env.instruction = instruction            
+            wandb.log({"instruction": instruction})
             
-            voxposer_ui(instruction,
-                        motion_guideline=motion_guideline)
-            # Log task name to wandb
-            
-    wandb.finish()
-#     for task in task_list:
-#         env.load_task(task)
-#         descriptions, obs = env.reset()
-#         set_lmp_objects(lmps, env.get_object_names())  # set the object names to be used by voxposer
-#         task_name = env.task.get_name()
-#         instruction = np.random.choice(descriptions)
-#         print(f'instruction: {instruction}')
+            if use_oracle_plan:
+                oracle_plan_code = load_prompt(f"{config['env_name']}/oracle_plan/{task_name}.txt")
+                if '{target_obj}' in oracle_plan_code:
+                    oracle_plan_code = oracle_plan_code.replace('{target_obj}', target_obj)
+                voxposer_ui(instruction, plan_code=oracle_plan_code) # 
+            elif use_oracle_instruction:
+                oracle_instruction = load_prompt(f"{config['env_name']}/oracle_instruction/{task_name}.txt")
+                voxposer_ui(oracle_instruction) #
+            elif use_sembot:
+                oracle_plan_code = None
+                obs_dict = {}
+                interactive_agent(obs_dict)
+            else:
+                voxposer_ui(instruction)
+            i +=1
 
-#         if 'pre' in  config.context_mode:
-#             if env.task.get_name() in prompts.names.keys():
-#                 prompt_cls = prompts.names[env.task.get_name()]()
-#                 if 'user_command' in  config.context_mode:
-#                     motion_guideline = prompt_cls.get_u2c()
-#                 if 'vision_observation' in  config.context_mode:
-#                     motion_guideline = prompt_cls.get_o2c()
-#                 if 'expert_demo' in  config.context_mode:
-#                     motion_guideline = prompt_cls.get_d2c()
-#             else:
-#                 motion_guideline = None
-#         elif 'gen' in  config.context_mode:
-#             from PIL import Image
-# import wandb
-# from PIL import Image
-#             frong_rgb = Image.open(f'/home/jinwoo/workspace/Sembot/low_level_planner/src/visualizations/obs/{task_name}/front_rgb.png')
-#             expert_demo_video = None
-#             motion_descriptor = MotionDescriptor()
-#             if 'user_command' in  config.context_mode:
-#                 motion_guideline = motion_descriptor.gemini_gen_u2c(user_command=instruction)
-#             elif 'vision_observation' in  config.context_mode:
-#                 motion_guideline = motion_descriptor.gemini_gen_o2c(user_command=instruction,
-#                                                                     img=frong_rgb)
-#             elif 'expert_demo' in  config.context_mode:
-#                 motion_guideline = motion_descriptor.gemini_gen_d2c(user_command=instruction,
-#                                                                     img=frong_rgb,
-#                                                                     video=expert_demo_video)
-#         else:
-#             motion_guideline = None
-#         voxposer_ui(instruction,
-#                     motion_guideline=motion_guideline)
+
+    wandb.finish()
 
 if __name__ =='__main__':
     main()

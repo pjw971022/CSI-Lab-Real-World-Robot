@@ -37,7 +37,10 @@ class LMP:
         self._name = name
         self._cfg = cfg
         self._debug = debug
-        self._base_prompt = load_prompt(f"{env}/{self._cfg['prompt_fname']}.txt")
+        try:
+            self._base_prompt = load_prompt(f"{env}/{self._cfg['prompt_fname']}.txt")
+        except FileNotFoundError:
+            import ipdb;ipdb.set_trace()
         self._stop_tokens = list(self._cfg['stop'])
         self._fixed_vars = fixed_vars
         self._variable_vars = variable_vars
@@ -93,6 +96,17 @@ class LMP:
         user1 = f"I would like you to help me write Python code to control a robot arm operating in a tabletop environment. Please complete the code every time when I give you new query. Pay attention to appeared patterns in the given context code. Be thorough and thoughtful in your code. Do not include any import statement. Do not repeat my question. Do not provide any text explanation (comment in code is okay). I will first give you the context of the code below:\n\n```\n{user1}\n```\n\nNote that x is back to front, y is left to right, and z is bottom to up."
         assistant1 = f'Got it. I will complete what you give me next.'
         user2 = new_query
+
+        ############# Code Error fix ############
+        if self._name == 'planner':
+            user1 += " Please plan very specifically using all the given context."
+        elif self._name == 'composer':
+            user1 += " When you need to grasp an object, use the code movable=parse_query_obj('gripper')"
+        elif self._name == 'parse_query_obj':
+            user1 += " Objects obtained using the detect function only have attributes position and aabb. For example, object.position"
+        elif 'map' in self._name:
+            user1 += ' The object retrieved using parse_query_obj has only the attributes position and aabb. For example, object.position, object.aabb.'
+
         # handle given context (this was written originally for completion endpoint)
         if user1.split('\n')[-4].startswith('objects = ['):
             obj_context = user1.split('\n')[-4]
@@ -107,7 +121,7 @@ class LMP:
             {"role": "user", "content": user2},
         ]
         kwargs['messages'] = messages
-
+    
         # check whether completion endpoint or chat endpoint is used
         if  any([chat_model in kwargs['model'] for chat_model in ['gemini-pro', 'gemini-1.0-pro-latest', 'gemini-pro-vision']]):
             model = genai.GenerativeModel(kwargs['model'])
@@ -157,8 +171,8 @@ class LMP:
         prompt, user_query = self.build_prompt(query)
         start_time = time.time()
         try_cnt = 0
-        if (self._name == 'planner') and ('fg_skill' in kwargs.keys()):
-            code_str = kwargs['fg_skill']
+        if (self._name == 'planner') and ('plan_code' in kwargs.keys()):
+            code_str = kwargs['plan_code']
         else:
             while MAX_TRAIAL > try_cnt:
                 try_cnt+=1
@@ -210,9 +224,6 @@ class LMP:
             to_exec = code_str
             to_log = f'{user_query}\n{to_exec}'
         
-        with open('/home/jinwoo/workspace/Sembot/sembot/src/exec_hist.txt', 'a') as f:
-            f.write(f'{"#"*40}\n#### {self._name} ####\n{"#"*40}\n{to_log}\n\n\n')
-            
         to_log_pretty = highlight(to_log, PythonLexer(), TerminalFormatter())
 
         if self._cfg['include_context']:

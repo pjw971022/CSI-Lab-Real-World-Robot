@@ -1,0 +1,8 @@
+composer("grasp the {target_obj} while staying at least 10cm from the cupboard.")
+composer("back to default pose")
+# composer("move ee down for 5cm")
+composer("rotate the gripper 60 degrees forward")
+composer("move ee forward for 25cm")
+composer("open gripper")
+composer("back to default pose")
+# done

@@ -1,0 +1,1 @@
+python3 physical_reasoning/data_gen.py --headless --episodes_per_task 10

@@ -1,0 +1,5 @@
+composer("grab the knife")
+composer("move ee up for 30cm")
+composer("move to chopping board")
+composer("open the gripper")
+# done

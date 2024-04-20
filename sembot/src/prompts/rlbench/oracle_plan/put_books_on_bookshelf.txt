@@ -1,0 +1,6 @@
+composer("move to the right side of the book while staying at least 10cm from the bookshelf")
+composer("grasp the book")
+composer("back to default pose")
+composer("go near the bookshelf")
+composer("move ee forward 10cm")
+# done

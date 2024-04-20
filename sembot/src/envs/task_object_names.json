@@ -12,10 +12,12 @@
       ["soup", "soup"],  ["tuna", "tuna"],  ["spam", "spam"],  ["coffee","coffee"],["mustard","mustard"],["crackers","crackers"], ["sugar","sugar"]],
     "pour_from_cup_to_cup": [["source cup", "cup_source"], ["target cup", "cup_target"]],
     "insert_usb_in_computer": [["usb", "usb"], ["computer", "computer"] , ["usb port", "port"]],
-    "change_clock":[["minute hand","clock_needle_minute"],["clock stand","clock_stand"],["hour hand","clock_needle_hour"],["crown","Revolute_joint"]],
-    "move_hanger":[["target rack","cloth_rack"],["source rack","cloth_rack0"],["hanger","cloth_hanger0"]],
+    "change_clock":[["minute hand","clock_needle_minute"],["clock stand","clock_stand"],["hour hand","clock_needle_hour"],["crown", "clock_needle_crank"]],
+    "move_hanger":[["target rack","clothes_rack"],["source rack","clothes_rack0"],["hanger","clothes_hanger0"]],
     "plug_charger_in_power_supply":[["charger","charger"],["plug","plug"]],
     "get_ice_from_fridge":[["cup","cup"], ["fridge", "fridge_base"], ["tongue", "tongue"]],
-    "put_bottle_in_fridge":[["bottle","bottle"],["fridge","fridge_base"]]
-    
+    "put_bottle_in_fridge":[["bottle", "bottle"],["fridge","fridge_base"]],
+    "put_knife_on_chopping_board":[["chopping board","chopping_board"],["knife","knife"],["knife block","knife_block"]],
+    "close_laptop_lid":[["laptop base","base"],["laptop lid","lid"]],
+    "put_books_on_bookshelf":[["bookshelf","bookshelf"],["book","book2"]]
 }

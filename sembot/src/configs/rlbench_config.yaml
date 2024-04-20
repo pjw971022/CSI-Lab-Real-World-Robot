@@ -1,8 +1,70 @@
 env_name: rlbench
 episode_length: 1
 use_server: true
-use_sembot: false
-server_ip: "tcp://115.145.173.246:5555"
+use_oracle_plan: false
+use_oracle_instruction: false
+use_sembot: true
+save_pcd: false
+
+task_random: true
+server_ip: "tcp://10.201.135.230:8887"
+interative_agent:
+  api_mode: google
+  chat_with: human
+  image_path: /home/jinwoo/workspace/Sembot/sembot/src/visualizations/obs
+  is_black_box: true
+  openai_settings:
+    model: gpt-4-1106-preview
+    temperature: 1
+    max_tokens: 2049
+  google_settings:
+    model: gemini-1.0-pro-latest
+    temperature: 1
+    max_tokens: 2049
+  prompt:
+    system: |
+      You are a participant in a game where you plan robot actions to execute instructions. You must conservatively estimate your confidence for each action and can request information necessary to ensure the success of the action. Additionally, you can receive feedback on actions.
+    robot: | 
+      asdasd
+    rule: |
+      You must generate the following steps as [Action], [Confidence], and [Question]. [Action] is the action you need to perform next. [Confidence] is your level of certainty about the [Action] you have inferred. [Question] is an inquiry needed to plan your [Action]. Questions can be 1) asking for additional conditions necessary for the success of the action, and 2) checking whether the planned action is appropriate for manipulating an object in the current situation. If [Confidence] is high, you carry out the [Action]; if it is low, you ask a question to the response module. You receive an [Answer] in response to your question. If there are issues with the action, the cause will be provided as [Feedback].
+    fewshot: |
+      Here are some examples:
+      [Action] open gripper
+      [Confidence] 70%
+      [Question] Should the gripper be opened when operating the remote for a Samsung TV?
+
+      [Action] rotate the drawer
+      [Confidence] 40%
+      [Question] What is the action to open a drawer that looks like this?
+
+      [Action] back to default pose
+      [Confidence] 95%
+      [Question] Will returning to the default pose damage the current object?
+
+      [Action] grasp the oven handle
+      [Confidence] 30%
+      [Question] What is the suitable approach direction to grasp the oven handle?
+
+      [Action] grasp the bottle cap
+      [Confidence] 20%
+      [Question] What is the position to reach to grasp a 500ml Evian plastic bottle?
+
+      [Action] move toward the iphone
+      [Confidence] 20%
+      [Question] What is the correct starting direction to go towards the iPhone?
+
+      [Action] set up the fork
+      [Confidence] 60%
+      [Question] How many cm from the plate should the fork be placed?
+
+      [Action] push the button
+      [Confidence] 60%
+      [Question] How many cm should this type of button be pressed?
+
+      [Action] turn close the beer
+      [Confidence] 50%
+      [Question] What direction and angle should this beer be turned to close it?
 planner:
   stop_threshold: 0.001
   savgol_polyorder: 3
@@ -61,7 +123,7 @@ lmp_config:
         - 'objects ='
       maintain_session: False
       include_context: False
-      has_return: False
+      has_return: True
       return_val_name: ret_val
       load_cache: True
     parse_query_obj:

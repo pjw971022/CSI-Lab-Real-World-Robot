@@ -3,9 +3,9 @@ import sys
 from PIL import Image
 
 from vqa_utils import call_openai_chat, call_google_chat, exec_safe, SpatialVLMQuery, ShapeLLMQuery
-from retrieval_utils import VideoLLMQuery
+from physical_reasoning.video_utils import VideoLLMQuery
 
-WORKSPACE = "/home/pjw971022/workspace"
+WORKSPACE = "/home/jinwoo/workspace"
 
 sys.path.append(WORKSPACE + '/Sembot/VideoRAG/utils')
 sys.path.append(WORKSPACE + '/Sembot/VideoRAG/utils/LLaVA')
@@ -15,7 +15,6 @@ import zmq
 import numpy as np
 import time
 from PIL import Image
-from physical_reasoning.pc_3d.ShapeLLM.llava.mm_utils import load_pts
 
 class Physical_AS_REASONER(object):
     def __init__(self, settings_dict, use_server=True, debug=False):
@@ -35,22 +34,7 @@ class Physical_AS_REASONER(object):
             self.shapeLLM_prompt = settings_dict["llava_prompt"]
             self.visual_assistant = ShapeLLMQuery(settings_dict['llava_model_3d'])
         
-        if debug:
-            self.video_context_assistant = """
-                The video shows a person walking into the kitchen and opening the refrigerator.
-                Move to the refrigerator: The person walks towards the refrigerator with their arms at their sides.
-                Grasp the refrigerator handle: They reach out and grasp the handle of the refrigerator with their right hand.
-                Pull the refrigerator door open: They pull the door open with their right hand, while their left hand rests on the refrigerator door.
-                Reach into the refrigerator: They reach into the refrigerator with their right hand and grab a container of food.
-                Close the refrigerator door: They close the refrigerator door with their right hand.
-                Move to the trash can: They walk to the trash can with the container of food in their right hand.
-                Open the trash can lid: They use their left hand to open the lid of the trash can.
-                Throw away the food: They throw the container of food into the trash can with their right hand.
-                Close the trash can lid: They close the lid of the trash can with their left hand.
-                Move away from the trash can: They walk away from the trash can with their arms at their sides.
-            """
-        else:
-            self.video_context_assistant = VideoLLMQuery()
+        self.video_context_assistant = VideoLLMQuery()
 
         self.prev_chat = None
         if use_server:

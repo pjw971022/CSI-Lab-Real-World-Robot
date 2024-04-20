@@ -1,4 +1,5 @@
 import os
+from typing import Type
 import numpy as np
 import open3d as o3d
 import json
@@ -6,11 +7,49 @@ import sys
 from rlbench.action_modes.action_mode import MoveArmThenGripper
 from rlbench.action_modes.arm_action_modes import ArmActionMode, EndEffectorPoseViaPlanning
 from rlbench.action_modes.gripper_action_modes import Discrete, GripperActionMode
+from rlbench.backend.task import Task
 from rlbench.environment import Environment
+from rlbench.task_environment import TaskEnvironment
 import rlbench.tasks as tasks
 from pyrep.const import ObjectType
 from utils import normalize_vector, bcolors
 from PIL import Image
+from rlbench.backend.observation import Observation
+
+class CustomTaskEnvironment(TaskEnvironment):
+    def step(self, action) -> (Observation, int, bool):
+        # returns observation, reward, done, info
+        if not self._reset_called:
+            raise RuntimeError(
+                "Call 'reset' before calling 'step' on a task.")
+        error_feedback  = self._action_mode.action(self._scene, action)
+        success, terminate = self._task.success()
+        reward = float(success)
+        if self._shaped_rewards:
+            reward = self._task.reward()
+            if reward is None:
+                raise RuntimeError(
+                    'User requested shaped rewards, but task %s does not have '
+                    'a defined reward() function.' % self._task.get_name())
+        return self._scene.get_observation(), reward, terminate, error_feedback
+    
+class CustomEnvironment(Environment):
+    def get_task(self, task_class: Type[Task]) -> TaskEnvironment:
+
+        # If user hasn't called launch, implicitly call it.
+        if self._pyrep is None:
+            self.launch()
+
+        self._scene.unload()
+        task = task_class(self._pyrep, self._robot)
+        self._prev_task = task
+        return CustomTaskEnvironment(
+            self._pyrep, self._robot, self._scene, task,
+            self._action_mode, self._dataset_root, self._obs_config,
+            self._static_positions, self._attach_grasped_objects,
+            self._shaped_rewards)
+
+
 class CustomMoveArmThenGripper(MoveArmThenGripper):
     """
     A potential workaround for the default MoveArmThenGripper as we frequently run into zero division errors and failed path.
@@ -35,7 +74,8 @@ class CustomMoveArmThenGripper(MoveArmThenGripper):
             try:
                 self.arm_action_mode.action(scene, arm_action)
             except Exception as e:
-                print(f'{bcolors.FAIL}[rlbench_env.py] Ignoring failed arm action; Exception: "{str(e)}"{bcolors.ENDC}')
+                print(f'{bcolors.FAIL}[rlbench_env.py] Ignoring failed arm action; Exception: "{str(e)}"{bcolors.ENDC}') # @
+                
             self.gripper_action_mode.action(scene, ee_action)
         self._prev_arm_action = arm_action.copy()
 
@@ -45,21 +85,20 @@ import zmq
 from LMP import LMP
 from rlbench.observation_config import ObservationConfig, CameraConfig
 import re
-sys.path.append('/home/jinwoo/workspace/Sembot/sembot/src/spatial_utils')
-
-
-import yaml
+import paramiko
 
 class VoxPoserRLBench():
-    def __init__(self, visualizer=None, save_pcd=False, use_server=True, server_ip="tcp://115.145.173.246:5555"):
+    def __init__(self, visualizer=None, 
+                 save_pcd=False, 
+                 use_server=True, 
+                 server_ip="tcp://115.145.173.246:5555",
+                 task_random=False):
         """
         Initializes the VoxPoserRLBench environment.
 
         Args:
             visualizer: Visualization interface, optional.
         """
-
-
         action_mode = CustomMoveArmThenGripper(arm_action_mode=EndEffectorPoseViaPlanning(),
                                         gripper_action_mode=Discrete())
         cam_config = CameraConfig(image_size=(720,720))
@@ -99,21 +138,13 @@ class VoxPoserRLBench():
             self.task_object_names = json.load(f)
         self._reset_task_variables()
         self.save_pcd = save_pcd
-
+        self.task_random = task_random
         if use_server:               
             context = zmq.Context()
             self.socket = context.socket(zmq.REQ)  # REQ (REQUEST) 소켓
             self.socket.connect(server_ip)
             self.socket.setsockopt(zmq.RCVTIMEO, 50000)
             print("### Chat Client Start ###")
-
-        else: 
-            from spatial_utils.video2demo.constants import SETTINGS_YAML_PATH, PATH_TO_OVERALL_RAW_DATA, RAW_DATA_BY_EP_DIR, OUTPUT_DIR, ARE_VAL_DATA
-            from spatial_utils.video2demo.spatial_reasoner import SPATIAL_AS_REASONER
-            print("Reading from YAML file...")
-            with open(SETTINGS_YAML_PATH, "r") as f:
-                settings_dict = yaml.safe_load(f)
-            self.reasoner = SPATIAL_AS_REASONER(settings_dict)
     
     def get_object_names(self):
         """
@@ -153,9 +184,8 @@ class VoxPoserRLBench():
                                                                       exclude_base=False,
                                                                       first_generation_only=False)
         
-        # proximity_sensor = self.task._task.get_base().get_objects_in_tree(object_type=ObjectType.PROXIMITY_SENSOR,
-        #                                                               exclude_base=False,
-        #                                                               first_generation_only=False)
+        scene_obj_names = [obj.get_name() for obj in scene_objs]
+        print(f"scene_obj_names: {scene_obj_names}")
         for scene_obj in scene_objs:
             if scene_obj.get_name() in internal_names:
                 exposed_name = exposed_names[internal_names.index(scene_obj.get_name())]
@@ -199,21 +229,22 @@ class VoxPoserRLBench():
         # get object points
         obj_points = points[np.isin(masks, obj_ids)]
         if len(obj_points) == 0:
-            # raise ValueError(f"Object {query_name} not found in the scene")
-            print(f"Object {query_name} not found in the scene")
-            return None, None
+            raise ValueError(f"Object {query_name} not found in the scene")
+            # print(f"Object {query_name} not found in the scene")
+            # return None, None
         
         obj_normals = normals[np.isin(masks, obj_ids)]
         # voxel downsample using o3d
         pcd = o3d.geometry.PointCloud()
         pcd.points = o3d.utility.Vector3dVector(obj_points)
         pcd.normals = o3d.utility.Vector3dVector(obj_normals)
-        pcd_downsampled = pcd.voxel_down_sample(voxel_size=0.001)
+        pcd_downsampled = pcd.voxel_down_sample(voxel_size=0.004)
         obj_points = np.asarray(pcd_downsampled.points)
         obj_normals = np.asarray(pcd_downsampled.normals)
+
         return obj_points, obj_normals
 
-    def get_scene_3d_obs(self, ignore_robot=False, ignore_grasped_obj=False):
+    def get_scene_3d_obs(self, ignore_robot=False, ignore_grasped_obj=False, reset=False):
         """
         Retrieves the entire scene's 3D point cloud observations and colors.
 
@@ -256,14 +287,15 @@ class VoxPoserRLBench():
         pcd = o3d.geometry.PointCloud()
         pcd.points = o3d.utility.Vector3dVector(points)
         pcd.colors = o3d.utility.Vector3dVector(colors)
-        pcd_downsampled = pcd.voxel_down_sample(voxel_size=0.001)
+        pcd_downsampled = pcd.voxel_down_sample(voxel_size=0.004)
         points = np.asarray(pcd_downsampled.points)
         colors = np.asarray(pcd_downsampled.colors).astype(np.uint8)
-        if self.save_pcd:
+        if self.save_pcd and reset:
             task_name = self.task.get_name()
-            file_path = f"/home/jinwoo/workspace/Sembot/sembot/src/pcd_data/{task_name}_pts.ply"  # 저장할 파일 경로와 이름
+            file_path = f"/home/jinwoo/workspace/Sembot/sembot/src/pcd_data/{task_name}.ply"  # 저장할 파일 경로와 이름
             o3d.io.write_point_cloud(file_path, pcd_downsampled)
-        # import ipdb;ipdb.set_trace()
+            # transfer_file_to_remote_host(file_path)
+            print("#############  Shape: ", points.shape)
         return points, colors
 
     def reset(self):
@@ -274,7 +306,8 @@ class VoxPoserRLBench():
             tuple: A tuple containing task descriptions and initial observations.
         """
         assert self.task is not None, "Please load a task first"
-        self.task.sample_variation()
+        if self.task_random:
+            self.task.sample_variation()
         descriptions, obs = self.task.reset()
         rgb_dict = {}
         rgb_dict['front_rgb'] = obs.front_rgb
@@ -286,12 +319,12 @@ class VoxPoserRLBench():
         for key, val in rgb_dict.items():
             val = val.astype(np.uint8)
             image = Image.fromarray(val)
-            image.save(f'/home/jinwoo/workspace/Sembot/sembot/src/visualizations/obs/{task_name}_{key}.png')
+            image.save(f'/home/jinwoo/workspace/Sembot/sembot/src/visualizations/obs/{key}.png')
 
         obs = self._process_obs(obs)
         self.init_obs = obs
         self.latest_obs = obs
-        self._update_visualizer()
+        self._update_visualizer(reset=True)
         return descriptions, obs
 
     def apply_action(self, action):
@@ -306,7 +339,7 @@ class VoxPoserRLBench():
         """
         assert self.task is not None, "Please load a task first"
         action = self._process_action(action)
-        obs, reward, terminate = self.task.step(action)
+        obs, reward, terminate, error_feedback = self.task.step(action)
         obs = self._process_obs(obs)
         self.latest_obs = obs
         self.latest_reward = reward
@@ -323,13 +356,12 @@ class VoxPoserRLBench():
         rgb_dict['overhead_rgb'] = obs.overhead_rgb
         rgb_dict['left_shoulder_rgb'] = obs.left_shoulder_rgb
         rgb_dict['right_shoulder_rgb'] = obs.right_shoulder_rgb
-        task_name = self.task.get_name()
         for key, val in rgb_dict.items():
             val = val.astype(np.uint8)
             image = Image.fromarray(val)
-            image.save(f'/home/jinwoo/workspace/Sembot/sembot/src/visualizations/obs/{task_name}_{key}.png')
+            image.save(f'/home/jinwoo/workspace/Sembot/sembot/src/visualizations/obs/{key}.png')
 
-        return obs, reward, terminate
+        return obs, reward, terminate, error_feedback
 
     def sensor(self, cmd):
         pattern = r'<([^:]+):([^>]+)>'
@@ -395,9 +427,9 @@ class VoxPoserRLBench():
             image_array = np.array(image)
             send_dict[key] = image_array.tolist()
 
-        points, colors = self.get_scene_3d_obs()
-        send_dict['pcd_points'] = points.tolist()
-        send_dict['pcd_colors'] = colors.tolist()
+        _, _ = self.get_scene_3d_obs()
+        # send_dict['pcd_points'] = points.tolist()
+        # send_dict['pcd_colors'] = colors.tolist()
 
         data = json.dumps(send_dict) #         
         self.socket.send_string(data)
@@ -507,14 +539,14 @@ class VoxPoserRLBench():
         self.name2ids = {}  # first_generation name -> list of ids of the tree
         self.id2name = {}  # any node id -> first_generation name
    
-    def _update_visualizer(self):
+    def _update_visualizer(self,reset=False):
         """
         Updates the scene in the visualizer with the latest observations.
 
         Note: This function is generally called internally.
         """
         if self.visualizer is not None:
-            points, colors = self.get_scene_3d_obs(ignore_robot=False, ignore_grasped_obj=False)
+            points, colors = self.get_scene_3d_obs(ignore_robot=False, ignore_grasped_obj=False, reset=reset)
             self.visualizer.update_scene_points(points, colors)
     
     def _process_obs(self, obs):
