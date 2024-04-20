@@ -9239,3 +9239,13 @@ reward: 0.0
 ##############################
 
 
+
+
+
+########################## Starting episode #########################
+instruction: pick up 3 books and place them on the top shelf
+
+
+
+########################## Starting episode #########################
+instruction: put 1 books on bookshelf

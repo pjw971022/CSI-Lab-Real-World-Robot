@@ -27,11 +27,14 @@ class ObjectDetectorAgent:
         self.score_threshold  = 0.1
         self.detector = OWLViTDetector(self.device, self.score_threshold)
         self.bottom_z = 0.865 # @
-        # primitive_skill_fn((0.68, 0.15, 0.18, 0, 0.9*np.pi, 0.1*np.pi), mode=4, axis=0)
-        # primitive_skill_fn((0.58, 0.15, 0.18, 0, 0.9*np.pi, 0.1*np.pi), mode=3, axis=0)
-        # primitive_skill_fn((0.72, 0.15, 0.165, 0, np.pi, 0), (0.4, -0.3, 0.15, 0, np.pi, 0), mode=0, axis=2)
 
-        self.recep_pose_dict = { 
+        self.recep_pose_dict = {
+            'mouse pad':(),
+            'trash can':(),
+            'book':(),
+            'bookshelf':(),
+            'pencil holder':(),
+            
             'coffee stick': (0.74, 0.15, 0.165, 0, np.pi, 0),
             'setting point1':(0.4, -0.25, 0.15, 0, np.pi, 0),
             'setting point2':(0.4, -0.35, 0.15, 0, np.pi, 0),
@@ -90,12 +93,6 @@ class ObjectDetectorAgent:
         target2_queries = [target2_obj]
         step_cnt = data['step_cnt']
         print(f"target1_obj: {target1_obj}   target2_obj: {target2_obj}")
-        if 'ready' in target1_obj :
-            pass
-        elif 'anywhere' in target1_obj:
-            pass
-        else:
-            assert target1_obj in target1_queries
 
         rgb_path = f'/home/pjw971022/Sembot/real_bot/save_vision/obs/image_obs_{step_cnt}.png'
         image = Image.open(rgb_path).convert("RGB")
@@ -122,13 +119,6 @@ class ObjectDetectorAgent:
         
         if 'ready' in target1_obj:
             return  {'mode': mode, 'pose0': None, 'pose1': None}
-        elif 'anywhere' in target1_obj:
-            target1_pose = self.oracle_target_pose(target1_obj)
-            print("anywher: ", target1_pose)
-            noise = np.random.normal(loc=0, scale=0.2, size=2)
-            target1_pose[0] += noise[0]
-            target1_pose[0] += noise[1]
-            return  {'mode': mode, 'pose0': target1_pose, 'pose1': None}
         else:
             if target1_obj in self.recep_pose_dict.keys():
                 target1_pose = self.oracle_target_pose(target1_obj)
@@ -162,82 +152,21 @@ class ObjectDetectorAgent:
             return {'mode':mode, 'pose0': target1_pose, 'pose1': target2_pose}
         
     def parse_action(self, lang_action):
-        """ parse action to retrieve target1up object and target2 object"""
-        # lang_action = re.sub(r'[^\w\s]', '', lang_action)  # remove all strings
         lang_action = lang_action.lower()
-        if 'move' in lang_action:
-            mode = 0
-        elif 'pick' in lang_action:
-            mode = 1
-        elif 'place' in lang_action:
-            mode = 2
-        elif 'push' in lang_action:
-            mode = 3
-        elif 'pull' in lang_action:
-            mode = 4
-        elif 'sweep' in lang_action:
-            mode = 5
-        elif 'rotate' in lang_action:
-            mode = 6
-        elif 'ready' in lang_action:
-            mode = 8
-        elif 'go' in lang_action:
-            mode = 7
-        else:
-            raise NotImplementedError
-        if self.task == 'multi_modal':
-            target_pattern = "\<(.*?)\>"
-            if 'move' in lang_action:
-                if 'letter' in lang_action:
-                    recep_pattern = r"(first paper|second paper|third paper|fourth paper|fifth paper|sixth paper|seventh paper|eighth paper|nineth paper|tenth paper)"
-                elif 'ring' in lang_action:
-                    recep_pattern = r"(first side|second side|third side)"
-                else:
-                    recep_pattern = r"(setting point1|setting point2|first drawer handle| second drawer handle)"
-            else:
-                recep_pattern = r"()"   
-        # elif self.task == 'speech2demo':
-        #     target_pattern = "\<(.*?)\>"
-        #     if 'move' in lang_action:
-        #         if 'letter' in lang_action:
-        #             recep_pattern = r"(first paper|second paper|third paper|fourth paper|fifth paper|sixth paper|seventh paper|eighth paper|nineth paper|tenth paper)"
-        #         else:
-        #             recep_pattern = r"(red block|yellow block|green block|green basket|gray basket|napkin|anywhere)"
-        #     else:
-        #         recep_pattern = r"()"
-
-        elif self.task == 'real-world-making-word':
-            target_pattern = r'\b\w+\s[A-Z]\b'
-            recep_pattern = r"(firts paper|second paper|third paper)"
-        # elif self.task == 'debug':
-        #     target_pattern = rf"({self.target1_obj})"
-        #     recep_pattern = r"(green box|gray box)"
-        #     param1_pattern = r"(edge|center)"
-        #     param2_pattern = r"(vertical|horizontal)"
-        else:
-            raise NotImplementedError
+        lang2idx = {'move':0, 'pick':1, 'place':2, 'push':3, 'pull':4, 'sweep':5, 'rotate':6, 'go':7, 'ready':8}
+        mode = lang2idx[lang_action.split(' ')[0]]
+        target_pattern = "\<(.*?)\>"
         target_matchs = re.findall(target_pattern, lang_action)
-        recep_match = re.search(recep_pattern, lang_action)  # receptacle
-        # if self.task == 'debug':
-        #     param1_match = re.search(param1_pattern, lang_action) 
-        #     param2_match = re.search(param2_pattern, lang_action) 
 
-        if target_matchs and recep_match:
-            if 'move' in lang_action:
-                target = target_matchs[0]
-                recep = target_matchs[1]
-            else:
-                target = target_matchs[0]
-                recep = None
-
-            # if self.task == 'debug':
-            #     param1 = param1_match.group(1)
-            #     param2 = param2_match.group(1)
-            #     return target, recep, [param1, param2]
-            return mode, target, recep, None
-        
+        if 'move' in lang_action:
+            target = target_matchs[0]
+            recep = target_matchs[1]
         else:
-            return None, None, None, None
+            target = target_matchs[0]
+            recep = None
+
+        return mode, target, recep, None
+
 
     def extract_points(self, bbox, point_cloud):
         cx, cy, w, h = bbox

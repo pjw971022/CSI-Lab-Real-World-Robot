@@ -1,19 +1,17 @@
-prompt_name: v2-no-hist
-yaml_version: y1
-query_build_settings:
-  chat_log_size: 6
-  round_size: 5
-  prev_prediction_size: 1
-  prev_prediction_keys_to_use:
-    - objects
-    - start_states
-    - action
-generate_all: False
-generate_from_id:
-  - P30_07
-prompt:
+video_vlm_model:
+  metadata_path: /home/mnt/data/video_rag_database/embedding_data/CharadesEgo_emb_only_metadata.csv
+  video_folder_path: /home/mnt/data/video_rag_database/CharadesEgo/CharadesEgo_v1_480
+
+video_vlm_prompt:
   system: |
-    You are participating in a game with friend 1 and friend 2, where you must intricately construct a "behavior" according to the current environment. This game requires you to observe visual information from the current environment or alter parts of it to generate a "fine-grained behavior" that is suitable for the real environment. The fine-grained behavior must be meticulously crafted so that a robot can perform them appropriately in the current environment. You can see the [Question] and [Possible object] but cannot see visual observations of the current environment or modify parts of it. Friend 1 can only see images of the current environment, and friend 2 is able to modify the environment. You have to decompose the “behavior” and ask your friend 1 about visual observation of the current environment and request environment modifications from your friend 2. Your friends provide answers that can be used to answer the original question.
+    you are a helpful language and video assistant. you have to focus on the actions of the arms and hands of the person in the video.
+  prompt_demo_extractor: |
+    [primitive actions] move, grasp, release with the hand, rotate 
+    Please explain this video in detail. When explaining, you must pair [primitive actions] with the context of the action. Example: <move to the cabinet> - <To open a cabinet with a handle, move your hand towards the cabinet."""
+    
+llm_prompt:
+  system: |
+    You are a participant in a game where you must create fine-grained commands for a robotic arm placed in a tabletop environment. Since you cannot see the environment or reference human actions on your own, you will be provided with two friends to assist you.
   fewshot: |
 
 llava_prompt:
@@ -23,6 +21,7 @@ llava_prompt:
     <image>\nYou must only mention these objects in your answer: <obj_list>. <question>
 
 
+physical_mode: 3d
 api_mode: google
 openai_settings:
   model: gpt-4-1106-preview
@@ -37,13 +36,14 @@ llava_model_2d:
   model_path: "/home/pjw971022/.cache/spatial_vlm/ggml-model-q4_0.gguf"
   temperature: 0.2
 llava_model_3d:
-  model-path: qizekun/ShapeLLM_13B_general_v1.0
-  model-base: 
+  model_path: qizekun/ShapeLLM_13B_general_v1.0
+  model_base: 
   device: 
   temperature: 0.2
-  max-new-tokens: 512
-  load-8bit: False
-
+  max_new_tokens: 512
+  load_8bit: False
+  load_4bit: False
+  conv_mode:
   # model_path: liuhaotian/llava-v1.5-13b-lora # liuhaotian/llava-v1.5-13b-lora
   # model_base: remyxai/SpaceLLaVA # liuhaotian/llava-v1.6-34b liuhaotian/llava-v1.6-vicuna-7b remyxai/SpaceLLaVA
   # conv_mode: spatial_vlm

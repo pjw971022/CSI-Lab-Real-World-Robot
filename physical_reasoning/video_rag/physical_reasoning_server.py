@@ -1,6 +1,6 @@
 
 from constants import SETTINGS_YAML_PATH, PATH_TO_OVERALL_RAW_DATA, RAW_DATA_BY_EP_DIR, OUTPUT_DIR, ARE_VAL_DATA
-from physical_reasoning.physical_reasoner import Physical_AS_REASONER
+from physical_reasoner import Physical_AS_REASONER
 import yaml
 
 if __name__ == "__main__":

@@ -326,122 +326,112 @@ def get_video_document_metadata( # CharadesEgo_
         video_metadata_df_final = pd.read_csv(metadata_path)
     else:
         video_metadata_df_final = pd.DataFrame()
+        save_interval = 500
+        video_files = glob.glob(video_folder_path + "/*.mp4", recursive=True)
+        sorted_video_files = sorted(video_files)
+        total_videos = len(sorted_video_files)
+        seq_idx = 0
+        for video_no, video_file in tqdm(enumerate(sorted_video_files), total=total_videos):
+            try_cnt = 0
+            while MAX_TRAIAL > try_cnt:
+                try_cnt+=1
+                try:
+                    video_embeddings, video_startOffsetSec, video_endOffsetSec = get_video_embedding_from_multimodal_embedding_model(
+                        video_uri=video_file,
+                        embedding_size=embedding_size,
+                    )
+                    break
+                except Exception as e:
+                    print(f'Google API got err {e}')
+                    print('Retrying after 3s.')
+                    time.sleep(3)
 
-    save_interval = 500
-    # if anntotation_path is not None:
-    #     annotation_df = pd.read_csv(anntotation_path)
-    initial_start_time = time.time()
-    video_files = glob.glob(video_folder_path + "/*.mp4", recursive=True)
-    sorted_video_files = sorted(video_files)
-    sorted_video_files = sorted_video_files[5999:]
-    total_videos = len(sorted_video_files)
-    seq_idx = 13440
-    for video_no, video_file in tqdm(enumerate(sorted_video_files), total=total_videos):
-        try_cnt = 0
-        video_no += 5999
-        while MAX_TRAIAL > try_cnt:
-            try_cnt+=1
-            try:
-                video_embeddings, video_startOffsetSec, video_endOffsetSec = get_video_embedding_from_multimodal_embedding_model(
-                    video_uri=video_file,
-                    embedding_size=embedding_size,
+            response_list = []
+            video_description_text_embedding_list = []
+            if use_video_description:  
+                for i in range(len(video_startOffsetSec)):
+                    splited_video_file = split_video(video_file, video_startOffsetSec[i], video_endOffsetSec[i])
+                    splited_video_for_gemini = get_video_for_gemini(
+                        splited_video_file
+                    )
+                    start_time = time.time()
+                    response = get_gemini_response(
+                        generative_multimodal_model,
+                        model_input=[video_description_prompt, splited_video_for_gemini],
+                        generation_config=generation_config,
+                        safety_settings=safety_settings,
+                        stream=True,
+                    )
+                    response_list.append(response)
+                    time_cost = time.time() - start_time
+                    print(f'*** Get video description call took {time_cost:.2f}s ***')
+
+                    start_time = time.time()
+                    video_description_text_embedding = (
+                        get_text_embedding_from_multimodal_embedding_model(text=response, embedding_size=embedding_size)
+                    )
+                    video_description_text_embedding_list.append(video_description_text_embedding)
+                    time_cost = time.time() - start_time
+                    print(f'*** Get text embedding call took {time_cost:.2f}s ***')
+
+        
+            # if anntotation_path is not None:
+            #     video_annotation = annotation_df['id'==video_file.split('.')[0]].to_dict() # @
+            # else:
+            video_annotation = None
+
+            video_metadata: Dict[Union[int, str], Dict] = {}
+            for i, video_embedding in enumerate(video_embeddings):
+                if use_video_description:
+                    video_metadata[seq_idx] = {
+                            "video_num": video_no,
+                            "seq_num": seq_idx,
+                            "video_path": video_file,
+                            "video_desc": response_list[i],
+                            'video_annotation': video_annotation,
+                            # "mm_embedding_from_text_desc_and_video": video_embedding_with_description,
+                            "video_embedding_from_video_only": video_embedding,
+                            "video_startOffsetSec": video_startOffsetSec[i],
+                            "video_endOffsetSec": video_endOffsetSec[i],
+                            "text_embedding_from_video_description": video_description_text_embedding_list[i],
+                        }
+                else:
+                    video_metadata[seq_idx] = {
+                            "video_num": video_no,
+                            "seq_num": seq_idx,
+                            "video_path": video_file,
+                            "video_desc": None,
+                            'video_annotation': video_annotation,
+                            # "mm_embedding_from_text_desc_and_video": video_embedding_with_description,
+                            "video_embedding_from_video_only": video_embedding,
+                            "video_startOffsetSec": video_startOffsetSec[i],
+                            "video_endOffsetSec": video_endOffsetSec[i],
+                            "text_embedding_from_video_description": None,
+                        }
+                seq_idx +=1
+            # Add sleep to reduce issues with Quota error on API
+            if add_sleep_after_video:
+                time.sleep(sleep_time_after_video)
+                print(
+                    "Sleeping for ",
+                    sleep_time_after_video,
+                    """ sec before processing the next page to avoid quota issues. You can disable it: "add_sleep_after_page = False"  """,
                 )
-                break
-            except Exception as e:
-                print(f'Google API got err {e}')
-                print('Retrying after 3s.')
-                time.sleep(3)
 
-        # time_cost = time.time() - start_time
-        # print(f'*** Get video embedding call took {time_cost:.2f}s ***')
-        response_list = []
-        video_description_text_embedding_list = []
-        if use_video_description:  
-            for i in range(len(video_startOffsetSec)):
-                splited_video_file = split_video(video_file, video_startOffsetSec[i], video_endOffsetSec[i])
-                splited_video_for_gemini = get_video_for_gemini(
-                    splited_video_file
-                )
-                start_time = time.time()
-                response = get_gemini_response(
-                    generative_multimodal_model,
-                    model_input=[video_description_prompt, splited_video_for_gemini],
-                    generation_config=generation_config,
-                    safety_settings=safety_settings,
-                    stream=True,
-                )
-                response_list.append(response)
-                time_cost = time.time() - start_time
-                print(f'*** Get video description call took {time_cost:.2f}s ***')
+            video_metadata_df = get_video_metadata_df(video_file, video_metadata)
 
-                start_time = time.time()
-                video_description_text_embedding = (
-                    get_text_embedding_from_multimodal_embedding_model(text=response, embedding_size=embedding_size)
-                )
-                video_description_text_embedding_list.append(video_description_text_embedding)
-                time_cost = time.time() - start_time
-                print(f'*** Get text embedding call took {time_cost:.2f}s ***')
-
-    
-        # if anntotation_path is not None:
-        #     video_annotation = annotation_df['id'==video_file.split('.')[0]].to_dict() # @
-        # else:
-        video_annotation = None
-
-        video_metadata: Dict[Union[int, str], Dict] = {}
-        for i, video_embedding in enumerate(video_embeddings):
-            if use_video_description:
-                video_metadata[seq_idx] = {
-                        "video_num": video_no,
-                        "seq_num": seq_idx,
-                        "video_path": video_file,
-                        "video_desc": response_list[i],
-                        'video_annotation': video_annotation,
-                        # "mm_embedding_from_text_desc_and_video": video_embedding_with_description,
-                        "video_embedding_from_video_only": video_embedding,
-                        "video_startOffsetSec": video_startOffsetSec[i],
-                        "video_endOffsetSec": video_endOffsetSec[i],
-                        "text_embedding_from_video_description": video_description_text_embedding_list[i],
-                    }
-            else:
-                video_metadata[seq_idx] = {
-                        "video_num": video_no,
-                        "seq_num": seq_idx,
-                        "video_path": video_file,
-                        "video_desc": None,
-                        'video_annotation': video_annotation,
-                        # "mm_embedding_from_text_desc_and_video": video_embedding_with_description,
-                        "video_embedding_from_video_only": video_embedding,
-                        "video_startOffsetSec": video_startOffsetSec[i],
-                        "video_endOffsetSec": video_endOffsetSec[i],
-                        "text_embedding_from_video_description": None,
-                    }
-            seq_idx +=1
-        # Add sleep to reduce issues with Quota error on API
-        if add_sleep_after_video:
-            time.sleep(sleep_time_after_video)
-            print(
-                "Sleeping for ",
-                sleep_time_after_video,
-                """ sec before processing the next page to avoid quota issues. You can disable it: "add_sleep_after_page = False"  """,
+            if (video_no + 1) % save_interval == 0 or (video_no + 1) == total_videos:
+                intermediate_save_path = f"{metadata_path.rstrip('.csv')}_intermediate_{video_no + 1}.csv"
+                video_metadata_df_final.to_csv(intermediate_save_path, index=False)
+                print(f"Intermediate data saved to {intermediate_save_path}")
+            video_metadata_df_final = pd.concat(
+                [
+                    video_metadata_df_final,
+                    video_metadata_df #.drop_duplicates(subset=["video_desc"]),
+                ],
+                axis=0,
             )
-
-        video_metadata_df = get_video_metadata_df(video_file, video_metadata)
-        # text_metadata_df_final = pd.concat(
-        #     [text_metadata_df_final, text_metadata_df], axis=0
-        # )
-        if (video_no + 1) % save_interval == 0 or (video_no + 1) == total_videos:
-            intermediate_save_path = f"{metadata_path.rstrip('.csv')}_intermediate_{video_no + 1}.csv"
-            video_metadata_df_final.to_csv(intermediate_save_path, index=False)
-            print(f"Intermediate data saved to {intermediate_save_path}")
-        video_metadata_df_final = pd.concat(
-            [
-                video_metadata_df_final,
-                video_metadata_df#.drop_duplicates(subset=["video_desc"]),
-            ],
-            axis=0,
-        )
-    video_metadata_df_final = video_metadata_df_final.reset_index(drop=True)
-    video_metadata_df_final.to_csv(metadata_path, index=False)
+        video_metadata_df_final = video_metadata_df_final.reset_index(drop=True)
+        video_metadata_df_final.to_csv(metadata_path, index=False)
 
     return video_metadata_df_final

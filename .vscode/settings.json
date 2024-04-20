@@ -1,3 +1,7 @@
 {
+<<<<<<< HEAD
     "git.ignoreLimitWarning": true
+=======
+    "DockerRun.DisableDockerrc": true
+>>>>>>> 1bf6b9af0a8a3d27cd0212b2fe2f2dbd7b53d042
 }

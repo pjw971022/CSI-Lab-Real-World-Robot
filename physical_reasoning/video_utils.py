@@ -17,26 +17,20 @@ KEY_PATH = WORKSPACE + "/Sembot/physical_reasoning/gemini-video-0403-0476b10bf02
 prompt_demo_extractor ="""
 Please explain in detail, focusing on the actions of the arms and hands of the person in the video. When explaining, you must pair primitive actions such as move, grasp, and rotate with the context of the action. Example: <move to the cabinet> - To open a cabinet with a handle, move your hand towards the cabinet."""
 
-#-----------------------------------------------------------------------------
 
 def upload_blob(source_file_name, destination_blob_name, bucket_name = 'expert_video_demo'):
-    storage_client = storage.Client(project='gemini-api-413603')
+    storage_client = storage.Client(project='gemini-video-0403')
     bucket = storage_client.bucket(bucket_name)
     
-    # 파일 업로드
     blob = bucket.blob(destination_blob_name)
     blob.upload_from_filename(source_file_name)
     
-    # 파일에 공개 액세스 권한 설정
     blob.make_public()
     print(f"###### upload blob: {destination_blob_name}")
-    # 파일의 URI 반환
     return f"gs://{bucket_name}/{destination_blob_name}"
 
-
-#-----------------------------------------------------------------------------
 class VideoLLMQuery:
-    def __init__(self, video_folder_path, video_description_prompt) -> None:
+    def __init__(self, model_dict) -> None:
         self.vision_config = {"max_output_tokens": 800, "temperature": 0.2, "top_p": 1, "top_k": 32}
         self.text_config = {"max_output_tokens": 512, "temperature": 0.0, "top_p": 1}
         self.safety_settings = [
@@ -54,36 +48,57 @@ class VideoLLMQuery:
         vision_model = GenerativeModel("gemini-pro-vision")
         return vision_model
     
+    def reinit(self,):
+        self.conv = []
+    
+    def save_gemini_conv(self, role, contents):
+        system_promt = ''
+        if role == 'system':
+            system_promt = contents
+        elif role == 'user':
+            if isinstance(contents, list):
+                self.conv.append({'role': 'user', 'parts': contents})
+            else:
+                self.conv.append({'role': 'user', 'parts': [contents]})
+        elif role == 'assistant':
+            self.conv.append({'role': 'model', 'parts': [contents]})
+    
+        if system_promt:
+            self.conv[0]['parts'].insert(0, f"*{system_promt}*") # @
+        
     def gen_caption(self, video="demo_video.mp4"):
         video_uri = upload_blob(video, video)
         video_file = Part.from_uri(video_uri, mime_type="video/mp4")
 
-        contents = [video_file, prompt_demo_extractor ]
+        contents = [video_file, 'Generate a caption for this video.']
         response_2 = self.model.generate_content(contents, generation_config=self.vision_config) #, safety_settings = self.safety_settings
         description_video = response_2.text
         return description_video
     
-    
-    def query_to_video(self, question, video_path="demo_video.mp4"):
+    def query_one(self, system_msg, retrieval_query, va_query):
+        self.save_gemini_conv('system', system_msg)
+
+        video_info = self.retriever.find_video(retrieval_query)
+        video_path = self.video_folder_path + '/' + video_info['video_path'].split('/')[-1]
 
         video_uri = upload_blob(video_path, video_path.split('/')[-1])
         video_file = Part.from_uri(video_uri, mime_type="video/mp4")
 
-        contents = [video_file, question]
+        contents = [video_file, va_query]
+        self.save_gemini_conv('user', contents) # 대화가 저장되고 대화 기반으로 contents 구성
+        # contents = self.conv
         response = self.model.generate_content(contents, generation_config=self.vision_config) #, safety_settings = self.safety_settings
-        description_video = response.text
-        return description_video
+        behavior_rationale = response.text
+        return behavior_rationale
 
 from video_rag.utils import get_similar_video_from_query, get_video_document_metadata
-
 class VideoRetriever:
     def __init__(self, 
                  video_folder_path,
-                 video_description_prompt,
-                 use_video_description,
-                 metadata_path):
+                 video_description_prompt=None,
+                 use_video_description=False,
+                 metadata_path=None):
         self.multimodal_model = self.setup()
-
         self.video_metadata_df = get_video_document_metadata(
             self.multimodal_model,  # we are passing gemini 1.0 pro vision model
             video_folder_path=video_folder_path,
@@ -91,9 +106,6 @@ class VideoRetriever:
             embedding_size=1408,
             metadata_path=metadata_path,
             use_video_description=use_video_description,
-            # add_sleep_after_page = True, # Uncomment this if you are running into API quota issues
-            # generation_config = # see next cell
-            # safety_settings =  # see next cell
         )
 
     def setup(self,):

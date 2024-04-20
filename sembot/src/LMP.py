@@ -12,6 +12,7 @@ from LLM_cache import DiskCache
 import google.generativeai as genai
 genai.configure(api_key='AIzaSyDRv4MkxqaTD9Nn4xDieqFkHbf8Ny4eU_I')
 MAX_TRAIAL = 5
+WORKSPACE='/home/pjw971022/workspace'
 SAFETY_SETTINGS = [
             {
             "category": "HARM_CATEGORY_HARASSMENT",

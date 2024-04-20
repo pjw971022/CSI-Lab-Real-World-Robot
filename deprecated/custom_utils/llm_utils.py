@@ -110,7 +110,6 @@ key_path = WORKSPACE + "/Sembot/physical_reasoning/gemini-video-0403-0476b10bf02
 video_path = "/home/pjw971022/Sembot/real_bot/save_vision/obs/"
 
 class LLMAgent:
-
     def __init__(self,) -> None:
         self.sentence_model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
         self.vision_config = {"max_output_tokens": 1024, "temperature": 0.0, "top_p": 1, "top_k": 32}
