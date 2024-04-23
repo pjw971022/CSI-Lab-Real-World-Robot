@@ -31,7 +31,7 @@ SAFETY_SETTINGS = [
             "threshold": "BLOCK_NONE"
             }
         ]
-
+from physical_reasoning.vqa_utils import call_meta_chat
 class LMP:
     """Language Model Program (LMP), adopted from Code as Policies."""
     def __init__(self, name, cfg, fixed_vars, variable_vars, debug=False, env='rlbench',tracker=None):
@@ -88,6 +88,27 @@ class LMP:
         if system_promt:
             messages_gemini[0]['parts'].insert(0, f"*{system_promt}*")
         return messages_gemini
+    
+    def transform_to_llama(self, messages_chatgpt):
+        parts = []
+        system_prompt = None
+
+        for message in messages_chatgpt:
+            if message['role'] == 'system':
+                system_prompt = f"'systemPrompt': '{message['content']}'"
+            elif message['role'] == 'user':
+                parts.append(f"'user': '{message['content']}'")
+            elif message['role'] == 'assistant':
+                parts.append(f"'Assistant': '{message['content']}'")
+        
+        if system_prompt:
+            prompt_structure = ",\n".join([system_prompt] + parts)
+        else:
+            prompt_structure = ",\n".join(parts)
+        
+        prompt = f"\"\"\"{{\n{prompt_structure}\n}}\"\"\""
+
+        return prompt
 
     def _cached_api_call(self, **kwargs):
         # add special prompt for chat endpoint
@@ -124,7 +145,15 @@ class LMP:
         kwargs['messages'] = messages
     
         # check whether completion endpoint or chat endpoint is used
-        if  any([chat_model in kwargs['model'] for chat_model in ['gemini-pro', 'gemini-1.0-pro-latest', 'gemini-pro-vision']]):
+        if any([chat_model in kwargs['model'] for chat_model in ['llama3-70b','llama3-8b']]):
+            meta_messages = self.transform_to_llama(messages)
+            ret = call_meta_chat(meta_messages,
+                        model = kwargs['model'],
+                temperature = self._cfg['temperature'],
+                max_tokens_in_use = self._cfg['max_tokens'])
+            return ret
+        
+        elif  any([chat_model in kwargs['model'] for chat_model in ['gemini-pro', 'gemini-1.0-pro-latest', 'gemini-pro-vision']]):
             model = genai.GenerativeModel(kwargs['model'])
 
             messages = self.transform_to_gemini(messages)
@@ -132,9 +161,7 @@ class LMP:
             response = model.generate_content(messages,
                                 generation_config = self.text_config,
                                 safety_settings=self.safety_settings)
-
             ret = response.text
-
             # post processing
             ret = ret.replace('```', '').replace('python', '').strip()
             self._cache[kwargs] = ret
@@ -177,6 +204,21 @@ class LMP:
         else:
             while MAX_TRAIAL > try_cnt:
                 try_cnt+=1
+                if any([chat_model in self._cfg['model'] for chat_model in ['llama3-70b','llama3-8b']]):
+                    try:
+                        code_str = self._cached_api_call(
+                            prompt=prompt,
+                            stop=self._stop_tokens,
+                            temperature=self._cfg['temperature'],
+                            model=self._cfg['model'],
+                            max_tokens=self._cfg['max_tokens']
+                        )
+                        print(f'*** Llama3 API call took {time.time() - start_time:.2f}s ***')
+                        break
+                    except Exception as e:
+                        print(f'Llama3 API got err {e}')
+                        print('Retrying after 0.1s.')
+                        sleep(0.1)
                 if any([chat_model in self._cfg['model'] for chat_model in ['gpt-3.5', 'gpt-4','gpt-4-1106-preview']]):
                     try:
                         code_str, usage = self._cached_api_call(
@@ -196,12 +238,11 @@ class LMP:
                     except (openai.RateLimitError, openai.APIConnectionError) as e:
                         print(f'OpenAI API got err {e}')
                         print('Retrying after 3s.')
-                        sleep(5)
+                        sleep(3)
                 elif any([chat_model in self._cfg['model'] for chat_model in ['gemini-pro', 'gemini-1.0-pro-latest','gemini-pro-vision']]):
                     try:
                         code_str = self._cached_api_call(
                             prompt=prompt,
-                            # motion_guideline=motion_guideline,
                             stop=self._stop_tokens,
                             temperature=self._cfg['temperature'],
                             model=self._cfg['model'],
@@ -213,7 +254,7 @@ class LMP:
                     except Exception as e:
                         print(f'Google API got err {e}')
                         print('Retrying after 3s.')
-                        sleep(5)
+                        sleep(3)
                 else:
                     raise NotImplementedError
 
@@ -251,10 +292,8 @@ class LMP:
                 import pdb ; pdb.set_trace()
         else:
             exec_safe(to_exec, gvars, lvars)
-        
 
         self.exec_hist += f'\n{to_log.strip()}'
-        # import ipdb;ipdb.set_trace()
 
         if self._cfg['maintain_session']:
             self._variable_vars.update(lvars)

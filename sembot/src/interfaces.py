@@ -95,6 +95,7 @@ class LMP_interface():
   
   def execute(self, movable_obs_func, affordance_map=None, avoidance_map=None, rotation_map=None,
               velocity_map=None, gripper_map=None):
+    start_time = time.time()
     """
     First use planner to generate waypoint path, then use controller to follow the waypoints.
 
@@ -227,6 +228,7 @@ class LMP_interface():
         f.write("#" * 30 + "\n\n\n")
 
       wandb.log({"reward": result[1]})
+      print(f'*** Motion planning API call took {time.time() - start_time:.2f}s ***')
 
 
     return execute_info # @

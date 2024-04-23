@@ -183,3 +183,4 @@ physical_reasoning/pc_2d/utils/LLaVA
 physical_reasoning/pc_3d/ShapeLLM
 sembot/src/envs/gemini-video-0403-0476b10bf020.json
 physical_reasoning/pc_3d/ShapeLLM/checkpoints/recon/large.pth
+sembot/src/visualizations

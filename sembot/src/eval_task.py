@@ -22,7 +22,7 @@ CUSTOM_TASKS = [
     # tasks.LampOff,
     # tasks.PutKnifeOnChoppingBoard,
     # tasks.TakeOffWeighingScales,
-    # tasks.PushButton,
+    tasks.PushButton,
 
     ########################   middle success rate   #########################
     # tasks.SlideBlockToTarget, # 타겟의 반대 방향은 좌우앞뒤 중 어디인지 알아야함. 
@@ -39,7 +39,7 @@ CUSTOM_TASKS = [
 
     ########## Tasks likely to appear in the video DB. ###############
     #  tasks.PressSwitch,
-     tasks.PutBooksOnBookshelf,
+    #  tasks.PutBooksOnBookshelf,
     #  tasks.CloseLaptopLid,
 
     ####################### Detection Error ##########################
@@ -63,7 +63,7 @@ def main(cfgs: DictConfig):
 
     # uncomment this if you'd like to change the language model (e.g., for faster speed or lower cost)
     for lmp_name, cfg in config['lmp_config']['lmps'].items():
-        cfg['model'] = 'gemini-1.0-pro-latest' # #'gpt-4-1106-preview' #'gemini-1.0-pro-latest'
+        cfg['model'] = 'llama3-70b' #'gemini-1.0-pro-latest' # #'gpt-4-1106-preview' #'gemini-1.0-pro-latest'
 
     # initialize env and voxposer ui
     use_server = config['use_server']
@@ -112,17 +112,23 @@ def main(cfgs: DictConfig):
                 if '{target_obj}' in oracle_plan_code:
                     oracle_plan_code = oracle_plan_code.replace('{target_obj}', target_obj)
                 voxposer_ui(instruction, plan_code=oracle_plan_code) # 
-            elif use_oracle_instruction:
-                oracle_instruction = load_prompt(f"{config['env_name']}/oracle_instruction/{task_name}.txt")
-                voxposer_ui(oracle_instruction) #
             elif use_sembot:
-                oracle_plan_code = None
-                obs_dict = {'instruction': instruction, 'possible_obj': env.get_object_names()}
-                interactive_agent(obs_dict)
+                if use_oracle_instruction:
+                    oracle_instruction = load_prompt(f"{config['env_name']}/oracle_instruction/{task_name}.txt")
+                    obs_dict = {'instruction': oracle_instruction, 'possible_obj': env.get_object_names()}
+                    interactive_agent(obs_dict) #
+                else:
+                    oracle_plan_code = None
+                    obs_dict = {'instruction': instruction, 'possible_obj': env.get_object_names()}
+                    instruction += f'. {interactive_agent.obs_captioning()}'
+                    interactive_agent(obs_dict)
             else:
-                voxposer_ui(instruction)
+                if use_oracle_instruction:
+                    oracle_instruction = load_prompt(f"{config['env_name']}/oracle_instruction/{task_name}.txt")
+                    voxposer_ui(oracle_instruction) #
+                else:      
+                    voxposer_ui(instruction)
             i +=1
-
 
     wandb.finish()
 

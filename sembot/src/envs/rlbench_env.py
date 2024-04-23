@@ -306,16 +306,16 @@ class VoxPoserRLBench():
         if len(grasped_objects) > 0:
             self.grasped_obj_ids = [obj.get_handle() for obj in grasped_objects]
         
-        rgb_dict = {}
-        rgb_dict['front_rgb'] = obs.front_rgb
-        rgb_dict['wrist_rgb'] = obs.wrist_rgb
-        rgb_dict['overhead_rgb'] = obs.overhead_rgb
-        rgb_dict['left_shoulder_rgb'] = obs.left_shoulder_rgb
-        rgb_dict['right_shoulder_rgb'] = obs.right_shoulder_rgb
-        for key, val in rgb_dict.items():
-            val = val.astype(np.uint8)
-            image = Image.fromarray(val)
-            image.save(f'/home/jinwoo/workspace/Sembot/sembot/src/visualizations/obs/{key}.png')
+        # rgb_dict = {}
+        # rgb_dict['front_rgb'] = obs.front_rgb
+        # rgb_dict['wrist_rgb'] = obs.wrist_rgb
+        # rgb_dict['overhead_rgb'] = obs.overhead_rgb
+        # rgb_dict['left_shoulder_rgb'] = obs.left_shoulder_rgb
+        # rgb_dict['right_shoulder_rgb'] = obs.right_shoulder_rgb
+        # for key, val in rgb_dict.items():
+        #     val = val.astype(np.uint8)
+        #     image = Image.fromarray(val)
+        #     image.save(f'/home/jinwoo/workspace/Sembot/sembot/src/visualizations/obs/{key}.png')
 
         return obs, reward, terminate
 

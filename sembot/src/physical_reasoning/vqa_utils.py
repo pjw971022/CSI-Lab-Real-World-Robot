@@ -9,7 +9,6 @@ def safe_mkdir(path):
         os.mkdir(path)
 
 
-vision_config = {"max_output_tokens": 800, "temperature": 0.0, "top_p": 1, "top_k": 32}
 SAFETY_SETTINGS = [
             {
             "category": "HARM_CATEGORY_HARASSMENT",
@@ -27,13 +26,33 @@ SAFETY_SETTINGS = [
             "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
             "threshold": "BLOCK_NONE"
             }]
+import requests
+def call_meta_chat(messages, model="llama3", temperature=0.0, max_tokens_in_use=2048):
+    ret = ''
+    response = requests.post('https://fumes-api.onrender.com/llama3',
+    json={
+    'prompt': messages,
+    "temperature":temperature,
+    "topP":0.9,
+    "maxTokens": max_tokens_in_use
 
+    }, stream=True)
+    for chunk in response.iter_content(chunk_size=1024):  
+        if chunk:
+            ret += chunk.decode('utf-8')
+    ret = ret.replace('YOU CAN BUY ME COFFE! https://buymeacoffee.com/mygx', '')
+    return ret
 
 import google.generativeai as genai
 genai.configure(api_key='AIzaSyDRv4MkxqaTD9Nn4xDieqFkHbf8Ny4eU_I')
 
 def call_google_chat(messages, model="gemini-pro", temperature=0.0, max_tokens_in_use=2048):
-    text_config = {"max_output_tokens": max_tokens_in_use, "temperature": temperature, "top_p": 1}
+    if "vision" in model:
+        config = {"max_output_tokens": max_tokens_in_use, "temperature": temperature, "top_p": 1, "top_k": 32}
+
+    else:
+        config = {"max_output_tokens": max_tokens_in_use, "temperature": temperature, "top_p": 1}
+
     safety_settings = SAFETY_SETTINGS
     start_time = time.time()
     num_attempts = 0
@@ -42,7 +61,7 @@ def call_google_chat(messages, model="gemini-pro", temperature=0.0, max_tokens_i
         try:
             response = model.generate_content(
                 contents=messages,
-                generation_config=text_config, safety_settings = safety_settings
+                generation_config=config, safety_settings = safety_settings
             )
             parts = response.parts
             generated_sequence = ''
