@@ -14,7 +14,7 @@ import rlbench.tasks as tasks
 from pyrep.const import ObjectType
 from utils import normalize_vector, bcolors
 from PIL import Image
-WORKSPACE = '/home/jinwoo/workspace'
+WORKSPACE = '/home/pjw971022/workspace'
 class CustomMoveArmThenGripper(MoveArmThenGripper):
     """
     A potential workaround for the default MoveArmThenGripper as we frequently run into zero division errors and failed path.
@@ -27,7 +27,7 @@ class CustomMoveArmThenGripper(MoveArmThenGripper):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self._prev_arm_action = None
-
+    
     def action(self, scene, action):
         arm_act_size = np.prod(self.arm_action_mode.action_shape(scene))
         arm_action = np.array(action[:arm_act_size])
@@ -37,7 +37,7 @@ class CustomMoveArmThenGripper(MoveArmThenGripper):
             self.gripper_action_mode.action(scene, ee_action)
         else:
             try:
-                self.arm_action_mode.action(scene, arm_action)
+                self.arm_action_mode.action(scene, arm_action) # @ bottleneck
             except Exception as e:
                 print(f'{bcolors.FAIL}[rlbench_env.py] Ignoring failed arm action; Exception: "{str(e)}"{bcolors.ENDC}') # @
                 
@@ -50,11 +50,10 @@ import zmq
 from LMP import LMP
 from rlbench.observation_config import ObservationConfig, CameraConfig
 import re
-sys.path.append('/home/jinwoo/workspace/Sembot/sembot/src/spatial_utils')
+sys.path.append('/home/pjw971022/workspace/Sembot/sembot/src/spatial_utils')
 
-
+import time
 import yaml
-
 class VoxPoserRLBench():
     def __init__(self, visualizer=None, save_pcd=False, use_server=True, server_ip="tcp://115.145.173.246:5555"):
         """
@@ -65,7 +64,7 @@ class VoxPoserRLBench():
         """
         action_mode = CustomMoveArmThenGripper(arm_action_mode=EndEffectorPoseViaPlanning(),
                                         gripper_action_mode=Discrete())
-        cam_config = CameraConfig(image_size=(720,720))
+        cam_config = CameraConfig(image_size=(720,720)) # , depth=False, rgb=False
         obs_config = ObservationConfig( right_shoulder_camera= cam_config,
                                         left_shoulder_camera= cam_config,
                                        overhead_camera= cam_config,
@@ -250,7 +249,7 @@ class VoxPoserRLBench():
         colors = np.asarray(pcd_downsampled.colors).astype(np.uint8)
         if self.save_pcd and reset:
             task_name = self.task.get_name()
-            file_path = f"/home/jinwoo/workspace/Sembot/sembot/src/pcd_data/{task_name}_pts.ply"  # 저장할 파일 경로와 이름
+            file_path = f"/home/pjw971022/workspace/Sembot/sembot/src/pcd_data/{task_name}_pts.ply"  # 저장할 파일 경로와 이름
             o3d.io.write_point_cloud(file_path, pcd_downsampled)
             # transfer_file_to_remote_host(file_path)
             print("#############  Shape: ", points.shape)
@@ -266,24 +265,24 @@ class VoxPoserRLBench():
         assert self.task is not None, "Please load a task first"
         self.task.sample_variation()
         descriptions, obs = self.task.reset()
-        rgb_dict = {}
-        rgb_dict['front_rgb'] = obs.front_rgb
-        rgb_dict['wrist_rgb'] = obs.wrist_rgb
-        rgb_dict['overhead_rgb'] = obs.overhead_rgb
-        rgb_dict['left_shoulder_rgb'] = obs.left_shoulder_rgb
-        rgb_dict['right_shoulder_rgb'] = obs.right_shoulder_rgb
-        for key, val in rgb_dict.items():
-            val = val.astype(np.uint8)
-            image = Image.fromarray(val)
-            image.save(f'/home/jinwoo/workspace/Sembot/sembot/src/visualizations/obs/{key}.png')
+        # rgb_dict = {}
+        # rgb_dict['front_rgb'] = obs.front_rgb
+        # rgb_dict['wrist_rgb'] = obs.wrist_rgb
+        # rgb_dict['overhead_rgb'] = obs.overhead_rgb
+        # rgb_dict['left_shoulder_rgb'] = obs.left_shoulder_rgb
+        # rgb_dict['right_shoulder_rgb'] = obs.right_shoulder_rgb
+        # for key, val in rgb_dict.items():
+        #     val = val.astype(np.uint8)
+        #     image = Image.fromarray(val)
+        #     image.save(f'/home/pjw971022/workspace/Sembot/sembot/src/visualizations/obs/{key}.png')
 
         obs = self._process_obs(obs)
         self.init_obs = obs
         self.latest_obs = obs
         self._update_visualizer(reset=True)
         return descriptions, obs
-
-    def apply_action(self, action):
+    
+    def apply_action(self, action, get_vision=True):
         """
         Applies an action in the environment and updates the state.
 
@@ -295,9 +294,10 @@ class VoxPoserRLBench():
         """
         assert self.task is not None, "Please load a task first"
         action = self._process_action(action)
-        obs, reward, terminate = self.task.step(action)
-        obs = self._process_obs(obs)
-        self.latest_obs = obs
+        obs, reward, terminate = self.task.step(action, get_vision=get_vision)
+        if get_vision:
+            obs = self._process_obs(obs)    
+            self.latest_obs = obs
         self.latest_reward = reward
         self.latest_terminate = terminate
         self.latest_action = action
@@ -305,18 +305,6 @@ class VoxPoserRLBench():
         grasped_objects = self.rlbench_env._scene.robot.gripper.get_grasped_objects()
         if len(grasped_objects) > 0:
             self.grasped_obj_ids = [obj.get_handle() for obj in grasped_objects]
-        
-        # rgb_dict = {}
-        # rgb_dict['front_rgb'] = obs.front_rgb
-        # rgb_dict['wrist_rgb'] = obs.wrist_rgb
-        # rgb_dict['overhead_rgb'] = obs.overhead_rgb
-        # rgb_dict['left_shoulder_rgb'] = obs.left_shoulder_rgb
-        # rgb_dict['right_shoulder_rgb'] = obs.right_shoulder_rgb
-        # for key, val in rgb_dict.items():
-        #     val = val.astype(np.uint8)
-        #     image = Image.fromarray(val)
-        #     image.save(f'/home/jinwoo/workspace/Sembot/sembot/src/visualizations/obs/{key}.png')
-
         return obs, reward, terminate
 
     def sensor(self, cmd):
@@ -456,7 +444,6 @@ class VoxPoserRLBench():
         if self.visualizer is not None:
             points, colors = self.get_scene_3d_obs(ignore_robot=False, ignore_grasped_obj=False, reset=reset)
             self.visualizer.update_scene_points(points, colors)
-    
     def _process_obs(self, obs):
         """
         Processes the observations, specifically converts quaternion format from xyzw to wxyz.
@@ -471,7 +458,6 @@ class VoxPoserRLBench():
         quat_wxyz = np.concatenate([quat_xyzw[-1:], quat_xyzw[:-1]])
         obs.gripper_pose[3:] = quat_wxyz
         return obs
-
     def _process_action(self, action):
         """
         Processes the action, specifically converts quaternion format from wxyz to xyzw.

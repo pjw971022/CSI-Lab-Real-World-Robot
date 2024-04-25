@@ -32,6 +32,9 @@ SAFETY_SETTINGS = [
             }
         ]
 from physical_reasoning.vqa_utils import call_meta_chat
+import transformers
+import torch
+
 class LMP:
     """Language Model Program (LMP), adopted from Code as Policies."""
     def __init__(self, name, cfg, fixed_vars, variable_vars, debug=False, env='rlbench',tracker=None):
@@ -51,7 +54,32 @@ class LMP:
         self.tracker = tracker
         self.text_config = {"max_output_tokens": self._cfg['max_tokens'], "temperature": self._cfg['temperature'], "top_p": 1, "stop_sequences" : self._stop_tokens}
         self.safety_settings = SAFETY_SETTINGS
-        
+        if cfg['model'] == 'llama3-8b':
+            model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
+            self.pipeline = transformers.pipeline(
+                "text-generation",
+                model=model_id,
+                model_kwargs={"torch_dtype": torch.bfloat16},
+                # model_kwargs={
+                #     "torch_dtype": torch.float16,
+                #     "quantization_config": {"load_in_4bit": True},
+                #     "low_cpu_mem_usage": True,
+                # },
+                device='cuda'
+            )
+        elif cfg['model'] == 'llama3-70b':
+            model_id = "meta-llama/Meta-Llama-3-70B-Instruct"
+            self.pipeline = transformers.pipeline(
+                "text-generation",
+                model=model_id,
+                # model_kwargs={"torch_dtype": torch.bfloat16},
+                model_kwargs={
+                    "torch_dtype": torch.float16,
+                    "quantization_config": {"load_in_4bit": True},
+                    "low_cpu_mem_usage": True,
+                },
+            )
+
     def clear_exec_hist(self):
         self.exec_hist = ''
 
@@ -85,6 +113,7 @@ class LMP:
                 messages_gemini.append({'role': 'user', 'parts': [message['content']]})
             elif message['role'] == 'assistant':
                 messages_gemini.append({'role': 'model', 'parts': [message['content']]})
+        
         if system_promt:
             messages_gemini[0]['parts'].insert(0, f"*{system_promt}*")
         return messages_gemini
@@ -109,7 +138,6 @@ class LMP:
         prompt = f"\"\"\"{{\n{prompt_structure}\n}}\"\"\""
 
         return prompt
-
     def _cached_api_call(self, **kwargs):
         # add special prompt for chat endpoint
         user1 = kwargs.pop('prompt')
@@ -146,13 +174,39 @@ class LMP:
     
         # check whether completion endpoint or chat endpoint is used
         if any([chat_model in kwargs['model'] for chat_model in ['llama3-70b','llama3-8b']]):
+            messages = [
+                {"role": "system", "content": "You are a pirate chatbot who always responds in pirate speak!"},
+                {"role": "user", "content": "Who are you?"},
+            ]
+
+            prompt = self.pipeline.tokenizer.apply_chat_template(
+                    messages, 
+                    tokenize=False, 
+                    add_generation_prompt=True
+            )
+
+            terminators = [
+                self.pipeline.tokenizer.eos_token_id,
+                self.pipeline.tokenizer.convert_tokens_to_ids("<|eot_id|>")
+            ]
+
+            ret = self.pipeline(
+                prompt,
+                max_new_tokens=self._cfg['max_tokens'],
+                eos_token_id=terminators,
+                do_sample=True,
+                temperature=self._cfg['temperature'],
+                top_p=1.0,
+            )
+            return ret
+
+        elif any([chat_model in kwargs['model'] for chat_model in ['llama3-70b-server']]):
             meta_messages = self.transform_to_llama(messages)
             ret = call_meta_chat(meta_messages,
                         model = kwargs['model'],
                 temperature = self._cfg['temperature'],
                 max_tokens_in_use = self._cfg['max_tokens'])
             return ret
-        
         elif  any([chat_model in kwargs['model'] for chat_model in ['gemini-pro', 'gemini-1.0-pro-latest', 'gemini-pro-vision']]):
             model = genai.GenerativeModel(kwargs['model'])
 
@@ -194,7 +248,7 @@ class LMP:
                 # ret = openai.Completion.create(**kwargs)['choices'][0]['text']
                 self._cache[kwargs] = ret
                 return ret, usg
-
+    # @profile
     def __call__(self, query, **kwargs):
         prompt, user_query = self.build_prompt(query)
         start_time = time.time()
@@ -238,7 +292,7 @@ class LMP:
                     except (openai.RateLimitError, openai.APIConnectionError) as e:
                         print(f'OpenAI API got err {e}')
                         print('Retrying after 3s.')
-                        sleep(3)
+                        sleep(5)
                 elif any([chat_model in self._cfg['model'] for chat_model in ['gemini-pro', 'gemini-1.0-pro-latest','gemini-pro-vision']]):
                     try:
                         code_str = self._cached_api_call(
@@ -302,11 +356,10 @@ class LMP:
             if self._name == 'parse_query_obj':
                 try:
                     # there may be multiple objects returned, but we also want them to be unevaluated functions so that we can access latest obs
-                    return IterableDynamicObservation(lvars[self._cfg['return_val_name']])
+                    return IterableDynamicObservation(lvars[self._cfg['return_val_name']]) # @ bottleneck
                 except AssertionError:
                     return DynamicObservation(lvars[self._cfg['return_val_name']])
             return lvars[self._cfg['return_val_name']]
-
 
 def merge_dicts(dicts):
     return {
