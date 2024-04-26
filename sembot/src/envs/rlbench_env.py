@@ -126,6 +126,8 @@ class VoxPoserRLBench():
         if isinstance(task, str):
             task = getattr(tasks, task)
         self.task = self.rlbench_env.get_task(task)
+
+
         self.arm_mask_ids = [obj.get_handle() for obj in self.task._robot.arm.get_objects_in_tree(exclude_base=False)]
         self.gripper_mask_ids = [obj.get_handle() for obj in self.task._robot.gripper.get_objects_in_tree(exclude_base=False)]
         self.robot_mask_ids = self.arm_mask_ids + self.gripper_mask_ids
@@ -263,7 +265,8 @@ class VoxPoserRLBench():
             tuple: A tuple containing task descriptions and initial observations.
         """
         assert self.task is not None, "Please load a task first"
-        self.task.sample_variation()
+        # self.task.sample_variation()
+        self.task.set_variation(0)
         descriptions, obs = self.task.reset()
         # rgb_dict = {}
         # rgb_dict['front_rgb'] = obs.front_rgb

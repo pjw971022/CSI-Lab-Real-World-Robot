@@ -1,4 +1,2 @@
-composer("move ee to the right of block") 
-composer("close the gripper")
-composer("push the block toward center of target")
+composer("push the block toward the target")
 # done

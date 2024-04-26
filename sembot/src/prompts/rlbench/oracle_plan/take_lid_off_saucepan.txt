@@ -1,6 +1,3 @@
-composer("grasp 2cm below the saucepan lid")
-composer("back to default pose")
-composer("move to 10cm on top of the table")
-composer("open gripper")
-composer("back to default pose")
+composer("grasp the saucepan lid")
+composer("move up the lid")
 # done

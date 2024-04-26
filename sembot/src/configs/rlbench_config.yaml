@@ -1,6 +1,7 @@
 env_name: rlbench
 episode_length: 1
 use_server: false
+use_human_agent: true
 use_oracle_plan: false
 use_oracle_instruction: false
 use_sembot: false
@@ -16,15 +17,15 @@ interactive_agent:
   env_context_mode: human
   openai_settings:
     model: gpt-4-1106-preview
-    temperature: 1
+    temperature: 0.2
     max_tokens: 2049
   google_settings:
     model: gemini-1.0-pro-latest
-    temperature: 1
+    temperature: 0.2
     max_tokens: 2049
   meta_settings:
     model: llama3-70b
-    temperature: 1
+    temperature: 0.2
     max_tokens: 2049
   prompt:
 
@@ -57,13 +58,13 @@ lmp_config:
     map_size: 100
     num_waypoints_per_plan: 10000  # set to a large number since we only do open loop for sim
     max_plan_iter: 1
-    visualize: false
+    visualize: true
   lmps:
     planner:
       prompt_fname: planner_prompt
       model: gpt-4
       max_tokens: 512
-      temperature: 0
+      temperature: 0.1
       query_prefix: '# Query: '
       query_suffix: '.'
       stop:
@@ -78,7 +79,7 @@ lmp_config:
       prompt_fname: composer_prompt
       model: gpt-4
       max_tokens: 512
-      temperature: 0
+      temperature: 0.1
       query_prefix: '# Query: '
       query_suffix: '.'
       stop:
@@ -93,7 +94,7 @@ lmp_config:
       prompt_fname: parse_query_obj_prompt
       model: gpt-4
       max_tokens: 512
-      temperature: 0
+      temperature: 0.1
       query_prefix: '# Query: '
       query_suffix: '.'
       stop:
@@ -108,7 +109,7 @@ lmp_config:
       prompt_fname: get_affordance_map_prompt
       model: gpt-4
       max_tokens: 512
-      temperature: 0
+      temperature: 0.1
       query_prefix: '# Query: '
       query_suffix: '.'
       stop:
@@ -123,7 +124,7 @@ lmp_config:
       prompt_fname: get_avoidance_map_prompt
       model: gpt-4
       max_tokens: 512
-      temperature: 0
+      temperature: 0.1
       query_prefix: '# Query: '
       query_suffix: '.'
       stop:
@@ -138,7 +139,7 @@ lmp_config:
       prompt_fname: get_velocity_map_prompt
       model: gpt-4
       max_tokens: 512
-      temperature: 0
+      temperature: 0.1
       query_prefix: '# Query: '
       query_suffix: '.'
       stop:
@@ -153,7 +154,7 @@ lmp_config:
       prompt_fname: get_rotation_map_prompt
       model: gpt-4
       max_tokens: 512
-      temperature: 0
+      temperature: 0.1
       query_prefix: '# Query: '
       query_suffix: '.'
       stop:
@@ -168,7 +169,7 @@ lmp_config:
       prompt_fname: get_gripper_map_prompt
       model: gpt-4
       max_tokens: 512
-      temperature: 0
+      temperature: 0.1
       query_prefix: '# Query: '
       query_suffix: '.'
       stop:

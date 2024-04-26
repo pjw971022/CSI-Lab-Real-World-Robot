@@ -1,5 +1,5 @@
 composer("move 2cm below the bottle cap")
 composer("close the gripper")
-composer("turn counter-clockwise by 180 degrees")
-composer("move ee up for 30cm")
+composer("turn couter-clockwise by 180 degrees")
+composer("back to default pose")
 # done

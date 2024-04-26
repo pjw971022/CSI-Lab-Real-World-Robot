@@ -65,8 +65,7 @@ class Controller:
         self.env.reset_to_default_pose()
         print('[controllers.py] back togenerate_random_control default pose', end='')
         print()
-    
-    def execute(self, movable_obs, waypoint):
+    def execute(self, movable_obs, waypoint, get_vision=False):
         """
         execute a waypoint
         If movable is "end effector", then do not consider object interaction (no dynamics considered)
@@ -82,11 +81,8 @@ class Controller:
         # move to target pose directly
         if not object_centric:
             target_pose = np.concatenate([target_xyz, target_rotation])
-            result = self.env.apply_action(np.concatenate([target_pose, [target_gripper]]))
+            result = self.env.apply_action(np.concatenate([target_pose, [target_gripper]]), get_vision)
             info['mp_info'] = result
-            # with open('/home/jinwoo/workspace/Sembot/sembot/src/exec_hist.txt', 'a') as f:
-            #     f.write(f'Reward: {result[1]}\n')
-            #     f.write("#" * 20 + "\n\n\n")
             wandb.log({"reward": result[1]})
 
         # optimize through dynamics model to obtain robot actions

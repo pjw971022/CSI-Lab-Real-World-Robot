@@ -1,0 +1,6 @@
+composer("grasp the rubbish")
+composer("back to default pose")
+composer("move to 10cm above the bin")
+composer("open gripper")
+composer("back to default pose") 
+#done

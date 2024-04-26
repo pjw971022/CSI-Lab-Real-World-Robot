@@ -11,7 +11,7 @@ import wandb
 # creating some aliases for end effector and table in case LLMs refer to them differently (but rarely this happens)
 EE_ALIAS = ['ee', 'endeffector', 'end_effector', 'end effector', 'gripper', 'hand']
 TABLE_ALIAS = ['table', 'desk', 'workstation', 'work_station', 'work station', 'workspace', 'work_space', 'work space']
-
+WORKSPACE = '/home/pjw971022/workspace'
 
 class APICostTracker:
     def __init__(self):
@@ -31,7 +31,6 @@ class APICostTracker:
         return self.total_cost
     
 class LMP_interface():
-
   def __init__(self, env, lmp_config, controller_config, planner_config, env_name, tracker='rlbench'):
     self._env = env
     self._env_name = env_name
@@ -96,6 +95,7 @@ class LMP_interface():
   def execute(self, movable_obs_func, affordance_map=None, avoidance_map=None, rotation_map=None,
               velocity_map=None, gripper_map=None):
     start_time = time.time()
+
     """
     First use planner to generate waypoint path, then use controller to follow the waypoints.
 
@@ -116,7 +116,10 @@ class LMP_interface():
       gripper_map = self._get_default_voxel_map('gripper')
     if avoidance_map is None:
       avoidance_map = self._get_default_voxel_map('obstacle')
-    object_centric = (not movable_obs_func()['name'] in EE_ALIAS)
+    try:
+      object_centric = (not movable_obs_func()['name'] in EE_ALIAS)
+    except:
+      import ipdb; ipdb.set_trace()
     execute_info = []
     if affordance_map is not None:
       # execute path in closed-loop
@@ -124,8 +127,15 @@ class LMP_interface():
         step_info = dict()
         # evaluate voxel maps such that we use latest information
         movable_obs = movable_obs_func()
-        _affordance_map = affordance_map()
-        _avoidance_map = avoidance_map()
+        try:
+          _affordance_map = affordance_map()
+        except:
+          _affordance_map = self.get_empty_affordance_map()
+        try:
+          _avoidance_map = avoidance_map()
+        except:
+          _avoidance_map = self.get_empty_avoidance_map()
+        
         _rotation_map = rotation_map()
         _velocity_map = velocity_map()
         _gripper_map = gripper_map()
@@ -148,8 +158,8 @@ class LMP_interface():
         step_info['plan_iter'] = plan_iter
         step_info['movable_obs'] = movable_obs
         step_info['traj_world'] = traj_world
-        step_info['affordance_map'] = _affordance_map
-        step_info['rotation_map'] = _rotation_map
+        step_info['affordance_map'] = _affordance_map 
+        step_info['rotation_map'] = _rotation_map 
         step_info['velocity_map'] = _velocity_map
         step_info['gripper_map'] = _gripper_map
         step_info['avoidance_map'] = _avoidance_map
@@ -177,8 +187,14 @@ class LMP_interface():
             if np.dot(movable2target, movable2waypoint).round(3) <= 0:
               print(f'{bcolors.OKBLUE}[interfaces.py | {get_clock_time()}] skip waypoint {i+1} because it is moving in opposite direction of the final target{bcolors.ENDC}')
               continue
+
           # execute waypoint
-          controller_info = self._controller.execute(movable_obs, waypoint)
+          # get_vision = True
+          if i == len(traj_world)-1:
+            get_vision = True
+          else:
+            get_vision = False
+          controller_info = self._controller.execute(movable_obs, waypoint, get_vision) # @ bottleneck 36223215.5
           # loggging
           movable_obs = movable_obs_func()
           dist2target = np.linalg.norm(movable_obs['_position_world'] - traj_world[-1][0])
@@ -221,15 +237,10 @@ class LMP_interface():
         ee_speed = _velocity_map[ee_pos_voxel[0], ee_pos_voxel[1], ee_pos_voxel[2]]
         gripper_state = _gripper_map[ee_pos_voxel[0], ee_pos_voxel[1], ee_pos_voxel[2]]
       # move to the final target
-      result = self._env.apply_action(np.concatenate([ee_pose_world, [gripper_state]]))
-      # save in wandb
-      with open('/home/jinwoo/workspace/Sembot/sembot/src/exec_hist.txt', 'a') as f:
-        f.write(f'reward: {result[1]}\n')
-        f.write("#" * 30 + "\n\n\n")
+      result = self._env.apply_action(np.concatenate([ee_pose_world, [gripper_state]]),True) # @ bottleneck
 
       wandb.log({"reward": result[1]})
       print(f'*** Motion planning API call took {time.time() - start_time:.2f}s ***')
-
 
     return execute_info # @
   

@@ -1,5 +1,0 @@
-composer("move to 5cm on top of the button")
-composer("close gripper")
-composer("move down 2cm under the button")
-composer("back to default pose")
-# done

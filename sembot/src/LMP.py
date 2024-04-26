@@ -32,8 +32,8 @@ SAFETY_SETTINGS = [
             }
         ]
 from physical_reasoning.vqa_utils import call_meta_chat
-import transformers
-import torch
+# import transformers
+# import torch
 
 class LMP:
     """Language Model Program (LMP), adopted from Code as Policies."""
@@ -54,31 +54,31 @@ class LMP:
         self.tracker = tracker
         self.text_config = {"max_output_tokens": self._cfg['max_tokens'], "temperature": self._cfg['temperature'], "top_p": 1, "stop_sequences" : self._stop_tokens}
         self.safety_settings = SAFETY_SETTINGS
-        if cfg['model'] == 'llama3-8b':
-            model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
-            self.pipeline = transformers.pipeline(
-                "text-generation",
-                model=model_id,
-                model_kwargs={"torch_dtype": torch.bfloat16},
-                # model_kwargs={
-                #     "torch_dtype": torch.float16,
-                #     "quantization_config": {"load_in_4bit": True},
-                #     "low_cpu_mem_usage": True,
-                # },
-                device='cuda'
-            )
-        elif cfg['model'] == 'llama3-70b':
-            model_id = "meta-llama/Meta-Llama-3-70B-Instruct"
-            self.pipeline = transformers.pipeline(
-                "text-generation",
-                model=model_id,
-                # model_kwargs={"torch_dtype": torch.bfloat16},
-                model_kwargs={
-                    "torch_dtype": torch.float16,
-                    "quantization_config": {"load_in_4bit": True},
-                    "low_cpu_mem_usage": True,
-                },
-            )
+        # if cfg['model'] == 'llama3-8b':
+        #     model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
+        #     self.pipeline = transformers.pipeline(
+        #         "text-generation",
+        #         model=model_id,
+        #         model_kwargs={"torch_dtype": torch.bfloat16},
+        #         # model_kwargs={
+        #         #     "torch_dtype": torch.float16,
+        #         #     "quantization_config": {"load_in_4bit": True},
+        #         #     "low_cpu_mem_usage": True,
+        #         # },
+        #         device='cuda'
+        #     )
+        # elif cfg['model'] == 'llama3-70b':
+        #     model_id = "meta-llama/Meta-Llama-3-70B-Instruct"
+        #     self.pipeline = transformers.pipeline(
+        #         "text-generation",
+        #         model=model_id,
+        #         # model_kwargs={"torch_dtype": torch.bfloat16},
+        #         model_kwargs={
+        #             "torch_dtype": torch.float16,
+        #             "quantization_config": {"load_in_4bit": True},
+        #             "low_cpu_mem_usage": True,
+        #         },
+        #     )
 
     def clear_exec_hist(self):
         self.exec_hist = ''
@@ -173,40 +173,41 @@ class LMP:
         kwargs['messages'] = messages
     
         # check whether completion endpoint or chat endpoint is used
-        if any([chat_model in kwargs['model'] for chat_model in ['llama3-70b','llama3-8b']]):
-            messages = [
-                {"role": "system", "content": "You are a pirate chatbot who always responds in pirate speak!"},
-                {"role": "user", "content": "Who are you?"},
-            ]
+        # if any([chat_model in kwargs['model'] for chat_model in ['llama3-70b','llama3-8b']]):
+        #     messages = [
+        #         {"role": "system", "content": "You are a pirate chatbot who always responds in pirate speak!"},
+        #         {"role": "user", "content": "Who are you?"},
+        #     ]
 
-            prompt = self.pipeline.tokenizer.apply_chat_template(
-                    messages, 
-                    tokenize=False, 
-                    add_generation_prompt=True
-            )
+        #     prompt = self.pipeline.tokenizer.apply_chat_template(
+        #             messages, 
+        #             tokenize=False, 
+        #             add_generation_prompt=True
+        #     )
 
-            terminators = [
-                self.pipeline.tokenizer.eos_token_id,
-                self.pipeline.tokenizer.convert_tokens_to_ids("<|eot_id|>")
-            ]
+        #     terminators = [
+        #         self.pipeline.tokenizer.eos_token_id,
+        #         self.pipeline.tokenizer.convert_tokens_to_ids("<|eot_id|>")
+        #     ]
 
-            ret = self.pipeline(
-                prompt,
-                max_new_tokens=self._cfg['max_tokens'],
-                eos_token_id=terminators,
-                do_sample=True,
-                temperature=self._cfg['temperature'],
-                top_p=1.0,
-            )
-            return ret
+        #     ret = self.pipeline(
+        #         prompt,
+        #         max_new_tokens=self._cfg['max_tokens'],
+        #         eos_token_id=terminators,
+        #         do_sample=True,
+        #         temperature=self._cfg['temperature'],
+        #         top_p=1.0,
+        #     )
+        #     return ret
 
-        elif any([chat_model in kwargs['model'] for chat_model in ['llama3-70b-server']]):
+        if any([chat_model in kwargs['model'] for chat_model in ['llama3-70b-server']]):
             meta_messages = self.transform_to_llama(messages)
             ret = call_meta_chat(meta_messages,
                         model = kwargs['model'],
                 temperature = self._cfg['temperature'],
                 max_tokens_in_use = self._cfg['max_tokens'])
             return ret
+        
         elif  any([chat_model in kwargs['model'] for chat_model in ['gemini-pro', 'gemini-1.0-pro-latest', 'gemini-pro-vision']]):
             model = genai.GenerativeModel(kwargs['model'])
 
@@ -258,7 +259,7 @@ class LMP:
         else:
             while MAX_TRAIAL > try_cnt:
                 try_cnt+=1
-                if any([chat_model in self._cfg['model'] for chat_model in ['llama3-70b','llama3-8b']]):
+                if any([chat_model in self._cfg['model'] for chat_model in ['llama3-70b-server']]):
                     try:
                         code_str = self._cached_api_call(
                             prompt=prompt,
@@ -273,7 +274,7 @@ class LMP:
                         print(f'Llama3 API got err {e}')
                         print('Retrying after 0.1s.')
                         sleep(0.1)
-                if any([chat_model in self._cfg['model'] for chat_model in ['gpt-3.5', 'gpt-4','gpt-4-1106-preview']]):
+                elif any([chat_model in self._cfg['model'] for chat_model in ['gpt-3.5', 'gpt-4','gpt-4-1106-preview']]):
                     try:
                         code_str, usage = self._cached_api_call(
                             prompt=prompt,
@@ -333,7 +334,7 @@ class LMP:
         # return function instead of executing it so we can replan using latest obs（do not do this for high-level UIs)
         if not self._name in ['composer', 'planner']:
             to_exec = 'def ret_val():\n' + to_exec.replace('ret_val = ', 'return ')
-            to_exec = to_exec.replace('\n', '\n    ')
+            to_exec = to_exec.replace('\n', '\n    ').replace("```","")
 
         if self._debug:
             # only "execute" function performs actions in environment, so we comment it out
