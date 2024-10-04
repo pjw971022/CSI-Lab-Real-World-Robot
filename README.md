@@ -1,4 +1,3 @@
-# Sembot: Complex Robotic Manipulation using Semantic Skills
 ## How to use Franka-Emika in Real-World
 
 1. Connect with fr3 using ros in Franka PC
