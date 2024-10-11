@@ -1,5 +1,4 @@
 # Sembot
-CSI Lab 에서 제작한 데모 비디오 프로젝트 입니다.
 
 #### [[Video]](https://[www.youtube.com/watch?v=example](https://youtu.be/TSAJOjf2C5E?si=wkk0GVENzLFQZ1fL)
 
