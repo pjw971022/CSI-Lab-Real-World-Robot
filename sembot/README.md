@@ -1,6 +1,6 @@
 # Sembot
 
-#### [[Video]](https://[www.youtube.com/watch?v=example](https://youtu.be/TSAJOjf2C5E?si=wkk0GVENzLFQZ1fL)
+#### [[Video]](https://youtu.be/TSAJOjf2C5E?si=wkk0GVENzLFQZ1fL)
 
 Sembot is a project developed by CSI Lab for creating real-world demonstration videos. This method leverages large language models and vision-language models for zero-shot trajectory synthesis in manipulation tasks. This repository provides the implementation of Sembot in RLBench and Real-world.
 
