@@ -33,8 +33,16 @@ Sembot is a method that leverages large language models and vision-language mode
 For a complete list of components and their descriptions, see [Code Structure](#code-structure).
 
 ## Setup Instructions
+For detailed setup instructions, please refer to [VoxPoser GitHub Repository](https://github.com/huangwl18/VoxPoser).
 
-[Detailed setup instructions]
+## Acknowledgments
 
+This project builds upon several existing works:
 
-[Additional sections as needed]
+- Skill decoder framework and overall approach: [VoxPoser](https://github.com/huangwl18/VoxPoser)
+- Environment: [RLBench](https://sites.google.com/view/rlbench)
+
+- LMP implementation: [Code as Policies](https://code-as-policies.github.io/)
+
+- Some code snippets: [Where2Act](https://cs.stanford.edu/~kaichun/where2act/)
+
