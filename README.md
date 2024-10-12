@@ -1,4 +1,4 @@
-## How to use Franka-Emika in Real-World
+## How to use Franka Research3 in Real-World
 
 1. Connect with fr3 using ros in Franka PC
 ```bash
