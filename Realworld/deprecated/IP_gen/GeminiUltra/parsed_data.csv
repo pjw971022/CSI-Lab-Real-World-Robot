@@ -1,0 +1,25 @@
+Plan #,Plan Description,Goal #,Goal Description,Robot speed,Grip Orientation,Gripper grabbing position,Gripper orientation,Gripper strength,Placing height
+1,Pick up the blue pen.,1,Place a pen into a pen holder.,Normal,Lateral Grip,Middle,Horizontal,Weak,
+2,Place the blue pen in the pen holder.,1,Place a pen into a pen holder.,Normal,,,,,High
+1,Pick up one of the paper cups.,2,Stack two paper cups into a single column.,Normal,Lateral Grip,Middle,Horizontal,Weak,
+2,Lift the cup slightly above the other cup.,2,Stack two paper cups into a single column.,Normal,,,,,High
+3,Position the lifted cup directly above the other cup.,2,Stack two paper cups into a single column.,Normal,,,,,
+4,Gently lower the lifted cup until it rests inside the other cup.,2,Stack two paper cups into a single column.,Normal,,,,,Low
+1,Pick up the yellow dice.,3,Stack three dice into a single column.,Slow,Top Grip,Top,Horizontal,Medium,
+2,Place the yellow dice on top of the red dice.,3,Stack three dice into a single column.,Slow,,,,,Low
+3,Pick up the green dice.,3,Stack three dice into a single column.,Slow,Top Grip,Top,Horizontal,Medium,
+4,Place the green dice on top of the yellow dice.,3,Stack three dice into a single column.,Slow,,,,,Low
+1,Pick up the baseball.,4,Pick up a ball and place it into a bowl.,Normal,Top Grip,Middle,Horizontal,Medium,
+2,Place the baseball in the plastic container.,4,Pick up a ball and place it into a bowl.,Normal,,,,,High
+1,Pick up the toy car.,5,Pick up and drop a toy car into a paper plate.,Normal,Top Grip,Middle,Horizontal,Medium,
+2,Place the toy car in the paper plate.,5,Pick up and drop a toy car into a paper plate.,Normal,,,,,Low
+2,Place the sponge in the box.,6,Pick up a sponge and place it into a box.,Normal,,,,,Medium
+1,Pick up the hammer.,7,Move hammer into green basket.,Normal,Lateral Grip,Middle,Horizontal,Medium,
+2,Place the hammer in the green basket.,7,Move hammer into green basket.,Normal,,,,,Low
+1,Pick up the tennis ball.,8,Move tennis ball on top of bottle.,Normal,Top Grip,Top,Horizontal,Weak,
+2,Place the tennis ball on top of the travel mug.,8,Move tennis ball on top of bottle.,Normal,,,,,High
+1,Pick up the pink plastic cup.,9,Align two cups in a straight line.,Normal,Lateral Grip,Middle,Horizontal,Medium,
+2,Place the pink plastic cup next to the blue cup in a straight line.,9,Align two cups in a straight line.,Normal,,,,,Medium
+1,Pick up the tilted metal bottle.,10,Set the bottle upright.,Normal,Tilted Grip,Middle,Horizontal,Medium,
+2,Rotate the bottle to upright position.,10,Set the bottle upright.,Normal,,,Vertical,,
+3,Place the bottle on the surface.,10,Set the bottle upright.,Normal,,,,,Low
